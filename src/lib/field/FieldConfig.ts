@@ -7,8 +7,10 @@ export default interface FieldConfig extends FieldRenderConfig,
     FieldCollectConfig,
     FieldChangeHandlerConfig,
     FieldCommunicationConfig {
-    
+
 }
+
+export type FieldService<T> = (field: IField) => T;
 
 export interface FieldRenderConfig {
     readonly?: boolean;
@@ -21,20 +23,24 @@ export interface FieldRenderConfig {
 
 export interface FieldValidationConfig {
     validationRules?: any;
-    onValidation?: (isValid: boolean, field: IField) => boolean | undefined;
+    onValidation?: OnFieldValidation;
     escapeValidation?: boolean;
     validateOnChange?: boolean;
-    validator?: (field: IField) => Validator;
+    validator?: FieldService<Validator>;
 }
+
+export type OnFieldValidation = (isValid: boolean, field: IField) => boolean | undefined;
 
 export interface FieldCollectConfig {
     name: string;
     asQuery?: boolean;
-    onCollect?: (collectedValue: any, field: IField) => any | undefined;
+    onCollect?: OnFieldCollect;
 }
 
+export type OnFieldCollect = (collectedValue: any, field: IField) => any | undefined;
+
 export interface FieldChangeHandlerConfig {
-    changeHandler?: (field: IField) => ChangeHandler;
+    changeHandler?: FieldService<ChangeHandler>;
     onChange?: OnFieldChange;
     afterChange: AfterFieldChange;
 }
