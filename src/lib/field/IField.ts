@@ -18,8 +18,6 @@ export default interface IField extends IFieldRenderConfigure, IFieldValidationC
 export interface IFieldRenderConfigure {
     setReadonly(readonly: boolean): void;
 
-    setHidden(hidden: boolean): void;
-
     setMessage(message: string | undefined): void;
 
     setMessageType(type: FieldMessageType | undefined): void;

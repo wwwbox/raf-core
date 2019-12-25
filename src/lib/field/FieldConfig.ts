@@ -14,7 +14,6 @@ export type FieldService<T> = (field: IField) => T;
 
 export interface FieldRenderConfig {
     readonly?: boolean;
-    hidden?: boolean;
     message?: string;
     messageType?: FieldMessageType;
     disableOnLoading?: boolean;
