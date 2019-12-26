@@ -26,7 +26,7 @@ export default class Field<Props extends FieldProps = FieldProps, State extends 
         return null;
     }
 
-    protected getDefaultChangeHandler(): FieldChangeHandler {
+    public getDefaultChangeHandler(): FieldChangeHandler {
         if (this.isFileField())
             return new DefaultFileFieldChangeHandler(this);
         return new DefaultFieldChangeHandler(this);

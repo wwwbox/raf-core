@@ -8,10 +8,9 @@ import Validator from "../../lib/protocol/Validator";
 import FieldChangeHandler from "../../lib/protocol/FieldChangeHandler";
 import IField from "../../lib/field/IField";
 
-
 Enzyme.configure({adapter: new Adapter()});
 
-describe('field', () => {
+describe('Field', () => {
 
     let field: Field;
     let props: FieldProps;
@@ -84,6 +83,8 @@ describe('field', () => {
         expect(field.isValid()).toEqual(true);
         field.error();
         expect(field.isValid()).toEqual(false);
+        field.error(false);
+        expect(field.isValid()).toEqual(true);
     });
 
     it('should getState ', function () {
@@ -139,6 +140,14 @@ describe('field', () => {
             const component = mount(<Field {...props} />);
             const field = component.instance() as Field;
             field.validate();
+        });
+
+        it('should throw error when no validator found', function () {
+            const props = {name: 'testName', form: null as any, loading: true};
+            const component = mount(<Field {...props} />);
+            const field = component.instance() as Field;
+
+            expect(() => field.validate()).toThrowError()
         });
 
     });
