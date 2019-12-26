@@ -56,6 +56,10 @@ export default class Field<Props extends FieldProps = FieldProps, State extends 
         return this.state.value;
     }
 
+    public getName(): string {
+        return this.state.name;
+    }
+
     public isAsQuery(): boolean | undefined {
         return this.state.asQuery;
     }
@@ -124,8 +128,9 @@ export default class Field<Props extends FieldProps = FieldProps, State extends 
         const isValid = this.validator.validate(value, rules);
         if (isValid === true || isValid === '') {
             this.setState({isValid: true});
+        } else {
+            this.setState({isValid: false});
         }
-        this.setState({isValid: false});
         this.props.onValidation && this.props.onValidation(isValid, this);
     }
 
@@ -138,7 +143,7 @@ export default class Field<Props extends FieldProps = FieldProps, State extends 
     }
 
     public handleChange(e: any): void {
-        this.changeHandler.handle();
+        this.changeHandler.handle(e);
     }
 
     public isFileField(): boolean {

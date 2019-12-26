@@ -12,8 +12,8 @@ export default class DefaultFieldChangeHandler implements FieldChangeHandler {
         return this.field;
     }
 
-    handle(): void {
-        //TODO : implementation
+    handle(event: any): void {
+
     }
 
 }

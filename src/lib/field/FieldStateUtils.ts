@@ -1,5 +1,5 @@
-import FieldProps from "./FieldProps";
 import FieldState from "./FieldState";
+import {FieldProps} from "./FieldProps";
 
 export default class FieldStateUtils {
     private readonly fieldProps: FieldProps;
@@ -13,14 +13,14 @@ export default class FieldStateUtils {
             asQuery: FieldStateUtils.valueOrDefault(this.fieldProps.asQuery, false),
             disableOnLoading: FieldStateUtils.valueOrDefault(this.fieldProps.disableOnLoading, false),
             escapeValidation: FieldStateUtils.valueOrDefault(this.fieldProps.escapeValidation, false),
-            message: FieldStateUtils.valueOrDefault(this.fieldProps.message, ''),
+            message: FieldStateUtils.valueOrDefault(this.fieldProps.message, undefined),
             messageType: FieldStateUtils.valueOrDefault(this.fieldProps.messageType, undefined),
             readonly: false,
             startingValue: FieldStateUtils.valueOrDefault(this.fieldProps.startingValue, ''),
             validateOnChange: FieldStateUtils.valueOrDefault(this.fieldProps.validateOnChange, true),
             validationRules: FieldStateUtils.valueOrDefault(this.fieldProps.validationRules, undefined),
             value: FieldStateUtils.valueOrDefault(this.fieldProps.startingValue, ''),
-            name: this.fieldProps.name,
+            name: this.fieldProps.name!,
             isValid: true,
         }
     }

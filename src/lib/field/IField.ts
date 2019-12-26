@@ -9,6 +9,8 @@ export default interface IField extends IFieldRenderConfigure, IFieldValidationC
 
     getValue(): any;
 
+    getName(): string;
+
     setValue(value: any): void;
 
     validate(): void;

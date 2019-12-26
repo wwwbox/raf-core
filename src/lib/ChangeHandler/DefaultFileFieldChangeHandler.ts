@@ -12,7 +12,7 @@ export default class DefaultFileFieldChangeHandler implements FieldChangeHandler
         return this.field;
     }
 
-    handle(): void {
+    handle(event: any): void {
         //TODO : implementation
     }
 

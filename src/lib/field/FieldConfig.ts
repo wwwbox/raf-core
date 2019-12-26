@@ -28,7 +28,7 @@ export interface FieldValidationConfig {
     validator?: FieldService<Validator>;
 }
 
-export type OnFieldValidation = (validationResult: any, field: IField) => boolean | undefined;
+export type OnFieldValidation = (validationResult: any, field: IField) => void;
 
 export interface FieldCollectConfig {
     name: string;
