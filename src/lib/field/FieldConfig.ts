@@ -1,6 +1,6 @@
 import Validator from "../protocol/Validator";
 import IField from "./IField";
-import ChangeHandler from "../protocol/ChangeHandler";
+import FieldChangeHandler from "../protocol/FieldChangeHandler";
 
 export default interface FieldConfig extends FieldRenderConfig,
     FieldValidationConfig,
@@ -28,7 +28,7 @@ export interface FieldValidationConfig {
     validator?: FieldService<Validator>;
 }
 
-export type OnFieldValidation = (isValid: boolean, field: IField) => boolean | undefined;
+export type OnFieldValidation = (validationResult: any, field: IField) => boolean | undefined;
 
 export interface FieldCollectConfig {
     name: string;
@@ -39,7 +39,7 @@ export interface FieldCollectConfig {
 export type OnFieldCollect = (collectedValue: any, field: IField) => any | undefined;
 
 export interface FieldChangeHandlerConfig {
-    changeHandler?: FieldService<ChangeHandler>;
+    changeHandler?: FieldService<FieldChangeHandler>;
     onChange?: OnFieldChange;
     afterChange: AfterFieldChange;
 }

@@ -16,4 +16,5 @@ export default interface FieldState {
     validateOnChange?: boolean;
 
     value: any;
+    isValid : boolean;
 }

@@ -3,15 +3,23 @@ import {FieldMessageType} from "./FieldConfig";
 export default interface IField extends IFieldRenderConfigure, IFieldValidationConfigure, IFieldCollectConfigure {
     getState(): any;
 
-    setState(newState: any): void;
+    changeState(newState: any): void;
 
     clear(): void;
 
     getValue(): any;
 
+    setValue(value: any): void;
+
     validate(): void;
 
     isValid(): boolean;
+
+    error(error: boolean): void;
+
+    handleChange(e: any): void;
+
+    isFileField(): boolean;
 }
 
 
@@ -26,7 +34,7 @@ export interface IFieldRenderConfigure {
 
     isReadonly(): boolean | undefined;
 
-    getMessage(): boolean | string;
+    getMessage(): undefined | string;
 
     getMessageType(): FieldMessageType | undefined;
 

@@ -1,3 +1,3 @@
 export default interface Validator {
-    validate(): boolean | string;
+    validate(value : any , validationRules : any): boolean | string;
 }
