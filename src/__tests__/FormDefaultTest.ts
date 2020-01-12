@@ -1,11 +1,11 @@
-import FormDefault from "../lib/form/FormDefault";
-import SimpleFormRenderer from "../lib/form/SimpleFormRenderer";
-import SimpleFieldRenderer from "../lib/form/SimpleFieldRenderer";
+import FormDefault from "../lib/Form/FormDefault";
+import SimpleFormRenderer from "../lib/Form/SimpleFormRenderer";
+import SimpleFieldRenderer from "../lib/Form/SimpleFieldRenderer";
 
 describe('from default', () => {
 
 
-    it('should set/get/unset form renderer', () => {
+    it('should set/get/unset Form renderer', () => {
         FormDefault.unsetDefaults();
         const service: any = {}
         const formService: any = () => service;
@@ -14,14 +14,14 @@ describe('from default', () => {
         expect(FormDefault.getFormRenderer()(null as any)).toBe(service);
     });
 
-    it('should get default form renderer when no defaults set', () => {
+    it('should get default Form renderer when no defaults set', () => {
         FormDefault.unsetDefaults();
         const formRendererService = FormDefault.getFormRenderer();
         const formRenderer = formRendererService(null as any);
         expect(formRenderer).toBeInstanceOf(SimpleFormRenderer);
     });
 
-    it('should get/set field renderer', () => {
+    it('should get/set Field renderer', () => {
         FormDefault.unsetDefaults();
         const service: any = {};
         const formService: any = () => service;
@@ -31,7 +31,7 @@ describe('from default', () => {
     });
 
 
-    it('should return simple filed render when no default field renderer set', () => {
+    it('should return simple filed render when no default Field renderer set', () => {
         FormDefault.unsetDefaults();
         const service = FormDefault.getFieldRenderer();
         const renderer = service(null as any);

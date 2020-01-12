@@ -1,9 +1,9 @@
-import IForm from "../form/IForm";
+import IForm from "../Form/IForm";
 import FieldConfig from "./FieldConfig";
-import Validator from "../protocol/Validator";
+import Validator from "../Protocol/Validator";
 
 interface Props {
-    loading: boolean;
+    loading?: boolean;
     form: IForm;
 
     defaultValidator?: Validator;

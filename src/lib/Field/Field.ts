@@ -4,8 +4,8 @@ import IField from "./IField";
 import {FieldMessageType} from "./FieldConfig";
 import * as React from "react";
 import FieldStateUtils from "./FieldStateUtils";
-import Validator from "../protocol/Validator";
-import FieldChangeHandler from "../protocol/FieldChangeHandler";
+import Validator from "../Protocol/Validator";
+import FieldChangeHandler from "../Protocol/FieldChangeHandler";
 import DefaultFileFieldChangeHandler from "../ChangeHandler/DefaultFileFieldChangeHandler";
 import DefaultFieldChangeHandler from "../ChangeHandler/DefaultFieldChangeHandler";
 

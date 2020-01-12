@@ -1,12 +1,12 @@
 import Enzyme, {mount} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import Field from "../../lib/field/Field";
+import Field from "../../lib/Field/Field";
 import * as React from "react";
-import {FieldProps} from "../../lib/field/FieldProps";
-import {FieldMessageType} from "../../lib/field/FieldConfig";
-import Validator from "../../lib/protocol/Validator";
-import FieldChangeHandler from "../../lib/protocol/FieldChangeHandler";
-import IField from "../../lib/field/IField";
+import {FieldProps} from "../../lib/Field/FieldProps";
+import {FieldMessageType} from "../../lib/Field/FieldConfig";
+import Validator from "../../lib/Protocol/Validator";
+import FieldChangeHandler from "../../lib/Protocol/FieldChangeHandler";
+import IField from "../../lib/Field/IField";
 
 Enzyme.configure({adapter: new Adapter()});
 

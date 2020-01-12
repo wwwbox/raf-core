@@ -1,4 +1,4 @@
-import IField from "../field/IField";
+import IField from "../Field/IField";
 
 export default interface FieldChangeHandler {
     handle(event: any): void;

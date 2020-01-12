@@ -1,6 +1,7 @@
-import Validator from "../protocol/Validator";
+import Validator from "../Protocol/Validator";
 import IField from "./IField";
-import FieldChangeHandler from "../protocol/FieldChangeHandler";
+import FieldChangeHandler from "../Protocol/FieldChangeHandler";
+import React from "react";
 
 export default interface FieldConfig extends FieldRenderConfig,
     FieldValidationConfig,
@@ -8,6 +9,7 @@ export default interface FieldConfig extends FieldRenderConfig,
     FieldChangeHandlerConfig,
     FieldCommunicationConfig {
 
+    as : React.Component
 }
 
 export type FieldService<T> = (field: IField) => T;

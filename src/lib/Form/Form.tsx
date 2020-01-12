@@ -2,11 +2,12 @@ import * as React from "react";
 import IForm from "./IForm";
 import FormState from "./FormState";
 import FormProps from "./FormProps";
-import FormRenderer from "../protocol/FormRenderer";
-import FieldRenderer from "../protocol/FieldRenderer";
+import FormRenderer from "./../Protocol/FormRenderer";
+import FieldRenderer from "./../Protocol/FieldRenderer";
+import FieldConfig from "./../Field/FieldConfig";
 
 
-export default class Form<State extends FormState = FormState, Props extends FormProps = FormProps>
+export default class Form<Props extends FormProps = FormProps, State extends FormState = FormState>
     extends React.Component<Props, State>
     implements IForm {
 
@@ -15,9 +16,8 @@ export default class Form<State extends FormState = FormState, Props extends For
 
     constructor(props: Props) {
         super(props);
-        this.state = { loading: false } as any;
+        this.state = {loading: false} as any;
 
-        //todo : setup services
         this.formRenderer = null as any;
         this.fieldRenderer = null as any;
     }
@@ -28,16 +28,18 @@ export default class Form<State extends FormState = FormState, Props extends For
 
 
     public startLoading(): void {
-        this.setState({ loading: true });
+        this.setState({loading: true});
     }
 
     public stopLoading(): void {
-        this.setState({ loading: false });
+        this.setState({loading: false});
     }
 
     public isLoading(): boolean {
         return this.state.loading;
     }
 
-
+    public getFieldsConfig(): FieldConfig[] {
+        return this.props.fields;
+    }
 }

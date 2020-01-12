@@ -1,5 +1,5 @@
 import {  FormServices } from "./FormProps";
-import FormRenderer from "../protocol/FormRenderer";
+import FormRenderer from "../Protocol/FormRenderer";
 
 export default class FormServiceSetup{
 

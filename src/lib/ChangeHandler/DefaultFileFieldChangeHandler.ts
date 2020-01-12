@@ -1,5 +1,5 @@
-import FieldChangeHandler from "../protocol/FieldChangeHandler";
-import IField from "../field/IField";
+import FieldChangeHandler from "../Protocol/FieldChangeHandler";
+import IField from "../Field/IField";
 
 export default class DefaultFileFieldChangeHandler implements FieldChangeHandler {
     private readonly field: IField;

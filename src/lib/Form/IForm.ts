@@ -1,4 +1,4 @@
-import FieldConfig from "../field/FieldConfig";
+import FieldConfig from "../Field/FieldConfig";
 
 export default interface IForm {
 

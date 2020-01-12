@@ -1,9 +1,9 @@
-import FieldChangeHandler from "../../lib/protocol/FieldChangeHandler";
-import IField from "../../lib/field/IField";
+import FieldChangeHandler from "../../lib/Protocol/FieldChangeHandler";
+import IField from "../../lib/Field/IField";
 import Enzyme, {mount} from "enzyme";
 import * as React from "react";
 import Adapter from "enzyme-adapter-react-16";
-import FileField from "../../lib/field/FileField";
+import FileField from "../../lib/Field/FileField";
 import DefaultFileFieldChangeHandler from "../../lib/ChangeHandler/DefaultFileFieldChangeHandler";
 
 Enzyme.configure({adapter: new Adapter()});

@@ -1,8 +1,8 @@
-import FormRenderer from "../protocol/FormRenderer";
-import FieldRenderer from "../protocol/FieldRenderer";
-import Submitter from "../protocol/Submitter";
-import Validator from "../protocol/Validator";
-import Collector from "../protocol/Collector";
+import FormRenderer from "../Protocol/FormRenderer";
+import FieldRenderer from "../Protocol/FieldRenderer";
+import Submitter from "../Protocol/Submitter";
+import Validator from "../Protocol/Validator";
+import Collector from "../Protocol/Collector";
 import { FormService } from "./FormProps";
 import IForm from "./IForm";
 import SimpleFormRenderer from "./SimpleFormRenderer";
