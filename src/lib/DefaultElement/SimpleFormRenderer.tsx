@@ -1,8 +1,8 @@
 import * as React from "react";
 import FormRenderer from "../Protocol/FormRenderer";
-import IForm from "./IForm";
+import IForm from "../Form/IForm";
 import FieldRenderer from "../Protocol/FieldRenderer";
-import FormDefault from "./FormDefault";
+import FormDefault from "../Form/FormDefault";
 
 export default class SimpleFormRenderer implements FormRenderer {
 

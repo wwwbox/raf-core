@@ -1,17 +1,14 @@
-import {  FormServices } from "./FormProps";
-import FormRenderer from "../Protocol/FormRenderer";
+import {FormService} from "./FormProps";
+import IForm from "./IForm";
 
-export default class FormServiceSetup{
-
-    private services : FormServices | undefined;
-
-
-    public getFromRenderer():FormRenderer {
-        if(this.services === undefined){
-            //todo : get default renderer
-            // default renderer can be found in FormDefaultServices or auto selected from code
+export default class FromServiceSetup {
+    public static getDefaultServiceOrPassed<T>(form: IForm, passed: FormService<T> | undefined, defaultService?: FormService<T> | null): T {
+        if (passed) {
+            return passed(form);
         }
-        //get passed renderer;
+        if (defaultService) {
+            return defaultService(form);
+        }
+        throw Error('CANNOT FIND FORM SERVICE');
     }
-
 }

@@ -3,10 +3,10 @@ import FieldRenderer from "../Protocol/FieldRenderer";
 import Submitter from "../Protocol/Submitter";
 import Validator from "../Protocol/Validator";
 import Collector from "../Protocol/Collector";
-import { FormService } from "./FormProps";
+import {FormService} from "./FormProps";
 import IForm from "./IForm";
-import SimpleFormRenderer from "./SimpleFormRenderer";
-import SimpleFieldRenderer from "./SimpleFieldRenderer";
+import SimpleFormRenderer from "../DefaultElement/SimpleFormRenderer";
+import SimpleFieldRenderer from "../DefaultElement/SimpleFieldRenderer";
 
 export default class FormDefault {
     private static defaultFormRenderer: FormService<FormRenderer> | undefined;

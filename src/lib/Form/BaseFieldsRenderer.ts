@@ -2,6 +2,7 @@ import FieldRenderer from "../Protocol/FieldRenderer";
 import IForm from "./IForm";
 import FieldConfig from "../Field/FieldConfig";
 import React from "react";
+import {RenderConfig} from "./FormProps";
 
 
 export default abstract class BaseFieldsRenderer implements FieldRenderer {
@@ -13,18 +14,18 @@ export default abstract class BaseFieldsRenderer implements FieldRenderer {
     }
 
     public render(): any {
-        const config: FieldConfig[] = this.form.getFieldsConfig();
+        const config: RenderConfig = this.form.getRenderConfig();
         const fields = config.map(this.renderField);
         return this.renderWrapper(fields);
     }
 
-    private renderField(config: FieldConfig | FieldConfig[]): any {
+    private renderField = (config: FieldConfig | FieldConfig[]): any => {
         if (Array.isArray(config)) {
             return config.map(config => this.renderFieldElement(config, true))
         } else {
             return this.renderFieldElement(config, false);
         }
-    }
+    };
 
     protected abstract renderFieldElement(config: FieldConfig, inArray: boolean): React.ReactElement;
 

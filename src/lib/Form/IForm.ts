@@ -1,13 +1,15 @@
-import FieldConfig from "../Field/FieldConfig";
+import {RenderConfig} from "./FormProps";
 
 export default interface IForm {
 
 
-    getFieldsConfig() : FieldConfig[];
+    getRenderConfig(): RenderConfig;
 
-    startLoading():void;
-    stopLoading():void;
-    isLoading() : void;
+    startLoading(): void;
+
+    stopLoading(): void;
+
+    isLoading(): void;
 
     // collect():any;
     // validate():boolean;

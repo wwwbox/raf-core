@@ -9,7 +9,10 @@ export default interface FieldConfig extends FieldRenderConfig,
     FieldChangeHandlerConfig,
     FieldCommunicationConfig {
 
-    as : React.Component
+    as: React.Component;
+    key?: never;
+
+    [propName: string]: any;
 }
 
 export type FieldService<T> = (field: IField) => T;
