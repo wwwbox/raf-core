@@ -55,6 +55,10 @@ export default class Form<Props extends FormProps = FormProps, State extends For
         return this.fieldRenderer;
     };
 
+    public getValidator = (): Validator | null => {
+        return this.validator;
+    };
+
     render() {
         return this.formRenderer.render();
     }
@@ -121,5 +125,13 @@ export default class Form<Props extends FormProps = FormProps, State extends For
         this.attachedData.removeFile(key);
     };
 
+    public validate = (): boolean => {
+        let valid = true;
+        for (let field of this.getRegisteredFields()) {
+            if (field.validate())
+                valid = false;
+        }
+        return valid;
+    }
 
 }

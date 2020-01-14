@@ -31,6 +31,11 @@ export default abstract class BaseFieldsRenderer implements FieldsRenderer {
 
     protected abstract renderWrapper(fields: any): React.ReactElement;
 
+    protected getInjectedProps = (): any => {
+        const validator = this.getForm().getValidator();
+        return {defaultValidator: validator ? validator : undefined, form: this.getForm()};
+    };
+
     public getForm(): IForm {
         return this.form;
     }

@@ -11,9 +11,9 @@ export default interface IField extends IFieldRenderConfigure, IFieldValidationC
 
     getName(): string;
 
-    setValue(value: any): void;
+    setValue(value: any, validateAfterChange: boolean): void;
 
-    validate(): void;
+    validate(): boolean;
 
     isValid(): boolean;
 

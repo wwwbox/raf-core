@@ -109,8 +109,11 @@ export default class Field<Props extends FieldProps = FieldProps, State extends 
         this.setState({readonly: readonly});
     }
 
-    setValue(value: any): void {
+    public setValue(value: any, validateAfterChange: boolean = false): void {
         this.setState({value: value});
+        if (validateAfterChange) {
+            this.validate();
+        }
     }
 
     public setValidateOnChange(validateOnChange: boolean): void {
@@ -121,18 +124,21 @@ export default class Field<Props extends FieldProps = FieldProps, State extends 
         this.setState({validationRules: rules});
     }
 
-    public validate(): void {
+    public validate(): boolean {
         if (!this.validator)
             throw Error("NO VALIDATOR FOUND");
         const value = this.getValue();
         const rules = this.getValidationRules();
         const isValid = this.validator.validate(value, rules);
-        if (isValid === true || isValid === '') {
+        const valid = isValid === true || isValid === '';
+        if (valid) {
             this.setState({isValid: true});
         } else {
             this.setState({isValid: false});
         }
         this.props.onValidation && this.props.onValidation(isValid, this);
+
+        return valid;
     }
 
     public error(error: boolean = true): void {

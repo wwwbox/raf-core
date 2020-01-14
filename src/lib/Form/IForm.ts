@@ -2,6 +2,7 @@ import {RenderConfig} from "./FormProps";
 import IField from "../Field/IField";
 import FieldsRenderer from "../Protocol/FieldsRenderer";
 import CollectedData from "../Utils/CollectedData";
+import Validator from "../Protocol/Validator";
 
 export default interface IForm {
 
@@ -22,6 +23,8 @@ export default interface IForm {
 
     getFieldsRenderer(): FieldsRenderer;
 
+    getValidator(): Validator | null;
+
     collect(): CollectedData;
 
     attach(key: string, value: any): void;
@@ -32,7 +35,8 @@ export default interface IForm {
 
     deAttachFile(key: string): void;
 
-    // validate():boolean;
+    validate(): boolean;
+
     // submit():void;
 
     // emitEvent():void;
