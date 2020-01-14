@@ -5,12 +5,18 @@ import Submitter from "../Protocol/Submitter";
 import FieldConfig from "../Field/FieldConfig";
 import FormRenderer from "../Protocol/FormRenderer";
 import FieldsRenderer from "../Protocol/FieldsRenderer";
+import {Data, Files} from "../Utils/CollectedData";
 
 export default interface FormProps {
 
     fields: RenderConfig,
 
     services?: FormServices;
+
+    attach?: {
+        data?: Data;
+        files?: Files;
+    }
 
     [propName: string]: any;
 

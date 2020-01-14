@@ -38,4 +38,23 @@ describe('registering fields', () => {
         expect(registeredFields[2].isReadonly()).toEqual(true);
     });
 
+
+    it('should return registered field', function () {
+        const wrapper = mount(<Form fields={[
+            {as: DummyField, name: 'test_name'},
+            [
+                {as: DummyField, name: 'username'},
+                {as: DummyField, name: 'password', readonly: true},
+            ]
+        ]}/>);
+        const instance: Form = wrapper.instance() as any;
+        const field = instance.getRegisteredField('username');
+        expect(field).toBeTruthy();
+        expect(field!.getName()).toEqual('username');
+
+
+        const nonField = instance.getRegisteredField('some_name_that_not_exists');
+        expect(nonField).toBeUndefined();
+    });
+
 });

@@ -5,8 +5,15 @@ export default class DummyField extends Field {
     render(): any {
         return <input/>
     }
+}
 
-    public getProps = () => {
-        return this.props;
+export class DummyFileField extends Field {
+
+    render(): any {
+        return <input/>;
+    }
+
+    isFileField(): boolean {
+        return true;
     }
 }

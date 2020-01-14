@@ -10,6 +10,7 @@ import Collector from "../Protocol/Collector";
 import Submitter from "../Protocol/Submitter";
 import Validator from "../Protocol/Validator";
 import IField from "../Field/IField";
+import CollectedData from "../Utils/CollectedData";
 
 
 export default class Form<Props extends FormProps = FormProps, State extends FormState = FormState>
@@ -24,6 +25,8 @@ export default class Form<Props extends FormProps = FormProps, State extends For
 
     private readonly registeredFields: IField[];
 
+    private attachedData: CollectedData = new CollectedData();
+
     constructor(props: Props) {
         super(props);
         this.state = {loading: false} as any;
@@ -34,6 +37,18 @@ export default class Form<Props extends FormProps = FormProps, State extends For
         this.submitter = Setup.getDefaultServiceOrPassed<Submitter | null>(this, props.services?.submitter, FormDefault.getSubmitter());
         this.validator = Setup.getDefaultServiceOrPassed<Validator | null>(this, props.services?.validator, FormDefault.getValidator());
         this.registeredFields = [];
+
+        this.setupAttachedData();
+    }
+
+    private setupAttachedData() {
+        this.attachedData = new CollectedData();
+        if (this.props.attach?.data) {
+            this.attachedData.appendData(this.props.attach.data);
+        }
+        if (this.props.attach?.files) {
+            this.attachedData.appendFiles(this.props.attach.files);
+        }
     }
 
     public getFieldsRenderer = (): FieldsRenderer => {
@@ -52,6 +67,14 @@ export default class Form<Props extends FormProps = FormProps, State extends For
         return this.registeredFields;
     };
 
+    public getRegisteredField = (name: string): IField | undefined => {
+        for (let field of this.getRegisteredFields()) {
+            if (field.getName() === name)
+                return field;
+        }
+        return undefined;
+    };
+
     public startLoading = (): void => {
         this.setState({loading: true});
     };
@@ -68,5 +91,35 @@ export default class Form<Props extends FormProps = FormProps, State extends For
         return this.props.fields;
     };
 
-    
+
+    public collect = (): CollectedData => {
+        const collectedData = new CollectedData();
+        for (let field of this.getRegisteredFields()) {
+            if (field.isFileField())
+                collectedData.appendFile(field.getName(), field.getValue());
+            else
+                collectedData.append(field.getName(), field.getValue());
+        }
+
+        collectedData.merge(this.attachedData);
+        return collectedData;
+    };
+
+    public attach = (key: string, value: any): void => {
+        this.attachedData.append(key, value);
+    };
+
+    public deAttach = (key: string): void => {
+        this.attachedData.remove(key);
+    };
+
+    public attachFile = (key: string, file: File | File[]): void => {
+        this.attachedData.appendFile(key, file);
+    };
+
+    public deAttachFile = (key: string): void => {
+        this.attachedData.removeFile(key);
+    };
+
+
 }
