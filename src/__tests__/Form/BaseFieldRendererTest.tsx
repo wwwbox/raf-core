@@ -1,18 +1,8 @@
 import BaseFieldsRenderer from "../../lib/Form/BaseFieldsRenderer";
 import FieldConfig from "../../lib/Field/FieldConfig";
 import React from "react";
-import Field from "../../lib/Field/Field";
+import DummyField from "../TestingUtils/DummyField";
 
-
-class DummyField extends Field {
-    render(): any {
-        return <input/>
-    }
-
-    public getProps = () => {
-        return this.props;
-    }
-}
 
 class DummyWrapper extends React.Component {
     render() {

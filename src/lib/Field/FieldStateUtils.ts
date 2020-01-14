@@ -15,13 +15,13 @@ export default class FieldStateUtils {
             escapeValidation: FieldStateUtils.valueOrDefault(this.fieldProps.escapeValidation, false),
             message: FieldStateUtils.valueOrDefault(this.fieldProps.message, undefined),
             messageType: FieldStateUtils.valueOrDefault(this.fieldProps.messageType, undefined),
-            readonly: false,
+            readonly: FieldStateUtils.valueOrDefault(this.fieldProps.readonly, false),
             startingValue: FieldStateUtils.valueOrDefault(this.fieldProps.startingValue, ''),
             validateOnChange: FieldStateUtils.valueOrDefault(this.fieldProps.validateOnChange, true),
             validationRules: FieldStateUtils.valueOrDefault(this.fieldProps.validationRules, undefined),
             value: FieldStateUtils.valueOrDefault(this.fieldProps.startingValue, ''),
             name: this.fieldProps.name!,
-            isValid: true,
+            isValid: FieldStateUtils.valueOrDefault(this.fieldProps.isValid, true),
         }
     }
 

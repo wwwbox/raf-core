@@ -4,7 +4,7 @@ import Validator from "../Protocol/Validator";
 import Submitter from "../Protocol/Submitter";
 import FieldConfig from "../Field/FieldConfig";
 import FormRenderer from "../Protocol/FormRenderer";
-import FieldRenderer from "../Protocol/FieldRenderer";
+import FieldsRenderer from "../Protocol/FieldsRenderer";
 
 export default interface FormProps {
 
@@ -21,7 +21,7 @@ export interface FormServices {
     validator?: FormService<Validator>;
     submitter?: FormService<Submitter>;
     formRenderer?: FormService<FormRenderer>;
-    fieldsRenderer?: FormService<FieldRenderer>;
+    fieldsRenderer?: FormService<FieldsRenderer>;
 }
 
 export type FormService<T> = (form: IForm) => T;

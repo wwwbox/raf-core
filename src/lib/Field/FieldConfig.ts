@@ -1,7 +1,6 @@
 import Validator from "../Protocol/Validator";
 import IField from "./IField";
 import FieldChangeHandler from "../Protocol/FieldChangeHandler";
-import React from "react";
 
 export default interface FieldConfig extends FieldRenderConfig,
     FieldValidationConfig,
@@ -9,7 +8,7 @@ export default interface FieldConfig extends FieldRenderConfig,
     FieldChangeHandlerConfig,
     FieldCommunicationConfig {
 
-    as: React.Component;
+    as: any;
     key?: never;
 
     [propName: string]: any;
@@ -46,7 +45,7 @@ export type OnFieldCollect = (collectedValue: any, field: IField) => any | undef
 export interface FieldChangeHandlerConfig {
     changeHandler?: FieldService<FieldChangeHandler>;
     onChange?: OnFieldChange;
-    afterChange: AfterFieldChange;
+    afterChange?: AfterFieldChange;
 }
 
 

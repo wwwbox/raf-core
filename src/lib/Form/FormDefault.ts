@@ -1,5 +1,5 @@
 import FormRenderer from "../Protocol/FormRenderer";
-import FieldRenderer from "../Protocol/FieldRenderer";
+import FieldsRenderer from "../Protocol/FieldsRenderer";
 import Submitter from "../Protocol/Submitter";
 import Validator from "../Protocol/Validator";
 import Collector from "../Protocol/Collector";
@@ -10,7 +10,7 @@ import SimpleFieldRenderer from "../DefaultElement/SimpleFieldRenderer";
 
 export default class FormDefault {
     private static defaultFormRenderer: FormService<FormRenderer> | undefined;
-    private static defaultFieldRenderer: FormService<FieldRenderer> | undefined;
+    private static defaultFieldRenderer: FormService<FieldsRenderer> | undefined;
     private static defaultSubmitter: FormService<Submitter> | undefined;
     private static defaultValidator: FormService<Validator> | undefined;
     private static defaultCollector: FormService<Collector> | undefined;
@@ -20,7 +20,7 @@ export default class FormDefault {
         this.defaultFormRenderer = formRenderer;
     }
 
-    public static setFieldRenderer(fieldRenderer: FormService<FieldRenderer>): void {
+    public static setFieldRenderer(fieldRenderer: FormService<FieldsRenderer>): void {
         this.defaultFieldRenderer = fieldRenderer;
     }
 
@@ -43,11 +43,10 @@ export default class FormDefault {
         return (form: IForm) => new SimpleFormRenderer(form);
     }
 
-    public static getFieldRenderer(): FormService<FieldRenderer> {
+    public static getFieldRenderer(): FormService<FieldsRenderer> {
         if (FormDefault.defaultFieldRenderer) {
             return FormDefault.defaultFieldRenderer;
         }
-
         return (form: IForm) => new SimpleFieldRenderer(form);
     }
 

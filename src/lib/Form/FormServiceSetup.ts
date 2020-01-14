@@ -9,6 +9,10 @@ export default class FromServiceSetup {
         if (defaultService) {
             return defaultService(form);
         }
+        if (defaultService === null) {
+            return null as any;
+        }
         throw Error('CANNOT FIND FORM SERVICE');
     }
+
 }

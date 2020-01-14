@@ -20,6 +20,7 @@ export default class Field<Props extends FieldProps = FieldProps, State extends 
         this.state = new FieldStateUtils(props).getInitialState();
         this.validator = props.validator ? props.validator(this) : props.defaultValidator;
         this.changeHandler = props.changeHandler ? props.changeHandler(this) : this.getDefaultChangeHandler();
+        props.form.registerField(this);
     }
 
     render() {
