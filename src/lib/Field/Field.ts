@@ -8,6 +8,7 @@ import Validator from "../Protocol/Validator";
 import FieldChangeHandler from "../Protocol/FieldChangeHandler";
 import DefaultFileFieldChangeHandler from "../ChangeHandler/DefaultFileFieldChangeHandler";
 import DefaultFieldChangeHandler from "../ChangeHandler/DefaultFieldChangeHandler";
+import IForm from "../Form/IForm";
 
 export default class Field<Props extends FieldProps = FieldProps, State extends FieldState = FieldState>
     extends React.Component<FieldProps, FieldState> implements IField {
@@ -155,5 +156,13 @@ export default class Field<Props extends FieldProps = FieldProps, State extends 
 
     public isFileField(): boolean {
         return false;
+    }
+
+    public getForm = (): IForm => {
+        return this.props.form;
+    };
+
+    public getListeners = (): any => {
+        return this.props.on ? this.props.on! : {};
     }
 }

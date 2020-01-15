@@ -3,6 +3,7 @@ import IField from "../Field/IField";
 import FieldsRenderer from "../Protocol/FieldsRenderer";
 import CollectedData from "../Utils/CollectedData";
 import Validator from "../Protocol/Validator";
+import AutoFormEvent from "./AutoFormEvent";
 
 export default interface IForm {
 
@@ -39,6 +40,6 @@ export default interface IForm {
 
     submit(): void;
 
-    // emitEvent():void;
+    emitEvent(event: AutoFormEvent): void;
 
 }

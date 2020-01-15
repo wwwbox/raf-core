@@ -1,4 +1,5 @@
 import {FieldMessageType} from "./FieldConfig";
+import IForm from "../Form/IForm";
 
 export default interface IField extends IFieldRenderConfigure, IFieldValidationConfigure, IFieldCollectConfigure {
     getState(): any;
@@ -22,6 +23,10 @@ export default interface IField extends IFieldRenderConfigure, IFieldValidationC
     handleChange(e: any): void;
 
     isFileField(): boolean;
+
+    getForm(): IForm;
+
+    getListeners(): any;
 }
 
 

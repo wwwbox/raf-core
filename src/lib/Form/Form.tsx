@@ -11,6 +11,7 @@ import Submitter from "../Protocol/Submitter";
 import Validator from "../Protocol/Validator";
 import IField from "../Field/IField";
 import CollectedData from "../Utils/CollectedData";
+import AutoFormEvent from "./AutoFormEvent";
 
 
 export default class Form<Props extends FormProps = FormProps, State extends FormState = FormState>
@@ -139,5 +140,25 @@ export default class Form<Props extends FormProps = FormProps, State extends For
         if (!this.submitter)
             throw Error('CANNOT FIND Submitter');
         this.submitter.submit();
+    };
+
+
+    public emitEvent = (event: AutoFormEvent): void => {
+
+        this.emitEventTo(this, this.props.on ? this.props.on : {} as any, event.type, event.payload);
+        for (let field of this.getRegisteredFields())
+            this.emitEventTo(field, field.getListeners(), event.type, event.payload);
+
+    };
+
+    private emitEventTo = (owner: IForm | IField, listeners: any, emittedEvent: string, payload: any): void => {
+        const events = Object.keys(listeners);
+        for (let event of events) {
+            if (emittedEvent === event) {
+                const listener = listeners[event];
+                listener(owner, payload);
+            }
+        }
     }
+
 }

@@ -8,7 +8,6 @@ import FieldsRenderer from "../Protocol/FieldsRenderer";
 import {Data, Files} from "../Utils/CollectedData";
 
 export default interface FormProps {
-
     fields: RenderConfig,
 
     services?: FormServices;
@@ -16,10 +15,13 @@ export default interface FormProps {
     attach?: {
         data?: Data;
         files?: Files;
-    }
+    },
+
+    on?: {
+        [eventName: string]: (form: IForm, payload: any) => void;
+    },
 
     [propName: string]: any;
-
 }
 
 export interface FormServices {
