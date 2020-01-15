@@ -18,7 +18,7 @@ describe('FileField', () => {
 
     it('should return true isFileField', function () {
         const props = {
-            name: 'testName', form: null as any, loading: true,
+            name: 'testName', form: {registerField: jest.fn()} as any, loading: true,
             onValidation: (validationState: any, p: any) => {
                 expect(validationState).toEqual('something wrong');
                 expect(p).toBe(field);

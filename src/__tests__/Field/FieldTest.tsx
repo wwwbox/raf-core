@@ -154,6 +154,17 @@ describe('Field', () => {
             expect(() => field.validate()).toThrowError()
         });
 
+        it('should validate after setValue called with true to validateAfterChange', function () {
+            const form: any = {registerField: jest.fn()};
+            const props = {name: 'testName', form: form, loading: true};
+            const component = mount(<Field validator={() => validator} {...props} />);
+            const field = component.instance() as Field;
+
+            expect(field.isValid()).toBe(true);
+            field.setValue('not valid value', true);
+            expect(field.isValid()).toBe(false);
+        });
+
     });
 
     describe('handle change', () => {
@@ -200,6 +211,15 @@ describe('Field', () => {
         expect(field.isHidden()).toEqual(false);
         field.setHidden(true);
         expect(field.isHidden()).toEqual(true);
+    });
+
+
+    it('should get form instance', function () {
+        const form: any = {registerField: jest.fn()};
+        props = {name: 'testName', loading: true, form: form};
+        component = mount(<Field  {...props} />);
+        field = component.instance() as Field;
+        expect(field.getForm()).toBe(form);
     });
 
 });

@@ -3,7 +3,7 @@ import Adapter from "enzyme-adapter-react-16";
 import Form from "../../lib/Form/Form";
 import React from "react";
 import IForm from "../../lib/Form/IForm";
-import DummyField from "../TestingUtils/DummyField";
+import DummyField from "../../lib/TestingUtils/DummyField";
 import IField from "../../lib/Field/IField";
 
 Enzyme.configure({adapter: new Adapter()});
@@ -58,6 +58,18 @@ describe('events', () => {
         const nameField = form.getRegisteredField('name')!;
 
         form.emitEvent({type: EVENT_NAME, payload: 'some_payload'});
+    });
+
+
+    it('should emit event even when no listener available', function () {
+        const EVENT_NAME = 'SOME_EVENT_NAME';
+
+        const wrapper = mount(<Form fields={[
+            {name: 'name', as: DummyField}
+        ]}/>);
+        const form = wrapper.instance() as Form;
+        form.emitEvent({type: EVENT_NAME, payload: 'some_payload'});
+        expect(1).toBe(1);
     });
 
 

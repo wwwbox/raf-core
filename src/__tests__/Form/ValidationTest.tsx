@@ -3,7 +3,7 @@ import Enzyme, {mount} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import React from "react";
 import Form from "../../lib/Form/Form";
-import DummyField from "../TestingUtils/DummyField";
+import DummyField from "../../lib/TestingUtils/DummyField";
 import FormDefault from "../../lib/Form/FormDefault";
 
 

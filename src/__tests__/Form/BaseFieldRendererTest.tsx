@@ -1,7 +1,7 @@
 import BaseFieldsRenderer from "../../lib/Form/BaseFieldsRenderer";
 import FieldConfig from "../../lib/Field/FieldConfig";
 import React from "react";
-import DummyField from "../TestingUtils/DummyField";
+import DummyField from "../../lib/TestingUtils/DummyField";
 
 
 class DummyWrapper extends React.Component {
