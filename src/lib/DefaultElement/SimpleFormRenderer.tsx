@@ -10,11 +10,9 @@ export default class SimpleFormRenderer implements FormRenderer {
         this.form = form;
     }
 
-    render() {
+    render(content: any) {
         return <div>
-            {
-                this.form.getFieldsRenderer().render()
-            }
+            {content}
         </div>
     }
 

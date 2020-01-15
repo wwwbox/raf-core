@@ -61,7 +61,8 @@ export default class Form<Props extends FormProps = FormProps, State extends For
     };
 
     render() {
-        return this.formRenderer.render();
+        const fields = this.getFieldsRenderer().render();
+        return this.formRenderer.render(fields);
     }
 
     public registerField = (field: IField): void => {
