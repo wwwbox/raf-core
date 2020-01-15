@@ -7,6 +7,9 @@ import {FieldMessageType} from "../../lib/Field/FieldConfig";
 import Validator from "../../lib/Protocol/Validator";
 import FieldChangeHandler from "../../lib/Protocol/FieldChangeHandler";
 import IField from "../../lib/Field/IField";
+import Form from "../../lib/Form/Form";
+import IForm from "../../lib/Form/IForm";
+import DummyField from "../../lib/TestingUtils/DummyField";
 
 Enzyme.configure({adapter: new Adapter()});
 
@@ -213,7 +216,6 @@ describe('Field', () => {
         expect(field.isHidden()).toEqual(true);
     });
 
-
     it('should get form instance', function () {
         const form: any = {registerField: jest.fn()};
         props = {name: 'testName', loading: true, form: form};
@@ -222,4 +224,82 @@ describe('Field', () => {
         expect(field.getForm()).toBe(form);
     });
 
+    it('should notify form field when changed', function () {
+        const wrapper = mount(<Form
+            services={{validator: () => ({validate: () => true}) as any}}
+            onAnyValueChanged={(key: string, value: any, field: IField, f: IForm) => {
+                expect(field).toBe(passwordField);
+                expect(key).toEqual('password');
+                expect(value).toEqual('pass');
+                expect(f).toBe(form);
+            }} fields={[
+            {
+                as: DummyField, name: 'username'
+            },
+            {
+                as: DummyField, name: 'password', onOtherChange: () => {
+                    throw Error('THIS SHOULD NOT BE CALLED');
+                }
+            },
+            {
+                as: DummyField, name: 'rememberMe'
+            }
+        ]}/>);
+
+        const form = wrapper.instance() as Form;
+        const passwordField = form.getRegisteredField('password')!;
+
+        passwordField.handleChange({target: {value: 'pass'}});
+    });
+
+    it('should notify other field when changed', function () {
+        const wrapper = mount(<Form
+            services={{validator: () => ({validate: () => true}) as any}}
+            fields={[
+                {
+                    as: DummyField, name: 'username', onOtherChange: (key: string, value: any, field: IField) => {
+                        expect(field).toBe(passwordField);
+                        expect(key).toEqual('password');
+                        expect(value).toEqual('pass');
+                    }
+                },
+                {
+                    as: DummyField, name: 'password', onOtherChange: () => {
+                        throw Error('THIS SHOULD NOT BE CALLED');
+                    }
+                },
+                {
+                    as: DummyField, name: 'rememberMe'
+                }
+            ]}/>);
+
+        const form = wrapper.instance() as Form;
+        const passwordField = form.getRegisteredField('password')!;
+
+        passwordField.handleChange({target: {value: 'pass'}});
+    });
+
+    it('should return props', function () {
+        const form: any = {registerField: jest.fn()};
+        props = {name: 'testName', loading: true, form: form};
+        component = mount(<Field  {...props} />);
+        field = component.instance() as Field;
+        expect(field.getProps()).toEqual(props);
+    });
+
+    it('should return isLoading(false) when isLoading is undefined', function () {
+        const form: any = {registerField: jest.fn()};
+        props = {name: 'testName', form: form};
+        component = mount(<Field  {...props} />);
+        field = component.instance() as Field;
+        expect(field.isLoading()).toEqual(false);
+    });
+
+    it('should return isLoading from props', function () {
+        const form: any = {registerField: jest.fn()};
+        props = {name: 'testName', loading: true, form: form};
+        component = mount(<Field  {...props} />);
+        field = component.instance() as Field;
+        expect(field.isLoading()).toEqual(true);
+    });
 });

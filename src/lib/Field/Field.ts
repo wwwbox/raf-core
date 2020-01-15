@@ -110,8 +110,8 @@ export default class Field<Props extends FieldProps = FieldProps, State extends 
         this.setState({readonly: readonly});
     }
 
-    public setValue(value: any, validateAfterChange: boolean = false): void {
-        this.setState({value: value});
+    public setValue(value: any, validateAfterChange: boolean = false, afterChange?: () => void): void {
+        this.setState({value: value}, () => afterChange && afterChange());
         if (validateAfterChange) {
             this.validate();
         }
@@ -180,5 +180,17 @@ export default class Field<Props extends FieldProps = FieldProps, State extends 
 
     public isHidden = (): boolean => {
         return this.state.isHidden;
+    };
+
+    public isLoading = (): boolean => {
+        return this.props.loading ? this.props.loading : false;
+    };
+
+    public getProps = (): FieldProps => {
+        return this.props;
+    };
+
+    public extractValueFromChangeEvent(event: any): any {
+        return event.target.value;
     }
 }

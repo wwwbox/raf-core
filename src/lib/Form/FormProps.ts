@@ -6,6 +6,7 @@ import FieldConfig from "../Field/FieldConfig";
 import FormRenderer from "../Protocol/FormRenderer";
 import FieldsRenderer from "../Protocol/FieldsRenderer";
 import {Data, Files} from "../Utils/CollectedData";
+import IField from "../Field/IField";
 
 export default interface FormProps {
     fields: RenderConfig,
@@ -20,6 +21,8 @@ export default interface FormProps {
     on?: {
         [eventName: string]: (form: IForm, payload: any) => void;
     },
+
+    onAnyValueChanged?: (key: string, value: any, field: IField, form: IForm) => void,
 
     [propName: string]: any;
 }

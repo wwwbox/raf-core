@@ -171,4 +171,16 @@ export default class Form<Props extends FormProps = FormProps, State extends For
         }
     };
 
+    public onAnyValueChanged = (key: string, value: any, field: IField): void => {
+        if (this.props.onAnyValueChanged) {
+            this.props.onAnyValueChanged(key, value, field, this);
+        }
+
+        for (let f of this.getRegisteredFields()) {
+            if (f.getName() !== key && f.getProps().onOtherChange) {
+                f.getProps().onOtherChange!(key, value, field);
+            }
+        }
+    };
+
 }

@@ -1,8 +1,11 @@
 import {FieldMessageType} from "./FieldConfig";
 import IForm from "../Form/IForm";
+import {FieldProps} from "./FieldProps";
 
 export default interface IField extends IFieldRenderConfigure, IFieldValidationConfigure, IFieldCollectConfigure {
     getState(): any;
+
+    extractValueFromChangeEvent(event: any): any;
 
     changeState(newState: any): void;
 
@@ -12,7 +15,7 @@ export default interface IField extends IFieldRenderConfigure, IFieldValidationC
 
     getName(): string;
 
-    setValue(value: any, validateAfterChange: boolean): void;
+    setValue(value: any, validateAfterChange?: boolean, afterChange?: () => void): void;
 
     validate(): boolean;
 
@@ -27,6 +30,10 @@ export default interface IField extends IFieldRenderConfigure, IFieldValidationC
     getForm(): IForm;
 
     getListeners(): any;
+
+    isLoading(): boolean;
+
+    getProps(): FieldProps;
 }
 
 

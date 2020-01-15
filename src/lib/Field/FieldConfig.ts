@@ -63,4 +63,5 @@ export enum FieldMessageType {
 
 export type OnFieldChange = (event: any, field: IField) => void;
 export type AfterFieldChange = (event: any, newValue: any, field: IField) => void;
-export type OnOtherChange = (otherField: IField, newValue: any) => void;
+export type OnOtherChange = (key: string, value: any, field: IField) => void;
+

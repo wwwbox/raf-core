@@ -63,5 +63,4 @@ describe('collected data', () => {
         expect(collectedData.getFiles()).toEqual({someFile: {}});
     });
 
-
 });
