@@ -4,7 +4,6 @@ import Enzyme, {mount} from "enzyme";
 import * as React from "react";
 import Adapter from "enzyme-adapter-react-16";
 import FileField from "../../lib/Field/FileField";
-import DefaultFileFieldChangeHandler from "../../lib/ChangeHandler/DefaultFileFieldChangeHandler";
 
 Enzyme.configure({adapter: new Adapter()});
 
@@ -29,8 +28,6 @@ describe('FileField', () => {
         const component = mount(<FileField {...props} />);
         const field = component.instance() as FileField;
         expect(field.isFileField()).toEqual(true);
-        expect(field.getDefaultChangeHandler()).toBeInstanceOf(DefaultFileFieldChangeHandler);
-        expect(field.getDefaultChangeHandler().getField()).toBe(field);
     });
 
 

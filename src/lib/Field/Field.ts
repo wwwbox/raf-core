@@ -6,7 +6,6 @@ import * as React from "react";
 import FieldStateUtils from "./FieldStateUtils";
 import Validator from "../Protocol/Validator";
 import FieldChangeHandler from "../Protocol/FieldChangeHandler";
-import DefaultFileFieldChangeHandler from "../ChangeHandler/DefaultFileFieldChangeHandler";
 import DefaultFieldChangeHandler from "../ChangeHandler/DefaultFieldChangeHandler";
 import IForm from "../Form/IForm";
 
@@ -20,18 +19,12 @@ export default class Field<Props extends FieldProps = FieldProps, State extends 
         super(props);
         this.state = new FieldStateUtils(props).getInitialState();
         this.validator = props.validator ? props.validator(this) : props.defaultValidator;
-        this.changeHandler = props.changeHandler ? props.changeHandler(this) : this.getDefaultChangeHandler();
+        this.changeHandler = props.changeHandler ? props.changeHandler(this) : new DefaultFieldChangeHandler(this);
         props.form.registerField(this);
     }
 
     render() {
         return null;
-    }
-
-    public getDefaultChangeHandler(): FieldChangeHandler {
-        if (this.isFileField())
-            return new DefaultFileFieldChangeHandler(this);
-        return new DefaultFieldChangeHandler(this);
     }
 
     public clear(): void {
