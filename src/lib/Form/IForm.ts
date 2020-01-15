@@ -37,7 +37,7 @@ export default interface IForm {
 
     validate(): boolean;
 
-    // submit():void;
+    submit(): void;
 
     // emitEvent():void;
 

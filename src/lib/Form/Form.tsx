@@ -132,6 +132,12 @@ export default class Form<Props extends FormProps = FormProps, State extends For
                 valid = false;
         }
         return valid;
-    }
+    };
 
+
+    public submit = (): void => {
+        if (!this.submitter)
+            throw Error('CANNOT FIND Submitter');
+        this.submitter.submit();
+    }
 }
