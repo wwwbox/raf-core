@@ -7,9 +7,6 @@ export default interface AutoFormEvent {
 export enum PreDefinedEventType {
     ON_RESET = "ON_RESET",
 
-    ON_VALIDATION = "ON_VALIDATION",
-    ON_COLLECT = "ON_COLLECT",
-
     ON_START_LOADING = "ON_START_LOADING",
     ON_FAIL_LOADING = "ON_FAIL_LOADING",
 

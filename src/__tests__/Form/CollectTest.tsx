@@ -22,7 +22,7 @@ describe('', () => {
         const form = wrapper.instance() as Form;
 
         const ageField = form.getRegisteredField('age')!;
-        ageField.setValue(18);
+        ageField.setValue(18, false);
 
         const collectedData = form.collect();
 
@@ -63,5 +63,20 @@ describe('', () => {
         expect(files).toEqual({image: imageFile});
 
     });
+
+    it('should throw error when not ready to collect', function () {
+        const wrapper = mount(<Form fields={[
+            {name: 'name', as: DummyField, startingValue: 'ali'},
+        ]}/>);
+        const form = wrapper.instance() as Form;
+        const field = form.getRegisteredField('name')!;
+
+        expect(field.isReadyToCollect()).toEqual(true);
+        field.setReadyToCollect(false);
+        expect(field.isReadyToCollect()).toEqual(false);
+        expect(() => form.collect()).toThrowError();
+    });
+
+    
 
 });

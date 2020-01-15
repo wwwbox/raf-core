@@ -46,6 +46,10 @@ export interface IFieldRenderConfigure {
     getMessageType(): FieldMessageType | undefined;
 
     isDisableOnLoading(): boolean | undefined;
+
+    isHidden(): boolean;
+
+    setHidden(hidden: boolean): void;
 }
 
 export interface IFieldValidationConfigure {
@@ -62,9 +66,12 @@ export interface IFieldValidationConfigure {
     isValidateOnChange(): boolean | undefined;
 }
 
-
 export interface IFieldCollectConfigure {
     setAsQuery(asQuery: boolean): void;
 
     isAsQuery(): boolean | undefined;
+
+    isReadyToCollect(): boolean;
+
+    setReadyToCollect(ready: boolean): void;
 }

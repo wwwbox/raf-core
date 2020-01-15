@@ -10,11 +10,16 @@ export default interface FieldState {
 
     name: string;
     asQuery?: boolean;
+    isReadyToCollect: boolean;
 
     escapeValidation?: boolean;
     validationRules?: any;
     validateOnChange?: boolean;
 
     value: any;
-    isValid : boolean;
+    isValid: boolean;
+
+    isHidden: boolean;
+
+
 }

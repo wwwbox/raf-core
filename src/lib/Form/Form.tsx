@@ -98,6 +98,9 @@ export default class Form<Props extends FormProps = FormProps, State extends For
 
 
     public collect = (): CollectedData => {
+        if (!this.isReadyToCollect())
+            throw new Error('FORM IS NOT READY TO COLLECT');
+
         const collectedData = new CollectedData();
         for (let field of this.getRegisteredFields()) {
             if (field.isFileField())
@@ -108,6 +111,13 @@ export default class Form<Props extends FormProps = FormProps, State extends For
 
         collectedData.merge(this.attachedData);
         return collectedData;
+    };
+
+    public isReadyToCollect = (): boolean => {
+        for (let field of this.getRegisteredFields())
+            if (!field.isReadyToCollect())
+                return false;
+        return true;
     };
 
     public attach = (key: string, value: any): void => {
@@ -159,6 +169,6 @@ export default class Form<Props extends FormProps = FormProps, State extends For
                 listener(owner, payload);
             }
         }
-    }
+    };
 
 }

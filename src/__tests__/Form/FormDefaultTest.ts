@@ -7,7 +7,7 @@ describe('from default', () => {
 
     it('should set/get/unset Form renderer', () => {
         FormDefault.unsetDefaults();
-        const service: any = {}
+        const service: any = {};
         const formService: any = () => service;
         FormDefault.setFormRenderer(formService);
         expect(FormDefault.getFormRenderer()).toBe(formService);
@@ -43,7 +43,7 @@ describe('from default', () => {
         expect(FormDefault.getCollector()).toBe(null);
         const collector: any = {};
         const formService = () => collector;
-        FormDefault.setCollector(formService)
+        FormDefault.setCollector(formService);
         expect(FormDefault.getCollector()).toBe(formService);
         const s = FormDefault.getCollector();
         const c = s ? s(null as any) : null;
@@ -51,13 +51,12 @@ describe('from default', () => {
     });
 
 
-
     it('should get/set validator', () => {
         FormDefault.unsetDefaults();
         expect(FormDefault.getValidator()).toBe(null);
         const validator: any = {};
         const formService = () => validator;
-        FormDefault.setValidator(formService)
+        FormDefault.setValidator(formService);
         expect(FormDefault.getValidator()).toBe(formService);
         const s = FormDefault.getValidator();
         const v = s ? s(null as any) : null;
@@ -70,14 +69,12 @@ describe('from default', () => {
         expect(FormDefault.getSubmitter()).toBe(null);
         const submitter: any = {};
         const formService = () => submitter;
-        FormDefault.setSubmitter(formService)
+        FormDefault.setSubmitter(formService);
         expect(FormDefault.getSubmitter()).toBe(formService);
         const s = FormDefault.getSubmitter();
         const sb = s ? s(null as any) : null;
         expect(sb).toBe(submitter);
     });
-
-
 
 
 });

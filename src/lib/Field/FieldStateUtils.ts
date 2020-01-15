@@ -22,6 +22,8 @@ export default class FieldStateUtils {
             value: FieldStateUtils.valueOrDefault(this.fieldProps.startingValue, ''),
             name: this.fieldProps.name!,
             isValid: FieldStateUtils.valueOrDefault(this.fieldProps.isValid, true),
+            isReadyToCollect: FieldStateUtils.valueOrDefault(this.fieldProps.isReadyToCollect, true),
+            isHidden: FieldStateUtils.valueOrDefault(this.fieldProps.isHidden, false),
         }
     }
 

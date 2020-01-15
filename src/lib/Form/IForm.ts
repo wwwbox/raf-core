@@ -28,6 +28,8 @@ export default interface IForm {
 
     collect(): CollectedData;
 
+    isReadyToCollect(): boolean;
+
     attach(key: string, value: any): void;
 
     deAttach(key: string): void;

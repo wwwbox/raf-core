@@ -16,8 +16,9 @@ describe('Field', () => {
     let props: FieldProps;
     let component: any;
     beforeEach(() => {
-        props = {name: 'testName', form: null as any, loading: true};
-        component = mount(<Field {...props} />);
+        const form: any = {registerField: jest.fn()};
+        props = {name: 'testName', loading: true, form: form};
+        component = mount(<Field  {...props} />);
         field = component.instance() as Field;
     });
 
@@ -115,7 +116,8 @@ describe('Field', () => {
 
         it('should validate', function () {
 
-            const props = {name: 'testName', form: null as any, loading: true, validator: () => validator};
+            const form: any = {registerField: jest.fn()};
+            const props = {name: 'testName', form: form, loading: true, validator: () => validator};
             const component = mount(<Field {...props} />);
             const field = component.instance() as Field;
 
@@ -128,8 +130,9 @@ describe('Field', () => {
 
         it('should call onValidation', function (done) {
 
+            const form: any = {registerField: jest.fn()};
             const props = {
-                name: 'testName', form: null as any, loading: true,
+                name: 'testName', form: form, loading: true,
                 onValidation: (validationState: any, p: any) => {
                     expect(validationState).toEqual('something wrong');
                     expect(p).toBe(field);
@@ -143,7 +146,8 @@ describe('Field', () => {
         });
 
         it('should throw error when no validator found', function () {
-            const props = {name: 'testName', form: null as any, loading: true};
+            const form: any = {registerField: jest.fn()};
+            const props = {name: 'testName', form: form, loading: true};
             const component = mount(<Field {...props} />);
             const field = component.instance() as Field;
 
@@ -160,8 +164,9 @@ describe('Field', () => {
         };
 
         it('should call handler handle method', function () {
+            const form: any = {registerField: jest.fn()};
             const props = {
-                name: 'testName', form: null as any, loading: true,
+                name: 'testName', form: form, loading: true,
                 onValidation: (validationState: any, p: any) => {
                     expect(validationState).toEqual('something wrong');
                     expect(p).toBe(field);
@@ -178,10 +183,23 @@ describe('Field', () => {
     });
 
     it('should use passed configuration', function () {
-        const props = {name: 'testName', form: null as any, loading: true, escapeValidation: true};
+        const form: any = {registerField: jest.fn()};
+        const props = {name: 'testName', form: form, loading: true, escapeValidation: true};
         const component = mount(<Field {...props} />);
         const field = component.instance() as Field;
         expect(field.isEscapeValidation()).toEqual(true);
+    });
+
+    it('should change/get isReadyToCollect', function () {
+        expect(field.isReadyToCollect()).toEqual(true);
+        field.setReadyToCollect(false);
+        expect(field.isReadyToCollect()).toEqual(false);
+    });
+
+    it('should change/get hidden', function () {
+        expect(field.isHidden()).toEqual(false);
+        field.setHidden(true);
+        expect(field.isHidden()).toEqual(true);
     });
 
 });

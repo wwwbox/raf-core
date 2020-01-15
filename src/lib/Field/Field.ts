@@ -164,5 +164,21 @@ export default class Field<Props extends FieldProps = FieldProps, State extends 
 
     public getListeners = (): any => {
         return this.props.on ? this.props.on! : {};
+    };
+
+    public isReadyToCollect = (): boolean => {
+        return this.state.isReadyToCollect;
+    };
+
+    public setReadyToCollect = (ready: boolean): void => {
+        this.setState({isReadyToCollect: ready});
+    };
+
+    public setHidden = (hidden: boolean): void => {
+        this.setState({isHidden: hidden});
+    };
+
+    public isHidden = (): boolean => {
+        return this.state.isHidden;
     }
 }
