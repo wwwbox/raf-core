@@ -24,6 +24,8 @@ export default interface FormProps {
 
     onAnyValueChanged?: (key: string, value: any, field: IField, form: IForm) => void,
 
+    initialValues?: any,
+
     [propName: string]: any;
 }
 

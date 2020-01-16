@@ -42,6 +42,11 @@ export default class Form<Props extends FormProps = FormProps, State extends For
         this.setupAttachedData();
     }
 
+    componentDidMount(): void {
+        const values = this.props.initialValues ? this.props.initialValues : {};
+        this.setValues(values);
+    }
+
     private setupAttachedData() {
         this.attachedData = new CollectedData();
         if (this.props.attach?.data) {
@@ -206,4 +211,13 @@ export default class Form<Props extends FormProps = FormProps, State extends For
             field.clear();
     };
 
+    public setValues = (values: any): void => {
+        const keys = Object.keys(values);
+        for (let key of keys) {
+            const field = this.getRegisteredField(key);
+            if (field) {
+                field.setValue(values[key]);
+            }
+        }
+    }
 }

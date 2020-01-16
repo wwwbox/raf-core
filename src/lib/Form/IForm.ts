@@ -49,4 +49,6 @@ export default interface IForm {
     reset(): void;
 
     clear(): void;
+
+    setValues(values: any): void;
 }
