@@ -186,4 +186,10 @@ export default class Field<Props extends FieldProps = FieldProps, State extends 
     public extractValueFromChangeEvent(event: any): any {
         return event.target.value;
     }
+
+
+    public reset = () => {
+        const startingValue = this.props.startingValue ? this.props.startingValue : '';
+        this.setValue(startingValue);
+    }
 }

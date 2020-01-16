@@ -196,4 +196,14 @@ export default class Form<Props extends FormProps = FormProps, State extends For
         }
     };
 
+    public reset = () => {
+        for (let field of this.getRegisteredFields())
+            field.reset();
+    };
+
+    public clear = (): void => {
+        for (let field of this.getRegisteredFields())
+            field.clear();
+    };
+
 }

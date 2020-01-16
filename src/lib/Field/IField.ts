@@ -2,6 +2,8 @@ import {FieldMessageType} from "./FieldConfig";
 import IForm from "../Form/IForm";
 import {FieldProps} from "./FieldProps";
 
+//TODO : move method to its own interfaces
+
 export default interface IField extends IFieldRenderConfigure, IFieldValidationConfigure, IFieldCollectConfigure {
     getState(): any;
 
@@ -34,6 +36,8 @@ export default interface IField extends IFieldRenderConfigure, IFieldValidationC
     isLoading(): boolean;
 
     getProps(): FieldProps;
+
+    reset(): void;
 }
 
 

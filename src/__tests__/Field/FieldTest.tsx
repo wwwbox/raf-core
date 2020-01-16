@@ -302,4 +302,25 @@ describe('Field', () => {
         field = component.instance() as Field;
         expect(field.isLoading()).toEqual(true);
     });
+
+    it('should reset value to startingValue', function () {
+        const form: any = {registerField: jest.fn()};
+        props = {name: 'testName', startingValue: 'ali', form: form};
+        component = mount(<Field  {...props} />);
+        field = component.instance() as Field;
+        field.setValue('test');
+        field.reset();
+        expect(field.getValue()).toEqual('ali');
+    });
+
+    it('should reset value to empty when no startingValue', function () {
+        const form: any = {registerField: jest.fn()};
+        props = {name: 'testName', form: form};
+        component = mount(<Field  {...props} />);
+        field = component.instance() as Field;
+        field.setValue('test');
+        field.reset();
+        expect(field.getValue()).toEqual('');
+    });
+
 });

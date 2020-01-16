@@ -45,4 +45,8 @@ export default interface IForm {
     emitEvent(event: AutoFormEvent): void;
 
     onAnyValueChanged(key: string, value: string, field: IField): void;
+
+    reset(): void;
+
+    clear(): void;
 }
