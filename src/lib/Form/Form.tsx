@@ -11,7 +11,7 @@ import Submitter from "../Protocol/Submitter";
 import Validator from "../Protocol/Validator";
 import IField from "../Field/IField";
 import CollectedData from "../Utils/CollectedData";
-import AutoFormEvent from "./AutoFormEvent";
+import AutoFormEvent, {PreDefinedEventType} from "./AutoFormEvent";
 
 
 export default class Form<Props extends FormProps = FormProps, State extends FormState = FormState>
@@ -82,11 +82,19 @@ export default class Form<Props extends FormProps = FormProps, State extends For
     };
 
     public startLoading = (): void => {
-        this.setState({loading: true});
+        this.setState({loading: true}, () => {
+            this.emitEvent({
+                type: PreDefinedEventType.ON_START_LOADING
+            });
+        });
     };
 
     public stopLoading = (): void => {
-        this.setState({loading: false});
+        this.setState({loading: false}, () => {
+            this.emitEvent({
+                type: PreDefinedEventType.ON_END_LOADING
+            });
+        });
     };
 
     public isLoading = (): boolean => {

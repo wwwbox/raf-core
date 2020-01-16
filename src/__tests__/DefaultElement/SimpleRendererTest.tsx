@@ -33,7 +33,4 @@ describe('simple renderer', () => {
         expect(component).toEqual(expectedComponent);
     });
 
-
-
-
 });
