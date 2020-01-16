@@ -114,8 +114,12 @@ export default class Form<Props extends FormProps = FormProps, State extends For
         for (let field of this.getRegisteredFields()) {
             if (field.isFileField())
                 collectedData.appendFile(field.getName(), field.getValue());
-            else
-                collectedData.append(field.getName(), field.getValue());
+            else {
+                if (field.isAsQuery())
+                    collectedData.appendQuery(field.getName(), field.getValue());
+                else
+                    collectedData.append(field.getName(), field.getValue());
+            }
         }
 
         collectedData.merge(this.attachedData);

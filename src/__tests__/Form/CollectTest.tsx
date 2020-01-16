@@ -14,7 +14,7 @@ describe('collect data', () => {
         const attachments = [{}, {}];
         const wrapper = mount(<Form fields={[
             {name: 'name', as: DummyField, startingValue: 'ali'},
-            {name: 'age', as: DummyField},
+            {name: 'age', as: DummyField, asQuery: true},
             {name: 'image', as: DummyFileField, startingValue: imageFile},
             {name: 'attachments', as: DummyFileField, startingValue: attachments}
         ]}/>);
@@ -27,7 +27,10 @@ describe('collect data', () => {
         const collectedData = form.collect();
 
         const data = collectedData.getData();
-        expect(data).toEqual({name: 'ali', age: 18});
+        expect(data).toEqual({name: 'ali'});
+
+        const query = collectedData.getQuery();
+        expect(query).toEqual({age: 18});
 
         const files = collectedData.getFiles();
         expect(files).toEqual({image: imageFile, attachments: attachments});
