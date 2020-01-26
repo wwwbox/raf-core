@@ -23,7 +23,6 @@ export default class DefaultFieldChangeHandler implements FieldChangeHandler {
         }
 
         const value = this.getValue(event);
-        console.log(event , value);
         this.changeValue(event, value);
         this.notify(value);
     }

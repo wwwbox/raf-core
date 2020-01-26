@@ -48,7 +48,7 @@ function App() {
             <Form fields={[
                 {as: TextField, name: 'username', label: 'Username'},
                 {as: PasswordField, name: 'password', label: 'Password'},
-                {as: DynamicTextField, name: 'phone', label: 'Phone'},
+                {as: DynamicTextField, name: 'phone', label: 'Phone', asQuery: true},
                 {
                     as: DynamicTextField,
                     name: 'email',
