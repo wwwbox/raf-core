@@ -5,6 +5,7 @@ import Submitter from "./lib/Protocol/Submitter";
 import IForm from "./lib/Form/IForm";
 import TextField from "./lib/DefaultElement/TextField";
 import PasswordField from "./lib/DefaultElement/PasswordField";
+import DynamicTextField from "./lib/DefaultElement/DynamicTextField";
 
 class ThreeCharLengthValidator implements Validator {
     validate(value: any, validationRules: any): boolean | string {
@@ -46,7 +47,18 @@ function App() {
             <h3>EXAMPLE</h3>
             <Form fields={[
                 {as: TextField, name: 'username', label: 'Username'},
-                {as: PasswordField, name: 'password', label: 'Password'}
+                {as: PasswordField, name: 'password', label: 'Password'},
+                {as: DynamicTextField, name: 'phone', label: 'Phone'},
+                {
+                    as: DynamicTextField,
+                    name: 'email',
+                    label: 'Email',
+                    maxInputs: 2,
+                    onMaxInputExceeded: (field: any) => {
+                        console.log(field);
+                    }
+                }
+
             ]} services={{
                 validator: () => new ThreeCharLengthValidator(),
                 submitter: form => new DummySubmitter(form)

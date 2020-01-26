@@ -13,9 +13,7 @@ export default class DefaultFieldChangeHandler implements FieldChangeHandler {
     }
 
     handle(event: any): void {
-        if (this.getField().isReadonly() || (
-            this.getField().isDisableOnLoading() && this.getField().isLoading()
-        )) {
+        if (this.shouldCancelChange()) {
             return;
         }
 
@@ -24,13 +22,30 @@ export default class DefaultFieldChangeHandler implements FieldChangeHandler {
             return;
         }
 
-        const value = this.getField().extractValueFromChangeEvent(event);
+        const value = this.getValue(event);
+        console.log(event , value);
+        this.changeValue(event, value);
+        this.notify(value);
+    }
+
+    private shouldCancelChange = () => {
+        return this.getField().isReadonly() || (
+            this.getField().isDisableOnLoading() && this.getField().isLoading()
+        );
+    };
+
+    protected getValue = (event: any) => {
+        return this.getField().extractValueFromChangeEvent(event);
+    };
+
+    protected changeValue = (event: any, value: any) => {
         const validateOnChange = this.getField().isValidateOnChange() && this.getField().shouldValidate();
         this.getField().setValue(value, validateOnChange, () => {
             this.getField().getProps().afterChange && this.getField().getProps().afterChange!(event, value, this.getField())
         });
+    };
 
+    protected notify = (value: any) => {
         this.getField().getForm().onAnyValueChanged(this.getField().getName(), value, this.getField());
-    }
-
+    };
 }
