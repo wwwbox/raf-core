@@ -21,5 +21,7 @@ export default interface FieldState {
 
     isHidden: boolean;
 
-
+    shouldCollect: boolean;
+    shouldValidate: boolean;
+    
 }

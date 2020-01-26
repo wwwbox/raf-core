@@ -75,9 +75,9 @@ export default class Field<Props extends FieldProps = FieldProps, State extends 
         return this.state.isValid;
     }
 
-    public isValidateOnChange(): boolean | undefined {
+    public isValidateOnChange = (): boolean | undefined => {
         return this.state.validateOnChange;
-    }
+    };
 
     public setAsQuery(asQuery: boolean): void {
         this.setState({asQuery: asQuery});
@@ -104,10 +104,12 @@ export default class Field<Props extends FieldProps = FieldProps, State extends 
     }
 
     public setValue(value: any, validateAfterChange: boolean = false, afterChange?: () => void): void {
-        this.setState({value: value}, () => afterChange && afterChange());
-        if (validateAfterChange) {
-            this.validate();
-        }
+        this.setState({value: value}, () => {
+            if (validateAfterChange) {
+                this.validate();
+            }
+            afterChange && afterChange();
+        });
     }
 
     public setValidateOnChange(validateOnChange: boolean): void {
@@ -119,19 +121,17 @@ export default class Field<Props extends FieldProps = FieldProps, State extends 
     }
 
     public validate(): boolean {
+        if (!this.shouldValidate()) throw Error("THIS FIELD SHOULD NOT BE VALIDATED");
+
         if (!this.validator)
             throw Error("NO VALIDATOR FOUND");
         const value = this.getValue();
         const rules = this.getValidationRules();
         const isValid = this.validator.validate(value, rules);
         const valid = isValid === true || isValid === '';
-        if (valid) {
-            this.setState({isValid: true});
-        } else {
-            this.setState({isValid: false});
-        }
-        this.props.onValidation && this.props.onValidation(isValid, this);
-
+        this.setState({isValid: valid}, () => {
+            this.props.onValidation && this.props.onValidation(isValid, this);
+        });
         return valid;
     }
 
@@ -191,5 +191,22 @@ export default class Field<Props extends FieldProps = FieldProps, State extends 
     public reset = () => {
         const startingValue = this.props.startingValue ? this.props.startingValue : '';
         this.setValue(startingValue);
+    };
+
+
+    public shouldCollect(): boolean {
+        return this.state.shouldCollect;
+    }
+
+    public setShouldCollect = (shouldCollect: boolean): void => {
+        this.setState({shouldCollect: shouldCollect});
+    };
+
+    public shouldValidate = (): boolean => {
+        return this.state.shouldValidate;
+    };
+
+    public setShouldValidate = (shouldValidate: boolean): void => {
+        this.setState({shouldValidate: shouldValidate});
     }
 }

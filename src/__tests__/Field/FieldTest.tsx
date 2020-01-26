@@ -157,6 +157,17 @@ describe('Field', () => {
             expect(() => field.validate()).toThrowError()
         });
 
+        it('should throw error when shouldValidate equal to false', function () {
+            const form: any = {registerField: jest.fn()};
+            const props = {
+                name: 'testName', form: form, loading: true, validator: () => validator
+            };
+            const component = mount(<Field {...props} />);
+            const field = component.instance() as Field;
+            field.setShouldValidate(false);
+            expect(() => field.validate()).toThrowError()
+        });
+
         it('should validate after setValue called with true to validateAfterChange', function () {
             const form: any = {registerField: jest.fn()};
             const props = {name: 'testName', form: form, loading: true};
@@ -321,6 +332,18 @@ describe('Field', () => {
         field.setValue('test');
         field.reset();
         expect(field.getValue()).toEqual('');
+    });
+
+    it('should get/set shouldCollect', function () {
+        expect(field.shouldCollect()).toEqual(true);
+        field.setShouldCollect(false);
+        expect(field.shouldCollect()).toEqual(false);
+    });
+
+    it('should get/set shouldValidate', function () {
+        expect(field.shouldValidate()).toEqual(true);
+        field.setShouldValidate(false);
+        expect(field.shouldValidate()).toEqual(false);
     });
 
 });

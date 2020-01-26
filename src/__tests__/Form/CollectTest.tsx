@@ -15,6 +15,7 @@ describe('collect data', () => {
         const wrapper = mount(<Form fields={[
             {name: 'name', as: DummyField, startingValue: 'ali'},
             {name: 'age', as: DummyField, asQuery: true},
+            {name: 'skip', as: DummyField, shouldCollect: false},
             {name: 'image', as: DummyFileField, startingValue: imageFile},
             {name: 'attachments', as: DummyFileField, startingValue: attachments}
         ]}/>);

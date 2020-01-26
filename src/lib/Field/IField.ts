@@ -75,6 +75,10 @@ export interface IFieldValidationConfigure {
     isEscapeValidation(): boolean | undefined;
 
     isValidateOnChange(): boolean | undefined;
+
+    shouldValidate(): boolean;
+
+    setShouldValidate(shouldValidate: boolean): void;
 }
 
 export interface IFieldCollectConfigure {
@@ -85,4 +89,8 @@ export interface IFieldCollectConfigure {
     isReadyToCollect(): boolean;
 
     setReadyToCollect(ready: boolean): void;
+
+    shouldCollect(): boolean;
+
+    setShouldCollect(shouldCollect: boolean): void;
 }

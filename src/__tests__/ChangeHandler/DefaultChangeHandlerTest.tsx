@@ -82,7 +82,7 @@ describe('change handler', () => {
             },
             setValue: (value: any, validateAfterChange: boolean, afterChanged: () => void) => {
                 expect(value).toEqual('some_value');
-                expect(validateAfterChange).toEqual(true);
+                expect(validateAfterChange).toEqual(false);
                 afterChanged();
             },
             getForm: () => {
@@ -95,7 +95,9 @@ describe('change handler', () => {
                 }
             },
             getName: () => 'some_name',
-            extractValueFromChangeEvent: (e: any) => e
+            extractValueFromChangeEvent: (e: any) => e,
+            isValidateOnChange: () => true,
+            shouldValidate: () => false,
         };
 
         const handler = new DefaultFieldChangeHandler(fakeField);

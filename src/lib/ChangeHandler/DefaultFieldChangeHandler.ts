@@ -25,11 +25,12 @@ export default class DefaultFieldChangeHandler implements FieldChangeHandler {
         }
 
         const value = this.getField().extractValueFromChangeEvent(event);
-        this.getField().setValue(value, true, () => {
+        const validateOnChange = this.getField().isValidateOnChange() && this.getField().shouldValidate();
+        this.getField().setValue(value, validateOnChange, () => {
             this.getField().getProps().afterChange && this.getField().getProps().afterChange!(event, value, this.getField())
         });
 
-        this.getField().getForm().onAnyValueChanged(this.getField().getName() , value  , this.getField());
+        this.getField().getForm().onAnyValueChanged(this.getField().getName(), value, this.getField());
     }
 
 }

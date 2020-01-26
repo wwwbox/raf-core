@@ -117,6 +117,9 @@ export default class Form<Props extends FormProps = FormProps, State extends For
 
         const collectedData = new CollectedData();
         for (let field of this.getRegisteredFields()) {
+
+            if (!field.shouldCollect()) continue;
+
             if (field.isFileField())
                 collectedData.appendFile(field.getName(), field.getValue());
             else {
@@ -157,6 +160,8 @@ export default class Form<Props extends FormProps = FormProps, State extends For
     public validate = (): boolean => {
         let valid = true;
         for (let field of this.getRegisteredFields()) {
+            if (!field.shouldValidate()) continue;
+
             if (field.validate())
                 valid = false;
         }

@@ -7,12 +7,13 @@ import FieldConfig from "../../lib/Field/FieldConfig";
 describe('simple renderer', () => {
 
     it('should render form', function () {
-        const form: any = {};
+        const form: any = {
+            submit: () => undefined
+        };
         const content = <h1>TEST</h1>;
-        const expected = <div>{content}</div>;
         const renderer = new SimpleFormRenderer(form);
         const actual = renderer.render(content);
-        expect(expected).toEqual(actual);
+        expect(actual.type).toEqual("div");
         expect(renderer.getForm()).toBe(form);
     });
 
@@ -28,9 +29,7 @@ describe('simple renderer', () => {
         expect(props).toEqual({
             ...config, defaultValidator: undefined, form: form
         });
-
-        const expectedComponent = <div>{component.props.children}</div>;
-        expect(component).toEqual(expectedComponent);
+        expect(component.props.children).toHaveLength(1);
     });
 
 });

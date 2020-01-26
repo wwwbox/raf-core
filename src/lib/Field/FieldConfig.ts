@@ -30,6 +30,7 @@ export interface FieldValidationConfig {
     escapeValidation?: boolean;
     validateOnChange?: boolean;
     validator?: FieldService<Validator>;
+    shouldValidate?: boolean;
 }
 
 export type OnFieldValidation = (validationResult: any, field: IField) => void;
@@ -38,6 +39,7 @@ export interface FieldCollectConfig {
     name: string;
     asQuery?: boolean;
     onCollect?: OnFieldCollect;
+    shouldCollect?: boolean;
 }
 
 export type OnFieldCollect = (collectedValue: any, field: IField) => any | undefined;

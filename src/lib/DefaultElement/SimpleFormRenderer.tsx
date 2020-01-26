@@ -13,6 +13,7 @@ export default class SimpleFormRenderer implements FormRenderer {
     render(content: any) {
         return <div>
             {content}
+            <button onClick={() => this.getForm().submit()}>SUBMIT</button>
         </div>
     }
 

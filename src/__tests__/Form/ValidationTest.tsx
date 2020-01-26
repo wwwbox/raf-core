@@ -25,7 +25,8 @@ describe('validation', () => {
     it('should validate data', function () {
         const wrapper = mount(<Form fields={[
             {name: 'name', as: DummyField},
-            {name: 'message', as: DummyField}
+            {name: 'message', as: DummyField},
+            {name: 'skip', as: DummyField, shouldValidate: false}
         ]}/>);
         const form = wrapper.instance() as Form;
 
