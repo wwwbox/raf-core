@@ -10,14 +10,14 @@ import DefaultFieldChangeHandler from "../ChangeHandler/DefaultFieldChangeHandle
 import IForm from "../Form/IForm";
 
 export default class Field<Props extends FieldProps = FieldProps, State extends FieldState = FieldState>
-    extends React.Component<FieldProps, FieldState> implements IField {
+    extends React.Component<Props, State> implements IField {
 
     protected validator?: Validator;
     protected changeHandler: FieldChangeHandler;
 
-    constructor(props: FieldProps) {
+    constructor(props: Props) {
         super(props);
-        this.state = new FieldStateUtils(props).getInitialState();
+        this.state = new FieldStateUtils(props).getInitialState() as any;
         this.validator = props.validator ? props.validator(this) : props.defaultValidator;
         this.changeHandler = props.changeHandler ? props.changeHandler(this) : new DefaultFieldChangeHandler(this);
         props.form.registerField(this);
@@ -176,10 +176,10 @@ export default class Field<Props extends FieldProps = FieldProps, State extends 
     };
 
     public isLoading = (): boolean => {
-        return this.props.loading ? this.props.loading : false;
+        return this.props.loading ?? false;
     };
 
-    public getProps = (): FieldProps => {
+    public getProps = (): Props => {
         return this.props;
     };
 
@@ -208,5 +208,9 @@ export default class Field<Props extends FieldProps = FieldProps, State extends 
 
     public setShouldValidate = (shouldValidate: boolean): void => {
         this.setState({shouldValidate: shouldValidate});
+    };
+
+    public isDisabled = () => {
+        return this.isDisableOnLoading() && this.isLoading();
     }
 }

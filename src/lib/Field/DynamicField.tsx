@@ -4,7 +4,7 @@ import {FieldProps} from "./FieldProps";
 import FieldState from "./FieldState";
 
 export default class DynamicField<Props extends FieldProps = FieldProps, State extends FieldState = FieldState> extends Field<Props, State> {
-    constructor(props: FieldProps) {
+    constructor(props: Props) {
         super(props);
         const startingValue = props.startingValue ? (
             Array.isArray(props.startingValue) ? [...props.startingValue] : [props.startingValue]
