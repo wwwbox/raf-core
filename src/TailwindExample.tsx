@@ -12,6 +12,7 @@ import RadioField from "./lib/TailwindComponent/RadioField/RadioField";
 import TextArea from "./lib/TailwindComponent/TextArea/TextArea";
 import FormDefault from "./lib/Form/FormDefault";
 import TailwindFieldsRenderer from "./lib/TailwindComponent/Renderer/TailwindFieldsRenderer";
+import DynamicTextField from "./lib/TailwindComponent/DynamicTextField/DynamicTextField";
 
 class ThreeCharLengthValidator implements Validator {
     validate(value: any, validationRules: any): boolean | string {
@@ -112,6 +113,25 @@ function TailwindExample() {
                     placeholder: 'Message',
                     skipDefaultWrapperClassName: true,
                     wrapperClassName: "flex flex-row items-start"
+                },
+
+                {
+                    as: DynamicTextField,
+                    name: 'emails',
+                },
+                {
+                    as: DynamicTextField,
+                    name: 'phones',
+                    removeButton: true,
+                    removeButtonText : "REMOVE",
+                    inputWrapperClassName: 'flex items-center',
+                    shouldValidate: false,
+                    newInputStartingValue: (field: DynamicTextField) => {
+                        return (field.getValue().length+1) % 2 === 0 ? 'EVEN' : '';
+                    },
+                    renderLabel: (index: number) => {
+                        return (index + 1) % 2 === 0 ? null : <label>ODD</label>
+                    }
                 },
                 {name: 'conditionAgree', shouldValidate: false, as: CheckBoxField, label: 'Agree On Condition Terms ?'}
             ]} services={{
