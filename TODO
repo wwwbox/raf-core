@@ -1,6 +1,8 @@
-FILE INPUT
+NEXT :
+- Tailwind Fields                           DONE
+- Validator
+- Form-Collector
+- Axios-Submitter
+- Firebase/Firestore Submitter
+- Firebase/Real-db Submitter
 
-TODO :
-AUTO-UPLOAD FILE FIELD
-DROPDOWN BASED ON INPUT
-DROPDOWN FROM

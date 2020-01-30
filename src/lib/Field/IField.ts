@@ -61,6 +61,8 @@ export interface IFieldRenderConfigure {
     isHidden(): boolean;
 
     setHidden(hidden: boolean): void;
+
+    isDisabled(): boolean;
 }
 
 export interface IFieldValidationConfigure {

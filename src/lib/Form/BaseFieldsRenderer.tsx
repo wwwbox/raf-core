@@ -1,6 +1,6 @@
-import FieldsRenderer from "../Protocol/FieldsRenderer";
+import FieldsRenderer from "./../Protocol/FieldsRenderer";
 import IForm from "./IForm";
-import FieldConfig from "../Field/FieldConfig";
+import FieldConfig from "./../Field/FieldConfig";
 import React from "react";
 import {RenderConfig} from "./FormProps";
 
@@ -19,13 +19,22 @@ export default abstract class BaseFieldsRenderer implements FieldsRenderer {
         return this.renderWrapper(fields);
     }
 
-    private renderField = (config: FieldConfig | FieldConfig[]): any => {
+    private renderField = (config: FieldConfig | FieldConfig[], index: number): any => {
         if (Array.isArray(config)) {
-            return config.map(config => this.renderFieldElement(config, true))
+            const ArrayWrapper = this.arrayWrapper();
+            return <ArrayWrapper key={index} {...this.arrayWrapperProps()}>
+                {
+                    config.map(config => this.renderFieldElement(config, true))
+                }
+            </ArrayWrapper>
         } else {
             return this.renderFieldElement(config, false);
         }
     };
+
+    protected arrayWrapper = (): any => React.Fragment;
+
+    protected arrayWrapperProps = (): object => ({});
 
     protected abstract renderFieldElement(config: FieldConfig, inArray: boolean): React.ReactElement;
 
