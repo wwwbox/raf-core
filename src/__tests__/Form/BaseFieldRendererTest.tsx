@@ -53,9 +53,6 @@ describe('', () => {
         expect(children[0].props.name).toEqual('name');
         expect(children[0].props.form).toBe(form);
         expect(children[0].props.inArray).toBeFalsy();
-        expect(children[2]).toHaveLength(2);
-        expect(children[2][0].props.inArray).toEqual(true);
-
     });
 
 });

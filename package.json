@@ -30,10 +30,7 @@
     "build": "tsc --noEmit false",
     "test": "jest",
     "coverage": "jest --coverage",
-    "eject": "react-scripts eject",
-    "build:styles": "postcss src/lib/TailwindComponent/styles/index.css -o src/styles/index.css",
-    "prebuild": "npm run build:styles",
-    "prestart": "npm run build:styles"
+    "eject": "react-scripts eject"
   },
   "jest": {
     "testEnvironment": "jsdom"
