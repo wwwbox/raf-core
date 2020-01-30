@@ -1,5 +1,5 @@
-import Field from "../../lib/Field/Field";
 import React from "react";
+import Field from "../Field/Field";
 
 
 export default class CheckboxField extends Field {

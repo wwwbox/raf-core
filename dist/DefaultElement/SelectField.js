@@ -13,12 +13,12 @@ var __extends = (this && this.__extends) || (function () {
 })();
 import Field from "../Field/Field";
 import React from "react";
-var TextField = /** @class */ (function (_super) {
-    __extends(TextField, _super);
-    function TextField() {
+var SelectField = /** @class */ (function (_super) {
+    __extends(SelectField, _super);
+    function SelectField() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    TextField.prototype.render = function () {
+    SelectField.prototype.render = function () {
         var _this = this;
         var _a;
         var wrapperStyle = {};
@@ -33,6 +33,6 @@ var TextField = /** @class */ (function (_super) {
             this.getMessage() &&
                 React.createElement("span", { className: "message_type_" + this.getMessageType() }, this.getMessage()));
     };
-    return TextField;
+    return SelectField;
 }(Field));
-export default TextField;
+export default SelectField;

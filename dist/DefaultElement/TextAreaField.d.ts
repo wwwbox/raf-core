@@ -1,4 +1,4 @@
 import Field from "../Field/Field";
-export default class TextField extends Field {
+export default class TextAreaField extends Field {
     render(): any;
 }

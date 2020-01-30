@@ -13,12 +13,12 @@ var __extends = (this && this.__extends) || (function () {
 })();
 import React from "react";
 import FileField from "../Field/FileField";
-var TextField = /** @class */ (function (_super) {
-    __extends(TextField, _super);
-    function TextField() {
+var DefaultFileField = /** @class */ (function (_super) {
+    __extends(DefaultFileField, _super);
+    function DefaultFileField() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    TextField.prototype.render = function () {
+    DefaultFileField.prototype.render = function () {
         var _this = this;
         var wrapperStyle = {};
         if (this.isHidden())
@@ -31,9 +31,9 @@ var TextField = /** @class */ (function (_super) {
             this.getMessage() &&
                 React.createElement("span", { className: "message_type_" + this.getMessageType() }, this.getMessage()));
     };
-    TextField.prototype.extractValueFromChangeEvent = function (event) {
+    DefaultFileField.prototype.extractValueFromChangeEvent = function (event) {
         return event.target.files;
     };
-    return TextField;
+    return DefaultFileField;
 }(FileField));
-export default TextField;
+export default DefaultFileField;

@@ -3,7 +3,7 @@ import FileField from "../Field/FileField";
 interface Props extends FieldProps {
     label?: string;
 }
-export default class TextField extends FileField<Props> {
+export default class DefaultFileField extends FileField<Props> {
     render(): any;
     extractValueFromChangeEvent(event: any): any;
 }

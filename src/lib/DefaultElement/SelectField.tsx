@@ -2,7 +2,7 @@ import Field from "../Field/Field";
 import React from "react";
 
 
-export default class TextField extends Field {
+export default class SelectField extends Field {
 
     render(): any {
 

@@ -11,8 +11,8 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-import Field from "../../lib/Field/Field";
 import React from "react";
+import Field from "../Field/Field";
 var CheckboxField = /** @class */ (function (_super) {
     __extends(CheckboxField, _super);
     function CheckboxField() {

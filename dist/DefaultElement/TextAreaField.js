@@ -13,12 +13,12 @@ var __extends = (this && this.__extends) || (function () {
 })();
 import Field from "../Field/Field";
 import React from "react";
-var TextField = /** @class */ (function (_super) {
-    __extends(TextField, _super);
-    function TextField() {
+var TextAreaField = /** @class */ (function (_super) {
+    __extends(TextAreaField, _super);
+    function TextAreaField() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    TextField.prototype.render = function () {
+    TextAreaField.prototype.render = function () {
         var _this = this;
         var wrapperStyle = {};
         if (this.isHidden())
@@ -29,6 +29,6 @@ var TextField = /** @class */ (function (_super) {
             this.getMessage() &&
                 React.createElement("span", { className: "message_type_" + this.getMessageType() }, this.getMessage()));
     };
-    return TextField;
+    return TextAreaField;
 }(Field));
-export default TextField;
+export default TextAreaField;
