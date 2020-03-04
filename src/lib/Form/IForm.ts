@@ -14,7 +14,7 @@ export default interface IForm {
 
     stopLoading(): void;
 
-    isLoading(): void;
+    isLoading(): boolean;
 
     registerField(field: IField): void;
 

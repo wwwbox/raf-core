@@ -8,7 +8,7 @@ export default interface IForm {
     getRenderConfig(): RenderConfig;
     startLoading(): void;
     stopLoading(): void;
-    isLoading(): void;
+    isLoading(): boolean;
     registerField(field: IField): void;
     getRegisteredFields(): IField[];
     getRegisteredField(name: string): IField | undefined;
