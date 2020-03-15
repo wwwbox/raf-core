@@ -162,7 +162,7 @@ export default class Form<Props extends FormProps = FormProps, State extends For
         for (let field of this.getRegisteredFields()) {
             if (!field.shouldValidate()) continue;
 
-            if (field.validate())
+            if (field.validate() !== true)
                 valid = false;
         }
         return valid;
