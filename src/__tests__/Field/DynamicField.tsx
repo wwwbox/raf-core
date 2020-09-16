@@ -1,8 +1,8 @@
 import Enzyme, {mount} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import * as React from "react";
-import DynamicField from "../../lib/Field/DynamicField";
-import DefaultDynamicFieldChangeHandler from "../../lib/ChangeHandler/DefaultDynamicFieldChangeHandler";
+import DynamicField from "../../Field/Concrete/DynamicField";
+import DefaultDynamicFieldChangeHandler from "../../ChangeHandler/DefaultDynamicFieldChangeHandler";
 
 Enzyme.configure({adapter: new Adapter()});
 
@@ -15,7 +15,7 @@ describe('dynamic field', () => {
         let component = mount(<DynamicField  {...props} />);
         let field = component.instance() as DynamicField;
 
-        expect(field.getValue()).toEqual(['']);
+        expect(field.getDynamicValue()).toEqual(['']);
     });
 
     it('should start with array of one startingValue (non-array)', function () {
@@ -24,7 +24,7 @@ describe('dynamic field', () => {
         let component = mount(<DynamicField  {...props} />);
         let field = component.instance() as DynamicField;
 
-        expect(field.getValue()).toEqual(['test']);
+        expect(field.getDynamicValue()).toEqual(['test']);
     });
 
     it('should start with array of one startingValue (array)', function () {
@@ -33,7 +33,7 @@ describe('dynamic field', () => {
         let component = mount(<DynamicField  {...props} />);
         let field = component.instance() as DynamicField;
 
-        expect(field.getValue()).toEqual(['A', 'B']);
+        expect(field.getDynamicValue()).toEqual(['A', 'B']);
     });
 
 
@@ -49,9 +49,9 @@ describe('dynamic field', () => {
         let field = component.instance() as DynamicField;
 
         field.addInput('X');
-        expect(field.getValue()).toEqual(['', 'X']);
+        expect(field.getDynamicValue()).toEqual(['', 'X']);
         field.addInput();
-        expect(field.getValue()).toEqual(['', 'X', '']);
+        expect(field.getDynamicValue()).toEqual(['', 'X', '']);
     });
 
     it('should remove input', function () {
@@ -61,7 +61,7 @@ describe('dynamic field', () => {
         let field = component.instance() as DynamicField;
 
         field.removeInput(1);
-        expect(field.getValue()).toEqual(['A', 'C']);
+        expect(field.getDynamicValue()).toEqual(['A', 'C']);
     });
 
     it('should prevent adding when maxInput exceed', function () {
@@ -70,9 +70,9 @@ describe('dynamic field', () => {
         let component = mount(<DynamicField  {...props} />);
         let field = component.instance() as DynamicField;
         field.addInput('');
-        expect(field.getValue()).toEqual(['A', 'B', 'C', '']);
+        expect(field.getDynamicValue()).toEqual(['A', 'B', 'C', '']);
         field.addInput();
-        expect(field.getValue()).toEqual(['A', 'B', 'C', '']);
+        expect(field.getDynamicValue()).toEqual(['A', 'B', 'C', '']);
     });
 
     it('should prevent adding when maxInput exceed and call onMaxInputExceeded', function () {

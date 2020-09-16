@@ -1,8 +1,6 @@
-NEXT :
-- Tailwind Fields                           DONE
-- Validator
-- Form-Collector
-- Axios-Submitter
-- Firebase/Firestore Submitter
-- Firebase/Real-db Submitter
+Cleanup Form :
+    - IFromProgressState
+    - IFormValue
+    - IFormValidation
+    - IFormEvent
 

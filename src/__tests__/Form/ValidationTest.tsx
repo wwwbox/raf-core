@@ -1,10 +1,10 @@
-import Validator from "../../lib/Protocol/Validator";
+import Validator from "../../Protocol/Validator";
 import Enzyme, {mount} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import React from "react";
-import Form from "../../lib/Form/Form";
-import DummyField from "../../lib/TestingUtils/DummyField";
-import FormDefault from "../../lib/Form/FormDefault";
+import Form from "../../Form/Form";
+import DummyField from "../../TestingUtils/DummyField";
+import FormDefault from "../../Form/FormDefault";
 
 
 Enzyme.configure({adapter: new Adapter()});

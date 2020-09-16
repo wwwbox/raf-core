@@ -1,5 +1,5 @@
-import DefaultFieldChangeHandler from "../../lib/ChangeHandler/DefaultFieldChangeHandler";
-import IField from "../../lib/Field/IField";
+import DefaultFieldChangeHandler from "../../ChangeHandler/DefaultFieldChangeHandler";
+import IField from "../../Field/IField";
 
 describe('change handler', () => {
 

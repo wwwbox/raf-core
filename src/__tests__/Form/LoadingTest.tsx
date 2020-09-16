@@ -1,9 +1,9 @@
 import Enzyme, {mount} from "enzyme";
-import Form from "../../lib/Form/Form";
+import Form from "../../Form/Form";
 import React from "react";
-import DummyField from "../../lib/TestingUtils/DummyField";
+import DummyField from "../../TestingUtils/DummyField";
 import Adapter from "enzyme-adapter-react-16";
-import {PreDefinedEventType} from "../../lib/Form/AutoFormEvent";
+import {PreDefinedEventType} from "../../Form/AutoFormEvent";
 
 Enzyme.configure({adapter: new Adapter()});
 

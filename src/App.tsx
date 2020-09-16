@@ -1,11 +1,11 @@
 import React from 'react';
-import Form from "./lib/Form/Form";
-import Validator from "./lib/Protocol/Validator";
-import Submitter from "./lib/Protocol/Submitter";
-import IForm from "./lib/Form/IForm";
-import TextField from "./lib/DefaultElement/TextField";
-import PasswordField from "./lib/DefaultElement/PasswordField";
-import DynamicTextField from "./lib/DefaultElement/DynamicTextField";
+import Form from "./Form/Form";
+import Validator from "./Protocol/Validator";
+import Submitter from "./Protocol/Submitter";
+import IForm from "./Form/IForm";
+import TextField from "./DefaultElement/TextField";
+import PasswordField from "./DefaultElement/PasswordField";
+import DynamicTextField from "./DefaultElement/DynamicTextField";
 
 class ThreeCharLengthValidator implements Validator {
     validate(value: any, validationRules: any): boolean | string {

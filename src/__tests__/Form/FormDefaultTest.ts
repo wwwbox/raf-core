@@ -1,6 +1,6 @@
-import FormDefault from "../../lib/Form/FormDefault";
-import SimpleFormRenderer from "../../lib/DefaultElement/SimpleFormRenderer";
-import SimpleFieldRenderer from "../../lib/DefaultElement/SimpleFieldRenderer";
+import FormDefault from "../../Form/FormDefault";
+import SimpleFormRenderer from "../../DefaultElement/SimpleFormRenderer";
+import SimpleFieldRenderer from "../../DefaultElement/SimpleFieldRenderer";
 
 describe('from default', () => {
 

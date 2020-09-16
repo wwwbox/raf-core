@@ -1,5 +1,5 @@
-import DefaultFieldChangeHandler from "../../lib/ChangeHandler/DefaultFieldChangeHandler";
-import DefaultDynamicFieldChangeHandler from "../../lib/ChangeHandler/DefaultDynamicFieldChangeHandler";
+import DefaultFieldChangeHandler from "../../ChangeHandler/DefaultFieldChangeHandler";
+import DefaultDynamicFieldChangeHandler from "../../ChangeHandler/DefaultDynamicFieldChangeHandler";
 
 describe('change handler', () => {
 

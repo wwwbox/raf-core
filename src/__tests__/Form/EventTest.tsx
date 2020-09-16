@@ -1,10 +1,10 @@
 import Enzyme, {mount} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-import Form from "../../lib/Form/Form";
+import Form from "../../Form/Form";
 import React from "react";
-import IForm from "../../lib/Form/IForm";
-import DummyField from "../../lib/TestingUtils/DummyField";
-import IField from "../../lib/Field/IField";
+import IForm from "../../Form/IForm";
+import DummyField from "../../TestingUtils/DummyField";
+import IField from "../../Field/IField";
 
 Enzyme.configure({adapter: new Adapter()});
 

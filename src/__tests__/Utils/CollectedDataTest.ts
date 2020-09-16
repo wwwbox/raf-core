@@ -1,4 +1,4 @@
-import CollectedData from "../../lib/Utils/CollectedData";
+import CollectedData from "../../Utils/CollectedData";
 
 describe('collected data', () => {
 

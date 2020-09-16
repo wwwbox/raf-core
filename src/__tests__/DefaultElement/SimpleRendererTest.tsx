@@ -1,8 +1,8 @@
-import SimpleFormRenderer from "../../lib/DefaultElement/SimpleFormRenderer";
+import SimpleFormRenderer from "../../DefaultElement/SimpleFormRenderer";
 import React from "react";
-import SimpleFieldRenderer from "../../lib/DefaultElement/SimpleFieldRenderer";
-import DummyField from "../../lib/TestingUtils/DummyField";
-import FieldConfig from "../../lib/Field/FieldConfig";
+import SimpleFieldRenderer from "../../DefaultElement/SimpleFieldRenderer";
+import DummyField from "../../TestingUtils/DummyField";
+import FieldConfig from "../../Field/FieldConfig";
 
 describe('simple renderer', () => {
 
