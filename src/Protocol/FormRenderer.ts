@@ -1,7 +1,7 @@
 import IForm from "../Form/IForm";
 
 export default interface FormRenderer {
-    render(content: any): any;
+    render(): any;
 
     getForm(): IForm;
 }

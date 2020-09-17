@@ -2,7 +2,7 @@ import Validator from "../../Protocol/Validator";
 import Enzyme, {mount} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import React from "react";
-import Form from "../../Form/Form";
+import Form from "../../Form/Concrate/Form";
 import DummyField from "../../TestingUtils/DummyField";
 import FormDefault from "../../Form/FormDefault";
 

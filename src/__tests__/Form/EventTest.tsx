@@ -1,6 +1,6 @@
 import Enzyme, {mount} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-import Form from "../../Form/Form";
+import Form from "../../Form/Concrate/Form";
 import React from "react";
 import IForm from "../../Form/IForm";
 import DummyField from "../../TestingUtils/DummyField";

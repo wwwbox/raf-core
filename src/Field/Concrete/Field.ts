@@ -12,18 +12,19 @@ import FieldStateInitializer, {
 import {FieldValue, IFieldValue} from "../Value/FieldValue";
 import {FieldValidation, IFieldValidation} from "../Validation/FieldValidation";
 import {FieldUI, IFieldUI} from "../UI/FieldUI";
-import {EventCallback} from "../../Protocol/EventType";
 import {FieldCollecting, IFieldCollecting} from "../Collecting/FieldCollecting";
 import {FieldExtra, IFieldExtraConfiguration} from "../Configuration/FieldExtra";
 import {FieldType} from "./FieldType";
+import {FieldEvent, IFieldEvent} from "../FieldEvent/FieldEvent";
 
 export default class Field<ExtraConfiguration = any> extends React.Component<FieldProps, FieldState> implements IField<ExtraConfiguration> {
 
-    private readonly _value: IFieldValue;
-    private readonly _validation: IFieldValidation;
-    private readonly _ui: IFieldUI;
-    private readonly _collecting: IFieldCollecting;
-    private readonly _extra: IFieldExtraConfiguration<ExtraConfiguration>;
+    protected _value: IFieldValue;
+    protected _validation: IFieldValidation;
+    protected _ui: IFieldUI;
+    protected _collecting: IFieldCollecting;
+    protected _extra: IFieldExtraConfiguration<ExtraConfiguration>;
+    protected _event: IFieldEvent;
 
     constructor(props: FieldProps) {
         super(props);
@@ -35,6 +36,7 @@ export default class Field<ExtraConfiguration = any> extends React.Component<Fie
         this._ui = new FieldUI(this, "ui");
         this._collecting = new FieldCollecting(this, "collecting");
         this._extra = new FieldExtra(this, "extra");
+        this._event = new FieldEvent(this);
     }
 
     private initializeState = (): FieldState => {
@@ -49,7 +51,6 @@ export default class Field<ExtraConfiguration = any> extends React.Component<Fie
         return null;
     }
 
-
     public getForm = (): IForm => {
         return this.props.form;
     };
@@ -61,7 +62,6 @@ export default class Field<ExtraConfiguration = any> extends React.Component<Fie
     collecting(): IFieldCollecting {
         return this._collecting;
     }
-
 
     extra(): IFieldExtraConfiguration<ExtraConfiguration> {
         return this._extra;
@@ -83,10 +83,6 @@ export default class Field<ExtraConfiguration = any> extends React.Component<Fie
         return this._ui;
     }
 
-    updateConfiguration<T>(key: string, newConfiguration: T, afterChange?: () => void): void {
-        this.setState({[key]: {...newConfiguration}});
-    }
-
     validation(): IFieldValidation {
         return this._validation;
     }
@@ -95,8 +91,14 @@ export default class Field<ExtraConfiguration = any> extends React.Component<Fie
         return this._value;
     }
 
-    listen(type: string, callback: EventCallback): void {
-
+    event(): IFieldEvent {
+        return this._event;
     }
+
+
+    updateConfiguration<T>(key: string, newConfiguration: T, afterChange?: () => void): void {
+        this.setState({[key]: {...newConfiguration}});
+    }
+
 
 }

@@ -1,4 +1,4 @@
-import FormServiceSetup from "../../Form/FormServiceSetup";
+import FormServiceSetup from "../../Form/FormService";
 import {FormService} from "../../Form/FormProps";
 
 describe('from service setup', () => {

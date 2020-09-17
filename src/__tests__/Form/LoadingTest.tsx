@@ -1,5 +1,5 @@
 import Enzyme, {mount} from "enzyme";
-import Form from "../../Form/Form";
+import Form from "../../Form/Concrate/Form";
 import React from "react";
 import DummyField from "../../TestingUtils/DummyField";
 import Adapter from "enzyme-adapter-react-16";

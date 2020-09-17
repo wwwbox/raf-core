@@ -1,5 +1,5 @@
 import React from 'react';
-import Form from "./Form/Form";
+import Form from "./Form/Concrate/Form";
 import Validator from "./Protocol/Validator";
 import Submitter from "./Protocol/Submitter";
 import IForm from "./Form/IForm";

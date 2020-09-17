@@ -14,12 +14,20 @@ export interface IFieldCollecting extends IFieldConfiguration<FieldCollectingCon
     setAsQuery(asQuery: boolean): void;
 
     isAsQuery(): boolean;
+
+    collect(): any;
+
 }
 
 export class FieldCollecting extends FieldConfigurationBase<FieldCollectingConfiguration> implements IFieldCollecting {
 
+
     constructor(field: IField, configurationKey: string) {
         super(field, configurationKey);
+    }
+
+    protected unUpdatableKeys(): (keyof FieldCollectingConfiguration)[] {
+        return ['collect'];
     }
 
     isAsQuery(): boolean {
@@ -44,6 +52,10 @@ export class FieldCollecting extends FieldConfigurationBase<FieldCollectingConfi
 
     shouldSkip(): boolean {
         return this.getConfiguration().skipCollecting;
+    }
+
+    collect(): any {
+        this.getConfiguration().collect(this.getField());
     }
 
 }

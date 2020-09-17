@@ -6,7 +6,6 @@ import {DynamicFieldExtraConfigurationInitializer, IExtraConfigurationInitialize
 import {FieldType} from "./FieldType";
 
 export default class DynamicField extends Field<DynamicFieldConfiguration> {
-    private readonly _extra: IDynamicFieldExtra;
 
     constructor(props: FieldProps) {
         super(props);
@@ -31,21 +30,21 @@ export default class DynamicField extends Field<DynamicFieldConfiguration> {
 
     public addInput = (startingValue: any = '') => {
         const value = [...this.getDynamicValue()];
-
         if (this.extra().getMaxInput() <= value.length) {
             this.extra().getOnMaxInputExceed()(this);
         }
-
-        const newItemIndex = value.length;
-        value.push(startingValue);
-        this.value().set(value);
-
-        this.extra().getOnItemAdded()(newItemIndex, this);
-
+        this.addValue(value, startingValue);
         if (this.extra().getMaxInput() == value.length) {
             this.extra().getOnInputFilled()(this);
         }
     };
+
+    private addValue(value: any[], startingValue: any) {
+        const newItemIndex = value.length;
+        value.push(startingValue);
+        this.value().set(value);
+        this.extra().getOnItemAdded()(newItemIndex, this);
+    }
 
     public removeInput = (index: number) => {
         const value = [...this.getDynamicValue()];

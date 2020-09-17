@@ -1,21 +1,23 @@
 import IForm from "../Form/IForm";
 import {FieldProps} from "./FieldProps";
-import {EventCallback} from "../Protocol/EventType";
 import {IFieldValue} from "./Value/FieldValue";
 import {IFieldValidation} from "./Validation/FieldValidation";
 import {IFieldUI} from "./UI/FieldUI";
 import {IFieldCollecting} from "./Collecting/FieldCollecting";
 import {IFieldExtraConfiguration} from "./Configuration/FieldExtra";
 import {FieldType} from "./Concrete/FieldType";
+import {IFieldEvent} from "./FieldEvent/FieldEvent";
 
 
-export default interface IField<ExtraConfiguration> {
+export default interface IField<ExtraConfiguration = any> {
 
     value(): IFieldValue;
 
     validation(): IFieldValidation;
 
     ui(): IFieldUI;
+
+    event(): IFieldEvent;
 
     extra(): IFieldExtraConfiguration<ExtraConfiguration>;
 
@@ -32,7 +34,4 @@ export default interface IField<ExtraConfiguration> {
     updateConfiguration<T>(key: string, newConfiguration: T, afterChange?: () => void): void;
 
     getConfiguration<T>(key: string): T;
-
-    listen(type: string, callback: EventCallback): void;
-
 }

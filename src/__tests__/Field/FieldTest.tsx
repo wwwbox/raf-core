@@ -7,7 +7,7 @@ import {FieldMessageType} from "../../Field/FieldConfig";
 import Validator from "../../Protocol/Validator";
 import FieldChangeHandler from "../../Protocol/FieldChangeHandler";
 import IField from "../../Field/IField";
-import Form from "../../Form/Form";
+import Form from "../../Form/Concrate/Form";
 import IForm from "../../Form/IForm";
 import DummyField from "../../TestingUtils/DummyField";
 

@@ -1,4 +1,4 @@
-import BaseFieldsRenderer from "../../Form/BaseFieldsRenderer";
+import BaseFieldRenderer from "../../Form/BaseFieldRenderer";
 import FieldConfig from "../../Field/FieldConfig";
 import React from "react";
 import DummyField from "../../TestingUtils/DummyField";
@@ -10,7 +10,7 @@ class DummyWrapper extends React.Component {
     }
 }
 
-class FakeFieldsRenderer extends BaseFieldsRenderer {
+class FakeFieldsRenderer extends BaseFieldRenderer {
     protected renderFieldElement = (config: FieldConfig, inArray: boolean): React.ReactElement => {
         return <DummyField key={config.name as any} form={this.getForm()} {...config} inArray={inArray}/>;
     };

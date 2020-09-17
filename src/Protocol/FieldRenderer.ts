@@ -1,6 +1,6 @@
 import IForm from "../Form/IForm";
 
-export default interface FieldsRenderer {
+export default interface FieldRenderer {
     render(): any;
 
     getForm(): IForm;

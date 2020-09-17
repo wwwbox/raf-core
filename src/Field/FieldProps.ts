@@ -3,12 +3,14 @@ import {FieldCollectingConfiguration} from "./Collecting/FieldCollectingConfigur
 import {FieldUIConfiguration} from "./UI/FieldUIConfiguration";
 import {FieldValidationConfiguration} from "./Validation/FieldValidationConfiguration";
 import {FieldValueConfiguration} from "./Value/FieldValueConfiguration";
-import {EventCallback} from "../Protocol/EventType";
+import {EventCallback} from "../Event/EventType";
 import Validator from "../Protocol/Validator";
+import {IEventNameMaker} from "../Event/IEventNameMaker";
 
-interface InjectedProps extends FieldOptions {
+export interface FieldInjectedProps {
     form: IForm;
     injectedValidator: Validator;
+    injectedEventNameMaker: IEventNameMaker;
 }
 
 export interface FieldOptions extends FieldCollectingConfiguration,
@@ -20,10 +22,13 @@ export interface FieldOptions extends FieldCollectingConfiguration,
     name: string;
 
     listen?: { [eventName: string]: EventCallback; },
+    listenThis?: { [eventName: string]: EventCallback; },
 
     extra?: {
         [propName: string]: any;
     }
 }
 
-export type FieldProps = FieldOptions & InjectedProps;
+
+//todo : why & when InjectedProps already extends FieldOptions
+export type FieldProps = FieldOptions & FieldInjectedProps;
