@@ -7,9 +7,11 @@ export interface FieldCollectingConfiguration {
     collect: (field: IField) => any;
 }
 
-export const DEFAULT_FIELD_COLLECTING_CONFIGURATION: FieldCollectingConfiguration = {
-    asQuery: false,
-    ready: true,
-    skipCollecting: false,
-    collect: field => field.value().get()
+export function getDefaultFieldCollectingConfiguration(): FieldCollectingConfiguration {
+    return {
+        asQuery: false,
+        ready: true,
+        skipCollecting: false,
+        collect: field => field.value().get()
+    }
 }

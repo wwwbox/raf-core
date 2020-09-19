@@ -1,15 +1,17 @@
 import {FieldValidationConfiguration} from "./FieldValidationConfiguration";
 import IField from "../IField";
 import Validator from "../../Protocol/Validator";
-import {FieldMessageType} from "../UI/FieldUIConfiguration";
 import {FieldConfigurationBase, IFieldConfiguration} from "../Configuration/FieldConfiguration";
+import {FieldEvents} from "../../Event/DefaultEvents";
 
 export interface IFieldValidation extends IFieldConfiguration<FieldValidationConfiguration> {
     validate(): boolean;
 
-    validateWithEffect(afterChange?: () => void): boolean;
+    validateWithEffect(emitEventOnFail: boolean, afterChange?: () => void): boolean;
 
     set(valid: boolean, afterChange?: () => void): void;
+
+    getCurrentValidState(): boolean;
 }
 
 export class FieldValidation extends FieldConfigurationBase<FieldValidationConfiguration> implements IFieldValidation {
@@ -24,15 +26,37 @@ export class FieldValidation extends FieldConfigurationBase<FieldValidationConfi
         this.update('valid', valid, afterChange);
     }
 
+    getCurrentValidState(): boolean {
+        return this.config<boolean>("valid");
+    }
+
     validate(): boolean {
+        const validationResult = this.getValidationResult();
+        return FieldValidation.isValid(validationResult);
+    }
+
+    validateWithEffect(emitEventOnFail: boolean = true, afterChange?: () => void): boolean {
+        const validationResult = this.getValidationResult();
+        const valid = FieldValidation.isValid(validationResult);
+        this.set(valid, afterChange);
+
+        if (!valid && emitEventOnFail) {
+            this.emitValidationFailEvent(validationResult);
+        }
+
+        if (this.getConfiguration().updateMessageOnValidationFail) {
+            this.getField().ui().update('message', validationResult);
+            this.getField().ui().update('messageType', this.getConfiguration().onFailMessageType);
+        }
+
+        return valid;
+    }
+
+
+    private getValidationResult(): string | boolean {
         if (this.getConfiguration().skipValidation) {
             return true;
         }
-        const isValid = this.getValidationResult();
-        return isValid === true || isValid === '';
-    }
-
-    private getValidationResult(): string | boolean {
         const value = this.getField().value().get();
         const rules = this.getConfiguration().rules;
         return this.getValidator().validate(value, rules);
@@ -47,16 +71,13 @@ export class FieldValidation extends FieldConfigurationBase<FieldValidationConfi
         return this.validator;
     }
 
-    validateWithEffect(afterChange?: () => void): boolean {
-        if (this.getConfiguration().skipValidation) {
-            return true;
-        }
-        const isValid = this.getValidationResult();
-        const valid = isValid === true || isValid === '';
-        this.set(valid, afterChange);
-        this.getField().ui().update('message', valid);
-        this.getField().ui().update('messageType', FieldMessageType.ERROR);
-        return false;
+    private emitValidationFailEvent(validationResult: any): void {
+        this.getField().event().emitOnThis(FieldEvents.VALIDATION_FAIL, {
+            validationResult: validationResult
+        });
     }
 
+    private static isValid(validationResult: string | boolean): boolean {
+        return validationResult === true || validationResult === '';
+    }
 }

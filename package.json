@@ -13,6 +13,7 @@
     "@types/react-dom": "^16.9.8",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.4",
+    "jest-mock-extended": "^1.0.10",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3",
@@ -25,9 +26,6 @@
     "test": "jest",
     "coverage": "jest --coverage",
     "eject": "react-scripts eject"
-  },
-  "jest": {
-    "testEnvironment": "jsdom"
   },
   "eslintConfig": {
     "extends": "react-app"

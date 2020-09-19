@@ -6,11 +6,10 @@ export interface IFieldConfiguration<T> {
     config<R = any>(key: keyof T): R;
 }
 
-export abstract class FieldConfigurationBase<T> implements IFieldConfiguration<T> {
+export class FieldConfigurationBase<T> implements IFieldConfiguration<T> {
 
     private readonly field: IField;
     private readonly configurationKey: string;
-
 
     protected constructor(field: IField, configurationKey: string) {
         this.field = field;

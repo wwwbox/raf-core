@@ -6,13 +6,16 @@ export interface FieldValueConfiguration {
     value: any;
     clearValue: any;
     valueChangeHandler: ((field: IField) => FieldChangeHandler) | null;
-
     defaultChangeHandler: (field: IField) => FieldChangeHandler;
+    extractValueFromEvent: (event: any) => any;
 }
 
-export const DEFAULT_FIELD_VALUE_CONFIGURATION: FieldValueConfiguration = {
-    value: null,
-    clearValue: '',
-    valueChangeHandler: null,
-    defaultChangeHandler: field => new DefaultFieldChangeHandler(field)
+export function getDefaultFieldValueConfiguration(): FieldValueConfiguration {
+    return {
+        value: '',
+        clearValue: '',
+        valueChangeHandler: null,
+        defaultChangeHandler: field => new DefaultFieldChangeHandler(field),
+        extractValueFromEvent: e => e.target.value
+    }
 }

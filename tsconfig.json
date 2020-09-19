@@ -22,7 +22,7 @@
     "jsx": "react"
   },
   "include": [
-    "src/lib"
+    "src"
   ],
   "exclude": [
     "node_modules",

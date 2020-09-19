@@ -1,16 +1,20 @@
 import FieldState from "../FieldState";
 import {FieldProps} from "../FieldProps";
-import {DEFAULT_FIELD_UI_CONFIGURATION, FieldUIConfiguration} from "../UI/FieldUIConfiguration";
+import {FieldUIConfiguration, getDefaultFieldUIConfiguration} from "../UI/FieldUIConfiguration";
 import {
-    DEFAULT_FIELD_COLLECTING_CONFIGURATION,
-    FieldCollectingConfiguration
+    FieldCollectingConfiguration,
+    getDefaultFieldCollectingConfiguration
 } from "../Collecting/FieldCollectingConfiguration";
 import {
-    DEFAULT_FIELD_VALIDATION_CONFIGURATION,
-    FieldValidationConfiguration
+    FieldValidationConfiguration,
+    getDefaultFieldValidationConfiguration
 } from "../Validation/FieldValidationConfiguration";
-import {DEFAULT_FIELD_VALUE_CONFIGURATION, FieldValueConfiguration} from "../Value/FieldValueConfiguration";
-import {DEFAULT_DYNAMIC_FIELD_CONFIGURATION, DynamicFieldConfiguration} from "../Configuration/DynamicFieldExtra";
+import {FieldValueConfiguration, getDefaultFieldValueConfiguration} from "../Value/FieldValueConfiguration";
+import {
+    DEFAULT_DYNAMIC_FIELD_CONFIGURATION,
+    DynamicFieldConfiguration,
+    getDefaultDynamicFieldConfiguration
+} from "../Configuration/DynamicFieldExtra";
 
 export default class FieldStateInitializer<T extends FieldState = FieldState, Extra = any> {
     private readonly props: FieldProps;
@@ -25,16 +29,16 @@ export default class FieldStateInitializer<T extends FieldState = FieldState, Ex
     public initialize(): FieldState {
         return {
             collecting: {
-                ...this.getStateFromConfiguration<FieldCollectingConfiguration>(DEFAULT_FIELD_COLLECTING_CONFIGURATION)
+                ...this.getStateFromConfiguration<FieldCollectingConfiguration>(getDefaultFieldCollectingConfiguration())
             },
             ui: {
-                ...this.getStateFromConfiguration<FieldUIConfiguration>(DEFAULT_FIELD_UI_CONFIGURATION)
+                ...this.getStateFromConfiguration<FieldUIConfiguration>(getDefaultFieldUIConfiguration())
             },
             validation: {
-                ...this.getStateFromConfiguration<FieldValidationConfiguration>(DEFAULT_FIELD_VALIDATION_CONFIGURATION)
+                ...this.getStateFromConfiguration<FieldValidationConfiguration>(getDefaultFieldValidationConfiguration())
             },
             value: {
-                ...this.getStateFromConfiguration<FieldValueConfiguration>(DEFAULT_FIELD_VALUE_CONFIGURATION)
+                ...this.getStateFromConfiguration<FieldValueConfiguration>(getDefaultFieldValueConfiguration())
             },
             extra: {
                 ...this.getExtra()
@@ -79,7 +83,7 @@ export class DefaultExtraConfigurationInitializer implements IExtraConfiguration
 export class DynamicFieldExtraConfigurationInitializer implements IExtraConfigurationInitializer<DynamicFieldConfiguration> {
     initialize(extraProps: any): DynamicFieldConfiguration {
         return {
-            ...DEFAULT_DYNAMIC_FIELD_CONFIGURATION,
+            ...getDefaultDynamicFieldConfiguration(),
             ...(extraProps ?? {})
         };
     }

@@ -55,7 +55,7 @@ export class FieldCollecting extends FieldConfigurationBase<FieldCollectingConfi
     }
 
     collect(): any {
-        this.getConfiguration().collect(this.getField());
+        return this.getConfiguration().collect(this.getField());
     }
 
 }

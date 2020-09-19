@@ -28,8 +28,8 @@ export default class Field<ExtraConfiguration = any> extends React.Component<Fie
 
     constructor(props: FieldProps) {
         super(props);
-        this.state = this.initializeState();
-        this.getForm().registerField(this);
+        this.state = new FieldStateInitializer(this.props, this.getExtraConfigurationInitializer()).initialize();
+        this.getForm().fields().register(this);
 
         this._value = new FieldValue(this, "value");
         this._validation = new FieldValidation(this, "validation");
@@ -37,10 +37,6 @@ export default class Field<ExtraConfiguration = any> extends React.Component<Fie
         this._collecting = new FieldCollecting(this, "collecting");
         this._extra = new FieldExtra(this, "extra");
         this._event = new FieldEvent(this);
-    }
-
-    private initializeState = (): FieldState => {
-        return new FieldStateInitializer(this.props, this.getExtraConfigurationInitializer()).initialize();
     }
 
     protected getExtraConfigurationInitializer(): IExtraConfigurationInitializer<ExtraConfiguration> {
@@ -67,8 +63,8 @@ export default class Field<ExtraConfiguration = any> extends React.Component<Fie
         return this._extra;
     }
 
-    getConfiguration<T>(key: string): T {
-        return this.state[key] as any;
+    getConfiguration<T>(key: keyof FieldState): T {
+        return this.state[key] as T;
     }
 
     getName(): string {
@@ -96,9 +92,9 @@ export default class Field<ExtraConfiguration = any> extends React.Component<Fie
     }
 
 
-    updateConfiguration<T>(key: string, newConfiguration: T, afterChange?: () => void): void {
-        this.setState({[key]: {...newConfiguration}});
+    updateConfiguration<T>(key: keyof FieldState, newConfiguration: T, afterChange?: () => void): void {
+        let payload: any = {[key]: {...newConfiguration}};
+        this.setState(payload, () => afterChange?.());
     }
-
 
 }

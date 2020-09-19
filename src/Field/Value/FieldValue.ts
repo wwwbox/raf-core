@@ -23,7 +23,7 @@ export class FieldValue extends FieldConfigurationBase<FieldValueConfiguration> 
 
 
     protected unUpdatableKeys(): (keyof FieldValueConfiguration)[] {
-        return ['valueChangeHandler' , 'defaultChangeHandler'];
+        return ['valueChangeHandler', 'defaultChangeHandler'];
     }
 
     clear(): void {
@@ -31,11 +31,11 @@ export class FieldValue extends FieldConfigurationBase<FieldValueConfiguration> 
     }
 
     extractFromEvent(e: any): any {
-        return e.target.value;
+        return this.getConfiguration().extractValueFromEvent(e);
     }
 
     get(): any {
-        this.getConfiguration().value;
+        return this.getConfiguration().value;
     }
 
     getOnChangeHandler(): FieldChangeHandler {
@@ -43,7 +43,7 @@ export class FieldValue extends FieldConfigurationBase<FieldValueConfiguration> 
         if (passedHandler) {
             return passedHandler(this.getField());
         }
-        return this.getConfiguration().defaultChangeHandler(this.getField())
+        return this.getConfiguration().defaultChangeHandler(this.getField());
     }
 
     set(value: any, validateAfterChange?: boolean, afterChange?: () => void): void {

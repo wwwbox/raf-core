@@ -9,12 +9,15 @@ export interface DynamicFieldConfiguration {
     onItemAdded: (index: number, field: DynamicField) => void;
 }
 
-export const DEFAULT_DYNAMIC_FIELD_CONFIGURATION: DynamicFieldConfiguration = {
-    onItemRemoved: () => undefined,
-    onItemAdded: () => undefined,
-    onInputFilled: () => undefined,
-    onMaxInputExceed: () => undefined,
-    maxInput: 5
+
+export function getDefaultDynamicFieldConfiguration() {
+    return {
+        onItemRemoved: () => undefined,
+        onItemAdded: () => undefined,
+        onInputFilled: () => undefined,
+        onMaxInputExceed: () => undefined,
+        maxInput: 5
+    }
 }
 
 export interface IDynamicFieldExtra extends IFieldExtraConfiguration<DynamicFieldConfiguration> {
@@ -23,8 +26,11 @@ export interface IDynamicFieldExtra extends IFieldExtraConfiguration<DynamicFiel
     setMaxInput(maxInput: number): void;
 
     getOnMaxInputExceed(): (field: DynamicField) => void;
+
     getOnInputFilled(): (field: DynamicField) => void;
+
     getOnItemRemoved(): (item: any, index: number, field: DynamicField) => void;
+
     getOnItemAdded(): (index: number, field: DynamicField) => void;
 
 }

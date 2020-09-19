@@ -13,10 +13,11 @@ export interface FieldInjectedProps {
     injectedEventNameMaker: IEventNameMaker;
 }
 
-export interface FieldOptions extends FieldCollectingConfiguration,
-    Partial<FieldUIConfiguration>,
-    Partial<FieldValidationConfiguration>,
-    Partial<FieldValueConfiguration> {
+export interface FieldOptions
+    extends Partial<FieldCollectingConfiguration>,
+        Partial<FieldUIConfiguration>,
+        Partial<FieldValidationConfiguration>,
+        Partial<FieldValueConfiguration> {
 
     as: any;
     name: string;
@@ -29,6 +30,4 @@ export interface FieldOptions extends FieldCollectingConfiguration,
     }
 }
 
-
-//todo : why & when InjectedProps already extends FieldOptions
 export type FieldProps = FieldOptions & FieldInjectedProps;

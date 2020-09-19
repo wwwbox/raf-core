@@ -32,6 +32,7 @@ export default class DynamicField extends Field<DynamicFieldConfiguration> {
         const value = [...this.getDynamicValue()];
         if (this.extra().getMaxInput() <= value.length) {
             this.extra().getOnMaxInputExceed()(this);
+            return;
         }
         this.addValue(value, startingValue);
         if (this.extra().getMaxInput() == value.length) {
@@ -55,7 +56,7 @@ export default class DynamicField extends Field<DynamicFieldConfiguration> {
     }
 
     extra(): IDynamicFieldExtra {
-        return this._extra;
+        return this._extra as IDynamicFieldExtra;
     }
 
     getType(): FieldType {

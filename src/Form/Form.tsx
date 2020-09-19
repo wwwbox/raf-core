@@ -1,12 +1,12 @@
 import * as React from "react";
-import IForm from "../IForm";
-import FormState from "../FormState";
-import FormProps from "../FormProps";
-import {FormUI, IFormUI} from "../FormUI/FormUI";
-import {FormValidation, IFormValidation} from "../FormValidation/FormValidation";
-import {FormEvent, IFormEvent} from "../FormEvent/FormEvent";
-import {FormValue, IFormValue} from "../FormValue/FormValue";
-import {FormFieldManager, IFromFieldManager} from "../FieldManager/FieldManager";
+import IForm from "./IForm";
+import FormState from "./FormState";
+import FormProps from "./FormProps";
+import {FormUI, IFormUI} from "./FormUI/FormUI";
+import {FormValidation, IFormValidation} from "./FormValidation/FormValidation";
+import {FormEvent, IFormEvent} from "./FormEvent/FormEvent";
+import {FormValue, IFormValue} from "./FormValue/FormValue";
+import {FormFieldManager, IFromFieldManager} from "./FieldManager/FieldManager";
 
 
 export default class Form extends React.Component<FormProps, FormState>
