@@ -2,55 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="02a24f0f-9847-4345-a3b5-34b3fb9e6a52" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/__tests__/Field/FieldCollectingTest.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/__tests__/Field/FieldConfigurationBaseTest.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/__tests__/Field/FieldEventTest.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/__tests__/Field/FieldUITest.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/__tests__/Field/FieldValidationTest.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/__tests__/Field/FieldValueTest.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ChangeHandler/DefaultDynamicFieldChangeHandler.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChangeHandler/DefaultDynamicFieldChangeHandler.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ChangeHandler/DefaultFieldChangeHandler.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChangeHandler/DefaultFieldChangeHandler.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DefaultElement/SimpleFieldRenderer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/DefaultElement/SimpleFieldRenderer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DefaultElement/SimpleFormRenderer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/DefaultElement/SimpleFormRenderer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Event/DefaultEvents.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Event/DefaultEvents.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Field/Collecting/FieldCollecting.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Collecting/FieldCollecting.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Field/Collecting/FieldCollectingConfiguration.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Collecting/FieldCollectingConfiguration.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Field/Concrete/DynamicField.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Concrete/DynamicField.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Field/Concrete/Field.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Concrete/Field.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Field/Concrete/FieldStateInitializer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Concrete/FieldStateInitializer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Field/Configuration/DynamicFieldExtra.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Configuration/DynamicFieldExtra.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Field/Configuration/FieldConfiguration.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Configuration/FieldConfiguration.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Field/FieldEvent/FieldEvent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/FieldEvent/FieldEvent.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Field/FieldProps.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/FieldProps.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Field/UI/FieldUIConfiguration.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/UI/FieldUIConfiguration.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Field/Validation/FieldValidation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Validation/FieldValidation.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Field/Validation/FieldValidationConfiguration.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Validation/FieldValidationConfiguration.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Field/Value/FieldValue.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Value/FieldValue.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Field/Value/FieldValueConfiguration.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Value/FieldValueConfiguration.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/Concrate/Form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Form.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Protocol/Collector.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utils/CollectedData.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Field/DynamicFieldTest.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__tests__/ChangeHandler/DefaultChangeHandlerTest.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__tests__/ChangeHandler/DefaultDynamicChangeHandlerTest.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__tests__/DefaultElement/SimpleRendererTest.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__tests__/Field/DynamicField.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/FormDefault.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/FormDefault.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/FormValidation/FormValidation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/FormValidation/FormValidation.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/FormValue/FormValue.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/FormValue/FormValue.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/__tests__/Field/DynamicFieldTest.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Field/DynamicFieldTest.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/__tests__/Field/FieldConfigurationBaseTest.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Field/FieldConfigurationBaseTest.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/__tests__/Field/FieldTest.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Field/FieldTest.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__tests__/Field/FileFieldTest.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__tests__/Form/BaseFieldRendererTest.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__tests__/Form/CollectTest.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__tests__/Form/EventTest.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__tests__/Form/FormDefaultTest.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__tests__/Form/FormServiceSetupTest.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__tests__/Form/InitialAndSetValues.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__tests__/Form/LoadingTest.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__tests__/Form/RegisteringFieldsTest.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__tests__/Form/ResetAndClearTest.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__tests__/Form/SubmitTest.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__tests__/Form/ValidationTest.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__tests__/Utils/CollectedDataTest.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/__tests__/Field/FieldValidationTest.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Field/FieldValidationTest.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/__tests__/Field/FieldValueTest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Field/FieldValueTest.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,84 +60,73 @@
       <recent name="$PROJECT_DIR$/src/Event" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.DynamicField.should call onItemAdded,onItemRemoved callbacks">
-    <configuration name="DynamicField.should call onItemAdded,onItemRemoved callbacks" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Jest.All Tests">
+    <configuration name="All Tests" type="JavaScriptTestRunnerJest" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method v="2" />
+    </configuration>
+    <configuration name="DynamicFieldTest.tsx" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST_FILE" />
+      <test-file value="$PROJECT_DIR$/src/__tests__/Field/DynamicFieldTest.tsx" />
+      <method v="2" />
+    </configuration>
+    <configuration name="FieldValidationTest.tsx" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST_FILE" />
+      <test-file value="$PROJECT_DIR$/src/__tests__/Field/FieldValidationTest.tsx" />
+      <method v="2" />
+    </configuration>
+    <configuration name="FieldValueTest.ts" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST_FILE" />
+      <test-file value="$PROJECT_DIR$/src/__tests__/Field/FieldValueTest.ts" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Field.should initialize state" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/__tests__/Field/DynamicFieldTest.tsx" />
+      <test-file value="$PROJECT_DIR$/src/__tests__/Field/FieldTest.tsx" />
       <test-names>
-        <test-name value="DynamicField" />
-        <test-name value="should call onItemAdded,onItemRemoved callbacks" />
+        <test-name value="Field" />
+        <test-name value="should initialize state" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="DynamicField.should call when input filled" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/__tests__/Field/DynamicFieldTest.tsx" />
-      <test-names>
-        <test-name value="DynamicField" />
-        <test-name value="should call when input filled" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="DynamicField.should not add when max input exceeded" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/__tests__/Field/DynamicFieldTest.tsx" />
-      <test-names>
-        <test-name value="DynamicField" />
-        <test-name value="should not add when max input exceeded" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="DynamicField.should remove input" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/__tests__/Field/DynamicFieldTest.tsx" />
-      <test-names>
-        <test-name value="DynamicField" />
-        <test-name value="should remove input" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="DynamicField.should use default dynamic change handler" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/__tests__/Field/DynamicFieldTest.tsx" />
-      <test-names>
-        <test-name value="DynamicField" />
-        <test-name value="should use default dynamic change handler" />
-      </test-names>
-      <method v="2" />
-    </configuration>
+    <list>
+      <item itemvalue="Jest.All Tests" />
+      <item itemvalue="Jest.FieldValidationTest.tsx" />
+      <item itemvalue="Jest.FieldValueTest.ts" />
+      <item itemvalue="Jest.DynamicFieldTest.tsx" />
+      <item itemvalue="Jest.Field.should initialize state" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Jest.DynamicField.should call onItemAdded,onItemRemoved callbacks" />
-        <item itemvalue="Jest.DynamicField.should call when input filled" />
-        <item itemvalue="Jest.DynamicField.should not add when max input exceeded" />
-        <item itemvalue="Jest.DynamicField.should use default dynamic change handler" />
-        <item itemvalue="Jest.DynamicField.should remove input" />
+        <item itemvalue="Jest.Field.should initialize state" />
+        <item itemvalue="Jest.DynamicFieldTest.tsx" />
+        <item itemvalue="Jest.FieldValueTest.ts" />
+        <item itemvalue="Jest.FieldValidationTest.tsx" />
       </list>
     </recent_temporary>
   </component>
@@ -191,7 +145,7 @@
       <workItem from="1600340887029" duration="3544000" />
       <workItem from="1600371208377" duration="11273000" />
       <workItem from="1600457697811" duration="10673000" />
-      <workItem from="1600516913667" duration="14509000" />
+      <workItem from="1600516913667" duration="18092000" />
     </task>
     <servers />
   </component>
@@ -199,26 +153,30 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="-1496" y="33" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600538034501">
+      <screen x="-1920" y="-157" width="1920" height="1057" />
+    </state>
+    <state x="-1496" y="33" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1600538034501" />
     <state x="-1147" y="94" key="#com.intellij.ide.util.MemberChooser" timestamp="1600458862739">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
     <state x="-1147" y="94" key="#com.intellij.ide.util.MemberChooser/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1600458862739" />
-    <state width="1899" height="290" key="GridCell.Tab.0.bottom" timestamp="1600535928667">
+    <state width="1899" height="290" key="GridCell.Tab.0.bottom" timestamp="1600540020159">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="1899" height="290" key="GridCell.Tab.0.bottom/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1600535928667" />
-    <state width="1899" height="290" key="GridCell.Tab.0.center" timestamp="1600535928666">
+    <state width="1899" height="290" key="GridCell.Tab.0.bottom/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1600540020159" />
+    <state width="1899" height="290" key="GridCell.Tab.0.center" timestamp="1600540020158">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="1899" height="290" key="GridCell.Tab.0.center/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1600535928666" />
-    <state width="1899" height="290" key="GridCell.Tab.0.left" timestamp="1600535928666">
+    <state width="1899" height="290" key="GridCell.Tab.0.center/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1600540020158" />
+    <state width="1899" height="290" key="GridCell.Tab.0.left" timestamp="1600540020157">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="1899" height="290" key="GridCell.Tab.0.left/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1600535928666" />
-    <state width="1899" height="290" key="GridCell.Tab.0.right" timestamp="1600535928667">
+    <state width="1899" height="290" key="GridCell.Tab.0.left/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1600540020157" />
+    <state width="1899" height="290" key="GridCell.Tab.0.right" timestamp="1600540020158">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="1899" height="290" key="GridCell.Tab.0.right/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1600535928667" />
+    <state width="1899" height="290" key="GridCell.Tab.0.right/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1600540020158" />
     <state width="1899" height="358" key="GridCell.Tab.1.bottom" timestamp="1600525140875">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
@@ -271,10 +229,10 @@
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
     <state x="-1451" y="10" key="SettingsEditor/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1600193768457" />
-    <state width="500" height="445" key="SwitcherDM" timestamp="1600535963309">
+    <state width="200" height="445" key="SwitcherDM" timestamp="1600540056111">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="500" height="445" key="SwitcherDM/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1600535963309" />
+    <state width="200" height="445" key="SwitcherDM/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1600540056111" />
     <state x="-1390" y="-16" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1600468049997">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>

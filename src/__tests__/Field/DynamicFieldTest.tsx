@@ -4,6 +4,9 @@ import Enzyme, {mount} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import * as React from "react";
 import DefaultDynamicFieldChangeHandler from "../../ChangeHandler/DefaultDynamicFieldChangeHandler";
+import {IFormEvent} from "../../Form/FormEvent/FormEvent";
+import {mock} from "jest-mock-extended";
+import {IEventNameMaker} from "../../Event/IEventNameMaker";
 
 Enzyme.configure({adapter: new Adapter()});
 
@@ -17,10 +20,10 @@ describe('DynamicField', () => {
         const props = {
             as: FIELD_AS,
             name: FIELD_NAME,
-            injectedEventNameMaker: {} as any,
+            injectedEventNameMaker: mock<IEventNameMaker>(),
             injectedValidator: {} as any,
             ...otherProps,
-            form: {fields: jest.fn().mockReturnValue({register: jest.fn()})} as any
+            form: {fields: jest.fn().mockReturnValue({register: jest.fn()}), event: mock<IFormEvent>()} as any
         };
         const component = mount(<DynamicField  {...props} />);
         return component.instance() as DynamicField;

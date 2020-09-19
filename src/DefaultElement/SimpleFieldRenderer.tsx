@@ -1,9 +1,14 @@
 import * as React from "react";
 import BaseFieldRenderer from "../Defaults/DefaultFieldRenderer";
 import {FieldOptions} from "../Field/FieldProps";
+import IForm from "../Form/IForm";
 
 
 export default class SimpleFieldRenderer extends BaseFieldRenderer {
+    
+    constructor(form: IForm) {
+        super(form);
+    }
 
     protected renderFieldElement(options: FieldOptions, inArray: boolean): React.ReactElement {
         const Component: any = options.as;

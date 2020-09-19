@@ -1,5 +1,7 @@
 import {FieldConfigurationBase} from "../../Field/Configuration/FieldConfiguration";
 import IField from "../../Field/IField";
+import {mock} from "jest-mock-extended";
+import {IFieldEvent} from "../../Field/FieldEvent/FieldEvent";
 
 class DummyConfiguration extends FieldConfigurationBase<any> {
 
@@ -30,7 +32,8 @@ describe('FieldConfigurationBase', () => {
         const configurationKey = "dummy";
         const mockedField: IField = {
             getConfiguration: jest.fn(key => key === configurationKey ? mockedConfiguration : null),
-            updateConfiguration: jest.fn()
+            updateConfiguration: jest.fn(),
+            event: jest.fn().mockReturnValue(mock<IFieldEvent>())
         } as any;
         const afterChange = jest.fn();
         new DummyConfiguration(mockedField, configurationKey).update('test', false, afterChange);

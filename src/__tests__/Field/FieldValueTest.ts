@@ -2,11 +2,20 @@ import {FieldValue} from "../../Field/Value/FieldValue";
 import IField from "../../Field/IField";
 import {mock} from "jest-mock-extended";
 import {getDefaultFieldValueConfiguration} from "../../Field/Value/FieldValueConfiguration";
+import IForm from "../../Form/IForm";
+import {IFormEvent} from "../../Form/FormEvent/FormEvent";
+import {IFieldEvent} from "../../Field/FieldEvent/FieldEvent";
 
 describe('FieldValue', () => {
 
     const field: IField = mock<IField>();
+    field.event = jest.fn().mockReturnValue(mock<IFieldEvent>());
     field.getConfiguration = jest.fn().mockReturnValue(getDefaultFieldValueConfiguration());
+    field.getForm = () => mock<IForm>({
+        event(): IFormEvent {
+            return mock<IFormEvent>()
+        }
+    })
 
     function getFieldValueInstance(): FieldValue {
         return new FieldValue(field, "value");

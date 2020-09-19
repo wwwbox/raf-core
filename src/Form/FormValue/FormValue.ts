@@ -7,7 +7,6 @@ export interface IFormValue {
     clear(): void;
 
     isReady(): boolean;
-
 }
 
 

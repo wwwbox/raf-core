@@ -13,8 +13,8 @@ export default class FormDefault {
     private static defaultRenderer: FormService<FormRenderer> | undefined;
     private static defaultSubmitter: FormService<Submitter> | undefined;
     private static defaultValidator: FormService<Validator> | undefined;
-    private static defaultEventNameMaker: ((form: IForm) => IEventNameMaker) | null;
-    private static defaultFieldRenderer: ((form: IForm) => FieldRenderer) | null;
+    private static defaultEventNameMaker: FormService<IEventNameMaker> | null;
+    private static defaultFieldRenderer: FormService<FieldRenderer> | null;
 
 
     public static setFormRenderer(formRenderer: FormService<FormRenderer>): void {
@@ -45,11 +45,11 @@ export default class FormDefault {
         return FormDefault.defaultSubmitter ?? null;
     }
 
-    public static getValidator(): FormService<Validator> | null {
+    public static getValidator(): FormService<Validator>  {
         return FormDefault.defaultValidator ?? (() => new NotEmptyValidator());
     }
 
-    static getEventNameMaker(): FormService<IEventNameMaker> | null {
+    static getEventNameMaker(): FormService<IEventNameMaker> {
         return FormDefault.defaultEventNameMaker ?? (() => new DefaultEventNameMaker());
     }
 

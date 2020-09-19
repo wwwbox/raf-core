@@ -71,7 +71,7 @@ describe('UI Event', () => {
             injectedEventNameMaker: eventNameMaker,
             injectedValidator: injectedValidator,
             ...config,
-            form: {fields: jest.fn().mockReturnValue({register: jest.fn()}), event: mock<IFormEvent>()} as any
+            form: {fields: jest.fn().mockReturnValue({register: jest.fn()}), event: () => mock<IFormEvent>()} as any
         };
         const component = mount(<Field  {...props} />);
         field = component.instance() as Field;

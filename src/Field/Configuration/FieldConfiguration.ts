@@ -40,7 +40,6 @@ export class FieldConfigurationBase<T> implements IFieldConfiguration<T> {
         if (this.unUpdatableKeys().includes(key)) {
             throw Error(`cannot update ${key}`);
         }
-
         const currentConfiguration = this.getConfiguration();
         const newConfiguration = {...currentConfiguration, [key]: value};
         this.field.updateConfiguration<T>(this.getConfigurationKey(), newConfiguration, afterChange);

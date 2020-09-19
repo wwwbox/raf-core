@@ -35,7 +35,7 @@ describe('Field', () => {
 
     it('should initialize state', function () {
         const state = new FieldStateInitializer(field.props, new DefaultExtraConfigurationInitializer()).initialize();
-        expect(state).toEqual(field.state);
+        expect(JSON.stringify(state)).toEqual(JSON.stringify(field.state));
     });
 
     it('should return the type', function () {
