@@ -14,6 +14,7 @@ export default interface FormProps {
 
     onAnyValueChanged?: (key: string, value: any, field: IField, form: IForm) => void,
     initialValues?: any,
+    allowSubmitWhenNotValid?: boolean;
     extra?: any;
 }
 

@@ -1,5 +1,5 @@
 import FormProps from "./FormProps";
-import {IFromFieldManager} from "./FieldManager/FieldManager";
+import {IFormFieldManager} from "./FieldManager/FormFieldManager";
 import {IFormUI} from "./FormUI/FormUI";
 import {IFormValue} from "./FormValue/FormValue";
 import {IFormValidation} from "./FormValidation/FormValidation";
@@ -9,7 +9,7 @@ import FormState from "./FormState";
 
 export default interface IForm {
 
-    fields(): IFromFieldManager;
+    fields(): IFormFieldManager;
 
     value(): IFormValue;
 

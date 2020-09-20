@@ -46,18 +46,18 @@ export class FormEvent implements IFormEvent {
         this.listeners[eventName].push({id: id, callback: callback});
     }
 
-    emit(eventName: string, payload: any): void {
-        const listeners = this.listeners[eventName] ?? [];
-        listeners.forEach(listener => {
-            listener.callback(this.form, payload);
-        });
-    }
-
     removeListener(id: string, eventName: string): void {
         if (this.hasListener(id, eventName)) {
             const index = this.indexOfId(id, eventName);
             this.listeners[eventName].splice(index, 1);
         }
+    }
+
+    emit(eventName: string, payload: any): void {
+        const listeners = this.listeners[eventName] ?? [];
+        listeners.forEach(listener => {
+            listener.callback(this.form, payload);
+        });
     }
 
     hasListener(id: string, eventName: string): boolean {

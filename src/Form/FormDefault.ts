@@ -45,7 +45,7 @@ export default class FormDefault {
         return FormDefault.defaultSubmitter ?? null;
     }
 
-    public static getValidator(): FormService<Validator>  {
+    public static getValidator(): FormService<Validator> {
         return FormDefault.defaultValidator ?? (() => new NotEmptyValidator());
     }
 
@@ -53,7 +53,7 @@ export default class FormDefault {
         return FormDefault.defaultEventNameMaker ?? (() => new DefaultEventNameMaker());
     }
 
-    static getFieldRenderer(): FormService<FieldRenderer> | null {
+    static getFieldRenderer(): FormService<FieldRenderer> {
         return FormDefault.defaultFieldRenderer ?? (form => new SimpleFieldRenderer(form));
     }
 }

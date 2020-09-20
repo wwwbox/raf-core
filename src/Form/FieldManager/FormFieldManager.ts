@@ -2,7 +2,7 @@ import {FieldOptions} from "../../Field/FieldProps";
 import IField from "../../Field/IField";
 import IForm from "../IForm";
 
-export interface IFromFieldManager {
+export interface IFormFieldManager {
     getFieldsOptions(): (FieldOptions | FieldOptions[])[];
 
     register(field: IField): void;
@@ -12,7 +12,7 @@ export interface IFromFieldManager {
     getRegistered(name: string): IField | null;
 }
 
-export class FormFieldManager implements IFromFieldManager {
+export class FormFieldManager implements IFormFieldManager {
 
     private readonly form: IForm;
     private readonly registered: IField[];

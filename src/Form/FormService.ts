@@ -8,7 +8,7 @@ import FieldRenderer from "../Protocol/FieldRenderer";
 export type FormService<T> = (form: IForm) => T;
 
 export interface FormServices {
-    eventNameMaker: FormService<IEventNameMaker>;
+    eventNameMaker?: FormService<IEventNameMaker>;
     validator?: FormService<Validator>;
     submitter?: FormService<Submitter>;
     formRenderer?: FormService<FormRenderer>;
@@ -16,7 +16,7 @@ export interface FormServices {
 }
 
 
-export function getFormService<T>(name: string, form: IForm, passed?: FormService<T>, defaultService?: FormService<T>): T {
+export function getFormService<T>(name: string, form: IForm, passed?: FormService<T>, defaultService?: FormService<T> | null): T {
 
     if (passed) {
         return passed(form);

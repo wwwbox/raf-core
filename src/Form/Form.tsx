@@ -6,7 +6,10 @@ import {FormUI, IFormUI} from "./FormUI/FormUI";
 import {FormValidation, IFormValidation} from "./FormValidation/FormValidation";
 import {FormEvent, IFormEvent} from "./FormEvent/FormEvent";
 import {FormValue, IFormValue} from "./FormValue/FormValue";
-import {FormFieldManager, IFromFieldManager} from "./FieldManager/FieldManager";
+import {FormFieldManager, IFormFieldManager} from "./FieldManager/FormFieldManager";
+import Submitter from "../Protocol/Submitter";
+import {getFormService} from "./FormService";
+import FormDefault from "./FormDefault";
 
 
 export default class Form extends React.Component<FormProps, FormState>
@@ -17,17 +20,20 @@ export default class Form extends React.Component<FormProps, FormState>
     protected _validation: IFormValidation;
     protected _event: IFormEvent;
     protected _value: IFormValue;
-    protected _fieldManager: IFromFieldManager;
+    protected _fieldManager: IFormFieldManager;
+
+    protected _submitter: Submitter;
 
 
     constructor(props: FormProps) {
         super(props);
-        this.state = {loading: false} as any;
+        this.state = {isLoading: false} as any;
         this._ui = new FormUI(this);
         this._validation = new FormValidation(this);
         this._event = new FormEvent(this);
         this._value = new FormValue(this);
         this._fieldManager = new FormFieldManager(this);
+        this._submitter = getFormService("submitter", this, this.props.services?.submitter, FormDefault.getSubmitter())
     }
 
     componentDidMount(): void {
@@ -40,12 +46,11 @@ export default class Form extends React.Component<FormProps, FormState>
         return this.ui().render();
     }
 
-
     event(): IFormEvent {
         return this._event;
     }
 
-    fields(): IFromFieldManager {
+    fields(): IFormFieldManager {
         return this._fieldManager;
     }
 
@@ -58,7 +63,12 @@ export default class Form extends React.Component<FormProps, FormState>
     }
 
     submit(): void {
-        //todo : handle submit
+        if (!this.validation().validate()) {
+            if (!this.getProps().allowSubmitWhenNotValid) {
+                return;
+            }
+        }
+        this._submitter.submit();
     }
 
     ui(): IFormUI {

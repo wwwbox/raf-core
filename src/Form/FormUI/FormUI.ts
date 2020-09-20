@@ -28,10 +28,11 @@ export class FormUI implements IFormUI {
     }
 
     stopLoading(): void {
-        this.form.updateInternalState({isLoading: true});
+        this.form.updateInternalState({isLoading: false});
     }
 
     render(): any {
+        //todo : implement render
         return null;
     }
 
