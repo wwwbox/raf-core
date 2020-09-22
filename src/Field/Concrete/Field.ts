@@ -28,7 +28,7 @@ export default class Field<ExtraConfiguration = any> extends React.Component<Fie
 
     constructor(props: FieldProps) {
         super(props);
-        this.state = new FieldStateInitializer(this.props, this.getExtraConfigurationInitializer()).initialize();
+        this.state = this.initializeState();
         this.getForm().fields().register(this);
 
         this._value = new FieldValue(this, "value");
@@ -39,8 +39,16 @@ export default class Field<ExtraConfiguration = any> extends React.Component<Fie
         this._event = new FieldEvent(this);
     }
 
+    protected initializeState(): any {
+        return new FieldStateInitializer(this.props, this.getExtraConfigurationInitializer()).initialize();
+    }
+
     protected getExtraConfigurationInitializer(): IExtraConfigurationInitializer<ExtraConfiguration> {
         return new DefaultExtraConfigurationInitializer();
+    }
+
+    protected handleValueChange(e: any): void {
+        this.value().getOnChangeHandler().handle(e);
     }
 
     render() {

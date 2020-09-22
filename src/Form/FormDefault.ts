@@ -3,11 +3,11 @@ import FieldRenderer from "../Protocol/FieldRenderer";
 import Submitter from "../Protocol/Submitter";
 import Validator from "../Protocol/Validator";
 import IForm from "./IForm";
-import SimpleFormRenderer from "../DefaultElement/SimpleFormRenderer";
-import {NotEmptyValidator} from "../Defaults/Validator";
+import {NotEmptyValidator} from "../Defaults/Services/Validator";
 import {FormService} from "./FormService";
 import {DefaultEventNameMaker, IEventNameMaker} from "../Event/IEventNameMaker";
-import SimpleFieldRenderer from "../DefaultElement/SimpleFieldRenderer";
+import {DefaultFormRenderer} from "../Defaults/Services/DefaultFormRenderer";
+import DefaultFieldRenderer from "../Defaults/Services/DefaultFieldRenderer";
 
 export default class FormDefault {
     private static defaultRenderer: FormService<FormRenderer> | undefined;
@@ -38,7 +38,7 @@ export default class FormDefault {
     }
 
     public static getFormRenderer(): FormService<FormRenderer> {
-        return FormDefault.defaultRenderer ?? ((form: IForm) => new SimpleFormRenderer(form));
+        return FormDefault.defaultRenderer ?? ((form: IForm) => new DefaultFormRenderer(form));
     }
 
     public static getSubmitter(): FormService<Submitter> | null {
@@ -54,6 +54,6 @@ export default class FormDefault {
     }
 
     static getFieldRenderer(): FormService<FieldRenderer> {
-        return FormDefault.defaultFieldRenderer ?? (form => new SimpleFieldRenderer(form));
+        return FormDefault.defaultFieldRenderer ?? (form => new DefaultFieldRenderer(form));
     }
 }

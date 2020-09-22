@@ -1,37 +1,27 @@
-
-import Field from "../Field/Concrete/Field";
 import React from "react";
-import {FieldProps} from "../Field/FieldProps";
+import DefaultFieldBase from "./DefaultFieldBase";
 
 
-interface Props extends FieldProps {
-    label?: string
+export interface TextFieldExtraConfiguration {
+    label?: string;
 }
 
-export default class TextField extends Field<Props> {
+export default class DefaultTextField<ExtraConfiguration extends TextFieldExtraConfiguration = TextFieldExtraConfiguration> extends DefaultFieldBase<ExtraConfiguration> {
 
-    render(): any {
 
-        const wrapperStyle: any = {};
-        if (this.isHidden())
-            wrapperStyle["display"] = 'none';
+    protected getInputComponent(): any {
+        return 'input';
+    }
 
-        const disable = this.isDisableOnLoading() && this.isLoading();
+    protected getOtherProps(): any {
+        return {
+            type: 'text'
+        }
+    }
 
-        return <div style={wrapperStyle}>
-            {
-                this.props.label && <label>{this.props.label}</label>
-            }
-            <input name={this.getName()} type={'text'} disabled={disable} value={this.getValue()}
-                   onChange={e => this.handleChange(e)}/>
-            {
-                !this.isValid() && <b style={{color: 'red'}}>ERROR</b>
-            }
-            {
-                this.getMessage() &&
-                <span className={`message_type_${this.getMessageType()}`}>{this.getMessage()}</span>
-            }
-        </div>
+    protected renderPreInput(): any {
+        const label = this.extra().config('label');
+        return label ? <label>{label}</label> : null;
     }
 
 }

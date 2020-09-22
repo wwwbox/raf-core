@@ -4,6 +4,8 @@ import {FieldConfigurationBase, IFieldConfiguration} from "../Configuration/Fiel
 
 export interface IFieldUI extends IFieldConfiguration<FieldUIConfiguration> {
 
+    shouldDisable(): boolean;
+
     isReadonly(): boolean;
 
     isDisableOnLoading(): boolean;
@@ -17,6 +19,10 @@ export interface IFieldUI extends IFieldConfiguration<FieldUIConfiguration> {
     getMessageType(): FieldMessageType;
 
     getMessage(): string;
+
+    isDisableOnFormLoading(): boolean;
+
+    setDisableOnFormLoading(disableOnFormLoading: boolean): void;
 
     setReadonly(readonly: boolean): void;
 
@@ -35,7 +41,6 @@ export interface IFieldUI extends IFieldConfiguration<FieldUIConfiguration> {
 
 
 export class FieldUI extends FieldConfigurationBase<FieldUIConfiguration> implements IFieldUI {
-
 
     constructor(field: IField, configurationKey: string) {
         super(field, configurationKey);
@@ -95,6 +100,23 @@ export class FieldUI extends FieldConfigurationBase<FieldUIConfiguration> implem
 
     setReadonly(readonly: boolean, afterChange?: () => void): void {
         this.update('readonly', readonly, afterChange);
+    }
+
+    isDisableOnFormLoading(): boolean {
+        return this.config("disableOnFormLoading");
+    }
+
+    setDisableOnFormLoading(disableOnFormLoading: boolean): void {
+        return this.update('disableOnFormLoading', disableOnFormLoading);
+    }
+
+    shouldDisable(): boolean {
+        return (
+                this.getField().getForm().ui().isLoading() && this.isDisableOnFormLoading()
+            ) ||
+            this.isDisabled() || (
+                this.isLoading() && this.isDisableOnLoading()
+            );
     }
 
 }

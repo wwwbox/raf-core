@@ -1,11 +1,11 @@
 import * as React from "react";
-import BaseFieldRenderer from "../Defaults/DefaultFieldRenderer";
-import {FieldOptions} from "../Field/FieldProps";
-import IForm from "../Form/IForm";
+import FieldRendererBase from "./FieldRendererBase";
+import {FieldOptions} from "../../Field/FieldProps";
+import IForm from "../../Form/IForm";
 
 
-export default class SimpleFieldRenderer extends BaseFieldRenderer {
-    
+export default class DefaultFieldRenderer extends FieldRendererBase {
+
     constructor(form: IForm) {
         super(form);
     }

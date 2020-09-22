@@ -5,7 +5,7 @@ import {DynamicFieldConfiguration, DynamicFieldExtra, IDynamicFieldExtra} from "
 import {DynamicFieldExtraConfigurationInitializer, IExtraConfigurationInitializer} from "./FieldStateInitializer";
 import {FieldType} from "./FieldType";
 
-export default class DynamicField extends Field<DynamicFieldConfiguration> {
+export default class DynamicField<ExtraConfiguration extends DynamicFieldConfiguration = DynamicFieldConfiguration> extends Field<ExtraConfiguration> {
 
     constructor(props: FieldProps) {
         super(props);
@@ -20,8 +20,8 @@ export default class DynamicField extends Field<DynamicFieldConfiguration> {
         this._extra = new DynamicFieldExtra(this, "extra");
     }
 
-    protected getExtraConfigurationInitializer(): IExtraConfigurationInitializer<DynamicFieldConfiguration> {
-        return new DynamicFieldExtraConfigurationInitializer();
+    protected getExtraConfigurationInitializer(): IExtraConfigurationInitializer<ExtraConfiguration> {
+        return new DynamicFieldExtraConfigurationInitializer() as IExtraConfigurationInitializer<ExtraConfiguration>;
     }
 
     protected getDynamicValue(): any[] {

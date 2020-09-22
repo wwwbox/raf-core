@@ -1,5 +1,5 @@
 import {FormEvent} from "../../Form/FormEvent/FormEvent";
-import {tfGetForm} from "./TestingFormUtils";
+import {tfGetForm} from "../../TestingUtils/TestingFormUtils";
 import {DefaultEventNameMaker} from "../../Event/IEventNameMaker";
 
 describe('FormEvent', () => {

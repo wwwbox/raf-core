@@ -1,10 +1,10 @@
-import FieldRenderer from "../Protocol/FieldRenderer";
-import IForm from "../Form/IForm";
-import {FieldInjectedProps, FieldOptions} from "../Field/FieldProps";
+import FieldRenderer from "../../Protocol/FieldRenderer";
+import IForm from "../../Form/IForm";
+import {FieldInjectedProps, FieldOptions} from "../../Field/FieldProps";
 import * as React from "react";
 
 
-export default abstract class BaseFieldRenderer implements FieldRenderer {
+export default abstract class FieldRendererBase implements FieldRenderer {
 
     private readonly form: IForm;
 

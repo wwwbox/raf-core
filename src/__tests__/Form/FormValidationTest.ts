@@ -2,11 +2,11 @@ import {IFieldValidation} from "../../Field/Validation/FieldValidation";
 import {mock} from "jest-mock-extended";
 import IField from "../../Field/IField";
 import {FormValidation} from "../../Form/FormValidation/FormValidation";
-import {tfGetForm} from "./TestingFormUtils";
+import {tfGetForm} from "../../TestingUtils/TestingFormUtils";
 import {IFormEvent} from "../../Form/FormEvent/FormEvent";
 import {GlobalEvents} from "../../Event/DefaultEvents";
 import FormProps from "../../Form/FormProps";
-import {NotEmptyValidator} from "../../Defaults/Validator";
+import {NotEmptyValidator} from "../../Defaults/Services/Validator";
 
 describe('FormValidation', () => {
 

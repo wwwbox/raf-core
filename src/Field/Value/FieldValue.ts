@@ -21,7 +21,6 @@ export class FieldValue extends FieldConfigurationBase<FieldValueConfiguration> 
         super(field, configurationKey);
     }
 
-
     protected unUpdatableKeys(): (keyof FieldValueConfiguration)[] {
         return ['valueChangeHandler', 'defaultChangeHandler'];
     }

@@ -20,7 +20,7 @@ describe('UI Event', () => {
     let field: Field;
 
 
-    function getFieldUIInstance(config: FieldUIConfiguration) {
+    function getFieldUIInstance(config: FieldUIConfiguration, form: any = {}) {
 
         const props = {
             as: FIELD_AS,
@@ -28,7 +28,7 @@ describe('UI Event', () => {
             injectedEventNameMaker: {} as any,
             injectedValidator: {} as any,
             ...config,
-            form: {fields: jest.fn().mockReturnValue({register: jest.fn()})} as any
+            form: {fields: jest.fn().mockReturnValue({register: jest.fn()}), ...form} as any
         };
         const component = mount(<Field  {...props} />);
         field = component.instance() as Field;
@@ -101,5 +101,47 @@ describe('UI Event', () => {
         ui.setMessage("XYZ", callback);
         expect(ui.getMessage()).toEqual("XYZ");
         expect(callback).toBeCalled();
+    });
+
+    it('should get/set disableOnFormLoading', function () {
+        const ui = getFieldUIInstance({...getDefaultFieldUIConfiguration(), disableOnFormLoading: false});
+        expect(ui.isDisableOnFormLoading()).toEqual(false);
+        ui.setDisableOnFormLoading(true);
+        expect(ui.isDisableOnFormLoading()).toEqual(true);
+    });
+
+    it('should disable when form isLoading and disableOnFormLoading is true', function () {
+        const ui = getFieldUIInstance({...getDefaultFieldUIConfiguration(), disableOnFormLoading: false}, {
+            ui: () => ({isLoading: jest.fn().mockReturnValue(true)})
+        });
+        ui.setLoading(false);
+        ui.setDisabled(false);
+        expect(ui.shouldDisable()).toEqual(false);
+        ui.setDisableOnFormLoading(true);
+        expect(ui.shouldDisable()).toEqual(true);
+    });
+
+    it('should disable when field isLoading and disableOnLoading is true', function () {
+        const ui = getFieldUIInstance({...getDefaultFieldUIConfiguration(), disableOnLoading: false}, {
+            ui: () => ({isLoading: jest.fn().mockReturnValue(false)})
+        });
+        ui.setDisableOnFormLoading(false);
+        ui.setDisabled(false);
+        ui.setLoading(true);
+        expect(ui.shouldDisable()).toEqual(false);
+        ui.setDisableOnLoading(true);
+        expect(ui.shouldDisable()).toEqual(true);
+    });
+
+    it('should disable when field disabled', function () {
+        const ui = getFieldUIInstance({...getDefaultFieldUIConfiguration(), disableOnLoading: false}, {
+            ui: () => ({isLoading: jest.fn().mockReturnValue(false)})
+        });
+        ui.setDisableOnFormLoading(false);
+        ui.setDisabled(false);
+        ui.setLoading(false);
+        expect(ui.shouldDisable()).toEqual(false);
+        ui.setDisabled(true);
+        expect(ui.shouldDisable()).toEqual(true);
     });
 })

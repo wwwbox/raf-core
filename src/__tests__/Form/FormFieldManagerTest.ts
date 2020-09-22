@@ -1,5 +1,5 @@
 import {FormFieldManager} from "../../Form/FieldManager/FormFieldManager";
-import {tfGetForm} from "./TestingFormUtils";
+import {tfGetForm} from "../../TestingUtils/TestingFormUtils";
 import {mock} from "jest-mock-extended";
 import IField from "../../Field/IField";
 

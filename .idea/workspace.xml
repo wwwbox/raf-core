@@ -2,24 +2,52 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="02a24f0f-9847-4345-a3b5-34b3fb9e6a52" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/__tests__/Form/FormEventTest.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/__tests__/Form/FormFieldManagerTest.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/__tests__/Form/FormTest.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/__tests__/Form/FormUITest.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/__tests__/Form/FormValidationTest.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/__tests__/Form/FormValueTest.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/__tests__/Form/TestingFormUtils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DefaultElement/DefaultFieldBase.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DefaultElement/DefaultOptionsFieldBase.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DefaultElement/DefaultTextArea.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Defaults/RafDefaults.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Defaults/Services/DefaultSubmitter.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Defaults/Services/IFormCollector.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Field/Concrete/AutoUploadField/AutoUploadField.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Field/Concrete/AutoUploadField/AutoUploadFieldExtra.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Field/Concrete/AutoUploadField/AutoUploadFieldExtraConfiguration.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Field/Concrete/AutoUploadField/AutoUploader.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TODO" beforeDir="false" afterPath="$PROJECT_DIR$/TODO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/FieldManager/FieldManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/FieldManager/FormFieldManager.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DefaultElement/CheckboxField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/DefaultElement/CheckboxField.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DefaultElement/DefaultFileField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/DefaultElement/DefaultFileField.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DefaultElement/DynamicTextField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/DefaultElement/DefaultArrayTextField.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DefaultElement/PasswordField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/DefaultElement/PasswordField.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DefaultElement/RadioField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/DefaultElement/RadioField.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DefaultElement/SelectField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/DefaultElement/SelectField.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DefaultElement/SimpleFieldRenderer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Defaults/Services/DefaultFieldRenderer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DefaultElement/SimpleFormRenderer.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DefaultElement/TextAreaField.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DefaultElement/TextField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/DefaultElement/TextField.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Defaults/DefaultFieldRenderer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Defaults/Services/FieldRendererBase.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Defaults/DefaultFormRenderer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Defaults/Services/DefaultFormRenderer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Defaults/Validator.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Defaults/Services/Validator.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Event/DefaultEvents.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Event/DefaultEvents.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Field/Concrete/AutoUploadFileField/AutoUploadFieldFileExtraConfiguration.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Field/Concrete/AutoUploadFileField/AutoUploadFileField.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Field/Concrete/AutoUploadFileField/AutoUploadFileFieldEvents.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Concrete/AutoUploadField/AutoUploadFieldEvents.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Field/Concrete/AutoUploadFileField/AutoUploadFileFieldExtra.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Field/Concrete/AutoUploadFileField/AutoUploader.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Field/Concrete/DynamicField.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Concrete/DynamicField.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Field/Concrete/Field.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Concrete/Field.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Field/UI/FieldUI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/UI/FieldUI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Field/UI/FieldUIConfiguration.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/UI/FieldUIConfiguration.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Field/Value/FieldValue.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Value/FieldValue.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/Form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Form.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/FormDefault.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/FormDefault.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/FormEvent/FormEvent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/FormEvent/FormEvent.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/FormProps.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/FormProps.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/FormService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/FormService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/FormUI/FormUI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/FormUI/FormUI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/FormValidation/FormValidation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/FormValidation/FormValidation.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/IForm.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/IForm.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/__tests__/Field/FieldUITest.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Field/FieldUITest.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/__tests__/Form/FormEventTest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Form/FormEventTest.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/__tests__/Form/FormFieldManagerTest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Form/FormFieldManagerTest.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/__tests__/Form/FormUITest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Form/FormUITest.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/__tests__/Form/FormValidationTest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Form/FormValidationTest.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/__tests__/Form/FormValueTest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Form/FormValueTest.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/__tests__/Form/TestingFormUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/TestingUtils/TestingFormUtils.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,8 +57,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -57,14 +85,14 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Defaults/Services" />
+      <recent name="$PROJECT_DIR$/src/TestingUtils" />
       <recent name="$PROJECT_DIR$/src/Form" />
       <recent name="$PROJECT_DIR$/src/Form/Concrate" />
       <recent name="$PROJECT_DIR$/src/Form/FormUI" />
-      <recent name="$PROJECT_DIR$/src/Field/Concrete/AutoUploadFileField" />
-      <recent name="$PROJECT_DIR$/src/Event" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.Form.should use empty as initialValues when not supplied">
+  <component name="RunManager" selected="Jest.UI Event.should disable when field disabled">
     <configuration name="All Tests" type="JavaScriptTestRunnerJest" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -72,61 +100,6 @@
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="ALL" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Form" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="SUITE" />
-      <test-file value="$PROJECT_DIR$/src/__tests__/Form/FormTest.tsx" />
-      <test-names>
-        <test-name value="Form" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="Form.should not submit if not valid when allowSubmitWhenNotValid is not true" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/__tests__/Form/FormTest.tsx" />
-      <test-names>
-        <test-name value="Form" />
-        <test-name value="should not submit if not valid when allowSubmitWhenNotValid is not true" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="Form.should set initialValues" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/__tests__/Form/FormTest.tsx" />
-      <test-names>
-        <test-name value="Form" />
-        <test-name value="should set initialValues" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="Form.should submit if not valid when allowSubmitWhenNotValid is true" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/__tests__/Form/FormTest.tsx" />
-      <test-names>
-        <test-name value="Form" />
-        <test-name value="should submit if not valid when allowSubmitWhenNotValid is true" />
-      </test-names>
       <method v="2" />
     </configuration>
     <configuration name="Form.should use empty as initialValues when not supplied" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
@@ -143,21 +116,77 @@
       </test-names>
       <method v="2" />
     </configuration>
+    <configuration name="UI Event.should disable when field disabled" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/__tests__/Field/FieldUITest.tsx" />
+      <test-names>
+        <test-name value="UI Event" />
+        <test-name value="should disable when field disabled" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="UI Event.should disable when field isLoading and disableOnLoading is true" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/__tests__/Field/FieldUITest.tsx" />
+      <test-names>
+        <test-name value="UI Event" />
+        <test-name value="should disable when field isLoading and disableOnLoading is true" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="UI Event.should disable when form isLoading and disableOnFormLoading is true" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/__tests__/Field/FieldUITest.tsx" />
+      <test-names>
+        <test-name value="UI Event" />
+        <test-name value="should disable when form isLoading and disableOnFormLoading is true" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="UI Event.should get/set disableOnFormLoading" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/__tests__/Field/FieldUITest.tsx" />
+      <test-names>
+        <test-name value="UI Event" />
+        <test-name value="should get/set disableOnFormLoading" />
+      </test-names>
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Jest.All Tests" />
-      <item itemvalue="Jest.Form.should not submit if not valid when allowSubmitWhenNotValid is not true" />
-      <item itemvalue="Jest.Form" />
-      <item itemvalue="Jest.Form.should submit if not valid when allowSubmitWhenNotValid is true" />
-      <item itemvalue="Jest.Form.should set initialValues" />
       <item itemvalue="Jest.Form.should use empty as initialValues when not supplied" />
+      <item itemvalue="Jest.UI Event.should get/set disableOnFormLoading" />
+      <item itemvalue="Jest.UI Event.should disable when form isLoading and disableOnFormLoading is true" />
+      <item itemvalue="Jest.UI Event.should disable when field isLoading and disableOnLoading is true" />
+      <item itemvalue="Jest.UI Event.should disable when field disabled" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Jest.UI Event.should disable when field disabled" />
+        <item itemvalue="Jest.UI Event.should disable when field isLoading and disableOnLoading is true" />
+        <item itemvalue="Jest.UI Event.should disable when form isLoading and disableOnFormLoading is true" />
+        <item itemvalue="Jest.UI Event.should get/set disableOnFormLoading" />
         <item itemvalue="Jest.Form.should use empty as initialValues when not supplied" />
-        <item itemvalue="Jest.Form.should set initialValues" />
-        <item itemvalue="Jest.Form" />
-        <item itemvalue="Jest.Form.should not submit if not valid when allowSubmitWhenNotValid is not true" />
-        <item itemvalue="Jest.Form.should submit if not valid when allowSubmitWhenNotValid is true" />
       </list>
     </recent_temporary>
   </component>
@@ -177,7 +206,9 @@
       <workItem from="1600371208377" duration="11273000" />
       <workItem from="1600457697811" duration="10673000" />
       <workItem from="1600516913667" duration="20218000" />
-      <workItem from="1600629841445" duration="7416000" />
+      <workItem from="1600629841445" duration="8667000" />
+      <workItem from="1600696889349" duration="10409000" />
+      <workItem from="1600807903704" duration="4293000" />
     </task>
     <servers />
   </component>
@@ -189,26 +220,26 @@
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
     <state x="-1496" y="33" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1600538034501" />
-    <state x="-1147" y="94" key="#com.intellij.ide.util.MemberChooser" timestamp="1600458862739">
+    <state x="-1147" y="94" key="#com.intellij.ide.util.MemberChooser" timestamp="1600811212390">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state x="-1147" y="94" key="#com.intellij.ide.util.MemberChooser/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1600458862739" />
-    <state width="1899" height="290" key="GridCell.Tab.0.bottom" timestamp="1600637726496">
+    <state x="-1147" y="94" key="#com.intellij.ide.util.MemberChooser/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1600811212390" />
+    <state width="1899" height="290" key="GridCell.Tab.0.bottom" timestamp="1600639825277">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="1899" height="290" key="GridCell.Tab.0.bottom/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1600637726496" />
-    <state width="1899" height="290" key="GridCell.Tab.0.center" timestamp="1600637726495">
+    <state width="1899" height="290" key="GridCell.Tab.0.bottom/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1600639825277" />
+    <state width="1899" height="290" key="GridCell.Tab.0.center" timestamp="1600639825276">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="1899" height="290" key="GridCell.Tab.0.center/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1600637726495" />
-    <state width="1899" height="290" key="GridCell.Tab.0.left" timestamp="1600637726495">
+    <state width="1899" height="290" key="GridCell.Tab.0.center/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1600639825276" />
+    <state width="1899" height="290" key="GridCell.Tab.0.left" timestamp="1600639825276">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="1899" height="290" key="GridCell.Tab.0.left/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1600637726495" />
-    <state width="1899" height="290" key="GridCell.Tab.0.right" timestamp="1600637726496">
+    <state width="1899" height="290" key="GridCell.Tab.0.left/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1600639825276" />
+    <state width="1899" height="290" key="GridCell.Tab.0.right" timestamp="1600639825277">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="1899" height="290" key="GridCell.Tab.0.right/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1600637726496" />
+    <state width="1899" height="290" key="GridCell.Tab.0.right/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1600639825277" />
     <state width="1899" height="358" key="GridCell.Tab.1.bottom" timestamp="1600553837889">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
@@ -261,17 +292,17 @@
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
     <state x="-1451" y="10" key="SettingsEditor/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1600193768457" />
-    <state width="200" height="445" key="SwitcherDM" timestamp="1600637745719">
+    <state width="500" height="445" key="SwitcherDM" timestamp="1600811474709">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="200" height="445" key="SwitcherDM/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1600637745719" />
+    <state width="500" height="445" key="SwitcherDM/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1600811474709" />
     <state x="-1390" y="-16" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1600468049997">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
     <state x="-1390" y="-16" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1600468049997" />
-    <state x="-1295" y="78" width="670" height="676" key="search.everywhere.popup" timestamp="1600636968168">
+    <state x="-1295" y="78" width="670" height="676" key="search.everywhere.popup" timestamp="1600810604959">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state x="-1295" y="78" width="670" height="676" key="search.everywhere.popup/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1600636968168" />
+    <state x="-1295" y="78" width="670" height="676" key="search.everywhere.popup/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1600810604959" />
   </component>
 </project>

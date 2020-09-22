@@ -1,9 +1,3 @@
-Cleanup Form :
-    - IFromProgressState
-    - IFormValue
-    - IFormValidation
-    - IFormEvent
-
-
-
-//disable input on form loading
+//auto upload file filed base
+//default elements
+//array text field

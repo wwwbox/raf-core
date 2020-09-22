@@ -3,7 +3,7 @@ import {mock} from "jest-mock-extended";
 import IField from "../../Field/IField";
 import {IFieldValue} from "../../Field/Value/FieldValue";
 import {IFieldCollecting} from "../../Field/Collecting/FieldCollecting";
-import {tfGetForm} from "./TestingFormUtils";
+import {tfGetForm} from "../../TestingUtils/TestingFormUtils";
 
 describe('FormValueTest', () => {
 

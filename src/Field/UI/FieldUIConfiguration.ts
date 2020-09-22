@@ -3,6 +3,7 @@ export interface FieldUIConfiguration {
     message: string;
     messageType: FieldMessageType;
     disableOnLoading: boolean;
+    disableOnFormLoading: boolean;
     hidden: boolean;
     disabled: boolean;
     loading: boolean;
@@ -22,6 +23,7 @@ export function getDefaultFieldUIConfiguration(): FieldUIConfiguration {
         message: '',
         messageType: FieldMessageType.INFO,
         disableOnLoading: false,
+        disableOnFormLoading: true,
         hidden: false,
         loading: false,
         readonly: false

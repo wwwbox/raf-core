@@ -10,6 +10,7 @@ import {FormFieldManager, IFormFieldManager} from "./FieldManager/FormFieldManag
 import Submitter from "../Protocol/Submitter";
 import {getFormService} from "./FormService";
 import FormDefault from "./FormDefault";
+import {GlobalEvents} from "../Event/DefaultEvents";
 
 
 export default class Form extends React.Component<FormProps, FormState>
@@ -39,11 +40,16 @@ export default class Form extends React.Component<FormProps, FormState>
     componentDidMount(): void {
         const values = this.props.initialValues ? this.props.initialValues : {};
         this.value().set(values);
+        this.event().emit(GlobalEvents.FORM_READY , {});
     }
 
 
     render() {
         return this.ui().render();
+    }
+
+    componentDidUpdate(prevProps: Readonly<FormProps>, prevState: Readonly<FormState>, snapshot?: any) {
+        this.event().emit(GlobalEvents.FORM_RENDERED , {});
     }
 
     event(): IFormEvent {
@@ -68,6 +74,12 @@ export default class Form extends React.Component<FormProps, FormState>
                 return;
             }
         }
+
+        if (!this.value().isReady()) {
+            this.event().emit(GlobalEvents.FORM_NOT_READY_TO_COLLECT, {});
+            return;
+        }
+
         this._submitter.submit();
     }
 

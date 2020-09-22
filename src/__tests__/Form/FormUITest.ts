@@ -1,5 +1,5 @@
 import {FormUI} from "../../Form/FormUI/FormUI";
-import {tfGetForm} from "./TestingFormUtils";
+import {tfGetForm} from "../../TestingUtils/TestingFormUtils";
 
 describe("FormUI", () => {
 

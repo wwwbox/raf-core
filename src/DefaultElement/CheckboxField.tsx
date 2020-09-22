@@ -1,31 +1,33 @@
 import React from "react";
-import Field from "../Field/Concrete/Field";
+import DefaultFieldBase from "./DefaultFieldBase";
+import {TextFieldExtraConfiguration} from "./TextField";
+import {FieldProps} from "../Field/FieldProps";
 
 
-export default class CheckboxField extends Field {
+export default class CheckboxField extends DefaultFieldBase<TextFieldExtraConfiguration> {
+    
+    constructor(props: FieldProps) {
+        super(props);
+        this.state.value.extractValueFromEvent = event => event.target.checked;
+    }
 
-    render(): any {
+    protected getInputComponent(): any {
+        return 'input';
+    }
 
-        const wrapperStyle: any = {};
-        if (this.isHidden())
-            wrapperStyle["display"] = 'none';
+    protected getOtherProps(): any {
+        return {
+            type: 'checkbox'
+        }
+    }
 
-        const disable = this.isDisableOnLoading() && this.isLoading();
-        const label = this.props.label ?? '';
-
-        return <div style={wrapperStyle}>
-            <input name={this.getName()} type={'checkbox'} disabled={disable} value={this.getValue()}
-                   onChange={e => this.handleChange(e)}/>
-            <label>{label}</label>
-            {
-                this.getMessage() &&
-                <span className={`message_type_${this.getMessageType()}`}>{this.getMessage()}</span>
-            }
-        </div>
+    protected renderPostInput(): any {
+        const label = this.extra().config('label') ?? '';
+        return <label>{label}</label>
     }
 
     extractValueFromChangeEvent(event: any): any {
-        return event.target.checked;
+        return;
     }
 
 }
