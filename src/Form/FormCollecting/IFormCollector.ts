@@ -1,4 +1,4 @@
-import IForm from "../../Form/IForm";
+import IForm from "../IForm";
 import {FieldType} from "../../Field/Concrete/FieldType";
 import IField from "../../Field/IField";
 

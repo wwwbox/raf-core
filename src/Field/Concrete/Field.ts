@@ -37,6 +37,14 @@ export default class Field<ExtraConfiguration = any> extends React.Component<Fie
         this._collecting = new FieldCollecting(this, "collecting");
         this._extra = new FieldExtra(this, "extra");
         this._event = new FieldEvent(this);
+        this.setupListeners();
+    }
+
+    protected setupListeners(): void {
+        const globalListeners = this.getProps().listen ?? {};
+        const thisListeners = this.getProps().listenThis ?? {};
+        Object.keys(globalListeners).forEach(key => this.event().listen(key, globalListeners[key]));
+        Object.keys(thisListeners).forEach(key => this.event().listenOnThis(key, globalListeners[key]));
     }
 
     protected initializeState(): any {

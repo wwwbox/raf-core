@@ -11,6 +11,7 @@ import Submitter from "../Protocol/Submitter";
 import {getFormService} from "./FormService";
 import FormDefault from "./FormDefault";
 import {GlobalEvents} from "../Event/DefaultEvents";
+import {DefaultCollector, IFormCollector} from "./FormCollecting/IFormCollector";
 
 
 export default class Form extends React.Component<FormProps, FormState>
@@ -22,6 +23,7 @@ export default class Form extends React.Component<FormProps, FormState>
     protected _event: IFormEvent;
     protected _value: IFormValue;
     protected _fieldManager: IFormFieldManager;
+    protected _collecting: IFormCollector;
 
     protected _submitter: Submitter;
 
@@ -34,13 +36,16 @@ export default class Form extends React.Component<FormProps, FormState>
         this._event = new FormEvent(this);
         this._value = new FormValue(this);
         this._fieldManager = new FormFieldManager(this);
-        this._submitter = getFormService("submitter", this, this.props.services?.submitter, FormDefault.getSubmitter())
+        this._collecting = new DefaultCollector(this);
+        this._submitter = getFormService("submitter", this, this.props.services?.submitter, FormDefault.getSubmitter());
+
+        this.setupListeners();
     }
 
     componentDidMount(): void {
         const values = this.props.initialValues ? this.props.initialValues : {};
         this.value().set(values);
-        this.event().emit(GlobalEvents.FORM_READY , {});
+        this.event().emit(GlobalEvents.FORM_READY, {});
     }
 
 
@@ -49,7 +54,7 @@ export default class Form extends React.Component<FormProps, FormState>
     }
 
     componentDidUpdate(prevProps: Readonly<FormProps>, prevState: Readonly<FormState>, snapshot?: any) {
-        this.event().emit(GlobalEvents.FORM_RENDERED , {});
+        this.event().emit(GlobalEvents.FORM_RENDERED, {});
     }
 
     event(): IFormEvent {
@@ -97,5 +102,15 @@ export default class Form extends React.Component<FormProps, FormState>
 
     value(): IFormValue {
         return this._value;
+    }
+
+    collecting(): IFormCollector {
+        return this._collecting;
+    }
+
+    private setupListeners(): void {
+        const listeners = this.getProps().listen ?? {};
+        const keys = Object.keys(listeners);
+        keys.forEach(key => this.event().addListener("form", key, listeners[key]));
     }
 }

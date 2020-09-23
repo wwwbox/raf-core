@@ -5,6 +5,7 @@ import {IFormValue} from "./FormValue/FormValue";
 import {IFormValidation} from "./FormValidation/FormValidation";
 import {IFormEvent} from "./FormEvent/FormEvent";
 import FormState from "./FormState";
+import {IFormCollector} from "./FormCollecting/IFormCollector";
 
 
 export default interface IForm {
@@ -18,6 +19,8 @@ export default interface IForm {
     validation(): IFormValidation;
 
     ui(): IFormUI;
+
+    collecting(): IFormCollector;
 
     submit(): void;
 

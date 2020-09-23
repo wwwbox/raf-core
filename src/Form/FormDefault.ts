@@ -9,7 +9,6 @@ import {DefaultEventNameMaker, IEventNameMaker} from "../Event/IEventNameMaker";
 import {DefaultFormRenderer} from "../Defaults/Services/DefaultFormRenderer";
 import DefaultFieldRenderer from "../Defaults/Services/DefaultFieldRenderer";
 import {DefaultSubmitter} from "../Defaults/Services/DefaultSubmitter";
-import {DefaultCollector} from "../Defaults/Services/IFormCollector";
 
 export default class FormDefault {
     private static defaultRenderer: FormService<FormRenderer> | undefined;
@@ -44,7 +43,7 @@ export default class FormDefault {
     }
 
     public static getSubmitter(): FormService<Submitter> {
-        return FormDefault.defaultSubmitter ?? ((form: IForm) => new DefaultSubmitter(form, new DefaultCollector(form)));
+        return FormDefault.defaultSubmitter ?? ((form: IForm) => new DefaultSubmitter(form));
     }
 
     public static getValidator(): FormService<Validator> {

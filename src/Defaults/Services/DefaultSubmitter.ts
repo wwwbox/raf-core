@@ -1,7 +1,7 @@
 import Submitter from "../../Protocol/Submitter";
 import IForm from "../../Form/IForm";
 import {RafDefaults} from "../RafDefaults";
-import {IFormCollector} from "./IFormCollector";
+import {IFormCollector} from "../../Form/FormCollecting/IFormCollector";
 import {GlobalEvents} from "../../Event/DefaultEvents";
 
 
@@ -24,11 +24,9 @@ export const defaultSubmitOptions: SubmitOptionsBase = {
 export abstract class SubmitterBase<SubmitOption extends SubmitOptionsBase> implements Submitter {
 
     private readonly form: IForm;
-    private readonly collector: IFormCollector;
 
-    protected constructor(form: IForm, collector: IFormCollector) {
+    protected constructor(form: IForm) {
         this.form = form;
-        this.collector = collector;
     }
 
     getForm(): IForm {
@@ -36,7 +34,7 @@ export abstract class SubmitterBase<SubmitOption extends SubmitOptionsBase> impl
     }
 
     getCollector(): IFormCollector {
-        return this.collector;
+        return this.form.collecting();
     }
 
     abstract submit(): void;
@@ -85,8 +83,8 @@ export abstract class SubmitterBase<SubmitOption extends SubmitOptionsBase> impl
 
 export class DefaultSubmitter extends SubmitterBase<SubmitOptionsBase> {
 
-    constructor(form: IForm, collector: IFormCollector) {
-        super(form, collector);
+    constructor(form: IForm) {
+        super(form);
     }
 
     submit(): void {
@@ -100,7 +98,7 @@ export class DefaultSubmitter extends SubmitterBase<SubmitOptionsBase> {
 
     private send(xhr: XMLHttpRequest) {
         const options = this.getSubmitOptions();
-        xhr.open(options.method, options.url, true);
+        xhr.open(options.method, this.getUrlWithQueries(), true);
         xhr.setRequestHeader('Content-Type', this.getContentType());
         xhr.send(this.getData());
 
@@ -116,7 +114,6 @@ export class DefaultSubmitter extends SubmitterBase<SubmitOptionsBase> {
             if (options.updateUi) {
                 this.getForm().ui().stopLoading();
             }
-
             if (request.status < 400) {
                 this.getForm().event().emit(GlobalEvents.SUBMIT_DONE, {options: options, response: request.response});
             } else {
