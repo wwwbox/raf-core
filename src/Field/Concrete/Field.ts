@@ -17,7 +17,7 @@ import {FieldExtra, IFieldExtraConfiguration} from "../Configuration/FieldExtra"
 import {FieldType} from "./FieldType";
 import {FieldEvent, IFieldEvent} from "../FieldEvent/FieldEvent";
 
-export default class Field<ExtraConfiguration = any> extends React.Component<FieldProps, FieldState> implements IField<ExtraConfiguration> {
+export default class Field<ExtraConfiguration = any> extends React.Component<FieldProps, FieldState<ExtraConfiguration>> implements IField<ExtraConfiguration> {
 
     protected _value: IFieldValue;
     protected _validation: IFieldValidation;
@@ -47,7 +47,7 @@ export default class Field<ExtraConfiguration = any> extends React.Component<Fie
         return new DefaultExtraConfigurationInitializer();
     }
 
-    protected handleValueChange(e: any): void {
+    protected handleValueChange = (e: any): void => {
         this.value().getOnChangeHandler().handle(e);
     }
 
@@ -72,7 +72,7 @@ export default class Field<ExtraConfiguration = any> extends React.Component<Fie
     }
 
     getConfiguration<T>(key: keyof FieldState): T {
-        return this.state[key] as T;
+        return this.state[key] as any;
     }
 
     getName(): string {

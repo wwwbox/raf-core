@@ -9,14 +9,13 @@ export default class DynamicField<ExtraConfiguration extends DynamicFieldConfigu
 
     constructor(props: FieldProps) {
         super(props);
-        const state = {...this.state};
         const defaultValue = props.value;
-        state.value.value = defaultValue ? (
+
+        this.state.value.value = defaultValue ? (
             Array.isArray(defaultValue) ? [...defaultValue] : [defaultValue]
         ) : [''];
+        this.state.value.defaultChangeHandler = () => new DefaultDynamicFieldChangeHandler(this);
 
-        state.value.defaultChangeHandler = () => new DefaultDynamicFieldChangeHandler(this)
-        this.state = state;
         this._extra = new DynamicFieldExtra(this, "extra");
     }
 

@@ -16,7 +16,7 @@ export class DefaultCollector implements IFormCollector {
 
     private readonly form: IForm;
 
-    protected constructor(form: IForm) {
+    public constructor(form: IForm) {
         this.form = form;
     }
 

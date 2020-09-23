@@ -2,19 +2,19 @@ import React from "react";
 import {DefaultOptionsFieldBase} from "./DefaultOptionsFieldBase";
 
 
-export default class RadioField extends DefaultOptionsFieldBase {
+export default class DefaultRadioField extends DefaultOptionsFieldBase {
     protected getInputComponent(): any {
         return 'div';
     }
 
-    protected getDefaultProps(): any {
+    protected getMainProps(): any {
         return {};
     }
 
     protected renderOption(option: any, index: number): any {
         return <>
             <input disabled={this.ui().shouldDisable()}
-                   checked={this.value().get() === option.value}
+                   checked={this.value().get() == option.value}
                    value={option.value}
                    name={this.getName()}
                    onChange={this.handleValueChange}

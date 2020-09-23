@@ -43,7 +43,7 @@ export default class FieldStateInitializer<T extends FieldState = FieldState, Ex
     }
 
     private getExtra(): any {
-        return this.extraInitializer.initialize(this.props);
+        return this.extraInitializer.initialize(this.props.extra);
     }
 
     private getStateFromConfiguration<T>(defaultConfiguration: T): T {

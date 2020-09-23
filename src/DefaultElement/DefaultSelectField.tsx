@@ -1,12 +1,9 @@
 import React from "react";
 import {DefaultOptionsFieldBase} from "./DefaultOptionsFieldBase";
 
-export interface SelectExtraConfiguration {
-    options: any[]
-}
 
-export default class SelectField extends DefaultOptionsFieldBase {
-    
+export default class DefaultSelectField extends DefaultOptionsFieldBase {
+
     protected getInputComponent(): any {
         return 'select';
     }

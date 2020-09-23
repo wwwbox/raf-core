@@ -16,13 +16,16 @@ describe('DynamicField', () => {
     const FIELD_NAME = "field";
     const FIELD_AS: any = 'div';
 
-    function getField(otherProps: any = {}) {
+    function getField(otherProps: any = {}, value?: any) {
         const props = {
             as: FIELD_AS,
             name: FIELD_NAME,
             injectedEventNameMaker: mock<IEventNameMaker>(),
             injectedValidator: {} as any,
-            ...otherProps,
+            value: value,
+            extra: {
+                ...otherProps
+            },
             form: {fields: jest.fn().mockReturnValue({register: jest.fn()}), event: mock<IFormEvent>()} as any
         };
         const component = mount(<DynamicField  {...props} />);
@@ -41,7 +44,7 @@ describe('DynamicField', () => {
     });
 
     it('should return default value when supplied', function () {
-        const field = getField({value: ['1', '2']});
+        const field = getField({}, ['1', '2']);
         const value = field.value().get();
         expect(value).toEqual(['1', '2']);
     });

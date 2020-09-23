@@ -19,10 +19,10 @@ export default abstract class DefaultFieldBase<ExtraConfiguration = any> extends
     }
 
     protected getInjectedProps(): any {
-        return {...this.getDefaultProps(), ...this.getOtherProps()};
+        return {...this.getMainProps(), ...this.getOtherProps()};
     }
 
-    protected getDefaultProps(): any {
+    protected getMainProps(): any {
         return {
             name: this.getName(),
             disabled: this.ui().shouldDisable(),

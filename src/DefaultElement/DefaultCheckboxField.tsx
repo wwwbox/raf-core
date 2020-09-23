@@ -1,11 +1,11 @@
 import React from "react";
 import DefaultFieldBase from "./DefaultFieldBase";
-import {TextFieldExtraConfiguration} from "./TextField";
+import {TextFieldExtraConfiguration} from "./DefaultTextField";
 import {FieldProps} from "../Field/FieldProps";
 
 
-export default class CheckboxField extends DefaultFieldBase<TextFieldExtraConfiguration> {
-    
+export default class DefaultCheckboxField extends DefaultFieldBase<TextFieldExtraConfiguration> {
+
     constructor(props: FieldProps) {
         super(props);
         this.state.value.extractValueFromEvent = event => event.target.checked;

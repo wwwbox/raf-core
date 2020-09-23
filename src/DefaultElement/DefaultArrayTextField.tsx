@@ -19,7 +19,8 @@ export default class DefaultArrayTextField extends DynamicField<ExtraConfigurati
 
             {
                 value.map((v: any, index: number) => <div key={index}>
-                    <input value={v} type={'text'} onChange={e => this.value().getOnChangeHandler().handle(e)}/>
+                    <input value={v} type={'text'}
+                           onChange={e => this.value().getOnChangeHandler().handle({...e, index: index})}/>
                     <button onClick={() => this.removeInput(index)}>REMOVE</button>
                 </div>)
             }

@@ -6,7 +6,7 @@ interface TextAreaExtraConfiguration {
     rows?: number;
 }
 
-export default class DefaultTextArea extends DefaultFieldBase {
+export default class DefaultTextAreaField extends DefaultFieldBase<TextAreaExtraConfiguration> {
     protected getInputComponent(): any {
         return 'textarea';
     }

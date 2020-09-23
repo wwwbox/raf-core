@@ -1,4 +1,7 @@
 import IForm from "../IForm";
+import {getFormService} from "../FormService";
+import FormRenderer from "../../Protocol/FormRenderer";
+import FormDefault from "../FormDefault";
 
 export interface IFormUI {
     startLoading(): void;
@@ -32,8 +35,8 @@ export class FormUI implements IFormUI {
     }
 
     render(): any {
-        //todo : implement render
-        return null;
+        const renderer = getFormService<FormRenderer>("form renderer", this.form, this.form.getProps().services?.formRenderer, FormDefault.getFormRenderer())
+        return renderer.render();
     }
 
 }

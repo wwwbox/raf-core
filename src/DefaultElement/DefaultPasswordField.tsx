@@ -1,8 +1,8 @@
 import React from "react";
-import TextField from "./TextField";
+import TextField from "./DefaultTextField";
 
 
-export default class PasswordField extends TextField {
+export default class DefaultPasswordField extends TextField {
 
     protected getOtherProps(): any {
         return {type: 'password'};
