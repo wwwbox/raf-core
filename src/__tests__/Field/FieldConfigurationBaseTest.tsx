@@ -1,7 +1,6 @@
 import {FieldConfigurationBase} from "../../Field/Configuration/FieldConfiguration";
 import IField from "../../Field/IField";
-import {mock} from "jest-mock-extended";
-import {IFieldEvent} from "../../Field/FieldEvent/FieldEvent";
+import {FieldConfigurationTestUtil} from "../../TestingUtils/FieldConfigurationTestUtil";
 
 class DummyConfiguration extends FieldConfigurationBase<any> {
 
@@ -14,45 +13,25 @@ class DummyConfiguration extends FieldConfigurationBase<any> {
     }
 }
 
+const testUtils = new FieldConfigurationTestUtil<any, DummyConfiguration>("dummy" as any, field => new DummyConfiguration(field, "dummy"));
+
 describe('FieldConfigurationBase', () => {
 
     it('should get configuration', function () {
-        const mockedConfiguration = {test: true};
-        const configurationKey = "dummy";
-        const mockedField: IField = {
-            getConfiguration: jest.fn(key => key === configurationKey ? mockedConfiguration : null),
-        } as any;
-        const test = new DummyConfiguration(mockedField, configurationKey).config('test');
-        expect(test).toEqual(true);
+        testUtils.testGet("test", true, d => d.config('test'));
     });
 
 
     it('should update configuration', function () {
-        const mockedConfiguration = {test: true, foo: 'bar'};
-        const configurationKey = "dummy";
-        const mockedField: IField = {
-            getConfiguration: jest.fn(key => key === configurationKey ? mockedConfiguration : null),
-            updateConfiguration: jest.fn(),
-            event: jest.fn().mockReturnValue(mock<IFieldEvent>())
-        } as any;
-        const afterChange = jest.fn();
-        new DummyConfiguration(mockedField, configurationKey).update('test', false, afterChange);
-
-        expect(mockedField.updateConfiguration).toBeCalledWith(configurationKey, {
-            test: false,
+        const afterChangeMock = jest.fn();
+        testUtils.testSet("test", false, d => d.update('test', false, afterChangeMock), {
+            test: true,
             foo: 'bar'
-        }, afterChange);
+        }, afterChangeMock);
     });
 
     it('should not update configurations that marked as unUpdatable', function () {
-        const configurationKey = "dummy";
-        const mockedField: IField = {
-            getConfiguration: jest.fn(),
-            updateConfiguration: jest.fn()
-        } as any;
-        const configuration = new DummyConfiguration(mockedField, configurationKey);
-
-        expect(() => configuration.update('x', false)).toThrowError('cannot update x');
+        testUtils.testUnupdatableConfiguration('x');
     });
 
 });

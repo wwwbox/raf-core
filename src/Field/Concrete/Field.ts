@@ -44,7 +44,7 @@ export default class Field<ExtraConfiguration = any> extends React.Component<Fie
         const globalListeners = this.getProps().listen ?? {};
         const thisListeners = this.getProps().listenThis ?? {};
         Object.keys(globalListeners).forEach(key => this.event().listen(key, globalListeners[key]));
-        Object.keys(thisListeners).forEach(key => this.event().listenOnThis(key, globalListeners[key]));
+        Object.keys(thisListeners).forEach(key => this.event().listenOnThis(key, thisListeners[key]));
     }
 
     protected initializeState(): any {

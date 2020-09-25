@@ -5,6 +5,10 @@ import * as React from "react";
 import {FieldProps} from "../../Field/FieldProps";
 import FieldStateInitializer, {DefaultExtraConfigurationInitializer} from "../../Field/Concrete/FieldStateInitializer";
 import {FieldType} from "../../Field/Concrete/FieldType";
+import {IFormEvent} from "../../Form/FormEvent/FormEvent";
+import {FieldEvents, GlobalEvents} from "../../Event/DefaultEvents";
+import {DefaultEventNameMaker} from "../../Event/IEventNameMaker";
+import {mock} from "jest-mock-extended";
 
 Enzyme.configure({adapter: new Adapter()});
 
@@ -13,17 +17,34 @@ describe('Field', () => {
     const FIELD_NAME = "field";
     const FIELD_AS: any = 'div';
 
+    const nameMaker = new DefaultEventNameMaker();
     let field: Field;
     let props: FieldProps;
     let component: any;
+    let formEvent: any;
+
+    const formReadyMock = jest.fn();
+    const formClearedMock = jest.fn();
+    const fieldChangedMock = jest.fn();
 
     beforeEach(() => {
+        formEvent = mock<IFormEvent>();
         props = {
             as: FIELD_AS,
             name: FIELD_NAME,
-            injectedEventNameMaker: {} as any,
+            injectedEventNameMaker: nameMaker,
             injectedValidator: {} as any,
-            form: {fields: jest.fn().mockReturnValue({register: jest.fn()})} as any
+            listen: {
+                [GlobalEvents.FORM_CLEARED]: formClearedMock,
+                [GlobalEvents.FORM_READY]: formReadyMock
+            },
+            listenThis: {
+                [FieldEvents.CHANGE]: fieldChangedMock
+            },
+            form: {
+                fields: jest.fn().mockReturnValue({register: jest.fn()}),
+                event: () => formEvent
+            } as any
         };
         component = mount(<Field  {...props} />);
         field = component.instance() as Field;
@@ -61,5 +82,13 @@ describe('Field', () => {
 
     it('should return the name', function () {
         expect(field.getName()).toEqual(FIELD_NAME);
+    });
+
+    it('should register listeners', function () {
+        expect(formEvent.addListener.mock.calls).toEqual([
+            [FIELD_NAME, `${GlobalEvents.FORM_CLEARED}`, formClearedMock],
+            [FIELD_NAME, `${GlobalEvents.FORM_READY}`, formReadyMock],
+            [FIELD_NAME, `EF@${FIELD_NAME}?${FieldEvents.CHANGE}`, fieldChangedMock],
+        ])
     });
 });

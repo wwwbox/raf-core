@@ -1,6 +1,6 @@
 {
-  "name": "react-auto-form-core",
-  "version": "0.3.0",
+  "name": "raf-core",
+  "version": "1.0.0",
   "private": false,
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.4",

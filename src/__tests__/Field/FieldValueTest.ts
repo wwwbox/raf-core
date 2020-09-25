@@ -1,10 +1,17 @@
 import {FieldValue} from "../../Field/Value/FieldValue";
 import IField from "../../Field/IField";
 import {mock} from "jest-mock-extended";
-import {getDefaultFieldValueConfiguration} from "../../Field/Value/FieldValueConfiguration";
+import {FieldValueConfiguration, getDefaultFieldValueConfiguration} from "../../Field/Value/FieldValueConfiguration";
 import IForm from "../../Form/IForm";
 import {IFormEvent} from "../../Form/FormEvent/FormEvent";
 import {IFieldEvent} from "../../Field/FieldEvent/FieldEvent";
+import {FieldConfigurationTestUtil} from "../../TestingUtils/FieldConfigurationTestUtil";
+import {IFieldValidation} from "../../Field/Validation/FieldValidation";
+
+
+const testUtils = new FieldConfigurationTestUtil<FieldValueConfiguration, FieldValue>("value",
+    field => new FieldValue(field, "value")
+);
 
 describe('FieldValue', () => {
 
@@ -29,48 +36,51 @@ describe('FieldValue', () => {
 
     it('should get on change handler from passed options', function () {
         const valueChangeHandlerMock = jest.fn();
-        field.getProps = jest.fn().mockReturnValue({valueChangeHandler: valueChangeHandlerMock});
-        const value = getFieldValueInstance();
+        const {service: value, field} = testUtils.getInstanceWithField({}, {
+            getProps: () => ({valueChangeHandler: valueChangeHandlerMock})
+        })
         value.getOnChangeHandler();
         expect(valueChangeHandlerMock).toBeCalledWith(field);
     });
 
-    it('should get on change handler from configuration', function () {
+    it('should get default change handler', function () {
         const valueChangeHandlerMock = jest.fn();
-        field.getProps = jest.fn().mockReturnValue({valueChangeHandler: null});
-        field.getConfiguration = jest.fn().mockReturnValue({defaultChangeHandler: valueChangeHandlerMock});
-        const value = getFieldValueInstance();
+        const {service: value, field} = testUtils.getInstanceWithField({defaultChangeHandler: valueChangeHandlerMock}, {
+            getProps: () => ({valueChangeHandler: null})
+        });
         value.getOnChangeHandler();
         expect(valueChangeHandlerMock).toBeCalledWith(field);
     });
 
     it('should set value', function () {
-        const value = getFieldValueInstance();
+        const updateConfigurationMock = jest.fn();
+        const validationMock = mock<IFieldValidation>();
+        const value = testUtils.getInstance({}, {
+            updateConfiguration: updateConfigurationMock,
+            validation: () => validationMock
+        })
         const callback = jest.fn();
-        field.getConfiguration = jest.fn().mockReturnValue({});
         value.set('x', true, callback);
-        expect(field.updateConfiguration).toBeCalledWith('value', {value: 'x'}, callback);
+        expect(updateConfigurationMock).toBeCalledWith('value', {value: 'x'}, callback);
+        expect(validationMock.validateWithEffect).toBeCalledWith(true);
     });
 
 
     it('should get value', function () {
-        const value = getFieldValueInstance();
-        field.getConfiguration = jest.fn().mockReturnValue({value: 'x'});
-        const x = value.get();
-        expect(x).toEqual('x');
+        testUtils.testGet("value", "test", v => v.get());
     });
 
     it('should clear value', function () {
-        const value = getFieldValueInstance();
-        field.getConfiguration = jest.fn().mockReturnValue({clearValue: 'empty'});
+        const updateConfigurationMock = jest.fn();
+        const value = testUtils.getInstance({clearValue: 'empty'}, {
+            updateConfiguration: updateConfigurationMock
+        });
         value.clear();
-        expect(field.updateConfiguration).toBeCalledWith('value', {clearValue: 'empty', value: 'empty'}, undefined);
+        expect(updateConfigurationMock).toBeCalledWith('value', {clearValue: 'empty', value: 'empty'}, undefined);
     });
 
     it('should not update valueChangeHandler,defaultChangeHandler', function () {
-        const value = getFieldValueInstance();
-        expect(() => value.update('valueChangeHandler', {})).toThrowError();
-        expect(() => value.update('defaultChangeHandler', {})).toThrowError();
+        testUtils.testUnupdatableConfiguration('valueChangeHandler', 'defaultChangeHandler');
     });
 
 })

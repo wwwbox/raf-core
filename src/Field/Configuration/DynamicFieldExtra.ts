@@ -32,7 +32,6 @@ export interface IDynamicFieldExtra extends IFieldExtraConfiguration<DynamicFiel
     getOnItemRemoved(): (item: any, index: number, field: DynamicField) => void;
 
     getOnItemAdded(): (index: number, field: DynamicField) => void;
-
 }
 
 export class DynamicFieldExtra extends FieldExtra<DynamicFieldConfiguration> implements IDynamicFieldExtra {

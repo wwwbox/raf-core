@@ -1,85 +1,69 @@
-import Enzyme, {mount} from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
-import Field from "../../Field/Concrete/Field";
 import * as React from "react";
-import {FieldProps} from "../../Field/FieldProps";
 import {
     FieldCollectingConfiguration,
     getDefaultFieldCollectingConfiguration
 } from "../../Field/Collecting/FieldCollectingConfiguration";
 import {FieldCollecting} from "../../Field/Collecting/FieldCollecting";
-import IField from "../../Field/IField";
-
-Enzyme.configure({adapter: new Adapter()});
+import {IFieldValue} from "../../Field/Value/FieldValue";
+import {mock} from "jest-mock-extended";
+import {FieldConfigurationTestUtil} from "../../TestingUtils/FieldConfigurationTestUtil";
 
 
 describe('FieldCollecting', () => {
 
+    const testUtils = new FieldConfigurationTestUtil<FieldCollectingConfiguration, FieldCollecting>("collecting",
+        field => new FieldCollecting(field, "collecting")
+    );
 
-    const FIELD_NAME = "field";
-    const FIELD_AS: any = 'div';
-
-    let field: IField;
-
-    function getFieldCollectingInstance(config: FieldCollectingConfiguration) {
-        const props: FieldProps = {
-            as: FIELD_AS,
-            name: FIELD_NAME,
-            injectedEventNameMaker: {} as any,
-            injectedValidator: {} as any,
-            ...config,
-            form: {fields: jest.fn().mockReturnValue({register: jest.fn()})} as any
-        };
-        const component = mount(<Field  {...props} />);
-        field = component.instance() as Field;
-
-        return new FieldCollecting(field, "collecting");
-    }
 
     it('should set/get isQuery', function () {
-        const fieldCollecting = getFieldCollectingInstance({
-            ...getDefaultFieldCollectingConfiguration(),
-            asQuery: true
-        });
-        expect(fieldCollecting.isAsQuery()).toEqual(true);
-        fieldCollecting.setAsQuery(false);
-        expect(fieldCollecting.isAsQuery()).toEqual(false);
+        testUtils.testGet("asQuery", true, c => c.isAsQuery());
+        testUtils.testSet("asQuery", false, c => c.setAsQuery(false));
     });
 
     it('should set/get isReady', function () {
-        const fieldCollecting = getFieldCollectingInstance({
-            ...getDefaultFieldCollectingConfiguration(),
-            ready: false
-        });
-        expect(fieldCollecting.isReady()).toEqual(false);
-        fieldCollecting.setReady(true);
-        expect(fieldCollecting.isReady()).toEqual(true);
+        testUtils.testGet("ready", false, c => c.isReady());
+        testUtils.testSet("ready", true, c => c.setReady(true));
     });
 
     it('should set/get skipCollecting', function () {
-        const fieldCollecting = getFieldCollectingInstance({
-            ...getDefaultFieldCollectingConfiguration(),
-            skipCollecting: true
-        });
-        expect(fieldCollecting.shouldSkip()).toEqual(true);
-        fieldCollecting.setSkip(false);
-        expect(fieldCollecting.shouldSkip()).toEqual(false);
+        testUtils.testGet("skipCollecting", true, c => c.shouldSkip());
+        testUtils.testSet("skipCollecting", false, c => c.setSkip(false));
     });
 
 
     it('should collect', function () {
-        const fieldCollecting = getFieldCollectingInstance({
-            ...getDefaultFieldCollectingConfiguration(),
-            collect: () => "test"
-        });
-        const collected = fieldCollecting.collect();
+        const collecting = testUtils.getInstance({collect: () => "test"});
+        const collected = collecting.collect();
         expect(collected).toEqual("test");
     });
 
     it('should not able to update collect', function () {
-        const fieldCollecting = getFieldCollectingInstance(getDefaultFieldCollectingConfiguration());
-        expect(() => fieldCollecting.update("collect" , null)).toThrowError();
+        testUtils.testUnupdatableConfiguration("collect");
     });
 
 
 });
+
+
+describe('FieldCollectingDefaults', () => {
+
+
+    it('should return defaults', function () {
+        const {collect, ...defaults} = getDefaultFieldCollectingConfiguration();
+        expect(defaults).toEqual({
+            asQuery: false,
+            ready: true,
+            skipCollecting: false,
+        });
+        const valueMock = mock<IFieldValue>({
+            get(): any {
+                return "test";
+            }
+        });
+
+        const mockField: any = {value: () => valueMock};
+        const value = collect(mockField);
+        expect(value).toEqual("test");
+    });
+})

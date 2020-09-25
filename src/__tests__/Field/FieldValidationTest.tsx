@@ -12,105 +12,64 @@ import {IEventNameMaker} from "../../Event/IEventNameMaker";
 import IField from "../../Field/IField";
 import {IFieldEvent} from "../../Field/FieldEvent/FieldEvent";
 import {FieldProps} from "../../Field/FieldProps";
-import {IFieldValue} from "../../Field/Value/FieldValue";
+import {FieldValue, IFieldValue} from "../../Field/Value/FieldValue";
 import {IFieldUI} from "../../Field/UI/FieldUI";
 import Field from "../../Field/Concrete/Field";
 import {IFormEvent} from "../../Form/FormEvent/FormEvent";
 import {FieldMessageType} from "../../Field/UI/FieldUIConfiguration";
 import {FieldEvents} from "../../Event/DefaultEvents";
+import {FieldConfigurationTestUtil} from "../../TestingUtils/FieldConfigurationTestUtil";
 
 Enzyme.configure({adapter: new Adapter()});
 
+const testUtils = new FieldConfigurationTestUtil<FieldValidationConfiguration, FieldValidation>("validation",
+    field => new FieldValidation(field, "validation")
+);
 
 describe('UI Event', () => {
-
-    const FIELD_NAME = "field";
-    const FIELD_AS: any = 'div';
-
-    let field: IField;
-    let eventNameMaker: IEventNameMaker = mock<IEventNameMaker>();
-    let event: IFieldEvent = mock<IFieldEvent>();
-    let value: IFieldValue = mock<IFieldValue>();
-    let ui: IFieldUI = mock<IFieldUI>();
-
-    function getFieldValidationInstance(config: FieldValidationConfiguration, injectedValidator: any = {}) {
-        const props = {
-            as: FIELD_AS,
-            name: FIELD_NAME,
-            injectedEventNameMaker: eventNameMaker,
-            injectedValidator: injectedValidator,
-            ...config,
-            form: {fields: jest.fn().mockReturnValue({register: jest.fn()})} as any
-        };
-        // const component = mount(<Field  {...props} />);
-        // field = component.instance() as Field;
-        field = mock<IField>({
-            event(): IFieldEvent {
-                return event;
-            },
-            getProps(): FieldProps {
-                return props;
-            },
-            value(): IFieldValue {
-                return value;
-            },
-            getConfiguration<T>(): T {
-                return config as any;
-            },
-            ui(): IFieldUI {
-                return ui;
-            }
-        })
-        return new FieldValidation(field, "validation");
-    }
-
-    function getFieldValidationInstanceWithRealField(config: FieldValidationConfiguration, injectedValidator: any = {}) {
-        const props = {
-            as: FIELD_AS,
-            name: FIELD_NAME,
-            injectedEventNameMaker: eventNameMaker,
-            injectedValidator: injectedValidator,
-            ...config,
-            form: {fields: jest.fn().mockReturnValue({register: jest.fn()}), event: () => mock<IFormEvent>()} as any
-        };
-        const component = mount(<Field  {...props} />);
-        field = component.instance() as Field;
-        return new FieldValidation(field, "validation");
-    }
-
-
+    
     it('should use injected validator', function () {
         const validator = mock<Validator>({
             validate(): boolean | string {
                 return false;
             }
         });
-        const validation = getFieldValidationInstance({
-            ...getDefaultFieldValidationConfiguration(),
+
+        const validation = testUtils.getInstance({
             validator: null
-        }, validator);
+        }, {
+            getProps: () => {
+                return {
+                    injectedValidator: validator
+                }
+            },
+            value: () => mock<FieldValue>()
+        });
+
         const valid = validation.validate();
         expect(valid).toEqual(false);
     });
 
     it('should use passed validator over injected', function () {
-        const injectedValidator = mock<Validator>({
+        const validator = mock<Validator>({
             validate(): boolean | string {
                 return false;
             }
         });
 
-        const validator = mock<Validator>({
-            validate(): boolean | string {
-                return true;
-            }
-        });
-        const validation = getFieldValidationInstance({
-            ...getDefaultFieldValidationConfiguration(),
+        const validation = testUtils.getInstance({
             validator: () => validator
-        }, injectedValidator);
+        }, {
+            getProps: () => {
+                return {
+                    injectedValidator: null
+                }
+            },
+            value: () => mock<FieldValue>()
+        });
+
         const valid = validation.validate();
-        expect(valid).toEqual(true);
+        expect(valid).toEqual(false);
     });
 
     it('should skip return true when skip validation set to true', function () {
@@ -119,34 +78,19 @@ describe('UI Event', () => {
                 return false;
             }
         });
-        const validation = getFieldValidationInstance({
-            ...getDefaultFieldValidationConfiguration(),
-            validator: null, skipValidation: true
-        }, injectedValidator);
+        const validation = testUtils.getInstance({validator: () => injectedValidator, skipValidation: true});
         expect(validation.validate()).toEqual(true);
         expect(validation.validateWithEffect()).toEqual(true);
     });
 
     it('should test set & get current valid state', function () {
-        const injectedValidator = mock<Validator>({
-            validate(): boolean | string {
-                return false;
-            }
-        });
-        const validation = getFieldValidationInstanceWithRealField({
-            ...getDefaultFieldValidationConfiguration(),
-            valid: false
-        }, injectedValidator);
-
-        expect(validation.getCurrentValidState()).toEqual(false);
-        const callback = jest.fn();
-        validation.set(true, callback);
-        expect(validation.getCurrentValidState()).toEqual(true);
-        expect(callback).toBeCalled();
+        const afterChangeMock = jest.fn();
+        testUtils.testGet("valid", true, v => v.getCurrentValidState());
+        testUtils.testSet("valid", false, v => v.set(false, afterChangeMock), {}, afterChangeMock);
     });
 
     it('should return true only when validation result is true or empty string', function () {
-        const injectedValidator = mock<Validator>({
+        const validator = mock<Validator>({
             validate(value: any): boolean | string {
                 if (value === 'x') return true;
                 if (value === 'y') return '';
@@ -154,40 +98,61 @@ describe('UI Event', () => {
             }
         });
 
-        const validation = getFieldValidationInstance(getDefaultFieldValidationConfiguration(), injectedValidator);
-
-        eventNameMaker = mock<IEventNameMaker>({
-            fieldEvent(field: IField, eventName: string): string {
-                return "x@" + eventName;
-            }
+        const makeValidation = (value: any) => testUtils.getInstance({validator: () => validator}, {
+            value: () => mock<IFieldValue>({
+                get(): any {
+                    return value;
+                }
+            })
         });
 
-        value.get = jest.fn().mockReturnValue('x');
+        let validation = makeValidation("x");
         expect(validation.validate()).toEqual(true);
         expect(validation.validateWithEffect(false)).toEqual(true);
 
-        value.get = jest.fn().mockReturnValue('y');
+        validation = makeValidation("y");
         expect(validation.validate()).toEqual(true);
         expect(validation.validateWithEffect(false)).toEqual(true);
 
-        value.get = jest.fn().mockReturnValue('z');
+        validation = makeValidation("z");
         expect(validation.validate()).toEqual(false);
         expect(validation.validateWithEffect(false)).toEqual(false);
     });
 
     it('should validate with effect', function () {
+
+
         const injectedValidator = mock<Validator>({
             validate(value: any): boolean | string {
                 return value === 'ali';
             }
         });
-        const validation = getFieldValidationInstanceWithRealField(getDefaultFieldValidationConfiguration(), injectedValidator);
-        field.value().set("");
+
+        const updateConfigurationMock = jest.fn();
+
+        const initialConfiguration = {
+            valid: true,
+            validator: () => injectedValidator
+        };
+
+        const makeValidation = (value: any) => testUtils.getInstance(initialConfiguration, {
+            updateConfiguration: updateConfigurationMock,
+            value: () => mock<IFieldValue>({
+                get(): any {
+                    return value;
+                }
+            })
+        });
+
+        let validation = makeValidation("test");
         validation.validateWithEffect(false);
-        expect(validation.getCurrentValidState()).toEqual(false);
-        field.value().set("ali");
+        expect(updateConfigurationMock).toBeCalledWith("validation", {
+            ...initialConfiguration,
+            valid: false
+        }, undefined);
+        validation = makeValidation("ali");
         validation.validateWithEffect(false);
-        expect(validation.getCurrentValidState()).toEqual(true);
+        expect(updateConfigurationMock).toBeCalledWith("validation", {...initialConfiguration, valid: true}, undefined);
     });
 
     it('should update message', function () {
@@ -196,14 +161,24 @@ describe('UI Event', () => {
                 return 'error';
             }
         });
-        const validation = getFieldValidationInstanceWithRealField({
-            ...getDefaultFieldValidationConfiguration(),
+        const updateUiMock = jest.fn();
+        const validation = testUtils.getInstance({
             updateMessageOnValidationFail: true,
-            onFailMessageType: FieldMessageType.WARNING
-        }, injectedValidator);
+            onFailMessageType: FieldMessageType.WARNING,
+            validator: () => injectedValidator
+        }, {
+            value: () => mock<IFieldValue>(),
+            ui: () => mock<IFieldUI>({
+                update: updateUiMock
+            }),
+        });
+
         validation.validateWithEffect(false);
-        expect(field.ui().getMessage()).toEqual('error');
-        expect(field.ui().getMessageType()).toEqual(FieldMessageType.WARNING);
+        expect(updateUiMock.mock.calls).toEqual([
+            ["message", "error"],
+            ["messageType", FieldMessageType.WARNING]
+        ]);
+
     });
 
     it('should emit validation fail event on validation fail', function () {
@@ -212,13 +187,18 @@ describe('UI Event', () => {
                 return 'error';
             }
         });
-        const validation = getFieldValidationInstance({
-            ...getDefaultFieldValidationConfiguration(),
+        const eventMock = mock<IFieldEvent>();
+        const validation = testUtils.getInstance({
             updateMessageOnValidationFail: true,
-            onFailMessageType: FieldMessageType.WARNING
-        }, injectedValidator);
+            onFailMessageType: FieldMessageType.WARNING,
+            validator: () => injectedValidator
+        }, {
+            event: () => eventMock,
+            value: () => mock<IFieldValue>(),
+            ui: () => mock<IFieldUI>(),
+        });
         validation.validateWithEffect(true);
-        expect(field.event().emitOnThis).toBeCalledWith(FieldEvents.VALIDATION_FAIL, {validationResult: 'error'});
+        expect(eventMock.emitOnThis).toBeCalledWith(FieldEvents.VALIDATION_FAIL, {validationResult: 'error'});
     });
 
 });
