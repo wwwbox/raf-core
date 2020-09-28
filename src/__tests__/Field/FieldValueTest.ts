@@ -5,11 +5,11 @@ import {FieldValueConfiguration, getDefaultFieldValueConfiguration} from "../../
 import IForm from "../../Form/IForm";
 import {IFormEvent} from "../../Form/FormEvent/FormEvent";
 import {IFieldEvent} from "../../Field/FieldEvent/FieldEvent";
-import {FieldConfigurationTestUtil} from "../../TestingUtils/FieldConfigurationTestUtil";
+import {FieldConfigurationTestUtils} from "../../TestingUtils/FieldConfigurationTestUtils";
 import {IFieldValidation} from "../../Field/Validation/FieldValidation";
 
 
-const testUtils = new FieldConfigurationTestUtil<FieldValueConfiguration, FieldValue>("value",
+const testUtils = new FieldConfigurationTestUtils<FieldValueConfiguration, FieldValue>("value",
     field => new FieldValue(field, "value")
 );
 

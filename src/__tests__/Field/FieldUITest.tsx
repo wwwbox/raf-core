@@ -5,10 +5,10 @@ import {
     FieldUIConfiguration,
     getDefaultFieldUIConfiguration
 } from "../../Field/UI/FieldUIConfiguration";
-import {FieldConfigurationTestUtil} from "../../TestingUtils/FieldConfigurationTestUtil";
+import {FieldConfigurationTestUtils} from "../../TestingUtils/FieldConfigurationTestUtils";
 
 
-const testUtils = new FieldConfigurationTestUtil<FieldUIConfiguration, FieldUI>("ui",
+const testUtils = new FieldConfigurationTestUtils<FieldUIConfiguration, FieldUI>("ui",
     field => new FieldUI(field, "ui")
 );
 

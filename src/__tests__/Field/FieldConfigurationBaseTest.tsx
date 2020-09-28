@@ -1,6 +1,6 @@
 import {FieldConfigurationBase} from "../../Field/Configuration/FieldConfiguration";
 import IField from "../../Field/IField";
-import {FieldConfigurationTestUtil} from "../../TestingUtils/FieldConfigurationTestUtil";
+import {FieldConfigurationTestUtils} from "../../TestingUtils/FieldConfigurationTestUtils";
 
 class DummyConfiguration extends FieldConfigurationBase<any> {
 
@@ -13,7 +13,7 @@ class DummyConfiguration extends FieldConfigurationBase<any> {
     }
 }
 
-const testUtils = new FieldConfigurationTestUtil<any, DummyConfiguration>("dummy" as any, field => new DummyConfiguration(field, "dummy"));
+const testUtils = new FieldConfigurationTestUtils<any, DummyConfiguration>("dummy" as any, field => new DummyConfiguration(field, "dummy"));
 
 describe('FieldConfigurationBase', () => {
 

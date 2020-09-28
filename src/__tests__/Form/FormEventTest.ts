@@ -1,12 +1,12 @@
 import {FormEvent} from "../../Form/FormEvent/FormEvent";
-import {tfGetForm} from "../../TestingUtils/TestingFormUtils";
+import {FormTestUtils} from "../../TestingUtils/FormTestUtils";
 import {DefaultEventNameMaker} from "../../Event/IEventNameMaker";
 
 describe('FormEvent', () => {
 
     it('test addListener,removeListener,hasListener,emit (workflow)', function () {
 
-        const form = tfGetForm([]);
+        const form = FormTestUtils.makeForm([]);
         const event = new FormEvent(form);
 
         const e1Id1Callback = jest.fn();
@@ -81,11 +81,17 @@ describe('FormEvent', () => {
         expect(e1Id1Callback).toBeCalledTimes(1);
         expect(e1Id2Callback).toBeCalledTimes(2);
         expect(e2id1Callback).toBeCalledTimes(1);
+
+
+        //throw when listener exists
+        event.addListener('id', 'E', jest.fn());
+        expect(() => event.addListener('id', 'E', jest.fn()))
+            .toThrowError("cannot listener on E, because the id (id) already exists");
     });
 
     it('should return name maker from passed services', function () {
         const nameMaker = {};
-        const event = new FormEvent(tfGetForm([], {
+        const event = new FormEvent(FormTestUtils.makeForm([], {
             getProps: () => {
                 return {
                     services: {
@@ -98,7 +104,7 @@ describe('FormEvent', () => {
     });
 
     it('should return default name maker', function () {
-        const event = new FormEvent(tfGetForm([], {
+        const event = new FormEvent(FormTestUtils.makeForm([], {
             getProps: () => {
                 return {
                     services: {}

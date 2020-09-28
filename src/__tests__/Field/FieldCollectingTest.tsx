@@ -6,12 +6,12 @@ import {
 import {FieldCollecting} from "../../Field/Collecting/FieldCollecting";
 import {IFieldValue} from "../../Field/Value/FieldValue";
 import {mock} from "jest-mock-extended";
-import {FieldConfigurationTestUtil} from "../../TestingUtils/FieldConfigurationTestUtil";
+import {FieldConfigurationTestUtils} from "../../TestingUtils/FieldConfigurationTestUtils";
 
 
 describe('FieldCollecting', () => {
 
-    const testUtils = new FieldConfigurationTestUtil<FieldCollectingConfiguration, FieldCollecting>("collecting",
+    const testUtils = new FieldConfigurationTestUtils<FieldCollectingConfiguration, FieldCollecting>("collecting",
         field => new FieldCollecting(field, "collecting")
     );
 

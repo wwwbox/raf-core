@@ -1,10 +1,10 @@
 import {FormUI} from "../../Form/FormUI/FormUI";
-import {tfGetForm} from "../../TestingUtils/TestingFormUtils";
+import {FormTestUtils} from "../../TestingUtils/FormTestUtils";
 
 describe("FormUI", () => {
 
     it('should return isLoading', function () {
-        const ui = new FormUI(tfGetForm([], {
+        const ui = new FormUI(FormTestUtils.makeForm([], {
             getInternalState: jest.fn().mockReturnValue({isLoading: true})
         }));
         const isLoading = ui.isLoading();
@@ -13,7 +13,7 @@ describe("FormUI", () => {
 
     it('should return isLoading', function () {
         const updateInternalState = jest.fn();
-        const ui = new FormUI(tfGetForm([], {
+        const ui = new FormUI(FormTestUtils.makeForm([], {
             updateInternalState: updateInternalState
         }));
         ui.startLoading();
@@ -22,14 +22,11 @@ describe("FormUI", () => {
 
     it('should return isLoading', function () {
         const updateInternalState = jest.fn();
-        const ui = new FormUI(tfGetForm([], {
+        const ui = new FormUI(FormTestUtils.makeForm([], {
             updateInternalState: updateInternalState
         }));
         ui.stopLoading();
         expect(updateInternalState).toBeCalledWith({isLoading: false});
     });
-
-
-    //todo : test render
 
 })

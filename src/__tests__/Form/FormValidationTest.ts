@@ -2,77 +2,55 @@ import {IFieldValidation} from "../../Field/Validation/FieldValidation";
 import {mock} from "jest-mock-extended";
 import IField from "../../Field/IField";
 import {FormValidation} from "../../Form/FormValidation/FormValidation";
-import {tfGetForm} from "../../TestingUtils/TestingFormUtils";
 import {IFormEvent} from "../../Form/FormEvent/FormEvent";
 import {GlobalEvents} from "../../Event/DefaultEvents";
 import FormProps from "../../Form/FormProps";
 import {NotEmptyValidator} from "../../Defaults/Services/Validator";
+import {FormTestUtils} from "../../TestingUtils/FormTestUtils";
+import {FieldType} from "../../Field/Concrete/FieldType";
 
 describe('FormValidation', () => {
 
-    it('should validate inputs', function () {
-        const fieldValidationMock = mock<IFieldValidation>({
-            validate: jest.fn().mockReturnValue(true)
-        });
-        const fields = [
-            mock<IField>({
-                validation(): IFieldValidation {
-                    return fieldValidationMock;
-                }
-            }),
-            mock<IField>({
-                validation(): IFieldValidation {
-                    return fieldValidationMock;
-                }
-            }),
-            mock<IField>({
-                validation(): IFieldValidation {
-                    return fieldValidationMock;
-                }
+    function createField(mockedValidate: any, mockedValidateWithEffect: any = undefined): IField {
+        return FormTestUtils.createMockedField('X', FieldType.NORMAL, {
+            validation: () => mock<IFieldValidation>({
+                validate: mockedValidate,
+                validateWithEffect: mockedValidateWithEffect,
             })
+        })
+    }
+
+    it('should validate inputs', function () {
+
+        const mockedValidate = jest.fn().mockReturnValue(true);
+        const fields = [
+            createField(mockedValidate),
+            createField(mockedValidate),
+            createField(mockedValidate),
         ];
-        const validation = new FormValidation(tfGetForm(fields));
+        const validation = new FormValidation(FormTestUtils.makeForm(fields));
         const isValid = validation.validate();
         expect(isValid).toEqual(true);
-        expect(fieldValidationMock.validate).toBeCalledTimes(3);
+        expect(mockedValidate).toBeCalledTimes(3);
     });
 
     it('should validate with effect inputs', function () {
-        const validationMock = mock<IFieldValidation>({
-            validateWithEffect: jest.fn().mockReturnValue(true)
-        });
-        const fields = [
-            mock<IField>({
-                validation(): IFieldValidation {
-                    return validationMock;
-                }
-            }),
-            mock<IField>({
-                validation(): IFieldValidation {
-                    return validationMock;
-                }
-            })
-        ];
-        const validation = new FormValidation(tfGetForm(fields));
+        const mockedValidate = jest.fn().mockReturnValue(true);
+        const fields = [createField(undefined, mockedValidate), createField(undefined, mockedValidate)];
+        const validation = new FormValidation(FormTestUtils.makeForm(fields, {
+            event: () => mock<IFormEvent>()
+        }));
         const isValid = validation.validateWithEffect();
         expect(isValid).toEqual(true);
-        expect(validationMock.validateWithEffect).toBeCalledTimes(2);
-        expect(validationMock.validateWithEffect).toBeCalledWith(false);
+        expect(mockedValidate).toBeCalledTimes(2);
+        expect(mockedValidate).toBeCalledWith(false);
     });
 
     it('should emit validation fail event when validation fail', function () {
-        const validationMock = mock<IFieldValidation>({
-            validateWithEffect: jest.fn().mockReturnValue(false)
-        });
-        const fields = [
-            mock<IField>({
-                validation(): IFieldValidation {
-                    return validationMock;
-                }
-            }),
-        ];
+        const mockedValidate = jest.fn().mockReturnValue(false);
+        const fields = [createField(undefined, mockedValidate)];
         const event = mock<IFormEvent>();
-        const validation = new FormValidation(tfGetForm(fields, {
+        const validation = new FormValidation(FormTestUtils.makeForm(fields, {
             event: () => {
                 return event;
             }
@@ -85,7 +63,7 @@ describe('FormValidation', () => {
 
     it('should return validator from passed services', function () {
         const validator = () => ({}) as any;
-        const validation = new FormValidation(tfGetForm([], {
+        const validation = new FormValidation(FormTestUtils.makeForm([], {
             getProps: (): Partial<FormProps> => {
                 return {
                     services: {
@@ -99,7 +77,7 @@ describe('FormValidation', () => {
     });
 
     it('should return validator from defaults', function () {
-        const validation = new FormValidation(tfGetForm([], {
+        const validation = new FormValidation(FormTestUtils.makeForm([], {
             getProps: (): Partial<FormProps> => {
                 return {
                     services: {}

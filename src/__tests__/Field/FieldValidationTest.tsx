@@ -18,11 +18,11 @@ import Field from "../../Field/Concrete/Field";
 import {IFormEvent} from "../../Form/FormEvent/FormEvent";
 import {FieldMessageType} from "../../Field/UI/FieldUIConfiguration";
 import {FieldEvents} from "../../Event/DefaultEvents";
-import {FieldConfigurationTestUtil} from "../../TestingUtils/FieldConfigurationTestUtil";
+import {FieldConfigurationTestUtils} from "../../TestingUtils/FieldConfigurationTestUtils";
 
 Enzyme.configure({adapter: new Adapter()});
 
-const testUtils = new FieldConfigurationTestUtil<FieldValidationConfiguration, FieldValidation>("validation",
+const testUtils = new FieldConfigurationTestUtils<FieldValidationConfiguration, FieldValidation>("validation",
     field => new FieldValidation(field, "validation")
 );
 

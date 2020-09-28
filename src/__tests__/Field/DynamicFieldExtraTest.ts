@@ -1,10 +1,10 @@
 import {DynamicFieldConfiguration, DynamicFieldExtra} from "../../Field/Configuration/DynamicFieldExtra";
-import {FieldConfigurationTestUtil} from "../../TestingUtils/FieldConfigurationTestUtil";
+import {FieldConfigurationTestUtils} from "../../TestingUtils/FieldConfigurationTestUtils";
 
 describe('DynamicFieldExtra', () => {
 
 
-    const testUtils = new FieldConfigurationTestUtil<DynamicFieldConfiguration, DynamicFieldExtra>("extra",
+    const testUtils = new FieldConfigurationTestUtils<DynamicFieldConfiguration, DynamicFieldExtra>("extra",
         field => new DynamicFieldExtra(field, "extra")
     );
 
