@@ -3,13 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="02a24f0f-9847-4345-a3b5-34b3fb9e6a52" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TODO" beforeDir="false" afterPath="$PROJECT_DIR$/TODO" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/postcss.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Field/Value/FieldValue.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Value/FieldValue.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__tests__/Field/FieldValueTest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Field/FieldValueTest.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +172,7 @@
       <workItem from="1600939429488" duration="2824000" />
       <workItem from="1601064119762" duration="11824000" />
       <workItem from="1601323184503" duration="5549000" />
-      <workItem from="1601365940794" duration="29486000" />
+      <workItem from="1601365940794" duration="30581000" />
     </task>
     <servers />
   </component>

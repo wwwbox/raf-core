@@ -1,9 +1,15 @@
 {
-  "name": "raf-core",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "name": "@alicompiler/raf-core",
   "version": "1.0.0",
   "private": true,
   "types": "main.d.ts",
   "main": "main.js",
+  "repository": {
+    "url": "https://github.com/alicompiler/raf-core"
+  },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.0.4",
