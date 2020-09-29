@@ -31,9 +31,9 @@ export default abstract class FieldRendererBase implements FieldRenderer {
         }
     };
 
-    protected arrayWrapper = (): any => React.Fragment;
+    protected arrayWrapper = (): any => 'div';
 
-    protected arrayWrapperProps = (): object => ({});
+    protected arrayWrapperProps = (): object => ({className: '__raf-sub-fields'});
 
     protected abstract renderFieldElement(options: FieldOptions, inArray: boolean): React.ReactElement;
 

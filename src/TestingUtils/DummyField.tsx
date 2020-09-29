@@ -6,14 +6,3 @@ export default class DummyField extends Field {
         return <input/>
     }
 }
-
-export class DummyFileField extends Field {
-
-    render(): any {
-        return <input/>;
-    }
-
-    isFileField(): boolean {
-        return true;
-    }
-}
