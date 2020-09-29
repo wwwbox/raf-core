@@ -22,10 +22,7 @@ export default class DefaultFieldChangeHandler implements FieldChangeHandler {
     }
 
     private shouldCancelChange = () => {
-        return this.getField().ui().isReadonly() ||
-            (
-                this.getField().ui().isDisableOnLoading() && this.getField().ui().isLoading()
-            );
+        return this.getField().ui().isReadonly() || this.getField().ui().shouldDisable();
     };
 
     protected getValue = (event: any) => {

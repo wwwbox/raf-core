@@ -6,13 +6,8 @@
 //publish
 
 
-
 FORM :
     test submit method
-
-
-Change Handler :
-    tests
 
 Review Events
 
@@ -21,6 +16,9 @@ Default Services Test
 
 
 MORE EXAMPLES
+
+
+AutoUploadField
 
 
 Build & Publish on GitHub

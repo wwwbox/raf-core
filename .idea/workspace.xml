@@ -2,24 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="02a24f0f-9847-4345-a3b5-34b3fb9e6a52" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/TestingUtils/FormTestUtils.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/__tests__/Form/FormCollectorTest.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/__tests__/ChangeHandler/DefaultFieldChangeHandlerTest.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/ali.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/ali.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TODO" beforeDir="false" afterPath="$PROJECT_DIR$/TODO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/FormCollecting/IFormCollector.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/FormCollecting/IFormCollector.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TestingUtils/FieldConfigurationTestUtil.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/TestingUtils/FieldConfigurationTestUtils.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TestingUtils/TestingFormUtils.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__tests__/Field/DynamicFieldExtraTest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Field/DynamicFieldExtraTest.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__tests__/Field/FieldCollectingTest.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Field/FieldCollectingTest.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__tests__/Field/FieldConfigurationBaseTest.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Field/FieldConfigurationBaseTest.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__tests__/Field/FieldUITest.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Field/FieldUITest.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__tests__/Field/FieldValidationTest.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Field/FieldValidationTest.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__tests__/Field/FieldValueTest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Field/FieldValueTest.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__tests__/Form/FormEventTest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Form/FormEventTest.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__tests__/Form/FormFieldManagerTest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Form/FormFieldManagerTest.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__tests__/Form/FormUITest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Form/FormUITest.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__tests__/Form/FormValidationTest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Form/FormValidationTest.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__tests__/Form/FormValueTest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Form/FormValueTest.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ChangeHandler/DefaultFieldChangeHandler.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChangeHandler/DefaultFieldChangeHandler.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +53,7 @@
       <recent name="$PROJECT_DIR$/src/Form/Concrate" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.All Tests">
+  <component name="RunManager" selected="Jest.DefaultDynamicFieldChangeHandler.should change value">
     <configuration name="All Tests" type="JavaScriptTestRunnerJest" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -76,90 +63,90 @@
       <scope-kind value="ALL" />
       <method v="2" />
     </configuration>
-    <configuration name="FormValidation.should return validator from defaults" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="DefaultDynamicFieldChangeHandler.should change value" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/__tests__/Form/FormValidationTest.ts" />
+      <test-file value="$PROJECT_DIR$/src/__tests__/ChangeHandler/DefaultDynamicFieldChangeHandlerTest.ts" />
       <test-names>
-        <test-name value="FormValidation" />
-        <test-name value="should return validator from defaults" />
+        <test-name value="DefaultDynamicFieldChangeHandler" />
+        <test-name value="should change value" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="FormValueTest" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="DefaultFieldChangeHandler" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="SUITE" />
-      <test-file value="$PROJECT_DIR$/src/__tests__/Form/FormValueTest.ts" />
+      <test-file value="$PROJECT_DIR$/src/__tests__/ChangeHandler/DefaultFieldChangeHandlerTest.ts" />
       <test-names>
-        <test-name value="FormValueTest" />
+        <test-name value="DefaultFieldChangeHandler" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="FormValueTest.should clear value" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="DefaultFieldChangeHandler.should emit events" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/__tests__/Form/FormValueTest.ts" />
+      <test-file value="$PROJECT_DIR$/src/__tests__/ChangeHandler/DefaultFieldChangeHandlerTest.ts" />
       <test-names>
-        <test-name value="FormValueTest" />
-        <test-name value="should clear value" />
+        <test-name value="DefaultFieldChangeHandler" />
+        <test-name value="should emit events" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="FormValueTest.should return isReady" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="DefaultFieldChangeHandler.should not validate after change only when not skipped validation and set to be validated" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/__tests__/Form/FormValueTest.ts" />
+      <test-file value="$PROJECT_DIR$/src/__tests__/ChangeHandler/DefaultFieldChangeHandlerTest.ts" />
       <test-names>
-        <test-name value="FormValueTest" />
-        <test-name value="should return isReady" />
+        <test-name value="DefaultFieldChangeHandler" />
+        <test-name value="should not validate after change only when not skipped validation and set to be validated" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="FormValueTest.should set values" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="DefaultFieldChangeHandler.should not validate after change" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/__tests__/Form/FormValueTest.ts" />
+      <test-file value="$PROJECT_DIR$/src/__tests__/ChangeHandler/DefaultFieldChangeHandlerTest.ts" />
       <test-names>
-        <test-name value="FormValueTest" />
-        <test-name value="should set values" />
+        <test-name value="DefaultFieldChangeHandler" />
+        <test-name value="should not validate after change" />
       </test-names>
       <method v="2" />
     </configuration>
     <list>
       <item itemvalue="Jest.All Tests" />
-      <item itemvalue="Jest.FormValidation.should return validator from defaults" />
-      <item itemvalue="Jest.FormValueTest.should clear value" />
-      <item itemvalue="Jest.FormValueTest.should return isReady" />
-      <item itemvalue="Jest.FormValueTest.should set values" />
-      <item itemvalue="Jest.FormValueTest" />
+      <item itemvalue="Jest.DefaultFieldChangeHandler.should not validate after change" />
+      <item itemvalue="Jest.DefaultFieldChangeHandler.should not validate after change only when not skipped validation and set to be validated" />
+      <item itemvalue="Jest.DefaultFieldChangeHandler.should emit events" />
+      <item itemvalue="Jest.DefaultFieldChangeHandler" />
+      <item itemvalue="Jest.DefaultDynamicFieldChangeHandler.should change value" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Jest.FormValueTest" />
-        <item itemvalue="Jest.FormValueTest.should set values" />
-        <item itemvalue="Jest.FormValueTest.should return isReady" />
-        <item itemvalue="Jest.FormValueTest.should clear value" />
-        <item itemvalue="Jest.FormValidation.should return validator from defaults" />
+        <item itemvalue="Jest.DefaultDynamicFieldChangeHandler.should change value" />
+        <item itemvalue="Jest.DefaultFieldChangeHandler" />
+        <item itemvalue="Jest.DefaultFieldChangeHandler.should emit events" />
+        <item itemvalue="Jest.DefaultFieldChangeHandler.should not validate after change only when not skipped validation and set to be validated" />
+        <item itemvalue="Jest.DefaultFieldChangeHandler.should not validate after change" />
       </list>
     </recent_temporary>
   </component>
@@ -186,7 +173,8 @@
       <workItem from="1600939373893" duration="48000" />
       <workItem from="1600939429488" duration="2824000" />
       <workItem from="1601064119762" duration="11824000" />
-      <workItem from="1601323184503" duration="5072000" />
+      <workItem from="1601323184503" duration="5549000" />
+      <workItem from="1601365940794" duration="3788000" />
     </task>
     <servers />
   </component>
@@ -207,83 +195,83 @@
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
     <state x="-1197" y="82" key="#xdebugger.evaluate/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601324845114" />
-    <state width="1878" height="290" key="GridCell.Tab.0.bottom" timestamp="1601329487722">
+    <state width="1878" height="290" key="GridCell.Tab.0.bottom" timestamp="1601369744265">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="1878" height="290" key="GridCell.Tab.0.bottom/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601329487722" />
+    <state width="1878" height="290" key="GridCell.Tab.0.bottom/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601369744265" />
     <state width="1638" height="280" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1601075956007" />
-    <state width="1878" height="290" key="GridCell.Tab.0.center" timestamp="1601329487721">
+    <state width="1878" height="290" key="GridCell.Tab.0.center" timestamp="1601369744265">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="1878" height="290" key="GridCell.Tab.0.center/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601329487721" />
+    <state width="1878" height="290" key="GridCell.Tab.0.center/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601369744265" />
     <state width="1638" height="280" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1601075956006" />
-    <state width="1878" height="290" key="GridCell.Tab.0.left" timestamp="1601329487721">
+    <state width="1878" height="290" key="GridCell.Tab.0.left" timestamp="1601369744264">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="1878" height="290" key="GridCell.Tab.0.left/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601329487721" />
+    <state width="1878" height="290" key="GridCell.Tab.0.left/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601369744264" />
     <state width="1638" height="280" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1601075956005" />
-    <state width="1878" height="290" key="GridCell.Tab.0.right" timestamp="1601329487722">
+    <state width="1878" height="290" key="GridCell.Tab.0.right" timestamp="1601369744265">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="1878" height="290" key="GridCell.Tab.0.right/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601329487722" />
+    <state width="1878" height="290" key="GridCell.Tab.0.right/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601369744265" />
     <state width="1638" height="280" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1601075956006" />
-    <state width="1878" height="358" key="GridCell.Tab.1.bottom" timestamp="1601326800040">
+    <state width="1878" height="358" key="GridCell.Tab.1.bottom" timestamp="1601331070417">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="1878" height="358" key="GridCell.Tab.1.bottom/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601326800040" />
-    <state width="1878" height="358" key="GridCell.Tab.1.center" timestamp="1601326800039">
+    <state width="1878" height="358" key="GridCell.Tab.1.bottom/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601331070417" />
+    <state width="1878" height="358" key="GridCell.Tab.1.center" timestamp="1601331070416">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="1878" height="358" key="GridCell.Tab.1.center/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601326800039" />
-    <state width="1878" height="358" key="GridCell.Tab.1.left" timestamp="1601326800038">
+    <state width="1878" height="358" key="GridCell.Tab.1.center/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601331070416" />
+    <state width="1878" height="358" key="GridCell.Tab.1.left" timestamp="1601331070416">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="1878" height="358" key="GridCell.Tab.1.left/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601326800038" />
-    <state width="1878" height="358" key="GridCell.Tab.1.right" timestamp="1601326800039">
+    <state width="1878" height="358" key="GridCell.Tab.1.left/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601331070416" />
+    <state width="1878" height="358" key="GridCell.Tab.1.right" timestamp="1601331070417">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="1878" height="358" key="GridCell.Tab.1.right/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601326800039" />
-    <state width="1878" height="358" key="GridCell.Tab.2.bottom" timestamp="1601326800041">
+    <state width="1878" height="358" key="GridCell.Tab.1.right/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601331070417" />
+    <state width="1878" height="358" key="GridCell.Tab.2.bottom" timestamp="1601331070419">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="1878" height="358" key="GridCell.Tab.2.bottom/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601326800041" />
-    <state width="1878" height="358" key="GridCell.Tab.2.center" timestamp="1601326800040">
+    <state width="1878" height="358" key="GridCell.Tab.2.bottom/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601331070419" />
+    <state width="1878" height="358" key="GridCell.Tab.2.center" timestamp="1601331070418">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="1878" height="358" key="GridCell.Tab.2.center/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601326800040" />
-    <state width="1878" height="358" key="GridCell.Tab.2.left" timestamp="1601326800040">
+    <state width="1878" height="358" key="GridCell.Tab.2.center/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601331070418" />
+    <state width="1878" height="358" key="GridCell.Tab.2.left" timestamp="1601331070418">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="1878" height="358" key="GridCell.Tab.2.left/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601326800040" />
-    <state width="1878" height="358" key="GridCell.Tab.2.right" timestamp="1601326800041">
+    <state width="1878" height="358" key="GridCell.Tab.2.left/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601331070418" />
+    <state width="1878" height="358" key="GridCell.Tab.2.right" timestamp="1601331070419">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="1878" height="358" key="GridCell.Tab.2.right/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601326800041" />
-    <state width="1878" height="358" key="GridCell.Tab.3.bottom" timestamp="1601326800043">
+    <state width="1878" height="358" key="GridCell.Tab.2.right/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601331070419" />
+    <state width="1878" height="358" key="GridCell.Tab.3.bottom" timestamp="1601331070421">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="1878" height="358" key="GridCell.Tab.3.bottom/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601326800043" />
-    <state width="1878" height="358" key="GridCell.Tab.3.center" timestamp="1601326800042">
+    <state width="1878" height="358" key="GridCell.Tab.3.bottom/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601331070421" />
+    <state width="1878" height="358" key="GridCell.Tab.3.center" timestamp="1601331070420">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="1878" height="358" key="GridCell.Tab.3.center/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601326800042" />
-    <state width="1878" height="358" key="GridCell.Tab.3.left" timestamp="1601326800042">
+    <state width="1878" height="358" key="GridCell.Tab.3.center/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601331070420" />
+    <state width="1878" height="358" key="GridCell.Tab.3.left" timestamp="1601331070420">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="1878" height="358" key="GridCell.Tab.3.left/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601326800042" />
-    <state width="1878" height="358" key="GridCell.Tab.3.right" timestamp="1601326800042">
+    <state width="1878" height="358" key="GridCell.Tab.3.left/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601331070420" />
+    <state width="1878" height="358" key="GridCell.Tab.3.right" timestamp="1601331070420">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="1878" height="358" key="GridCell.Tab.3.right/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601326800042" />
+    <state width="1878" height="358" key="GridCell.Tab.3.right/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601331070420" />
     <state x="410" y="185" key="SettingsEditor" timestamp="1600939421518">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="-1451" y="10" key="SettingsEditor/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1600193768457" />
     <state x="410" y="185" key="SettingsEditor/0.23.1680.1027@0.23.1680.1027" timestamp="1600939421518" />
-    <state width="500" height="445" key="SwitcherDM" timestamp="1601329649276">
+    <state width="200" height="445" key="SwitcherDM" timestamp="1601369753508">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="500" height="445" key="SwitcherDM/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601329649276" />
+    <state width="200" height="445" key="SwitcherDM/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601369753508" />
     <state width="500" height="433" key="SwitcherDM/0.23.1680.1027@0.23.1680.1027" timestamp="1601075671594" />
     <state x="-1390" y="-16" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1600468049997">
       <screen x="-1920" y="-157" width="1920" height="1057" />
@@ -300,6 +288,7 @@
     <SUITE FILE_PATH="coverage/react_auto_form_core$FormValidation.info" NAME="FormValidation Coverage Results" MODIFIED="1601328484440" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="JestJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/react_auto_form_core$FieldCollecting.info" NAME="FieldCollecting Coverage Results" MODIFIED="1600942822920" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="JestJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/react_auto_form_core$DefaultFromCollector.info" NAME="DefaultFromCollector Coverage Results" MODIFIED="1601326806705" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="JestJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/react_auto_form_core$DefaultFieldChangeHandler.info" NAME="DefaultFieldChangeHandler Coverage Results" MODIFIED="1601368836070" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="JestJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/react_auto_form_core$FormEvent_test_addListener_removeListener_hasListener_emit__workflow_.info" NAME="FormEvent.test addListener,removeListener,hasListener,emit (workflow) Coverage Results" MODIFIED="1601328184565" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="JestJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/react_auto_form_core$FormFieldManagerTest.info" NAME="FormFieldManagerTest Coverage Results" MODIFIED="1601323785031" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="JestJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/react_auto_form_core$All_Tests.info" NAME="All Tests Coverage Results" MODIFIED="1601329422912" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="JestJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
