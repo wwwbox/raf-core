@@ -20,7 +20,7 @@ export class DefaultFormRenderer implements FormRenderer {
 
     render(): any {
         const fields = this.renderFields();
-        return <div>
+        return <div className={'__raf'}>
             {fields}
             <br/>
             {
@@ -31,7 +31,8 @@ export class DefaultFormRenderer implements FormRenderer {
 
 
     private renderButton(): any {
-        const renderOptions = this.getForm().getProps().extra?.renderOptions ?? RafDefaults.form.renderOptions;
+        let renderOptions = this.getForm().getProps().extra?.renderOptions ?? {};
+        renderOptions = {...RafDefaults.form.renderOptions, ...renderOptions};
         const text = renderOptions.buttonText;
         return <button onClick={() => this.getForm().submit()}>{text}</button>;
     }
