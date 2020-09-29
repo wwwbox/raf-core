@@ -2,20 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="02a24f0f-9847-4345-a3b5-34b3fb9e6a52" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/ChangeHandler/AutoUploadFieldChangeHandler.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DefaultElement/DefaultAutoUploadField.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TODO" beforeDir="false" afterPath="$PROJECT_DIR$/TODO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ChangeHandler/AutoUploadFileFieldChangeHandler.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DefaultElement/DefaultFileField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/DefaultElement/DefaultFileField.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Field/Concrete/AutoUploadField/AutoUploadField.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Concrete/AutoUploadField/AutoUploadField.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Field/Concrete/AutoUploadField/AutoUploadFieldExtra.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Concrete/AutoUploadField/AutoUploadFieldExtra.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Field/Concrete/AutoUploadField/AutoUploadFieldExtraConfiguration.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Concrete/AutoUploadField/AutoUploadFieldExtraConfiguration.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Field/Concrete/AutoUploadField/AutoUploader.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Concrete/AutoUploadField/AutoUploader.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Field/Concrete/Field.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Concrete/Field.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Field/Concrete/FileField.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Concrete/FileField.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Field/Value/FieldValueConfiguration.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Value/FieldValueConfiguration.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__tests__/Form/FormValueTest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Form/FormValueTest.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +14,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="JavaScript File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -182,7 +172,7 @@
       <workItem from="1600939429488" duration="2824000" />
       <workItem from="1601064119762" duration="11824000" />
       <workItem from="1601323184503" duration="5549000" />
-      <workItem from="1601365940794" duration="26727000" />
+      <workItem from="1601365940794" duration="27630000" />
     </task>
     <servers />
   </component>
@@ -276,10 +266,10 @@
     </state>
     <state x="-1451" y="10" key="SettingsEditor/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1600193768457" />
     <state x="410" y="185" key="SettingsEditor/0.23.1680.1027@0.23.1680.1027" timestamp="1600939421518" />
-    <state width="500" height="445" key="SwitcherDM" timestamp="1601404450875">
+    <state width="500" height="445" key="SwitcherDM" timestamp="1601406812587">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="500" height="445" key="SwitcherDM/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601404450875" />
+    <state width="500" height="445" key="SwitcherDM/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601406812587" />
     <state width="500" height="433" key="SwitcherDM/0.23.1680.1027@0.23.1680.1027" timestamp="1601075671594" />
     <state x="-1390" y="-16" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1601399096472">
       <screen x="-1920" y="-157" width="1920" height="1057" />
