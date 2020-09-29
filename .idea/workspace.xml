@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="02a24f0f-9847-4345-a3b5-34b3fb9e6a52" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,10 +130,10 @@
     </configuration>
     <list>
       <item itemvalue="Jest.All Tests" />
-      <item itemvalue="Jest.DefaultFormRenderer.should call submit when button clicked" />
-      <item itemvalue="Jest.DefaultFormRenderer" />
-      <item itemvalue="Jest.DefaultFieldRenderer.should render fields" />
       <item itemvalue="Jest.DefaultFieldRenderer" />
+      <item itemvalue="Jest.DefaultFieldRenderer.should render fields" />
+      <item itemvalue="Jest.DefaultFormRenderer" />
+      <item itemvalue="Jest.DefaultFormRenderer.should call submit when button clicked" />
       <item itemvalue="Jest.FormValueTest.should clear value" />
     </list>
     <recent_temporary>
@@ -172,7 +170,7 @@
       <workItem from="1600939429488" duration="2824000" />
       <workItem from="1601064119762" duration="11824000" />
       <workItem from="1601323184503" duration="5549000" />
-      <workItem from="1601365940794" duration="30581000" />
+      <workItem from="1601365940794" duration="30902000" />
     </task>
     <servers />
   </component>
