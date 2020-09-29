@@ -5,6 +5,8 @@ import {IFieldValue} from "../../Field/Value/FieldValue";
 import {IFieldCollecting} from "../../Field/Collecting/FieldCollecting";
 import {FormTestUtils} from "../../TestingUtils/FormTestUtils";
 import {FieldType} from "../../Field/Concrete/FieldType";
+import {IFormEvent} from "../../Form/FormEvent/FormEvent";
+import {GlobalEvents} from "../../Event/DefaultEvents";
 
 describe('FormValueTest', () => {
 
@@ -12,7 +14,7 @@ describe('FormValueTest', () => {
         return FormTestUtils.createMockedField('X', FieldType.NORMAL, {
             value: () => value,
             collecting: () => collecting,
-            getName: () => name
+            getName: () => name,
         });
     }
 
@@ -20,9 +22,13 @@ describe('FormValueTest', () => {
     it('should clear value', function () {
         const fieldValueMock = mock<IFieldValue>();
         const fields = [createField(fieldValueMock), createField(fieldValueMock), createField(fieldValueMock)];
-        const value = new FormValue(FormTestUtils.makeForm(fields));
+        const mockedEvent = mock<IFormEvent>();
+        const value = new FormValue(FormTestUtils.makeForm(fields, {
+            event: () => mockedEvent
+        }));
         value.clear();
         expect(fieldValueMock.clear).toBeCalledTimes(3);
+        expect(mockedEvent.emit).toBeCalledWith(GlobalEvents.FORM_CLEARED, {});
     });
 
     it('should return isReady', function () {

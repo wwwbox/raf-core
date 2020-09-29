@@ -1,6 +1,7 @@
 import React from "react";
 import TextField from "./DefaultTextField";
 import {FieldProps} from "../Field/FieldProps";
+import {FieldType} from "../Field/Concrete/FieldType";
 
 
 interface FileExtraConfiguration {
@@ -26,5 +27,8 @@ export default class DefaultFileField extends TextField<FileExtraConfiguration> 
         }
     }
 
+    getType(): FieldType {
+        return FieldType.FILE;
+    }
 
 }

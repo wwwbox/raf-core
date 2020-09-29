@@ -1,32 +1,38 @@
-import {AutoUploader} from "./AutoUploader";
+import {AutoUploader, DefaultAutoUploader} from "./AutoUploader";
 import {AutoUploadField} from "./AutoUploadField";
+import {IExtraConfigurationInitializer} from "../FieldStateInitializer";
 
 export interface AutoUploadFieldExtraConfiguration {
     inputFile: any;
     progress: number;
     uploading: boolean;
-    placeholder: any;
-    uploader: AutoUploader;
     uploadedFile: string | null;
-    uploadedFileExtractorFromResponse: (response: any) => string;
+    uploader: (field: AutoUploadField) => AutoUploader;
     uploadOptions: any;
-    renderPlaceholder: (field: AutoUploadField) => any;
-    renderUploadedFile: (field: AutoUploadField) => any;
-    renderProgress: (field: AutoUploadField) => any;
+    uploadedFileExtractorFromResponse: (response: any) => string;
 }
 
 export function defaultAutoUploadFieldConfiguration<UploadOptions>(): AutoUploadFieldExtraConfiguration {
     return {
         inputFile: null,
-        placeholder: null,
-        renderPlaceholder: null as any,
-        renderUploadedFile: null as any,
-        renderProgress: null as any,
         progress: 0,
         uploading: false,
         uploadedFile: null,
-        uploader: null as any,
-        uploadOptions: null as any,
+        uploader: (field: AutoUploadField) => new DefaultAutoUploader(field),
+        uploadOptions: {},
         uploadedFileExtractorFromResponse: (response) => response.toString()
+    }
+}
+
+export function defaultAutoUploadOptions(): any {
+    return {
+        method: 'POST',
+        formKey: 'file'
+    }
+}
+
+export class AutoUploadFieldExtraConfigurationInitializer<ExtraConfiguration extends AutoUploadFieldExtraConfiguration> implements IExtraConfigurationInitializer<ExtraConfiguration> {
+    initialize(extraProps: any): ExtraConfiguration {
+        return {...defaultAutoUploadFieldConfiguration(), ...(extraProps ?? {})};
     }
 }

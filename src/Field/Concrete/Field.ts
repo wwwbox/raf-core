@@ -37,6 +37,7 @@ export default class Field<ExtraConfiguration = any> extends React.Component<Fie
         this._collecting = new FieldCollecting(this, "collecting");
         this._extra = new FieldExtra(this, "extra");
         this._event = new FieldEvent(this);
+        this.state.value.extractValueFromEvent = this.state.value.extractValueFromEvent ?? (e => e.target.value);
         this.setupListeners();
     }
 
