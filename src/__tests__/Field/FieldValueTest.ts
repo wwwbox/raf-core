@@ -17,7 +17,10 @@ describe('FieldValue', () => {
 
     const field: IField = mock<IField>();
     field.event = jest.fn().mockReturnValue(mock<IFieldEvent>());
-    field.getConfiguration = jest.fn().mockReturnValue(getDefaultFieldValueConfiguration());
+    field.getConfiguration = jest.fn().mockReturnValue({
+        ...getDefaultFieldValueConfiguration(),
+        extractValueFromEvent: (e: any) => e.target.value
+    });
     field.getForm = () => mock<IForm>({
         event(): IFormEvent {
             return mock<IFormEvent>()

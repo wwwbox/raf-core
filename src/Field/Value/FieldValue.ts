@@ -30,7 +30,7 @@ export class FieldValue extends FieldConfigurationBase<FieldValueConfiguration> 
     }
 
     extractFromEvent(e: any): any {
-        return this.getConfiguration().extractValueFromEvent(e);
+        return this.getConfiguration().extractValueFromEvent?.(e);
     }
 
     get(): any {
