@@ -1,4 +1,5 @@
 import IForm from "../IForm";
+import {GlobalEvents} from "../../Event/DefaultEvents";
 
 export interface IFormValue {
 
@@ -20,6 +21,7 @@ export class FormValue implements IFormValue {
 
     clear(): void {
         this.form.fields().getAllRegistered().forEach(field => field.value().clear());
+        this.form.event().emit(GlobalEvents.FORM_CLEARED, {});
     }
 
     isReady(): boolean {

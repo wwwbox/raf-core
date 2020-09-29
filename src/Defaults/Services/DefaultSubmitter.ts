@@ -45,7 +45,7 @@ export abstract class SubmitterBase<SubmitOption extends SubmitOptionsBase> impl
 
     protected getSubmitOptions(): SubmitOption {
         let options = this.getForm().getProps().extra?.submitOptions ?? {};
-        options = {...this.getDefaultOptions(), options};
+        options = {...this.getDefaultOptions(), ...options};
         return options;
     }
 
@@ -60,10 +60,8 @@ export abstract class SubmitterBase<SubmitOption extends SubmitOptionsBase> impl
 
     protected getContentType(): string {
         const options = this.getSubmitOptions();
-        if (options.autoDetectContentType) {
-            if (this.getCollector().hasFiles()) {
-                return "multipart/form-data"
-            }
+        if (options.autoDetectContentType && this.getCollector().hasFiles()) {
+            return "multipart/form-data";
         }
         return options.contentType;
     }
@@ -75,6 +73,7 @@ export abstract class SubmitterBase<SubmitOption extends SubmitOptionsBase> impl
             Object.keys(data).forEach(key => formData.append(key, data[key]));
             const files = this.getCollector().files();
             Object.keys(files).forEach(key => formData.append(key, files[key]));
+            return formData;
         }
         return JSON.stringify(data);
     }
@@ -89,7 +88,7 @@ export class DefaultSubmitter extends SubmitterBase<SubmitOptionsBase> {
 
     submit(): void {
         const xhr = new XMLHttpRequest();
-        const onResponse = this.onResponse
+        const onResponse = this.onResponse;
         xhr.onreadystatechange = function () {
             onResponse(this);
         }
@@ -108,19 +107,20 @@ export class DefaultSubmitter extends SubmitterBase<SubmitOptionsBase> {
         this.getForm().event().emit(GlobalEvents.SUBMIT_START, {options: options});
     }
 
-    protected onResponse(request: XMLHttpRequest) {
+    public onResponse(request: XMLHttpRequest) {
         if (request.readyState === XMLHttpRequest.DONE) {
             const options = this.getSubmitOptions();
             if (options.updateUi) {
                 this.getForm().ui().stopLoading();
             }
+
             if (request.status < 400) {
-                this.getForm().event().emit(GlobalEvents.SUBMIT_DONE, {options: options, response: request.response});
+                this.getForm().event().emit(GlobalEvents.SUBMIT_SUCCEEDED, {options: options, response: request.response});
             } else {
-                this.getForm().event().emit(GlobalEvents.SUBMIT_FAIL, {options: options, response: request.response});
+                this.getForm().event().emit(GlobalEvents.SUBMIT_FAILED, {options: options, response: request.response});
             }
 
-            this.getForm().event().emit(GlobalEvents.SUBMIT_COMPLETE, {options: options, response: request.response});
+            this.getForm().event().emit(GlobalEvents.SUBMIT_COMPLETED, {options: options, response: request.response});
         }
     }
 }

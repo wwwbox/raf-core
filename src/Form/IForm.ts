@@ -26,7 +26,7 @@ export default interface IForm {
 
     getProps(): FormProps;
 
-    updateInternalState(payload: Partial<FormState>): void;
+    updateInternalState(payload: Partial<FormState>, afterChange?: () => void): void;
 
     getInternalState(): FormState;
 

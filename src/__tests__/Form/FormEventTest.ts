@@ -1,12 +1,18 @@
 import {FormEvent} from "../../Form/FormEvent/FormEvent";
 import {FormTestUtils} from "../../TestingUtils/FormTestUtils";
 import {DefaultEventNameMaker} from "../../Event/IEventNameMaker";
+import {GlobalEvents} from "../../Event/DefaultEvents";
+import IField from "../../Field/IField";
+import {mock} from "jest-mock-extended";
+import {IFieldValue} from "../../Field/Value/FieldValue";
 
 describe('FormEvent', () => {
 
     it('test addListener,removeListener,hasListener,emit (workflow)', function () {
 
-        const form = FormTestUtils.makeForm([]);
+        const form = FormTestUtils.makeForm([] , {
+            getProps: () => ({})
+        });
         const event = new FormEvent(form);
 
         const e1Id1Callback = jest.fn();
@@ -87,6 +93,32 @@ describe('FormEvent', () => {
         event.addListener('id', 'E', jest.fn());
         expect(() => event.addListener('id', 'E', jest.fn()))
             .toThrowError("cannot listener on E, because the id (id) already exists");
+    });
+
+    it('should call onAnyValueChange', function () {
+        const onAnyValueChanged = jest.fn();
+        const form = FormTestUtils.makeForm([], {
+            getProps: () => {
+                return {
+                    onAnyValueChanged: onAnyValueChanged
+                }
+            }
+        });
+        const event = new FormEvent(form);
+        const mockedField = mock<IField>({
+            getName(): string {
+                return 'test';
+            },
+            value(): IFieldValue {
+                return mock<IFieldValue>({
+                    get(): any {
+                        return 'value';
+                    }
+                });
+            }
+        });
+        event.emit(GlobalEvents.VALUE_CHANGED, {field: mockedField});
+        expect(onAnyValueChanged).toBeCalledWith('test', 'value', mockedField, form);
     });
 
     it('should return name maker from passed services', function () {

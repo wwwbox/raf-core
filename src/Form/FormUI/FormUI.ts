@@ -2,6 +2,7 @@ import IForm from "../IForm";
 import {getFormService} from "../FormService";
 import FormRenderer from "../../Protocol/FormRenderer";
 import FormDefault from "../FormDefault";
+import {GlobalEvents} from "../../Event/DefaultEvents";
 
 export interface IFormUI {
     startLoading(): void;
@@ -27,11 +28,15 @@ export class FormUI implements IFormUI {
     }
 
     startLoading(): void {
-        this.form.updateInternalState({isLoading: true});
+        this.form.updateInternalState({isLoading: true}, () => {
+            this.form.event().emit(GlobalEvents.FORM_START_LOADING, {});
+        });
     }
 
     stopLoading(): void {
-        this.form.updateInternalState({isLoading: false});
+        this.form.updateInternalState({isLoading: false}, () => {
+            this.form.event().emit(GlobalEvents.FORM_END_LOADING, {});
+        });
     }
 
     render(): any {

@@ -77,7 +77,7 @@ export default class Form extends React.Component<FormProps, FormState>
         if (!this.getProps().allowSubmitWhenNotValid && !this.validation().validate()) {
             return;
         }
-        
+
         if (!this.value().isReady()) {
             this.event().emit(GlobalEvents.FORM_NOT_READY_TO_COLLECT, {});
             return;
@@ -90,8 +90,8 @@ export default class Form extends React.Component<FormProps, FormState>
         return this._ui;
     }
 
-    updateInternalState(payload: Partial<FormState>): void {
-        this.setState(payload as any);
+    updateInternalState(payload: Partial<FormState>, afterChange?: () => void): void {
+        this.setState(payload as any, afterChange);
     }
 
     validation(): IFormValidation {

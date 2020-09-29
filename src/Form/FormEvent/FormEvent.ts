@@ -3,6 +3,8 @@ import IForm from "../IForm";
 import {IEventNameMaker} from "../../Event/IEventNameMaker";
 import {getFormService} from "../FormService";
 import FormDefault from "../FormDefault";
+import {GlobalEvents} from "../../Event/DefaultEvents";
+import IField from "../../Field/IField";
 
 export interface IFormEvent {
     emit(eventName: string, payload: any): void;
@@ -58,6 +60,15 @@ export class FormEvent implements IFormEvent {
         listeners.forEach(listener => {
             listener.callback(this.form, payload);
         });
+        this.sendOnAnyValueChangeIfFieldChanged(eventName, payload);
+    }
+
+    private sendOnAnyValueChangeIfFieldChanged(eventName: string, payload: any) {
+        const onAnyValueChanged = this.form.getProps().onAnyValueChanged;
+        if (eventName === GlobalEvents.VALUE_CHANGED && onAnyValueChanged) {
+            const field: IField = payload.field;
+            onAnyValueChanged(field.getName(), field.value().get(), field, this.form);
+        }
     }
 
     hasListener(id: string, eventName: string): boolean {
