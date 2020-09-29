@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="02a24f0f-9847-4345-a3b5-34b3fb9e6a52" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/__tests__/ChangeHandler/DefaultFieldChangeHandlerTest.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/ali.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/ali.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TODO" beforeDir="false" afterPath="$PROJECT_DIR$/TODO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ChangeHandler/DefaultFieldChangeHandler.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChangeHandler/DefaultFieldChangeHandler.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/Form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Form.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/__tests__/Form/FormTest.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Form/FormTest.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +52,7 @@
       <recent name="$PROJECT_DIR$/src/Form/Concrate" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.DefaultDynamicFieldChangeHandler.should change value">
+  <component name="RunManager" selected="Jest.Form.Submitting.should submit form">
     <configuration name="All Tests" type="JavaScriptTestRunnerJest" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -90,63 +89,66 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="DefaultFieldChangeHandler.should emit events" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="Form.Submitting.should not submit when form is not ready to collect" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/__tests__/ChangeHandler/DefaultFieldChangeHandlerTest.ts" />
+      <test-file value="$PROJECT_DIR$/src/__tests__/Form/FormTest.tsx" />
       <test-names>
-        <test-name value="DefaultFieldChangeHandler" />
-        <test-name value="should emit events" />
+        <test-name value="Form" />
+        <test-name value="Submitting" />
+        <test-name value="should not submit when form is not ready to collect" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="DefaultFieldChangeHandler.should not validate after change only when not skipped validation and set to be validated" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="Form.Submitting.should not submit when form is not valid and not allowed to submit when not valid" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/__tests__/ChangeHandler/DefaultFieldChangeHandlerTest.ts" />
+      <test-file value="$PROJECT_DIR$/src/__tests__/Form/FormTest.tsx" />
       <test-names>
-        <test-name value="DefaultFieldChangeHandler" />
-        <test-name value="should not validate after change only when not skipped validation and set to be validated" />
+        <test-name value="Form" />
+        <test-name value="Submitting" />
+        <test-name value="should not submit when form is not valid and not allowed to submit when not valid" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="DefaultFieldChangeHandler.should not validate after change" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="Form.Submitting.should submit form" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/__tests__/ChangeHandler/DefaultFieldChangeHandlerTest.ts" />
+      <test-file value="$PROJECT_DIR$/src/__tests__/Form/FormTest.tsx" />
       <test-names>
-        <test-name value="DefaultFieldChangeHandler" />
-        <test-name value="should not validate after change" />
+        <test-name value="Form" />
+        <test-name value="Submitting" />
+        <test-name value="should submit form" />
       </test-names>
       <method v="2" />
     </configuration>
     <list>
       <item itemvalue="Jest.All Tests" />
-      <item itemvalue="Jest.DefaultFieldChangeHandler.should not validate after change" />
-      <item itemvalue="Jest.DefaultFieldChangeHandler.should not validate after change only when not skipped validation and set to be validated" />
-      <item itemvalue="Jest.DefaultFieldChangeHandler.should emit events" />
       <item itemvalue="Jest.DefaultFieldChangeHandler" />
       <item itemvalue="Jest.DefaultDynamicFieldChangeHandler.should change value" />
+      <item itemvalue="Jest.Form.Submitting.should not submit when form is not valid and not allowed to submit when not valid" />
+      <item itemvalue="Jest.Form.Submitting.should not submit when form is not ready to collect" />
+      <item itemvalue="Jest.Form.Submitting.should submit form" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Jest.Form.Submitting.should submit form" />
+        <item itemvalue="Jest.Form.Submitting.should not submit when form is not ready to collect" />
+        <item itemvalue="Jest.Form.Submitting.should not submit when form is not valid and not allowed to submit when not valid" />
         <item itemvalue="Jest.DefaultDynamicFieldChangeHandler.should change value" />
         <item itemvalue="Jest.DefaultFieldChangeHandler" />
-        <item itemvalue="Jest.DefaultFieldChangeHandler.should emit events" />
-        <item itemvalue="Jest.DefaultFieldChangeHandler.should not validate after change only when not skipped validation and set to be validated" />
-        <item itemvalue="Jest.DefaultFieldChangeHandler.should not validate after change" />
       </list>
     </recent_temporary>
   </component>
@@ -174,7 +176,7 @@
       <workItem from="1600939429488" duration="2824000" />
       <workItem from="1601064119762" duration="11824000" />
       <workItem from="1601323184503" duration="5549000" />
-      <workItem from="1601365940794" duration="3788000" />
+      <workItem from="1601365940794" duration="5494000" />
     </task>
     <servers />
   </component>
@@ -195,25 +197,25 @@
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
     <state x="-1197" y="82" key="#xdebugger.evaluate/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601324845114" />
-    <state width="1878" height="290" key="GridCell.Tab.0.bottom" timestamp="1601369744265">
+    <state width="1878" height="290" key="GridCell.Tab.0.bottom" timestamp="1601371939481">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="1878" height="290" key="GridCell.Tab.0.bottom/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601369744265" />
+    <state width="1878" height="290" key="GridCell.Tab.0.bottom/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601371939481" />
     <state width="1638" height="280" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1601075956007" />
-    <state width="1878" height="290" key="GridCell.Tab.0.center" timestamp="1601369744265">
+    <state width="1878" height="290" key="GridCell.Tab.0.center" timestamp="1601371939481">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="1878" height="290" key="GridCell.Tab.0.center/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601369744265" />
+    <state width="1878" height="290" key="GridCell.Tab.0.center/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601371939481" />
     <state width="1638" height="280" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1601075956006" />
-    <state width="1878" height="290" key="GridCell.Tab.0.left" timestamp="1601369744264">
+    <state width="1878" height="290" key="GridCell.Tab.0.left" timestamp="1601371939480">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="1878" height="290" key="GridCell.Tab.0.left/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601369744264" />
+    <state width="1878" height="290" key="GridCell.Tab.0.left/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601371939480" />
     <state width="1638" height="280" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1601075956005" />
-    <state width="1878" height="290" key="GridCell.Tab.0.right" timestamp="1601369744265">
+    <state width="1878" height="290" key="GridCell.Tab.0.right" timestamp="1601371939481">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="1878" height="290" key="GridCell.Tab.0.right/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601369744265" />
+    <state width="1878" height="290" key="GridCell.Tab.0.right/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601371939481" />
     <state width="1638" height="280" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1601075956006" />
     <state width="1878" height="358" key="GridCell.Tab.1.bottom" timestamp="1601331070417">
       <screen x="-1920" y="-157" width="1920" height="1057" />
@@ -268,19 +270,19 @@
     </state>
     <state x="-1451" y="10" key="SettingsEditor/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1600193768457" />
     <state x="410" y="185" key="SettingsEditor/0.23.1680.1027@0.23.1680.1027" timestamp="1600939421518" />
-    <state width="200" height="445" key="SwitcherDM" timestamp="1601369753508">
+    <state width="500" height="445" key="SwitcherDM" timestamp="1601371948354">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="200" height="445" key="SwitcherDM/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601369753508" />
+    <state width="500" height="445" key="SwitcherDM/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601371948354" />
     <state width="500" height="433" key="SwitcherDM/0.23.1680.1027@0.23.1680.1027" timestamp="1601075671594" />
     <state x="-1390" y="-16" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1600468049997">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
     <state x="-1390" y="-16" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1600468049997" />
-    <state x="-1295" y="78" width="670" height="676" key="search.everywhere.popup" timestamp="1601324282934">
+    <state x="-1295" y="78" width="670" height="676" key="search.everywhere.popup" timestamp="1601370947472">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state x="-1295" y="78" width="670" height="676" key="search.everywhere.popup/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601324282934" />
+    <state x="-1295" y="78" width="670" height="676" key="search.everywhere.popup/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601370947472" />
     <state x="547" y="251" width="670" height="657" key="search.everywhere.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1601075289325" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">

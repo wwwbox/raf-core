@@ -74,12 +74,10 @@ export default class Form extends React.Component<FormProps, FormState>
     }
 
     submit(): void {
-        if (!this.validation().validate()) {
-            if (!this.getProps().allowSubmitWhenNotValid) {
-                return;
-            }
+        if (!this.getProps().allowSubmitWhenNotValid && !this.validation().validate()) {
+            return;
         }
-
+        
         if (!this.value().isReady()) {
             this.event().emit(GlobalEvents.FORM_NOT_READY_TO_COLLECT, {});
             return;
