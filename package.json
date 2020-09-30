@@ -3,10 +3,10 @@
     "registry": "https://npm.pkg.github.com/"
   },
   "name": "@alicompiler/raf-core",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
-  "types": "main.d.ts",
-  "main": "main.js",
+  "types": "build/main.d.ts",
+  "main": "build/main.js",
   "repository": {
     "url": "https://github.com/alicompiler/raf-core"
   },
