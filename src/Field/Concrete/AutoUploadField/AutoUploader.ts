@@ -45,6 +45,7 @@ export class DefaultAutoUploader implements AutoUploader {
 
     protected onCancel(): void {
         this.field.ui().setLoading(false);
+        this.field.collecting().setReady(true);
         this.updateUploadState(false, null, 0);
         this.field.event().emitOnThis(AutoUploadFieldEvents.CANCEL, {});
     }
