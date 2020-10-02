@@ -25,7 +25,7 @@ export class AutoUploadField<ExtraConfiguration extends AutoUploadFieldExtraConf
         return new AutoUploadFieldExtraConfigurationInitializer<ExtraConfiguration>();
     }
 
-    extra(): IAutoUploadFieldExtra {
+    extra(): IAutoUploadFieldExtra<ExtraConfiguration> {
         return this._extra as IAutoUploadFieldExtra;
     }
 

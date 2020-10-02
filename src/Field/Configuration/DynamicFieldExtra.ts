@@ -20,7 +20,7 @@ export function getDefaultDynamicFieldConfiguration() {
     }
 }
 
-export interface IDynamicFieldExtra extends IFieldExtraConfiguration<DynamicFieldConfiguration> {
+export interface IDynamicFieldExtra<ExtraConfiguration extends DynamicFieldConfiguration = DynamicFieldConfiguration> extends IFieldExtraConfiguration<ExtraConfiguration> {
     getMaxInput(): number;
 
     setMaxInput(maxInput: number): void;
@@ -34,7 +34,7 @@ export interface IDynamicFieldExtra extends IFieldExtraConfiguration<DynamicFiel
     getOnItemAdded(): (index: number, field: DynamicField) => void;
 }
 
-export class DynamicFieldExtra extends FieldExtra<DynamicFieldConfiguration> implements IDynamicFieldExtra {
+export class DynamicFieldExtra<ExtraConfiguration extends DynamicFieldConfiguration = DynamicFieldConfiguration> extends FieldExtra<ExtraConfiguration> implements IDynamicFieldExtra {
     getOnInputFilled(): (field: DynamicField) => void {
         return this.getConfiguration().onInputFilled;
     }

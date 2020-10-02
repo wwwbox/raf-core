@@ -54,7 +54,7 @@ export default class DynamicField<ExtraConfiguration extends DynamicFieldConfigu
         this.extra().getOnItemRemoved()(removedItem, index, this);
     }
 
-    extra(): IDynamicFieldExtra {
+    extra(): IDynamicFieldExtra<ExtraConfiguration> {
         return this._extra as IDynamicFieldExtra;
     }
 

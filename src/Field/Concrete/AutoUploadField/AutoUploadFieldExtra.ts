@@ -3,14 +3,16 @@ import {AutoUploadFieldExtraConfiguration} from "./AutoUploadFieldExtraConfigura
 import IField from "../../IField";
 import {AutoUploader} from "./AutoUploader";
 
-export interface IAutoUploadFieldExtra
-    extends IFieldConfiguration<AutoUploadFieldExtraConfiguration> {
+export interface IAutoUploadFieldExtra<ExtraConfiguration extends AutoUploadFieldExtraConfiguration = AutoUploadFieldExtraConfiguration>
+    extends IFieldConfiguration<ExtraConfiguration> {
 
     getSelectedFile(): any;
 
-    setSelectedFile(file: any): any;
+    setSelectedFile(file: any, afterChange: () => void): any;
 
     setUploadedFileFromResponse(response: any): void;
+
+    removeUploadedFile(): void;
 
     getUploader(): AutoUploader;
 
@@ -23,7 +25,8 @@ export interface IAutoUploadFieldExtra
     getProgress(): number;
 }
 
-export class AutoUploadFieldExtra extends FieldConfigurationBase<AutoUploadFieldExtraConfiguration> implements IAutoUploadFieldExtra {
+export class AutoUploadFieldExtra<ExtraConfiguration extends AutoUploadFieldExtraConfiguration = AutoUploadFieldExtraConfiguration>
+    extends FieldConfigurationBase<ExtraConfiguration> implements IAutoUploadFieldExtra {
 
     constructor(field: IField, configurationKey: string) {
         super(field, configurationKey);
@@ -33,8 +36,8 @@ export class AutoUploadFieldExtra extends FieldConfigurationBase<AutoUploadField
         return this.config("inputFile");
     }
 
-    setSelectedFile(file: any): any {
-        this.update("inputFile", file);
+    setSelectedFile(file: any, afterChange: () => void): any {
+        this.update("inputFile", file, afterChange);
     }
 
     setUploadedFileFromResponse(response: any): void {
@@ -60,6 +63,11 @@ export class AutoUploadFieldExtra extends FieldConfigurationBase<AutoUploadField
 
     isUploading(): boolean {
         return this.config('uploading');
+    }
+
+    removeUploadedFile(): void {
+        this.update('uploadedFile', null);
+        this.getField().value().set(null);
     }
 
 }
