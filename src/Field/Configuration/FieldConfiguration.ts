@@ -10,10 +10,12 @@ export class FieldConfigurationBase<T> implements IFieldConfiguration<T> {
 
     private readonly field: IField;
     private readonly configurationKey: string;
+    private currentConfiguration: T;
 
     protected constructor(field: IField, configurationKey: string) {
         this.field = field;
         this.configurationKey = configurationKey;
+        this.currentConfiguration = this.getConfiguration();
     }
 
     protected unUpdatableKeys(): (keyof T)[] {
@@ -22,6 +24,10 @@ export class FieldConfigurationBase<T> implements IFieldConfiguration<T> {
 
     protected getConfiguration(): T {
         return this.field.getConfiguration<T>(this.getConfigurationKey());
+    }
+
+    protected getCurrentConfiguration(): T {
+        return this.currentConfiguration;
     }
 
     protected getConfigurationKey(): string {
@@ -40,8 +46,8 @@ export class FieldConfigurationBase<T> implements IFieldConfiguration<T> {
         if (this.unUpdatableKeys().includes(key)) {
             throw Error(`cannot update ${key}`);
         }
-        const currentConfiguration = this.getConfiguration();
-        const newConfiguration = {...currentConfiguration, [key]: value};
+        const newConfiguration = {...this.currentConfiguration, [key]: value};
+        this.currentConfiguration = {...newConfiguration};
         this.field.updateConfiguration<T>(this.getConfigurationKey(), newConfiguration, afterChange);
     }
 
