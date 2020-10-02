@@ -60,7 +60,7 @@ export default class Field<ExtraConfiguration = any> extends React.Component<Fie
         this.value().getOnChangeHandler().handle(e);
     }
 
-    render() {
+    render(): any {
         return null;
     }
 

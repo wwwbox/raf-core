@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="02a24f0f-9847-4345-a3b5-34b3fb9e6a52" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Field/Concrete/Field.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Concrete/Field.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Field/Value/FieldValue.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Value/FieldValue.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/__tests__/Field/FieldValueTest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Field/FieldValueTest.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,7 +54,7 @@
       <recent name="$PROJECT_DIR$/src/Form/Concrate" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.All Tests">
+  <component name="RunManager" selected="Jest.FieldValue.should set value">
     <configuration name="All Tests" type="JavaScriptTestRunnerJest" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -90,30 +91,31 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="DefaultFormRenderer" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="SUITE" />
-      <test-file value="$PROJECT_DIR$/src/__tests__/Defaults/DefaultFormRendererTest.tsx" />
-      <test-names>
-        <test-name value="DefaultFormRenderer" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="DefaultFormRenderer.should call submit when button clicked" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="FieldValue.should clear value" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/__tests__/Defaults/DefaultFormRendererTest.tsx" />
+      <test-file value="$PROJECT_DIR$/src/__tests__/Field/FieldValueTest.ts" />
       <test-names>
-        <test-name value="DefaultFormRenderer" />
-        <test-name value="should call submit when button clicked" />
+        <test-name value="FieldValue" />
+        <test-name value="should clear value" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="FieldValue.should set value" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/__tests__/Field/FieldValueTest.ts" />
+      <test-names>
+        <test-name value="FieldValue" />
+        <test-name value="should set value" />
       </test-names>
       <method v="2" />
     </configuration>
@@ -135,17 +137,17 @@
       <item itemvalue="Jest.All Tests" />
       <item itemvalue="Jest.DefaultFieldRenderer" />
       <item itemvalue="Jest.DefaultFieldRenderer.should render fields" />
-      <item itemvalue="Jest.DefaultFormRenderer" />
-      <item itemvalue="Jest.DefaultFormRenderer.should call submit when button clicked" />
       <item itemvalue="Jest.FormValueTest.should clear value" />
+      <item itemvalue="Jest.FieldValue.should set value" />
+      <item itemvalue="Jest.FieldValue.should clear value" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Jest.FieldValue.should set value" />
+        <item itemvalue="Jest.FieldValue.should clear value" />
         <item itemvalue="Jest.FormValueTest.should clear value" />
         <item itemvalue="Jest.DefaultFieldRenderer" />
         <item itemvalue="Jest.DefaultFieldRenderer.should render fields" />
-        <item itemvalue="Jest.DefaultFormRenderer" />
-        <item itemvalue="Jest.DefaultFormRenderer.should call submit when button clicked" />
       </list>
     </recent_temporary>
   </component>
@@ -176,6 +178,7 @@
       <workItem from="1601365940794" duration="30902000" />
       <workItem from="1601481564070" duration="646000" />
       <workItem from="1601493606817" duration="2195000" />
+      <workItem from="1601640530516" duration="1218000" />
     </task>
     <servers />
   </component>
@@ -196,25 +199,25 @@
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
     <state x="-1197" y="82" key="#xdebugger.evaluate/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601387569474" />
-    <state width="1878" height="290" key="GridCell.Tab.0.bottom" timestamp="1601412779655">
+    <state width="1899" height="290" key="GridCell.Tab.0.bottom" timestamp="1601648744253">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="1878" height="290" key="GridCell.Tab.0.bottom/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601412779655" />
+    <state width="1899" height="290" key="GridCell.Tab.0.bottom/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601648744253" />
     <state width="1638" height="280" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1601075956007" />
-    <state width="1878" height="290" key="GridCell.Tab.0.center" timestamp="1601412779654">
+    <state width="1899" height="290" key="GridCell.Tab.0.center" timestamp="1601648744252">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="1878" height="290" key="GridCell.Tab.0.center/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601412779654" />
+    <state width="1899" height="290" key="GridCell.Tab.0.center/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601648744252" />
     <state width="1638" height="280" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1601075956006" />
-    <state width="1878" height="290" key="GridCell.Tab.0.left" timestamp="1601412779653">
+    <state width="1899" height="290" key="GridCell.Tab.0.left" timestamp="1601648744252">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="1878" height="290" key="GridCell.Tab.0.left/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601412779653" />
+    <state width="1899" height="290" key="GridCell.Tab.0.left/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601648744252" />
     <state width="1638" height="280" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1601075956005" />
-    <state width="1878" height="290" key="GridCell.Tab.0.right" timestamp="1601412779654">
+    <state width="1899" height="290" key="GridCell.Tab.0.right" timestamp="1601648744253">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="1878" height="290" key="GridCell.Tab.0.right/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601412779654" />
+    <state width="1899" height="290" key="GridCell.Tab.0.right/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601648744253" />
     <state width="1638" height="280" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1601075956006" />
     <state width="1878" height="358" key="GridCell.Tab.1.bottom" timestamp="1601407088969">
       <screen x="-1920" y="-157" width="1920" height="1057" />
@@ -269,19 +272,19 @@
     </state>
     <state x="-1451" y="10" key="SettingsEditor/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1600193768457" />
     <state x="410" y="185" key="SettingsEditor/0.23.1680.1027@0.23.1680.1027" timestamp="1600939421518" />
-    <state width="500" height="445" key="SwitcherDM" timestamp="1601495828162">
+    <state width="500" height="445" key="SwitcherDM" timestamp="1601648700533">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="500" height="445" key="SwitcherDM/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601495828162" />
+    <state width="500" height="445" key="SwitcherDM/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601648700533" />
     <state width="500" height="433" key="SwitcherDM/0.23.1680.1027@0.23.1680.1027" timestamp="1601075671594" />
     <state x="-1390" y="-16" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1601399096472">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
     <state x="-1390" y="-16" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601399096472" />
-    <state x="-1295" y="78" width="670" height="676" key="search.everywhere.popup" timestamp="1601412864723">
+    <state x="-1295" y="78" width="670" height="676" key="search.everywhere.popup" timestamp="1601648778046">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state x="-1295" y="78" width="670" height="676" key="search.everywhere.popup/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601412864723" />
+    <state x="-1295" y="78" width="670" height="676" key="search.everywhere.popup/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1601648778046" />
     <state x="547" y="251" width="670" height="657" key="search.everywhere.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1601075289325" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">

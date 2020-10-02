@@ -56,7 +56,9 @@ describe('FieldValue', () => {
     });
 
     it('should set value', function () {
-        const updateConfigurationMock = jest.fn();
+        const updateConfigurationMock = jest.fn((_, __, afterChange) => {
+            afterChange?.();
+        });
         const validationMock = mock<IFieldValidation>();
         const value = testUtils.getInstance({}, {
             updateConfiguration: updateConfigurationMock,
@@ -64,7 +66,8 @@ describe('FieldValue', () => {
         })
         const callback = jest.fn();
         value.set('x', true, callback);
-        expect(updateConfigurationMock).toBeCalledWith('value', {value: 'x'}, callback);
+        expect(updateConfigurationMock).toBeCalledWith('value', {value: 'x'}, expect.any(Function));
+        expect(callback).toBeCalled();
         expect(validationMock.validateWithEffect).toBeCalledWith(true);
     });
 
@@ -79,7 +82,10 @@ describe('FieldValue', () => {
             updateConfiguration: updateConfigurationMock
         });
         value.clear();
-        expect(updateConfigurationMock).toBeCalledWith('value', {clearValue: 'empty', value: 'empty'}, undefined);
+        expect(updateConfigurationMock).toBeCalledWith('value', {
+            clearValue: 'empty',
+            value: 'empty'
+        }, expect.any(Function));
     });
 
     it('should not update valueChangeHandler,defaultChangeHandler', function () {

@@ -46,10 +46,12 @@ export class FieldValue extends FieldConfigurationBase<FieldValueConfiguration> 
     }
 
     set(value: any, validateAfterChange?: boolean, afterChange?: () => void): void {
-        this.update('value', value, afterChange);
-        if (validateAfterChange === true) {
-            this.getField().validation().validateWithEffect(true);
-        }
+        this.update('value', value, () => {
+            if (validateAfterChange === true) {
+                this.getField().validation().validateWithEffect(true);
+            }
+            afterChange?.();
+        });
     }
 
 }
