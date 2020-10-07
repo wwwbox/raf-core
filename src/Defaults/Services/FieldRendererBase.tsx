@@ -20,16 +20,20 @@ export default abstract class FieldRendererBase implements FieldRenderer {
 
     private renderField = (config: FieldOptions | FieldOptions[], index: number): any => {
         if (Array.isArray(config)) {
-            const ArrayWrapper = this.arrayWrapper();
-            return <ArrayWrapper key={index} {...this.arrayWrapperProps()}>
-                {
-                    config.map(config => this.renderFieldElement(config, true))
-                }
-            </ArrayWrapper>
+            return this.renderArray(index, config)
         } else {
             return this.renderFieldElement(config, false);
         }
     };
+
+    protected renderArray(index: number, config: FieldOptions[]): any {
+        const ArrayWrapper = this.arrayWrapper();
+        return <ArrayWrapper key={index} {...this.arrayWrapperProps()}>
+            {
+                config.map(config => this.renderFieldElement(config, true))
+            }
+        </ArrayWrapper>;
+    }
 
     protected arrayWrapper = (): any => 'div';
 

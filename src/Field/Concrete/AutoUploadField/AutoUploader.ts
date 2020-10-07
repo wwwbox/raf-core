@@ -79,9 +79,9 @@ export class DefaultAutoUploader implements AutoUploader {
         this.request.onreadystatechange = function () {
             _self.onResponse(this);
         }
-        this.request.onprogress = function (e) {
+        this.request.upload.addEventListener('progress', function (e) {
             _self.onProgress(e.total, e.loaded, (e.loaded / e.total) * 100)
-        }
+        }, false);
     }
 
     private send(): void {

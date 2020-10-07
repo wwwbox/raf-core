@@ -13,11 +13,6 @@ export default class DefaultFieldRenderer extends FieldRendererBase {
     protected renderFieldElement(options: FieldOptions, inArray: boolean): React.ReactElement {
         const {as: Component, ...otherOptions} = options;
         const props = {...otherOptions, ...this.getInjectedProps()};
-        if (inArray) {
-            return <div className={'__raf-field'} key={options.name}>
-                <Component {...props}/>
-            </div>
-        }
         return <div className={'__raf-field'} key={options.name}>
             <Component {...props}/>
         </div>;
