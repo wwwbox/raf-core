@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="02a24f0f-9847-4345-a3b5-34b3fb9e6a52" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Defaults/Services/DefaultFieldRenderer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Defaults/Services/DefaultFieldRenderer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Defaults/Services/FieldRendererBase.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Defaults/Services/FieldRendererBase.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Field/Concrete/AutoUploadField/AutoUploader.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Concrete/AutoUploadField/AutoUploader.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +177,7 @@
       <workItem from="1601640530516" duration="7146000" />
       <workItem from="1601708901475" duration="936000" />
       <workItem from="1601752609311" duration="1297000" />
-      <workItem from="1602069191543" duration="1727000" />
+      <workItem from="1602069191543" duration="2112000" />
     </task>
     <servers />
   </component>
