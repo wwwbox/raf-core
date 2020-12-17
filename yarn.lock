@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@autofiy/autofiyable@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@autofiy/autofiyable/-/autofiyable-1.2.0.tgz#067273cb6ce49444904fd3ad35e210d45d9dc9c4"
+  integrity sha512-gIkQF1WC0Rj9CwrWWFynj6/4sG4NYfLeAA/KROuaQVxrkgMl9sMo8A2k0HopJD5V9WzRc21tK5lMmUbYA9V4Gg==
+
 "@babel/code-frame@7.10.4", "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.10.4":
   version "7.10.4"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.10.4.tgz#168da1a36e90da68ae8d49c0f1b48c7c6249213a"
