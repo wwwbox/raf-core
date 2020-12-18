@@ -1,7 +1,7 @@
 import DynamicField from "../../Field/Concrete/DynamicField";
 import {FieldType} from "../../Field/Concrete/FieldType";
 import Enzyme, {mount} from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
+import Adapter from "@wojtekmaj/enzyme-adapter-react-17";
 import * as React from "react";
 import DefaultDynamicFieldChangeHandler from "../../ChangeHandler/DefaultDynamicFieldChangeHandler";
 import {IFormEvent} from "../../Form/FormEvent/FormEvent";
