@@ -1,8 +1,9 @@
+import { Service } from '@autofiy/autofiyable';
 import IForm from "../IForm";
-import {FieldType} from "../../Field/Concrete/FieldType";
+import { FieldType } from "../../Field/Concrete/FieldType";
 import IField from "../../Field/IField";
 
-export interface IFormCollector {
+export interface IFormCollector extends Service {
     files(): any;
 
     query(): any;

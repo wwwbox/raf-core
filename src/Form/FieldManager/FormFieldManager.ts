@@ -1,8 +1,9 @@
-import {FieldOptions} from "../../Field/FieldProps";
+import { Service } from '@autofiy/autofiyable';
+import { FieldOptions } from "../../Field/FieldProps";
 import IField from "../../Field/IField";
 import IForm from "../IForm";
 
-export interface IFormFieldManager {
+export interface IFormFieldManager extends Service {
     getFieldsOptions(): (FieldOptions | FieldOptions[])[];
 
     register(field: IField): void;

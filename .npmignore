@@ -8,3 +8,5 @@ TODO
 tsconfig.json
 yarn.lock
 .idea
+
+.eslintcache

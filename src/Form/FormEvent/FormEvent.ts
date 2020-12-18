@@ -1,12 +1,13 @@
-import {EventCallback} from "../../Event/EventType";
+import { Service } from '@autofiy/autofiyable';
+import { EventCallback } from "../../Event/EventType";
 import IForm from "../IForm";
-import {IEventNameMaker} from "../../Event/IEventNameMaker";
-import {getFormService} from "../FormService";
+import { IEventNameMaker } from "../../Event/IEventNameMaker";
+import { getFormService } from "../FormService";
 import FormDefault from "../FormDefault";
-import {GlobalEvents} from "../../Event/DefaultEvents";
+import { GlobalEvents } from "../../Event/DefaultEvents";
 import IField from "../../Field/IField";
 
-export interface IFormEvent {
+export interface IFormEvent extends Service {
     emit(eventName: string, payload: any): void;
 
     addListener(id: string, eventName: string, callback: EventCallback): void;
@@ -45,7 +46,7 @@ export class FormEvent implements IFormEvent {
             throw Error(`cannot listener on ${eventName}, because the id (${id}) already exists`);
         }
 
-        this.listeners[eventName].push({id: id, callback: callback});
+        this.listeners[eventName].push({ id: id, callback: callback });
     }
 
     removeListener(id: string, eventName: string): void {
@@ -91,7 +92,7 @@ export class FormEvent implements IFormEvent {
     }
 
     getNameMaker(): IEventNameMaker {
-        return getFormService<IEventNameMaker>("event name maker", this.form, this.form.getProps().services?.eventNameMaker, FormDefault.getEventNameMaker());
+        return this.form.getServiceProvider().getService<IEventNameMaker>("eventNameMaker");
     }
 
 }
