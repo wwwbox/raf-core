@@ -21,7 +21,7 @@ export class ComprehensiveExample extends Component {
                     {as: DefaultTextField, name: 'username', extra: {label: 'Username'}},
                     {as: DefaultPasswordField, name: 'password', extra: {label: 'Password'}},
                     {
-                        as: DefaultRadioField, name: 'type', extra: {
+                        as: DefaultRadioField,  name: 'type', extra: {
                             label: 'Type',
                             options: [{label: 'Admin', value: 1}, {label: 'User', value: 2}]
                         }
