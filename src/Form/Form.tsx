@@ -1,45 +1,48 @@
-import * as React from "react";
 import IForm from "./IForm";
 import FormState from "./FormState";
-import FormProps from "./FormProps";
-import {FormUI, IFormUI} from "./FormUI/FormUI";
-import {FormValidation, IFormValidation} from "./FormValidation/FormValidation";
-import {FormEvent, IFormEvent} from "./FormEvent/FormEvent";
-import {FormValue, IFormValue} from "./FormValue/FormValue";
-import {FormFieldManager, IFormFieldManager} from "./FieldManager/FormFieldManager";
+import FormProps, { defaultServices, ServiceConfiguration } from "./FormProps";
+import { IFormUI } from "./FormUI/FormUI";
+import { IFormValidation } from "./FormValidation/FormValidation";
+import { IFormEvent } from "./FormEvent/FormEvent";
+import { IFormValue } from "./FormValue/FormValue";
+import { IFormFieldManager } from "./FieldManager/FormFieldManager";
 import Submitter from "../Protocol/Submitter";
-import {getFormService} from "./FormService";
-import FormDefault from "./FormDefault";
-import {GlobalEvents} from "../Event/DefaultEvents";
-import {DefaultCollector, IFormCollector} from "./FormCollecting/IFormCollector";
+import { GlobalEvents } from "../Event/DefaultEvents";
+import { IFormCollector } from "./FormCollecting/IFormCollector";
+import { AutofiyableComponent } from "@autofiy/autofiyable";
 
-
-export default class Form extends React.Component<FormProps, FormState>
+export class Form
+    extends AutofiyableComponent<FormProps, FormState, ServiceConfiguration>
     implements IForm {
 
-
-    protected _ui: IFormUI;
-    protected _validation: IFormValidation;
-    protected _event: IFormEvent;
-    protected _value: IFormValue;
-    protected _fieldManager: IFormFieldManager;
-    protected _collecting: IFormCollector;
-
-    protected _submitter: Submitter;
-
+    protected _ui: IFormUI = null as any;
+    protected _validation: IFormValidation = null as any;
+    protected _event: IFormEvent = null as any;
+    protected _value: IFormValue = null as any;
+    protected _fieldManager: IFormFieldManager = null as any;
+    protected _collecting: IFormCollector = null as any;
+    protected _submitter: Submitter = null as any;
 
     constructor(props: FormProps) {
         super(props);
-        this.state = {isLoading: false} as any;
-        this._ui = new FormUI(this);
-        this._validation = new FormValidation(this);
-        this._event = new FormEvent(this);
-        this._value = new FormValue(this);
-        this._fieldManager = new FormFieldManager(this);
-        this._collecting = new DefaultCollector(this);
-        this._submitter = getFormService("submitter", this, this.props.services?.submitter, FormDefault.getSubmitter());
-
+        this.state = { isLoading: false } as any;
         this.setupListeners();
+
+        this._ui = this.getServiceProvider().getService("formUi");
+        this._validation = this.getServiceProvider().getService("formValidation");
+        this._event = this.getServiceProvider().getService("formEvent");
+        this._value = this.getServiceProvider().getService("formValue");
+        this._fieldManager = this.getServiceProvider().getService("fieldManager");
+        this._collecting = this.getServiceProvider().getService("formCollector");
+        this._submitter = this.getServiceProvider().getService("submitter");
+
+    }
+
+    protected initializeServices(): void {
+    }
+
+    getDefaultServices(): ServiceConfiguration {
+        return defaultServices();
     }
 
     componentDidMount(): void {
@@ -53,7 +56,7 @@ export default class Form extends React.Component<FormProps, FormState>
         return this.ui().render();
     }
 
-    componentDidUpdate(prevProps: Readonly<FormProps>, prevState: Readonly<FormState>, snapshot?: any) {
+    componentDidUpdate() {
         this.event().emit(GlobalEvents.FORM_RENDERED, {});
     }
 
@@ -67,10 +70,6 @@ export default class Form extends React.Component<FormProps, FormState>
 
     getInternalState(): FormState {
         return this.state;
-    }
-
-    getProps(): FormProps {
-        return this.props;
     }
 
     submit(): void {
@@ -112,3 +111,5 @@ export default class Form extends React.Component<FormProps, FormState>
         keys.forEach(key => this.event().addListener("form", key, listeners[key]));
     }
 }
+
+export default Form;

@@ -1,5 +1,5 @@
 {
-  "name": "@alicompiler/raf-core",
+  "name": "@autofiy/raf-core",
   "version": "1.3.0",
   "types": "build/main.d.ts",
   "main": "build/main.js",
@@ -7,28 +7,27 @@
     "url": "https://github.com/alicompiler/raf-core"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.0.4",
-    "@testing-library/user-event": "^12.1.5",
-    "@types/enzyme": "^3.10.6",
-    "@types/enzyme-adapter-react-16": "^1.0.6",
-    "@types/jest": "^26.0.14",
-    "@types/react": "^16.9.49",
-    "@types/react-dom": "^16.9.8",
+    "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/react": "^11.2.2",
+    "@testing-library/user-event": "^12.6.0",
+    "@types/enzyme": "^3.10.8",
+    "@types/jest": "^26.0.19",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.4.1",
+    "babel-jest": "^26.6.3",
     "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.4",
     "jest-mock-extended": "^1.0.10",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3",
-    "ts-jest": "^26.3.0",
-    "typescript": "^4.0.2"
+    "react-scripts": "4.0.1",
+    "ts-jest": "^26.4.4",
+    "typescript": "^4.1.3"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "tsc --noEmit false",
     "test": "jest",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy" : "rm -rf build && npm run build && npm publish"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -45,5 +44,12 @@
       "last 1 safari version"
     ]
   },
-  "dependencies": {}
+  "dependencies": {
+    "@autofiy/autofiyable": "^1.2.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "transformIgnorePatterns": [
+    "node_modules/@autofiy/autofiyable$"
+  ]
 }

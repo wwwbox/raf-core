@@ -1,14 +1,15 @@
+import { Autofiyable } from '@autofiy/autofiyable';
 import FormProps from "./FormProps";
-import {IFormFieldManager} from "./FieldManager/FormFieldManager";
-import {IFormUI} from "./FormUI/FormUI";
-import {IFormValue} from "./FormValue/FormValue";
-import {IFormValidation} from "./FormValidation/FormValidation";
-import {IFormEvent} from "./FormEvent/FormEvent";
+import { IFormFieldManager } from "./FieldManager/FormFieldManager";
+import { IFormUI } from "./FormUI/FormUI";
+import { IFormValue } from "./FormValue/FormValue";
+import { IFormValidation } from "./FormValidation/FormValidation";
+import { IFormEvent } from "./FormEvent/FormEvent";
 import FormState from "./FormState";
-import {IFormCollector} from "./FormCollecting/IFormCollector";
+import { IFormCollector } from "./FormCollecting/IFormCollector";
 
 
-export default interface IForm {
+export default interface IForm extends Autofiyable {
 
     fields(): IFormFieldManager;
 

@@ -1,10 +1,9 @@
+import { Service } from '@autofiy/autofiyable';
 import IForm from "../IForm";
 import Validator from "../../Protocol/Validator";
-import {getFormService} from "../FormService";
-import FormDefault from "../FormDefault";
-import {GlobalEvents} from "../../Event/DefaultEvents";
+import { GlobalEvents } from "../../Event/DefaultEvents";
 
-export interface IFormValidation {
+export interface IFormValidation extends Service {
 
     validate(): boolean;
 
@@ -37,7 +36,7 @@ export class FormValidation implements IFormValidation {
     }
 
     getValidator(): Validator {
-        return getFormService<Validator>("validator", this.form, this.form.getProps().services?.validator, FormDefault.getValidator());
+        return this.form.getServiceProvider().getService<FormValidation>("validator");
     }
 
 }

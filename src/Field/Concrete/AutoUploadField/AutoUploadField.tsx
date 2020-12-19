@@ -1,13 +1,13 @@
-import {AutoUploader} from "./AutoUploader";
-import {FieldProps} from "../../FieldProps";
+import { AutoUploader } from "./AutoUploader";
+import { FieldProps } from "../../FieldProps";
 import Field from "../Field";
-import {AutoUploadFieldExtra, IAutoUploadFieldExtra} from "./AutoUploadFieldExtra";
+import { AutoUploadFieldExtra, IAutoUploadFieldExtra } from "./AutoUploadFieldExtra";
 import {
     AutoUploadFieldExtraConfiguration,
     AutoUploadFieldExtraConfigurationInitializer
 } from "./AutoUploadFieldExtraConfiguration";
-import {AutoUploadFieldChangeHandler} from "../../../ChangeHandler/AutoUploadFieldChangeHandler";
-import {IExtraConfigurationInitializer} from "../FieldStateInitializer";
+import { AutoUploadFieldChangeHandler } from "../../../ChangeHandler/AutoUploadFieldChangeHandler";
+import { IExtraConfigurationInitializer } from "../FieldStateInitializer";
 
 export class AutoUploadField<ExtraConfiguration extends AutoUploadFieldExtraConfiguration = AutoUploadFieldExtraConfiguration> extends Field<ExtraConfiguration> {
 
@@ -17,7 +17,7 @@ export class AutoUploadField<ExtraConfiguration extends AutoUploadFieldExtraConf
         super(props);
         this._extra = new AutoUploadFieldExtra(this, "extra");
         this.state.value.defaultChangeHandler = () => new AutoUploadFieldChangeHandler(this);
-        this.state.value.extractValueFromEvent ??= e => e.target.files;
+        this.state.value.extractValueFromEvent = this.state.value.extractValueFromEvent ?? (e => e.target.files);
         this.uploader = this.extra().getUploader();
     }
 

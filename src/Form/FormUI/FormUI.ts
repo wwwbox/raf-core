@@ -1,10 +1,9 @@
+import { Service } from '@autofiy/autofiyable';
 import IForm from "../IForm";
-import {getFormService} from "../FormService";
 import FormRenderer from "../../Protocol/FormRenderer";
-import FormDefault from "../FormDefault";
-import {GlobalEvents} from "../../Event/DefaultEvents";
+import { GlobalEvents } from "../../Event/DefaultEvents";
 
-export interface IFormUI {
+export interface IFormUI extends Service {
     startLoading(): void;
 
     stopLoading(): void;
@@ -28,19 +27,19 @@ export class FormUI implements IFormUI {
     }
 
     startLoading(): void {
-        this.form.updateInternalState({isLoading: true}, () => {
+        this.form.updateInternalState({ isLoading: true }, () => {
             this.form.event().emit(GlobalEvents.FORM_START_LOADING, {});
         });
     }
 
     stopLoading(): void {
-        this.form.updateInternalState({isLoading: false}, () => {
+        this.form.updateInternalState({ isLoading: false }, () => {
             this.form.event().emit(GlobalEvents.FORM_END_LOADING, {});
         });
     }
 
     render(): any {
-        const renderer = getFormService<FormRenderer>("form renderer", this.form, this.form.getProps().services?.formRenderer, FormDefault.getFormRenderer())
+        const renderer = this.form.getServiceProvider().getService<FormRenderer>("formRenderer");
         return renderer.render();
     }
 

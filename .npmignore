@@ -8,3 +8,8 @@ TODO
 tsconfig.json
 yarn.lock
 .idea
+
+.eslintcache
+
+./build/__examples
+yarn-error.log
