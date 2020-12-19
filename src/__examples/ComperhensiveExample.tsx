@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Form from "../Form/Form";
 import DefaultTextField from "../DefaultElement/DefaultTextField";
 import DefaultPasswordField from "../DefaultElement/DefaultPasswordField";
@@ -17,19 +17,19 @@ export class ComprehensiveExample extends Component {
         return (
             <div>
                 <Form ref={ref => this.form = ref} fields={[
-                    {as: DefaultTextField, name: 'name', extra: {label: 'Name'}},
-                    {as: DefaultTextField, name: 'username', extra: {label: 'Username'}},
-                    {as: DefaultPasswordField, name: 'password', extra: {label: 'Password'}},
+                    { as: DefaultTextField, name: 'name', extra: { label: 'Name' } },
+                    { as: DefaultTextField, name: 'username', extra: { label: 'Username' } },
+                    { as: DefaultPasswordField, name: 'password', extra: { label: 'Password' } },
                     {
-                        as: DefaultRadioField,  name: 'type', extra: {
+                        as: DefaultRadioField, name: 'type', extra: {
                             label: 'Type',
-                            options: [{label: 'Admin', value: 1}, {label: 'User', value: 2}]
+                            options: [{ label: 'Admin', value: 1 }, { label: 'User', value: 2 }]
                         }
                     },
                     {
                         as: DefaultSelectField, name: 'country', extra: {
                             label: 'Country',
-                            options: [{label: 'Iraq', value: 1}, {label: 'Japan', value: 2}]
+                            options: [{ label: 'Iraq', value: 1 }, { label: 'Japan', value: 2 }]
                         }
                     },
                     {
@@ -42,12 +42,13 @@ export class ComprehensiveExample extends Component {
                             label: 'Enter your friends names'
                         }
                     },
-                    {as: DefaultCheckboxField, name: 'policy_agreement', extra: {label: 'I Accept The Policy'}},
-                ]}/>
+                    { as: DefaultCheckboxField, name: 'policy_agreement', extra: { label: 'I Accept The Policy' } },
+                ]} />
                 <button onClick={() => {
                     const win: any = window;
                     win.raf = this.form;
-                }}>SET GLOBAL FORM INSTANCE
+                }}>
+                    SET GLOBAL FORM INSTANCE
                 </button>
             </div>
 
