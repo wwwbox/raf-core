@@ -1,3 +1,5 @@
-export default interface FormState {
+export interface FormState {
     isLoading: boolean;
 }
+
+export default FormState;

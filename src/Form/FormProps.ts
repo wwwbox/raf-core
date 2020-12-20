@@ -7,20 +7,20 @@ import { DefaultFormRenderer } from './../Defaults/Services/DefaultFormRenderer'
 import { DefaultSubmitter } from './../Defaults/Services/DefaultSubmitter';
 import { NotEmptyValidator } from './../Defaults/Services/Validator';
 import { DefaultEventNameMaker } from './../Event/IEventNameMaker';
-import IForm from "./IForm";
-import IField from "../Field/IField";
+import { IForm } from "./IForm";
+import { IField } from "../Field/IField";
 import { EventCallback } from "../Event/EventType";
 import { FieldOptions } from "../Field/FieldProps";
-import Validator from "../Protocol/Validator";
-import Submitter from "../Protocol/Submitter";
-import FormRenderer from "../Protocol/FormRenderer";
+import { Validator } from "../Protocol/Validator";
+import { Submitter } from "../Protocol/Submitter";
+import { FormRenderer } from "../Protocol/FormRenderer";
 import { IEventNameMaker } from "../Event/IEventNameMaker";
-import FieldRenderer from "../Protocol/FieldRenderer";
+import { FieldRenderer } from "../Protocol/FieldRenderer";
 import { AutofiyableProps, ServiceConfiguration as SC, ServiceCallback } from "@autofiy/autofiyable";
 import { DefaultFieldRenderer } from '../main';
 import { FormUI, IFormUI } from './FormUI/FormUI';
 
-export default interface FormProps extends AutofiyableProps {
+export interface FormProps extends AutofiyableProps {
     fields: (FieldOptions | FieldOptions[])[],
 
     listen?: {
@@ -32,6 +32,8 @@ export default interface FormProps extends AutofiyableProps {
     allowSubmitWhenNotValid?: boolean;
     extra?: any;
 }
+
+export default FormProps;
 
 
 
@@ -50,7 +52,7 @@ export interface ServiceConfiguration extends SC {
 }
 
 
-export function defaultServices() : ServiceConfiguration {
+export function defaultServices(): ServiceConfiguration {
     return {
         eventNameMaker: () => new DefaultEventNameMaker(),
         validator: () => new NotEmptyValidator(),
@@ -62,6 +64,6 @@ export function defaultServices() : ServiceConfiguration {
         formEvent: (autofiyable: any) => new FormEvent(autofiyable),
         formValue: (autofiyable: any) => new FormValue(autofiyable),
         fieldManager: (autofiyable: any) => new FormFieldManager(autofiyable),
-        formCollector: (autofiyable: any) => new DefaultCollector(autofiyable),    
+        formCollector: (autofiyable: any) => new DefaultCollector(autofiyable),
     }
 }

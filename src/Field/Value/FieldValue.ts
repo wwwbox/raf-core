@@ -1,7 +1,7 @@
-import {FieldValueConfiguration} from "./FieldValueConfiguration";
-import IField from "../IField";
-import FieldChangeHandler from "../../Protocol/FieldChangeHandler";
-import {FieldConfigurationBase, IFieldConfiguration} from "../Configuration/FieldConfiguration";
+import { FieldValueConfiguration } from "./FieldValueConfiguration";
+import { IField } from "../IField";
+import { FieldChangeHandler } from "../../Protocol/FieldChangeHandler";
+import { FieldConfigurationBase, IFieldConfiguration } from "../Configuration/FieldConfiguration";
 
 export interface IFieldValue extends IFieldConfiguration<FieldValueConfiguration> {
     clear(): void;

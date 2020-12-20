@@ -1,10 +1,9 @@
-import React from "react";
-import DefaultFieldBase from "./DefaultFieldBase";
-import {TextFieldExtraConfiguration} from "./DefaultTextField";
-import {FieldProps} from "../Field/FieldProps";
+import { DefaultFieldBase } from "./DefaultFieldBase";
+import { TextFieldExtraConfiguration } from "./DefaultTextField";
+import { FieldProps } from "../Field/FieldProps";
 
 
-export default class DefaultCheckboxField extends DefaultFieldBase<TextFieldExtraConfiguration> {
+export class DefaultCheckboxField extends DefaultFieldBase<TextFieldExtraConfiguration> {
 
     constructor(props: FieldProps) {
         super(props);
@@ -31,3 +30,5 @@ export default class DefaultCheckboxField extends DefaultFieldBase<TextFieldExtr
     }
 
 }
+
+export default DefaultCheckboxField;

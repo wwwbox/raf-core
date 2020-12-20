@@ -1,8 +1,8 @@
-import Field from "./Field";
-import {FieldType} from "./FieldType";
-import {FieldProps} from "../FieldProps";
+import { Field } from "./Field";
+import { FieldType } from "./FieldType";
+import { FieldProps } from "../FieldProps";
 
-export default class FileField extends Field {
+export class FileField extends Field {
 
     constructor(props: FieldProps) {
         super(props);
@@ -13,3 +13,6 @@ export default class FileField extends Field {
         return FieldType.FILE;
     }
 }
+
+
+export default FileField;

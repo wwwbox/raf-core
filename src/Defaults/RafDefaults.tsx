@@ -1,4 +1,4 @@
-import {defaultSubmitOptions} from "./Services/DefaultSubmitter";
+import { defaultSubmitOptions } from "./Services/DefaultSubmitter";
 
 export interface IRafDefaults {
     form: {
@@ -14,6 +14,6 @@ export const RafDefaults: IRafDefaults = {
         renderOptions: {
             buttonText: 'Submit'
         },
-        submitOptions: {...defaultSubmitOptions}
+        submitOptions: { ...defaultSubmitOptions }
     }
 }

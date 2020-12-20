@@ -1,8 +1,7 @@
-import React from "react";
-import {DefaultOptionsFieldBase} from "./DefaultOptionsFieldBase";
+import { DefaultOptionsFieldBase } from "./DefaultOptionsFieldBase";
 
 
-export default class DefaultSelectField extends DefaultOptionsFieldBase {
+export class DefaultSelectField extends DefaultOptionsFieldBase {
 
     protected getInputComponent(): any {
         return 'select';
@@ -15,3 +14,5 @@ export default class DefaultSelectField extends DefaultOptionsFieldBase {
     }
 
 }
+
+export default DefaultSelectField;

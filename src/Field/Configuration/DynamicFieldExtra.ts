@@ -1,5 +1,5 @@
-import {FieldExtra, IFieldExtraConfiguration} from "./FieldExtra";
-import DynamicField from "../Concrete/DynamicField";
+import { FieldExtra, IFieldExtraConfiguration } from "./FieldExtra";
+import { DynamicField } from "../Concrete/DynamicField";
 
 export interface DynamicFieldConfiguration {
     maxInput: number;

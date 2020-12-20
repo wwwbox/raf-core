@@ -1,6 +1,6 @@
-import IField from "../IField";
-import {FieldCollectingConfiguration} from "./FieldCollectingConfiguration";
-import {FieldConfigurationBase, IFieldConfiguration} from "../Configuration/FieldConfiguration";
+import { IField } from "../IField";
+import { FieldCollectingConfiguration } from "./FieldCollectingConfiguration";
+import { FieldConfigurationBase, IFieldConfiguration } from "../Configuration/FieldConfiguration";
 
 export interface IFieldCollecting extends IFieldConfiguration<FieldCollectingConfiguration> {
     setSkip(skip: boolean): void;

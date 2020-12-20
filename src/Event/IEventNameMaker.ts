@@ -1,4 +1,4 @@
-import IField from "../Field/IField";
+import { IField } from "../Field/IField";
 import { Service } from "@autofiy/autofiyable";
 
 export interface IEventNameMaker extends Service {

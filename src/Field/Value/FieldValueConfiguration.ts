@@ -1,6 +1,6 @@
-import FieldChangeHandler from "../../Protocol/FieldChangeHandler";
-import IField from "../IField";
-import DefaultFieldChangeHandler from "../../ChangeHandler/DefaultFieldChangeHandler";
+import { FieldChangeHandler } from "../../Protocol/FieldChangeHandler";
+import { IField } from "../IField";
+import { DefaultFieldChangeHandler } from "../../ChangeHandler/DefaultFieldChangeHandler";
 
 export interface FieldValueConfiguration {
     value: any;

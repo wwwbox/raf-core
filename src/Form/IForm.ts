@@ -1,15 +1,14 @@
 import { Autofiyable } from '@autofiy/autofiyable';
-import FormProps from "./FormProps";
+import { FormProps } from "./FormProps";
 import { IFormFieldManager } from "./FieldManager/FormFieldManager";
 import { IFormUI } from "./FormUI/FormUI";
 import { IFormValue } from "./FormValue/FormValue";
 import { IFormValidation } from "./FormValidation/FormValidation";
 import { IFormEvent } from "./FormEvent/FormEvent";
-import FormState from "./FormState";
+import { FormState } from "./FormState";
 import { IFormCollector } from "./FormCollecting/IFormCollector";
 
-
-export default interface IForm extends Autofiyable {
+export interface IForm extends Autofiyable {
 
     fields(): IFormFieldManager;
 
@@ -32,3 +31,5 @@ export default interface IForm extends Autofiyable {
     getInternalState(): FormState;
 
 }
+
+export default IForm;

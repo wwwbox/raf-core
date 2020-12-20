@@ -1,8 +1,8 @@
-import FormRenderer from "../../Protocol/FormRenderer";
-import IForm from "../../Form/IForm";
+import { FormRenderer } from "../../Protocol/FormRenderer";
+import { IForm } from "../../Form/IForm";
 import * as React from "react";
 import { RafDefaults } from "../RafDefaults";
-import FieldRenderer from "../../Protocol/FieldRenderer";
+import { FieldRenderer } from "../../Protocol/FieldRenderer";
 
 export class DefaultFormRenderer implements FormRenderer {
 

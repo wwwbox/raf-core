@@ -1,3 +1,3 @@
-import IForm from "../Form/IForm";
+import { IForm } from "../Form/IForm";
 
 export type EventCallback = (form: IForm, data: any) => void;

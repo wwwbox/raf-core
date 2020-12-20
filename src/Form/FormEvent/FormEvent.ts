@@ -1,9 +1,9 @@
 import { Service } from '@autofiy/autofiyable';
 import { EventCallback } from "../../Event/EventType";
-import IForm from "../IForm";
+import { IForm } from "../IForm";
 import { IEventNameMaker } from "../../Event/IEventNameMaker";
 import { GlobalEvents } from "../../Event/DefaultEvents";
-import IField from "../../Field/IField";
+import { IField } from "../../Field/IField";
 
 export interface IFormEvent extends Service {
     emit(eventName: string, payload: any): void;

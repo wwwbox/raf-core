@@ -1,6 +1,6 @@
 import { Service } from '@autofiy/autofiyable';
-import IForm from "../IForm";
-import FormRenderer from "../../Protocol/FormRenderer";
+import { IForm } from "../IForm";
+import { FormRenderer } from "../../Protocol/FormRenderer";
 import { GlobalEvents } from "../../Event/DefaultEvents";
 
 export interface IFormUI extends Service {

@@ -1,6 +1,6 @@
-import FieldState from "../FieldState";
-import {FieldProps} from "../FieldProps";
-import {FieldUIConfiguration, getDefaultFieldUIConfiguration} from "../UI/FieldUIConfiguration";
+import { FieldState } from "../FieldState";
+import { FieldProps } from "../FieldProps";
+import { FieldUIConfiguration, getDefaultFieldUIConfiguration } from "../UI/FieldUIConfiguration";
 import {
     FieldCollectingConfiguration,
     getDefaultFieldCollectingConfiguration
@@ -9,10 +9,10 @@ import {
     FieldValidationConfiguration,
     getDefaultFieldValidationConfiguration
 } from "../Validation/FieldValidationConfiguration";
-import {FieldValueConfiguration, getDefaultFieldValueConfiguration} from "../Value/FieldValueConfiguration";
-import {DynamicFieldConfiguration, getDefaultDynamicFieldConfiguration} from "../Configuration/DynamicFieldExtra";
+import { FieldValueConfiguration, getDefaultFieldValueConfiguration } from "../Value/FieldValueConfiguration";
+import { DynamicFieldConfiguration, getDefaultDynamicFieldConfiguration } from "../Configuration/DynamicFieldExtra";
 
-export default class FieldStateInitializer<T extends FieldState = FieldState, Extra = any> {
+export class FieldStateInitializer<T extends FieldState = FieldState, Extra = any> {
     private readonly props: FieldProps;
     private readonly extraInitializer: IExtraConfigurationInitializer<Extra>
 
@@ -62,6 +62,7 @@ export default class FieldStateInitializer<T extends FieldState = FieldState, Ex
         return initial;
     }
 }
+export default FieldStateInitializer;
 
 export interface IExtraConfigurationInitializer<T> {
     initialize(extraProps: any): T;
@@ -70,7 +71,7 @@ export interface IExtraConfigurationInitializer<T> {
 export class DefaultExtraConfigurationInitializer implements IExtraConfigurationInitializer<any> {
     initialize(extraProps: any): any {
         if (extraProps) {
-            return {...extraProps};
+            return { ...extraProps };
         }
         return {};
     }

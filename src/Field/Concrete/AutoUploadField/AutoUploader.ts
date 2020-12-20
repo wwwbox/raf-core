@@ -1,6 +1,6 @@
-import {AutoUploadField} from "./AutoUploadField";
-import {AutoUploadFieldEvents} from "./AutoUploadFieldEvents";
-import {defaultAutoUploadOptions} from "./AutoUploadFieldExtraConfiguration";
+import { AutoUploadField } from "./AutoUploadField";
+import { AutoUploadFieldEvents } from "./AutoUploadFieldEvents";
+import { defaultAutoUploadOptions } from "./AutoUploadFieldExtraConfiguration";
 
 export interface AutoUploader {
     options(): any;
@@ -27,7 +27,7 @@ export class DefaultAutoUploader implements AutoUploader {
 
     options(): any {
         const options = this.field.extra().config("uploadOptions") ?? {};
-        return {...defaultAutoUploadOptions(), ...options}
+        return { ...defaultAutoUploadOptions(), ...options }
     }
 
     private updateUploadState(uploading?: boolean, uploadedFile?: any, progress?: number): void {
@@ -51,16 +51,16 @@ export class DefaultAutoUploader implements AutoUploader {
     }
 
     protected onFail(response: any): void {
-        this.field.event().emitOnThis(AutoUploadFieldEvents.FAIL, {response: response});
+        this.field.event().emitOnThis(AutoUploadFieldEvents.FAIL, { response: response });
     }
 
     protected onSuccess(response: any): void {
-        this.field.event().emitOnThis(AutoUploadFieldEvents.SUCCESS, {response: response});
+        this.field.event().emitOnThis(AutoUploadFieldEvents.SUCCESS, { response: response });
         this.field.extra().setUploadedFileFromResponse(response);
     }
 
     protected onComplete(response: any): void {
-        this.field.event().emitOnThis(AutoUploadFieldEvents.COMPLETE, {response: response});
+        this.field.event().emitOnThis(AutoUploadFieldEvents.COMPLETE, { response: response });
         this.field.ui().setLoading(false);
         this.field.collecting().setReady(true);
         this.updateUploadState(false, undefined, 0);

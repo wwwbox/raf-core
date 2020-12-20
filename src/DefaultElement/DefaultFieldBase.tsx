@@ -1,8 +1,7 @@
-import React from "react";
-import Field from "../Field/Concrete/Field";
+import { Field } from "../Field/Concrete/Field";
 
 
-export default abstract class DefaultFieldBase<ExtraConfiguration = any> extends Field<ExtraConfiguration> {
+export abstract class DefaultFieldBase<ExtraConfiguration = any> extends Field<ExtraConfiguration> {
 
     render(): any {
         const input = this.renderInput();
@@ -19,7 +18,7 @@ export default abstract class DefaultFieldBase<ExtraConfiguration = any> extends
     }
 
     protected getInjectedProps(): any {
-        return {...this.getMainProps(), ...this.getOtherProps()};
+        return { ...this.getMainProps(), ...this.getOtherProps() };
     }
 
     protected getMainProps(): any {
@@ -39,7 +38,7 @@ export default abstract class DefaultFieldBase<ExtraConfiguration = any> extends
         return null;
     }
 
-    protected abstract getInputComponent(): any ;
+    protected abstract getInputComponent(): any;
 
     protected renderWrapper(field: any) {
         const wrapperStyle = this.getWrapperStyle();
@@ -74,7 +73,7 @@ export default abstract class DefaultFieldBase<ExtraConfiguration = any> extends
     private renderValidationElements() {
         return <>
             {
-                !this.validation().getCurrentValidState() && <b style={{color: 'red'}}>ERROR</b>
+                !this.validation().getCurrentValidState() && <b style={{ color: 'red' }}>ERROR</b>
             }
         </>;
     }
@@ -88,3 +87,5 @@ export default abstract class DefaultFieldBase<ExtraConfiguration = any> extends
         </>;
     }
 }
+
+export default DefaultFieldBase;

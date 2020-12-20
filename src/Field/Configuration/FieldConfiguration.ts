@@ -1,4 +1,4 @@
-import IField from "../IField";
+import { IField } from "../IField";
 
 export interface IFieldConfiguration<T> {
     update(key: keyof T, value: any, afterChange?: () => void): void;
@@ -46,8 +46,8 @@ export class FieldConfigurationBase<T> implements IFieldConfiguration<T> {
         if (this.unUpdatableKeys().includes(key)) {
             throw Error(`cannot update ${key}`);
         }
-        const newConfiguration = {...this.currentConfiguration, [key]: value};
-        this.currentConfiguration = {...newConfiguration};
+        const newConfiguration = { ...this.currentConfiguration, [key]: value };
+        this.currentConfiguration = { ...newConfiguration };
         this.field.updateConfiguration<T>(this.getConfigurationKey(), newConfiguration, afterChange);
     }
 

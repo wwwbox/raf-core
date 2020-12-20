@@ -1,4 +1,4 @@
-import DefaultFieldBase from "./DefaultFieldBase";
+import { DefaultFieldBase } from "./DefaultFieldBase";
 import React from "react";
 
 interface OptionsFieldExtraConfiguration {
@@ -20,7 +20,7 @@ export abstract class DefaultOptionsFieldBase<ExtraConfiguration extends Options
         })
     }
 
-    protected abstract renderOption(option: any, index: number): any ;
+    protected abstract renderOption(option: any, index: number): any;
 
     protected renderInputChildren(): any {
         return this.renderOptions();

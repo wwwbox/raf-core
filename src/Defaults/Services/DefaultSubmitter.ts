@@ -1,8 +1,8 @@
-import Submitter from "../../Protocol/Submitter";
-import IForm from "../../Form/IForm";
-import {RafDefaults} from "../RafDefaults";
-import {IFormCollector} from "../../Form/FormCollecting/IFormCollector";
-import {GlobalEvents} from "../../Event/DefaultEvents";
+import { Submitter } from "../../Protocol/Submitter";
+import { IForm } from "../../Form/IForm";
+import { RafDefaults } from "../RafDefaults";
+import { IFormCollector } from "../../Form/FormCollecting/IFormCollector";
+import { GlobalEvents } from "../../Event/DefaultEvents";
 
 
 export interface SubmitOptionsBase {
@@ -45,7 +45,7 @@ export abstract class SubmitterBase<SubmitOption extends SubmitOptionsBase> impl
 
     protected getSubmitOptions(): SubmitOption {
         let options = this.getForm().getProps().extra?.submitOptions ?? {};
-        options = {...this.getDefaultOptions(), ...options};
+        options = { ...this.getDefaultOptions(), ...options };
         return options;
     }
 
@@ -104,7 +104,7 @@ export class DefaultSubmitter extends SubmitterBase<SubmitOptionsBase> {
         if (options.updateUi) {
             this.getForm().ui().startLoading();
         }
-        this.getForm().event().emit(GlobalEvents.SUBMIT_START, {options: options});
+        this.getForm().event().emit(GlobalEvents.SUBMIT_START, { options: options });
     }
 
     public onResponse(request: XMLHttpRequest) {
@@ -115,12 +115,12 @@ export class DefaultSubmitter extends SubmitterBase<SubmitOptionsBase> {
             }
 
             if (request.status < 400) {
-                this.getForm().event().emit(GlobalEvents.SUBMIT_SUCCEEDED, {options: options, response: request.response});
+                this.getForm().event().emit(GlobalEvents.SUBMIT_SUCCEEDED, { options: options, response: request.response });
             } else {
-                this.getForm().event().emit(GlobalEvents.SUBMIT_FAILED, {options: options, response: request.response});
+                this.getForm().event().emit(GlobalEvents.SUBMIT_FAILED, { options: options, response: request.response });
             }
 
-            this.getForm().event().emit(GlobalEvents.SUBMIT_COMPLETED, {options: options, response: request.response});
+            this.getForm().event().emit(GlobalEvents.SUBMIT_COMPLETED, { options: options, response: request.response });
         }
     }
 }

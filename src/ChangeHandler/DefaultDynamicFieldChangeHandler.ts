@@ -1,6 +1,6 @@
-import DefaultFieldChangeHandler from "./DefaultFieldChangeHandler";
+import { DefaultFieldChangeHandler } from "./DefaultFieldChangeHandler";
 
-export default class DefaultDynamicFieldChangeHandler extends DefaultFieldChangeHandler {
+export class DefaultDynamicFieldChangeHandler extends DefaultFieldChangeHandler {
 
     protected getValue = (event: any) => {
         let value = this.getField().value().extractFromEvent(event);
@@ -9,6 +9,6 @@ export default class DefaultDynamicFieldChangeHandler extends DefaultFieldChange
         return fullValue;
     }
 
-
-
 }
+
+export default DefaultDynamicFieldChangeHandler;

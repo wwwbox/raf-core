@@ -1,12 +1,11 @@
-import React from "react";
-import DefaultFieldBase from "./DefaultFieldBase";
+import { DefaultFieldBase } from "./DefaultFieldBase";
 
 
 export interface TextFieldExtraConfiguration {
     label?: string;
 }
 
-export default class DefaultTextField<ExtraConfiguration extends TextFieldExtraConfiguration = TextFieldExtraConfiguration> extends DefaultFieldBase<ExtraConfiguration> {
+export class DefaultTextField<ExtraConfiguration extends TextFieldExtraConfiguration = TextFieldExtraConfiguration> extends DefaultFieldBase<ExtraConfiguration> {
 
 
     protected getInputComponent(): any {
@@ -25,3 +24,5 @@ export default class DefaultTextField<ExtraConfiguration extends TextFieldExtraC
     }
 
 }
+
+export default DefaultTextField;

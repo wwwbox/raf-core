@@ -1,5 +1,5 @@
-import FieldChangeHandler from "../Protocol/FieldChangeHandler";
-import {AutoUploadField} from "../Field/Concrete/AutoUploadField/AutoUploadField";
+import { FieldChangeHandler } from "../Protocol/FieldChangeHandler";
+import { AutoUploadField } from "../Field/Concrete/AutoUploadField/AutoUploadField";
 
 export class AutoUploadFieldChangeHandler implements FieldChangeHandler {
 

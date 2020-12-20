@@ -1,6 +1,6 @@
 import { Service } from '@autofiy/autofiyable';
-import IForm from "../IForm";
-import Validator from "../../Protocol/Validator";
+import { IForm } from "../IForm";
+import { Validator } from "../../Protocol/Validator";
 import { GlobalEvents } from "../../Event/DefaultEvents";
 
 export interface IFormValidation extends Service {

@@ -1,9 +1,8 @@
-import { NotEmptyValidator } from './../../Defaults/Services/Validator';
-import {FieldValidationConfiguration} from "./FieldValidationConfiguration";
-import IField from "../IField";
-import Validator from "../../Protocol/Validator";
-import {FieldConfigurationBase, IFieldConfiguration} from "../Configuration/FieldConfiguration";
-import {FieldEvents} from "../../Event/DefaultEvents";
+import { FieldValidationConfiguration } from "./FieldValidationConfiguration";
+import { IField } from "../IField";
+import { Validator } from "../../Protocol/Validator";
+import { FieldConfigurationBase, IFieldConfiguration } from "../Configuration/FieldConfiguration";
+import { FieldEvents } from "../../Event/DefaultEvents";
 
 export interface IFieldValidation extends IFieldConfiguration<FieldValidationConfiguration> {
     validate(): boolean;

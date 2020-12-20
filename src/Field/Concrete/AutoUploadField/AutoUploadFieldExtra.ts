@@ -1,7 +1,7 @@
-import {FieldConfigurationBase, IFieldConfiguration} from "../../Configuration/FieldConfiguration";
-import {AutoUploadFieldExtraConfiguration} from "./AutoUploadFieldExtraConfiguration";
-import IField from "../../IField";
-import {AutoUploader} from "./AutoUploader";
+import { FieldConfigurationBase, IFieldConfiguration } from "../../Configuration/FieldConfiguration";
+import { AutoUploadFieldExtraConfiguration } from "./AutoUploadFieldExtraConfiguration";
+import { IField } from "../../IField";
+import { AutoUploader } from "./AutoUploader";
 
 export interface IAutoUploadFieldExtra<ExtraConfiguration extends AutoUploadFieldExtraConfiguration = AutoUploadFieldExtraConfiguration>
     extends IFieldConfiguration<ExtraConfiguration> {

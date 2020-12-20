@@ -1,23 +1,23 @@
-import {FieldProps} from "../FieldProps";
-import FieldState from "../FieldState";
-import IField from "./../IField";
+import { FieldProps } from "../FieldProps";
+import { FieldState } from "../FieldState";
+import { IField } from "./../IField";
 import * as React from "react";
-import IForm from "../../Form/IForm";
+import { IForm } from "../../Form/IForm";
 
 import FieldStateInitializer, {
     DefaultExtraConfigurationInitializer,
     IExtraConfigurationInitializer
 } from "./FieldStateInitializer";
 
-import {FieldValue, IFieldValue} from "../Value/FieldValue";
-import {FieldValidation, IFieldValidation} from "../Validation/FieldValidation";
-import {FieldUI, IFieldUI} from "../UI/FieldUI";
-import {FieldCollecting, IFieldCollecting} from "../Collecting/FieldCollecting";
-import {FieldExtra, IFieldExtraConfiguration} from "../Configuration/FieldExtra";
-import {FieldType} from "./FieldType";
-import {FieldEvent, IFieldEvent} from "../FieldEvent/FieldEvent";
+import { FieldValue, IFieldValue } from "../Value/FieldValue";
+import { FieldValidation, IFieldValidation } from "../Validation/FieldValidation";
+import { FieldUI, IFieldUI } from "../UI/FieldUI";
+import { FieldCollecting, IFieldCollecting } from "../Collecting/FieldCollecting";
+import { FieldExtra, IFieldExtraConfiguration } from "../Configuration/FieldExtra";
+import { FieldType } from "./FieldType";
+import { FieldEvent, IFieldEvent } from "../FieldEvent/FieldEvent";
 
-export default class Field<ExtraConfiguration = any> extends React.Component<FieldProps, FieldState<ExtraConfiguration>> implements IField<ExtraConfiguration> {
+export class Field<ExtraConfiguration = any> extends React.Component<FieldProps, FieldState<ExtraConfiguration>> implements IField<ExtraConfiguration> {
 
     protected _value: IFieldValue;
     protected _validation: IFieldValidation;
@@ -110,8 +110,11 @@ export default class Field<ExtraConfiguration = any> extends React.Component<Fie
 
 
     updateConfiguration<T>(key: keyof FieldState, newConfiguration: T, afterChange?: () => void): void {
-        let payload: any = {[key]: {...newConfiguration}};
+        let payload: any = { [key]: { ...newConfiguration } };
         this.setState(payload, () => afterChange?.());
     }
 
 }
+
+
+export default Field;

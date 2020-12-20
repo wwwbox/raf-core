@@ -1,12 +1,12 @@
-import IForm from "./IForm";
-import FormState from "./FormState";
-import FormProps, { defaultServices, ServiceConfiguration } from "./FormProps";
+import { IForm } from "./IForm";
+import { FormState } from "./FormState";
+import { FormProps, defaultServices, ServiceConfiguration } from "./FormProps";
 import { IFormUI } from "./FormUI/FormUI";
 import { IFormValidation } from "./FormValidation/FormValidation";
 import { IFormEvent } from "./FormEvent/FormEvent";
 import { IFormValue } from "./FormValue/FormValue";
 import { IFormFieldManager } from "./FieldManager/FormFieldManager";
-import Submitter from "../Protocol/Submitter";
+import { Submitter } from "../Protocol/Submitter";
 import { GlobalEvents } from "../Event/DefaultEvents";
 import { IFormCollector } from "./FormCollecting/IFormCollector";
 import { AutofiyableComponent } from "@autofiy/autofiyable";

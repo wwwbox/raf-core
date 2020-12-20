@@ -1,8 +1,8 @@
-import FieldChangeHandler from "../Protocol/FieldChangeHandler";
-import IField from "../Field/IField";
-import {FieldEvents, GlobalEvents} from "../Event/DefaultEvents";
+import { FieldChangeHandler } from "../Protocol/FieldChangeHandler";
+import { IField } from "../Field/IField";
+import { FieldEvents, GlobalEvents } from "../Event/DefaultEvents";
 
-export default class DefaultFieldChangeHandler implements FieldChangeHandler {
+export class DefaultFieldChangeHandler implements FieldChangeHandler {
     private readonly field: IField;
 
     constructor(field: IField) {
@@ -38,6 +38,9 @@ export default class DefaultFieldChangeHandler implements FieldChangeHandler {
 
     private notify() {
         this.getField().event().emitOnThis(FieldEvents.CHANGE, {});
-        this.getField().event().emit(GlobalEvents.VALUE_CHANGED, {field: this.getField()});
+        this.getField().event().emit(GlobalEvents.VALUE_CHANGED, { field: this.getField() });
     }
 }
+
+
+export default DefaultFieldChangeHandler;

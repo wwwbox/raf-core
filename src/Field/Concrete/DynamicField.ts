@@ -1,11 +1,11 @@
-import Field from "./Field";
-import DefaultDynamicFieldChangeHandler from "../../ChangeHandler/DefaultDynamicFieldChangeHandler";
-import {FieldProps} from "../FieldProps";
-import {DynamicFieldConfiguration, DynamicFieldExtra, IDynamicFieldExtra} from "../Configuration/DynamicFieldExtra";
-import {DynamicFieldExtraConfigurationInitializer, IExtraConfigurationInitializer} from "./FieldStateInitializer";
-import {FieldType} from "./FieldType";
+import { Field } from "./Field";
+import { DefaultDynamicFieldChangeHandler } from "../../ChangeHandler/DefaultDynamicFieldChangeHandler";
+import { FieldProps } from "../FieldProps";
+import { DynamicFieldConfiguration, DynamicFieldExtra, IDynamicFieldExtra } from "../Configuration/DynamicFieldExtra";
+import { DynamicFieldExtraConfigurationInitializer, IExtraConfigurationInitializer } from "./FieldStateInitializer";
+import { FieldType } from "./FieldType";
 
-export default class DynamicField<ExtraConfiguration extends DynamicFieldConfiguration = DynamicFieldConfiguration> extends Field<ExtraConfiguration> {
+export class DynamicField<ExtraConfiguration extends DynamicFieldConfiguration = DynamicFieldConfiguration> extends Field<ExtraConfiguration> {
 
     constructor(props: FieldProps) {
         super(props);
@@ -62,3 +62,5 @@ export default class DynamicField<ExtraConfiguration extends DynamicFieldConfigu
         return FieldType.DYNAMIC;
     }
 }
+
+export default DynamicField;

@@ -1,6 +1,6 @@
-import {FieldMessageType, FieldUIConfiguration} from "./FieldUIConfiguration";
-import IField from "../IField";
-import {FieldConfigurationBase, IFieldConfiguration} from "../Configuration/FieldConfiguration";
+import { FieldMessageType, FieldUIConfiguration } from "./FieldUIConfiguration";
+import { IField } from "../IField";
+import { FieldConfigurationBase, IFieldConfiguration } from "../Configuration/FieldConfiguration";
 
 export interface IFieldUI extends IFieldConfiguration<FieldUIConfiguration> {
 
@@ -112,8 +112,8 @@ export class FieldUI extends FieldConfigurationBase<FieldUIConfiguration> implem
 
     shouldDisable(): boolean {
         return (
-                this.getField().getForm().ui().isLoading() && this.isDisableOnFormLoading()
-            ) ||
+            this.getField().getForm().ui().isLoading() && this.isDisableOnFormLoading()
+        ) ||
             this.isDisabled() || (
                 this.isLoading() && this.isDisableOnLoading()
             );

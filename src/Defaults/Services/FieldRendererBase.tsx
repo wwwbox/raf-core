@@ -1,10 +1,10 @@
-import FieldRenderer from "../../Protocol/FieldRenderer";
-import IForm from "../../Form/IForm";
-import {FieldInjectedProps, FieldOptions} from "../../Field/FieldProps";
+import { FieldRenderer } from "../../Protocol/FieldRenderer";
+import { IForm } from "../../Form/IForm";
+import { FieldInjectedProps, FieldOptions } from "../../Field/FieldProps";
 import * as React from "react";
 
 
-export default abstract class FieldRendererBase implements FieldRenderer {
+export abstract class FieldRendererBase implements FieldRenderer {
 
     private readonly form: IForm;
 
@@ -37,7 +37,7 @@ export default abstract class FieldRendererBase implements FieldRenderer {
 
     protected arrayWrapper = (): any => 'div';
 
-    protected arrayWrapperProps = (): object => ({className: '__raf-sub-fields'});
+    protected arrayWrapperProps = (): object => ({ className: '__raf-sub-fields' });
 
     protected abstract renderFieldElement(options: FieldOptions, inArray: boolean): React.ReactElement;
 
@@ -56,3 +56,5 @@ export default abstract class FieldRendererBase implements FieldRenderer {
         return this.form;
     }
 }
+
+export default FieldRendererBase;

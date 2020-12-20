@@ -1,7 +1,6 @@
-import React from "react";
-import TextField from "./DefaultTextField";
-import {FieldProps} from "../Field/FieldProps";
-import {FieldType} from "../Field/Concrete/FieldType";
+import { DefaultTextField as TextField } from "./DefaultTextField";
+import { FieldProps } from "../Field/FieldProps";
+import { FieldType } from "../Field/Concrete/FieldType";
 
 
 interface FileExtraConfiguration {
@@ -9,7 +8,7 @@ interface FileExtraConfiguration {
     multiple?: boolean;
 }
 
-export default class DefaultFileField extends TextField<FileExtraConfiguration> {
+export class DefaultFileField extends TextField<FileExtraConfiguration> {
 
     constructor(props: FieldProps) {
         super(props);
@@ -32,3 +31,5 @@ export default class DefaultFileField extends TextField<FileExtraConfiguration> 
     }
 
 }
+
+export default DefaultFileField;
