@@ -52,18 +52,16 @@ export interface ServiceConfiguration extends SC {
 }
 
 
-export function defaultServices(): ServiceConfiguration {
-    return {
-        eventNameMaker: () => new DefaultEventNameMaker(),
-        validator: () => new NotEmptyValidator(),
-        submitter: (autofiyable: any) => new DefaultSubmitter(autofiyable),
-        fieldRenderer: (autofiyable: any) => new DefaultFieldRenderer(autofiyable),
-        formRenderer: (autofiyable: any) => new DefaultFormRenderer(autofiyable),
-        formUi: (autofiyable: any) => new FormUI(autofiyable),
-        formValidation: (autofiyable: any) => new FormValidation(autofiyable),
-        formEvent: (autofiyable: any) => new FormEvent(autofiyable),
-        formValue: (autofiyable: any) => new FormValue(autofiyable),
-        fieldManager: (autofiyable: any) => new FormFieldManager(autofiyable),
-        formCollector: (autofiyable: any) => new DefaultCollector(autofiyable),
-    }
+export const DEFAULT_SERVICES: ServiceConfiguration = {
+    eventNameMaker: () => new DefaultEventNameMaker(),
+    validator: () => new NotEmptyValidator(),
+    submitter: (autofiyable: any) => new DefaultSubmitter(autofiyable),
+    fieldRenderer: (autofiyable: any) => new DefaultFieldRenderer(autofiyable),
+    formRenderer: (autofiyable: any) => new DefaultFormRenderer(autofiyable),
+    formUi: (autofiyable: any) => new FormUI(autofiyable),
+    formValidation: (autofiyable: any) => new FormValidation(autofiyable),
+    formEvent: (autofiyable: any) => new FormEvent(autofiyable),
+    formValue: (autofiyable: any) => new FormValue(autofiyable),
+    fieldManager: (autofiyable: any) => new FormFieldManager(autofiyable),
+    formCollector: (autofiyable: any) => new DefaultCollector(autofiyable),
 }
