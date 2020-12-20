@@ -95,7 +95,7 @@ export { FieldCollecting };
 
 // --------------------- FORM ---------------------
 
-export type { IForm, FormState, FormProps, ServiceConfiguration , DefaultServices };
+export type { IForm, FormState, FormProps, ServiceConfiguration };
 export { Form };
 export type { IFormValue, IFormValidation, IFormUI, IFormEvent, IFormCollector, IFormFieldManager };
 export { FormValue, FormValidation, FormUI, FormEvent, DefaultCollector, FormFieldManager };
@@ -125,6 +125,7 @@ export { DefaultEventNameMaker };
 export { DefaultFieldRenderer, DefaultFormRenderer, DefaultSubmitter, FieldRendererBase, NotEmptyValidator };
 export { RafDefaults };
 export type { IRafDefaults };
+export { DefaultServices };
 // --------------------- Defaults ---------------------
 
 
