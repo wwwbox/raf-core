@@ -18,7 +18,7 @@ import { FormEvent, IFormEvent } from './Form/FormEvent/FormEvent';
 import { IFormUI, FormUI } from './Form/FormUI/FormUI';
 import { FormValidation, IFormValidation } from './Form/FormValidation/FormValidation';
 import { FormValue, IFormValue } from './Form/FormValue/FormValue';
-import { FormProps, ServiceConfiguration } from './Form/FormProps';
+import { FormProps, ServiceConfiguration, DefaultServices } from './Form/FormProps';
 import { FormState } from './Form/FormState';
 import { FieldType } from './Field/Concrete/FieldType';
 import { FieldConfigurationBase, IFieldConfiguration } from './Field/Configuration/FieldConfiguration';
@@ -95,7 +95,7 @@ export { FieldCollecting };
 
 // --------------------- FORM ---------------------
 
-export type { IForm, FormState, FormProps, ServiceConfiguration };
+export type { IForm, FormState, FormProps, ServiceConfiguration , DefaultServices };
 export { Form };
 export type { IFormValue, IFormValidation, IFormUI, IFormEvent, IFormCollector, IFormFieldManager };
 export { FormValue, FormValidation, FormUI, FormEvent, DefaultCollector, FormFieldManager };
