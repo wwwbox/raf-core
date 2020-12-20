@@ -51,7 +51,7 @@ import { AutoUploadFieldExtraConfiguration, AutoUploadFieldExtraConfigurationIni
 import { FieldCollecting, IFieldCollecting } from './Field/Collecting/FieldCollecting';
 import { FieldCollectingConfiguration } from './Field/Collecting/FieldCollectingConfiguration';
 import { IForm } from './Form/IForm';
-import { IFieldUI } from './Field/UI/FieldUI';
+import { IFieldUI, FieldUI } from './Field/UI/FieldUI';
 import { FieldStateInitializer, DefaultExtraConfigurationInitializer, IExtraConfigurationInitializer, DynamicFieldExtraConfigurationInitializer } from './Field/Concrete/FieldStateInitializer';
 import { IField } from './Field/IField';
 import { FieldState } from './Field/FieldState';
@@ -73,7 +73,8 @@ export type { IFieldValue, FieldValueConfiguration };
 export { FieldValue };
 export type { IFieldValidation, FieldValidationConfiguration };
 export { FieldValidation };
-export type { IFieldUI, FieldUIConfiguration, FieldMessageType };
+export { FieldMessageType, FieldUI };
+export type { IFieldUI, FieldUIConfiguration };
 export type { IFieldEvent };
 export { FieldEvent };
 export type { IDynamicFieldExtra, DynamicFieldConfiguration, IFieldConfiguration };
