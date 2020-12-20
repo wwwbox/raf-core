@@ -1,5 +1,5 @@
 import Enzyme, {mount} from "enzyme";
-import Adapter from "@wojtekmaj/enzyme-adapter-react-17";
+import Adapter from 'enzyme-adapter-react-16';
 import Form from "../../Form/Form";
 import * as React from "react";
 import Submitter from "../../Protocol/Submitter";

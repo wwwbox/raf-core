@@ -1,14 +1,14 @@
 import { ServiceProvider } from '@autofiy/autofiyable';
 import IField from "../Field/IField";
-import {IFormFieldManager} from "../Form/FieldManager/FormFieldManager";
-import {mock} from "jest-mock-extended";
+import { IFormFieldManager } from "../Form/FieldManager/FormFieldManager";
+import { mock } from "jest-mock-extended";
 import IForm from "../Form/IForm";
-import {FieldType} from "../Field/Concrete/FieldType";
-import { defaultServices } from '../Form/FormProps';
+import { FieldType } from "../Field/Concrete/FieldType";
+import { DEFAULT_SERVICES } from '../Form/FormProps';
 
 export class FormTestUtils {
     public static makeForm(fields: IField[] = [], mockImplementation: any = {}) {
-        const form : IForm = mock<IForm>({
+        const form: IForm = mock<IForm>({
             fields(): IFormFieldManager {
                 return mock<IFormFieldManager>({
                     getAllRegistered(): IField[] {
@@ -19,7 +19,7 @@ export class FormTestUtils {
             ...mockImplementation
         });
         form.getServiceProvider = () => new ServiceProvider(form);
-        form.getDefaultServices = () => defaultServices();
+        form.getDefaultServices = () => DEFAULT_SERVICES;
         return form;
     }
 
