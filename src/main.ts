@@ -18,7 +18,7 @@ import { FormEvent, IFormEvent } from './Form/FormEvent/FormEvent';
 import { IFormUI, FormUI } from './Form/FormUI/FormUI';
 import { FormValidation, IFormValidation } from './Form/FormValidation/FormValidation';
 import { FormValue, IFormValue } from './Form/FormValue/FormValue';
-import { FormProps, ServiceConfiguration } from './Form/FormProps';
+import { FormProps, ServiceConfiguration, DefaultServices } from './Form/FormProps';
 import { FormState } from './Form/FormState';
 import { FieldType } from './Field/Concrete/FieldType';
 import { FieldConfigurationBase, IFieldConfiguration } from './Field/Configuration/FieldConfiguration';
@@ -51,7 +51,7 @@ import { AutoUploadFieldExtraConfiguration, AutoUploadFieldExtraConfigurationIni
 import { FieldCollecting, IFieldCollecting } from './Field/Collecting/FieldCollecting';
 import { FieldCollectingConfiguration } from './Field/Collecting/FieldCollectingConfiguration';
 import { IForm } from './Form/IForm';
-import { IFieldUI } from './Field/UI/FieldUI';
+import { IFieldUI, FieldUI } from './Field/UI/FieldUI';
 import { FieldStateInitializer, DefaultExtraConfigurationInitializer, IExtraConfigurationInitializer, DynamicFieldExtraConfigurationInitializer } from './Field/Concrete/FieldStateInitializer';
 import { IField } from './Field/IField';
 import { FieldState } from './Field/FieldState';
@@ -73,7 +73,8 @@ export type { IFieldValue, FieldValueConfiguration };
 export { FieldValue };
 export type { IFieldValidation, FieldValidationConfiguration };
 export { FieldValidation };
-export type { IFieldUI, FieldUIConfiguration, FieldMessageType };
+export { FieldMessageType, FieldUI };
+export type { IFieldUI, FieldUIConfiguration };
 export type { IFieldEvent };
 export { FieldEvent };
 export type { IDynamicFieldExtra, DynamicFieldConfiguration, IFieldConfiguration };
@@ -94,7 +95,7 @@ export { FieldCollecting };
 
 // --------------------- FORM ---------------------
 
-export type { IForm, FormState, FormProps, ServiceConfiguration };
+export type { IForm, FormState, FormProps, ServiceConfiguration , DefaultServices };
 export { Form };
 export type { IFormValue, IFormValidation, IFormUI, IFormEvent, IFormCollector, IFormFieldManager };
 export { FormValue, FormValidation, FormUI, FormEvent, DefaultCollector, FormFieldManager };
