@@ -1,3 +1,4 @@
+import * as React from "react";
 import { DynamicField } from "../Field/Concrete/DynamicField";
 import { DynamicFieldConfiguration } from "../Field/Configuration/DynamicFieldExtra";
 

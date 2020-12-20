@@ -1,3 +1,4 @@
+import * as React from "react";
 import { AutoUploadField } from "../Field/Concrete/AutoUploadField/AutoUploadField";
 import { AutoUploadFieldExtraConfiguration } from "../Field/Concrete/AutoUploadField/AutoUploadFieldExtraConfiguration";
 

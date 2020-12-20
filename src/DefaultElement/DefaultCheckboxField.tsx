@@ -1,3 +1,4 @@
+import * as React from "react";
 import { DefaultFieldBase } from "./DefaultFieldBase";
 import { TextFieldExtraConfiguration } from "./DefaultTextField";
 import { FieldProps } from "../Field/FieldProps";

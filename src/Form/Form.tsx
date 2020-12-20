@@ -1,3 +1,4 @@
+import * as React from "react";
 import { IForm } from "./IForm";
 import { FormState } from "./FormState";
 import { FormProps, defaultServices, ServiceConfiguration } from "./FormProps";
