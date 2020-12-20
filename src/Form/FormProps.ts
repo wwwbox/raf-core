@@ -52,7 +52,7 @@ export interface ServiceConfiguration extends SC {
 }
 
 
-export const DEFAULT_SERVICES: ServiceConfiguration = {
+export const DefaultServices: ServiceConfiguration = {
     eventNameMaker: () => new DefaultEventNameMaker(),
     validator: () => new NotEmptyValidator(),
     submitter: (autofiyable: any) => new DefaultSubmitter(autofiyable),

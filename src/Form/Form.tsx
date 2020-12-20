@@ -1,7 +1,7 @@
 import * as React from "react";
 import { IForm } from "./IForm";
 import { FormState } from "./FormState";
-import { FormProps, DEFAULT_SERVICES, ServiceConfiguration } from "./FormProps";
+import { FormProps, DefaultServices, ServiceConfiguration } from "./FormProps";
 import { IFormUI } from "./FormUI/FormUI";
 import { IFormValidation } from "./FormValidation/FormValidation";
 import { IFormEvent } from "./FormEvent/FormEvent";
@@ -43,7 +43,7 @@ export class Form
     }
 
     getDefaultServices(): ServiceConfiguration {
-        return DEFAULT_SERVICES;
+        return DefaultServices;
     }
 
     componentDidMount(): void {
