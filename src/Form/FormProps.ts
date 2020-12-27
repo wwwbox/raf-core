@@ -3,10 +3,10 @@ import { FormFieldManager, IFormFieldManager } from './FieldManager/FormFieldMan
 import { FormValue, IFormValue } from './FormValue/FormValue';
 import { FormEvent, IFormEvent } from './FormEvent/FormEvent';
 import { FormValidation, IFormValidation } from './FormValidation/FormValidation';
-import { DefaultFormRenderer } from './../Defaults/Services/DefaultFormRenderer';
-import { DefaultSubmitter } from './../Defaults/Services/DefaultSubmitter';
-import { NotEmptyValidator } from './../Defaults/Services/Validator';
-import { DefaultEventNameMaker } from './../Event/IEventNameMaker';
+import { DefaultFormRenderer } from '../Defaults/Services/DefaultFormRenderer';
+import { DefaultSubmitter } from '../Defaults/Services/DefaultSubmitter';
+import { NotEmptyValidator } from '../Defaults/Services/Validator';
+import { DefaultEventNameMaker } from '../Event/IEventNameMaker';
 import { IForm } from "./IForm";
 import { IField } from "../Field/IField";
 import { EventCallback } from "../Event/EventType";
