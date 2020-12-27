@@ -1,5 +1,5 @@
 import Enzyme, {mount} from "enzyme";
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import Form from "../../Form/Form";
 import * as React from "react";
 import Submitter from "../../Protocol/Submitter";
@@ -91,7 +91,7 @@ describe('Form', () => {
                 allowSubmitWhenNotValid: allowSubmitWhenNotValid,
             });
             form.validation = () => mock<IFormValidation>({
-                validate(): boolean {
+                validateWithEffect(): boolean {
                     return validState;
                 }
             });

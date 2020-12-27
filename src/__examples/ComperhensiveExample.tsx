@@ -8,14 +8,17 @@ import DefaultSelectField from "../DefaultElement/DefaultSelectField";
 import DefaultTextAreaField from "../DefaultElement/DefaultTextAreaField";
 import DefaultArrayTextField from "../DefaultElement/DefaultArrayTextField";
 import DefaultCheckboxField from "../DefaultElement/DefaultCheckboxField";
+import {Counter} from "./Counter";
 
 
-export class ComprehensiveExample extends Component {
+class ComprehensiveExample extends Component {
     private form: IForm | null = null;
 
     render() {
         return (
             <div>
+                <h1>Test</h1>
+                <Counter/>
                 <Form ref={ref => this.form = ref} fields={[
                     {as: DefaultTextField, name: 'name', extra: {label: 'Name'}},
                     {as: DefaultTextField, name: 'username', extra: {label: 'Username'}},
@@ -52,4 +55,8 @@ export class ComprehensiveExample extends Component {
             </div>
         );
     }
+
 }
+
+export default ComprehensiveExample;
+
