@@ -49,12 +49,6 @@ export class ComprehensiveExample extends Component {
                         method: "get"
                     }
                 }}/>
-                <button onClick={() => {
-                    const win: any = window;
-                    win.raf = this.form;
-                }}>
-                    SET GLOBAL FORM INSTANCE
-                </button>
             </div>
         );
     }
