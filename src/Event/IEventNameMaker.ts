@@ -1,5 +1,5 @@
-import { IField } from "../Field/IField";
-import { Service } from "@autofiy/autofiyable";
+import {IField} from "../Field/IField";
+import {Service} from "@autofiy/autofiyable";
 
 export interface IEventNameMaker extends Service {
     fieldEvent(field: IField, eventName: string): string;

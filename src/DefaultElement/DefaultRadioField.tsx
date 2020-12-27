@@ -1,5 +1,5 @@
 import * as React from "react";
-import { DefaultOptionsFieldBase } from "./DefaultOptionsFieldBase";
+import {DefaultOptionsFieldBase} from "./DefaultOptionsFieldBase";
 
 
 export class DefaultRadioField extends DefaultOptionsFieldBase {
@@ -14,11 +14,11 @@ export class DefaultRadioField extends DefaultOptionsFieldBase {
     protected renderOption(option: any, index: number): any {
         return <>
             <input disabled={this.ui().shouldDisable()}
-                checked={this.value().get() == option.value}
-                value={option.value}
-                name={this.getName()}
-                onChange={this.handleValueChange}
-                type={'radio'} />
+                   checked={this.value().get() === option.value}
+                   value={option.value}
+                   name={this.getName()}
+                   onChange={this.handleValueChange}
+                   type={'radio'}/>
             {option.label}
         </>
     }

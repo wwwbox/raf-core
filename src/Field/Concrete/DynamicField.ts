@@ -1,9 +1,9 @@
-import { Field } from "./Field";
-import { DefaultDynamicFieldChangeHandler } from "../../ChangeHandler/DefaultDynamicFieldChangeHandler";
-import { FieldProps } from "../FieldProps";
-import { DynamicFieldConfiguration, DynamicFieldExtra, IDynamicFieldExtra } from "../Configuration/DynamicFieldExtra";
-import { DynamicFieldExtraConfigurationInitializer, IExtraConfigurationInitializer } from "./FieldStateInitializer";
-import { FieldType } from "./FieldType";
+import {Field} from "./Field";
+import {DefaultDynamicFieldChangeHandler} from "../../ChangeHandler/DefaultDynamicFieldChangeHandler";
+import {FieldProps} from "../FieldProps";
+import {DynamicFieldConfiguration, DynamicFieldExtra, IDynamicFieldExtra} from "../Configuration/DynamicFieldExtra";
+import {DynamicFieldExtraConfigurationInitializer, IExtraConfigurationInitializer} from "./FieldStateInitializer";
+import {FieldType} from "./FieldType";
 
 export class DynamicField<ExtraConfiguration extends DynamicFieldConfiguration = DynamicFieldConfiguration> extends Field<ExtraConfiguration> {
 
@@ -19,14 +19,6 @@ export class DynamicField<ExtraConfiguration extends DynamicFieldConfiguration =
         this._extra = new DynamicFieldExtra(this, "extra");
     }
 
-    protected getExtraConfigurationInitializer(): IExtraConfigurationInitializer<ExtraConfiguration> {
-        return new DynamicFieldExtraConfigurationInitializer() as IExtraConfigurationInitializer<ExtraConfiguration>;
-    }
-
-    protected getDynamicValue(): any[] {
-        return this.value().get();
-    }
-
     public addInput = (startingValue: any = '') => {
         const value = [...this.getDynamicValue()];
         if (this.extra().getMaxInput() <= value.length) {
@@ -38,13 +30,6 @@ export class DynamicField<ExtraConfiguration extends DynamicFieldConfiguration =
             this.extra().getOnInputFilled()(this);
         }
     };
-
-    private addValue(value: any[], startingValue: any) {
-        const newItemIndex = value.length;
-        value.push(startingValue);
-        this.value().set(value);
-        this.extra().getOnItemAdded()(newItemIndex, this);
-    }
 
     public removeInput = (index: number) => {
         const value = [...this.getDynamicValue()];
@@ -60,6 +45,21 @@ export class DynamicField<ExtraConfiguration extends DynamicFieldConfiguration =
 
     getType(): FieldType {
         return FieldType.DYNAMIC;
+    }
+
+    protected getExtraConfigurationInitializer(): IExtraConfigurationInitializer<ExtraConfiguration> {
+        return new DynamicFieldExtraConfigurationInitializer() as IExtraConfigurationInitializer<ExtraConfiguration>;
+    }
+
+    protected getDynamicValue(): any[] {
+        return this.value().get();
+    }
+
+    private addValue(value: any[], startingValue: any) {
+        const newItemIndex = value.length;
+        value.push(startingValue);
+        this.value().set(value);
+        this.extra().getOnItemAdded()(newItemIndex, this);
     }
 }
 

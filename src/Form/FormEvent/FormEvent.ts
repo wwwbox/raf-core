@@ -1,9 +1,9 @@
-import { Service } from '@autofiy/autofiyable';
-import { EventCallback } from "../../Event/EventType";
-import { IForm } from "../IForm";
-import { IEventNameMaker } from "../../Event/IEventNameMaker";
-import { GlobalEvents } from "../../Event/DefaultEvents";
-import { IField } from "../../Field/IField";
+import {Service} from '@autofiy/autofiyable';
+import {EventCallback} from "../../Event/EventType";
+import {IForm} from "../IForm";
+import {IEventNameMaker} from "../../Event/IEventNameMaker";
+import {GlobalEvents} from "../../Event/DefaultEvents";
+import {IField} from "../../Field/IField";
 
 export interface IFormEvent extends Service {
     emit(eventName: string, payload: any): void;
@@ -44,7 +44,7 @@ export class FormEvent implements IFormEvent {
             throw Error(`cannot listener on ${eventName}, because the id (${id}) already exists`);
         }
 
-        this.listeners[eventName].push({ id: id, callback: callback });
+        this.listeners[eventName].push({id: id, callback: callback});
     }
 
     removeListener(id: string, eventName: string): void {
@@ -62,14 +62,6 @@ export class FormEvent implements IFormEvent {
         this.sendOnAnyValueChangeIfFieldChanged(eventName, payload);
     }
 
-    private sendOnAnyValueChangeIfFieldChanged(eventName: string, payload: any) {
-        const onAnyValueChanged = this.form.getProps().onAnyValueChanged;
-        if (eventName === GlobalEvents.VALUE_CHANGED && onAnyValueChanged) {
-            const field: IField = payload.field;
-            onAnyValueChanged(field.getName(), field.value().get(), field, this.form);
-        }
-    }
-
     hasListener(id: string, eventName: string): boolean {
         for (let listener of this.listeners[eventName]) {
             if (listener.id === id) {
@@ -77,6 +69,18 @@ export class FormEvent implements IFormEvent {
             }
         }
         return false;
+    }
+
+    getNameMaker(): IEventNameMaker {
+        return this.form.getServiceProvider().getService<IEventNameMaker>("eventNameMaker");
+    }
+
+    private sendOnAnyValueChangeIfFieldChanged(eventName: string, payload: any) {
+        const onAnyValueChanged = this.form.getProps().onAnyValueChanged;
+        if (eventName === GlobalEvents.VALUE_CHANGED && onAnyValueChanged) {
+            const field: IField = payload.field;
+            onAnyValueChanged(field.getName(), field.value().get(), field, this.form);
+        }
     }
 
     private indexOfId(id: string, eventName: string): number {
@@ -87,10 +91,6 @@ export class FormEvent implements IFormEvent {
             }
         }
         return -1;
-    }
-
-    getNameMaker(): IEventNameMaker {
-        return this.form.getServiceProvider().getService<IEventNameMaker>("eventNameMaker");
     }
 
 }

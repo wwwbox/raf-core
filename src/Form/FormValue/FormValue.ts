@@ -1,6 +1,6 @@
-import { Service } from '@autofiy/autofiyable';
-import { IForm } from "../IForm";
-import { GlobalEvents } from "../../Event/DefaultEvents";
+import {Service} from '@autofiy/autofiyable';
+import {IForm} from "../IForm";
+import {GlobalEvents} from "../../Event/DefaultEvents";
 
 export interface IFormValue extends Service {
 

@@ -1,4 +1,4 @@
-import { DefaultFieldBase } from "./DefaultFieldBase";
+import {DefaultFieldBase} from "./DefaultFieldBase";
 import React from "react";
 
 interface OptionsFieldExtraConfiguration {

@@ -1,7 +1,7 @@
 import * as React from "react";
-import { FieldRendererBase } from "./FieldRendererBase";
-import { FieldOptions } from "../../Field/FieldProps";
-import { IForm } from "../../Form/IForm";
+import {FieldRendererBase} from "./FieldRendererBase";
+import {FieldOptions} from "../../Field/FieldProps";
+import {IForm} from "../../Form/IForm";
 
 
 export class DefaultFieldRenderer extends FieldRendererBase {
@@ -11,8 +11,8 @@ export class DefaultFieldRenderer extends FieldRendererBase {
     }
 
     protected renderFieldElement(options: FieldOptions, inArray: boolean): React.ReactElement {
-        const { as: Component, ...otherOptions } = options;
-        const props = { ...otherOptions, ...this.getInjectedProps() };
+        const {as: Component, ...otherOptions} = options;
+        const props = {...otherOptions, ...this.getInjectedProps()};
         return <div className={'__raf-field'} key={options.name}>
             <Component {...props} />
         </div>;

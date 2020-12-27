@@ -1,4 +1,3 @@
-import { ServiceProvider } from '@autofiy/autofiyable';
 import {IFieldValidation} from "../../Field/Validation/FieldValidation";
 import {mock} from "jest-mock-extended";
 import IField from "../../Field/IField";

@@ -1,13 +1,13 @@
-import { AutoUploader } from "./AutoUploader";
-import { FieldProps } from "../../FieldProps";
+import {AutoUploader} from "./AutoUploader";
+import {FieldProps} from "../../FieldProps";
 import Field from "../Field";
-import { AutoUploadFieldExtra, IAutoUploadFieldExtra } from "./AutoUploadFieldExtra";
+import {AutoUploadFieldExtra, IAutoUploadFieldExtra} from "./AutoUploadFieldExtra";
 import {
     AutoUploadFieldExtraConfiguration,
     AutoUploadFieldExtraConfigurationInitializer
 } from "./AutoUploadFieldExtraConfiguration";
-import { AutoUploadFieldChangeHandler } from "../../../ChangeHandler/AutoUploadFieldChangeHandler";
-import { IExtraConfigurationInitializer } from "../FieldStateInitializer";
+import {AutoUploadFieldChangeHandler} from "../../../ChangeHandler/AutoUploadFieldChangeHandler";
+import {IExtraConfigurationInitializer} from "../FieldStateInitializer";
 
 export class AutoUploadField<ExtraConfiguration extends AutoUploadFieldExtraConfiguration = AutoUploadFieldExtraConfiguration> extends Field<ExtraConfiguration> {
 
@@ -21,15 +21,15 @@ export class AutoUploadField<ExtraConfiguration extends AutoUploadFieldExtraConf
         this.uploader = this.extra().getUploader();
     }
 
-    protected getExtraConfigurationInitializer(): IExtraConfigurationInitializer<ExtraConfiguration> {
-        return new AutoUploadFieldExtraConfigurationInitializer<ExtraConfiguration>();
-    }
-
     extra(): IAutoUploadFieldExtra<ExtraConfiguration> {
         return this._extra as IAutoUploadFieldExtra;
     }
 
     public getUploader(): AutoUploader {
         return this.uploader;
+    }
+
+    protected getExtraConfigurationInitializer(): IExtraConfigurationInitializer<ExtraConfiguration> {
+        return new AutoUploadFieldExtraConfigurationInitializer<ExtraConfiguration>();
     }
 }

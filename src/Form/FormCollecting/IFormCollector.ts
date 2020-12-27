@@ -1,7 +1,7 @@
-import { Service } from '@autofiy/autofiyable';
-import { IForm } from "../IForm";
-import { FieldType } from "../../Field/Concrete/FieldType";
-import { IField } from "../../Field/IField";
+import {Service} from '@autofiy/autofiyable';
+import {IForm} from "../IForm";
+import {FieldType} from "../../Field/Concrete/FieldType";
+import {IField} from "../../Field/IField";
 
 export interface IFormCollector extends Service {
     files(): any;
@@ -21,16 +21,6 @@ export class DefaultCollector implements IFormCollector {
         this.form = form;
     }
 
-    private collect(filter: (field: IField) => boolean): any {
-        const data: any = {};
-        this.form.fields().getAllRegistered().forEach(field => {
-            if (field.collecting().shouldSkip() && filter(field)) {
-                data[field.getName()] = field.collecting().collect()
-            }
-        });
-        return data;
-    }
-
     hasFiles(): boolean {
         return this.form.fields().getAllRegistered().some(f => f.getType() === FieldType.FILE);
     }
@@ -45,6 +35,16 @@ export class DefaultCollector implements IFormCollector {
 
     query(): any {
         return this.collect(field => field.getType() !== FieldType.FILE && field.collecting().isAsQuery())
+    }
+
+    private collect(filter: (field: IField) => boolean): any {
+        const data: any = {};
+        this.form.fields().getAllRegistered().forEach(field => {
+            if (field.collecting().shouldSkip() && filter(field)) {
+                data[field.getName()] = field.collecting().collect()
+            }
+        });
+        return data;
     }
 
 }

@@ -1,7 +1,7 @@
 import * as React from "react";
-import { DefaultTextField as TextField } from "./DefaultTextField";
-import { FieldProps } from "../Field/FieldProps";
-import { FieldType } from "../Field/Concrete/FieldType";
+import {DefaultTextField as TextField} from "./DefaultTextField";
+import {FieldProps} from "../Field/FieldProps";
+import {FieldType} from "../Field/Concrete/FieldType";
 
 
 interface FileExtraConfiguration {
@@ -16,6 +16,10 @@ export class DefaultFileField extends TextField<FileExtraConfiguration> {
         this.state.value.extractValueFromEvent = event => event.target.files;
     }
 
+    getType(): FieldType {
+        return FieldType.FILE;
+    }
+
     protected getInputComponent(): any {
         return 'input';
     }
@@ -25,10 +29,6 @@ export class DefaultFileField extends TextField<FileExtraConfiguration> {
             type: 'file',
             multiple: this.extra().config('multiple')
         }
-    }
-
-    getType(): FieldType {
-        return FieldType.FILE;
     }
 
 }

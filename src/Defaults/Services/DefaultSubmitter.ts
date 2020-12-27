@@ -95,18 +95,6 @@ export class DefaultSubmitter extends SubmitterBase<SubmitOptionsBase> {
         this.send(xhr);
     }
 
-    private send(xhr: XMLHttpRequest) {
-        const options = this.getSubmitOptions();
-        xhr.open(options.method, this.getUrlWithQueries(), true);
-        xhr.setRequestHeader('Content-Type', this.getContentType());
-        xhr.send(this.getData());
-
-        if (options.updateUi) {
-            this.getForm().ui().startLoading();
-        }
-        this.getForm().event().emit(GlobalEvents.SUBMIT_START, {options: options});
-    }
-
     public onResponse = (request: XMLHttpRequest) => {
         if (request.readyState === XMLHttpRequest.DONE) {
             const options = this.getSubmitOptions();
@@ -125,5 +113,17 @@ export class DefaultSubmitter extends SubmitterBase<SubmitOptionsBase> {
 
             this.getForm().event().emit(GlobalEvents.SUBMIT_COMPLETED, {options: options, response: request.response});
         }
+    }
+
+    private send(xhr: XMLHttpRequest) {
+        const options = this.getSubmitOptions();
+        xhr.open(options.method, this.getUrlWithQueries(), true);
+        xhr.setRequestHeader('Content-Type', this.getContentType());
+        xhr.send(this.getData());
+
+        if (options.updateUi) {
+            this.getForm().ui().startLoading();
+        }
+        this.getForm().event().emit(GlobalEvents.SUBMIT_START, {options: options});
     }
 }

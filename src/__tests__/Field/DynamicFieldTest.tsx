@@ -1,14 +1,14 @@
 import DynamicField from "../../Field/Concrete/DynamicField";
-import { FieldType } from "../../Field/Concrete/FieldType";
-import Enzyme, { mount } from "enzyme";
+import {FieldType} from "../../Field/Concrete/FieldType";
+import Enzyme, {mount} from "enzyme";
 import Adapter from 'enzyme-adapter-react-16';
 import * as React from "react";
 import DefaultDynamicFieldChangeHandler from "../../ChangeHandler/DefaultDynamicFieldChangeHandler";
-import { IFormEvent } from "../../Form/FormEvent/FormEvent";
-import { mock } from "jest-mock-extended";
-import { IEventNameMaker } from "../../Event/IEventNameMaker";
+import {IFormEvent} from "../../Form/FormEvent/FormEvent";
+import {mock} from "jest-mock-extended";
+import {IEventNameMaker} from "../../Event/IEventNameMaker";
 
-Enzyme.configure({ adapter: new Adapter() });
+Enzyme.configure({adapter: new Adapter()});
 
 
 describe('DynamicField', () => {
@@ -26,7 +26,7 @@ describe('DynamicField', () => {
             extra: {
                 ...otherProps
             },
-            form: { fields: jest.fn().mockReturnValue({ register: jest.fn() }), event: mock<IFormEvent>() } as any
+            form: {fields: jest.fn().mockReturnValue({register: jest.fn()}), event: mock<IFormEvent>()} as any
         };
         const component = mount(<DynamicField  {...props} />);
         return component.instance() as DynamicField;
@@ -76,7 +76,7 @@ describe('DynamicField', () => {
 
     it('should not add when max input exceeded', function () {
         const onMaxInputExceed = jest.fn();
-        const field = getField({ maxInput: 2, onMaxInputExceed: onMaxInputExceed });
+        const field = getField({maxInput: 2, onMaxInputExceed: onMaxInputExceed});
         field.addInput();
         expect(field.value().get()).toHaveLength(2);
         field.addInput();
@@ -86,7 +86,7 @@ describe('DynamicField', () => {
 
     it('should call when input filled', function () {
         const onInputFilled = jest.fn();
-        const field = getField({ maxInput: 3, onInputFilled: onInputFilled });
+        const field = getField({maxInput: 3, onInputFilled: onInputFilled});
         field.addInput();
         field.addInput();
         expect(onInputFilled).toBeCalledTimes(1);
@@ -96,7 +96,7 @@ describe('DynamicField', () => {
     it('should call onItemAdded,onItemRemoved callbacks', function () {
         const onItemRemoved = jest.fn();
         const onItemAdded = jest.fn();
-        const field = getField({ onItemRemoved: onItemRemoved, onItemAdded: onItemAdded });
+        const field = getField({onItemRemoved: onItemRemoved, onItemAdded: onItemAdded});
         field.addInput('test');
         expect(onItemAdded).toBeCalledWith(1, field);
         field.removeInput(1);

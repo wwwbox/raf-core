@@ -1,5 +1,5 @@
 import * as React from "react";
-import { DefaultFieldBase } from "./DefaultFieldBase";
+import {DefaultFieldBase} from "./DefaultFieldBase";
 
 
 interface TextAreaExtraConfiguration {

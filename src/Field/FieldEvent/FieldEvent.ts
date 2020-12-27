@@ -1,5 +1,5 @@
-import { EventCallback } from "../../Event/EventType";
-import { IField } from "../IField";
+import {EventCallback} from "../../Event/EventType";
+import {IField} from "../IField";
 
 export interface IFieldEvent {
 
@@ -28,12 +28,8 @@ export class FieldEvent implements IFieldEvent {
 
     emit(eventName: string, payload: any): void {
         let defaultPayload = this.getDefaultPayload();
-        const _payload = { ...defaultPayload, ...payload }
+        const _payload = {...defaultPayload, ...payload}
         this.field.getForm().event().emit(eventName, _payload);
-    }
-
-    private getDefaultPayload(): any {
-        return { __source: this.field };
     }
 
     emitOnThis(eventName: string, payload: any): void {
@@ -61,6 +57,10 @@ export class FieldEvent implements IFieldEvent {
 
     makeEventName(type: string): string {
         return this.field.getProps().injectedEventNameMaker.fieldEvent(this.field, type);
+    }
+
+    private getDefaultPayload(): any {
+        return {__source: this.field};
     }
 
 }

@@ -1,7 +1,7 @@
-import { FieldValueConfiguration } from "./FieldValueConfiguration";
-import { IField } from "../IField";
-import { FieldChangeHandler } from "../../Protocol/FieldChangeHandler";
-import { FieldConfigurationBase, IFieldConfiguration } from "../Configuration/FieldConfiguration";
+import {FieldValueConfiguration} from "./FieldValueConfiguration";
+import {IField} from "../IField";
+import {FieldChangeHandler} from "../../Protocol/FieldChangeHandler";
+import {FieldConfigurationBase, IFieldConfiguration} from "../Configuration/FieldConfiguration";
 
 export interface IFieldValue extends IFieldConfiguration<FieldValueConfiguration> {
     clear(): void;
@@ -19,10 +19,6 @@ export class FieldValue extends FieldConfigurationBase<FieldValueConfiguration> 
 
     constructor(field: IField, configurationKey: string) {
         super(field, configurationKey);
-    }
-
-    protected unUpdatableKeys(): (keyof FieldValueConfiguration)[] {
-        return ['valueChangeHandler', 'defaultChangeHandler'];
     }
 
     clear(): void {
@@ -52,6 +48,10 @@ export class FieldValue extends FieldConfigurationBase<FieldValueConfiguration> 
             }
             afterChange?.();
         });
+    }
+
+    protected unUpdatableKeys(): (keyof FieldValueConfiguration)[] {
+        return ['valueChangeHandler', 'defaultChangeHandler'];
     }
 
 }

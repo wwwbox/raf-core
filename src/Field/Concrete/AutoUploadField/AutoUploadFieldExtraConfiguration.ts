@@ -1,6 +1,6 @@
-import { AutoUploader, DefaultAutoUploader } from "./AutoUploader";
-import { AutoUploadField } from "./AutoUploadField";
-import { IExtraConfigurationInitializer } from "../FieldStateInitializer";
+import {AutoUploader, DefaultAutoUploader} from "./AutoUploader";
+import {AutoUploadField} from "./AutoUploadField";
+import {IExtraConfigurationInitializer} from "../FieldStateInitializer";
 
 export interface AutoUploadFieldExtraConfiguration {
     inputFile: any;
@@ -33,6 +33,6 @@ export function defaultAutoUploadOptions(): any {
 
 export class AutoUploadFieldExtraConfigurationInitializer<ExtraConfiguration extends AutoUploadFieldExtraConfiguration> implements IExtraConfigurationInitializer<ExtraConfiguration> {
     initialize(extraProps: any): ExtraConfiguration {
-        return { ...defaultAutoUploadFieldConfiguration(), ...(extraProps ?? {}) };
+        return {...defaultAutoUploadFieldConfiguration(), ...(extraProps ?? {})};
     }
 }

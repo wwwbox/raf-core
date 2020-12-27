@@ -1,12 +1,12 @@
-import { IForm } from "../Form/IForm";
-import { FieldProps } from "./FieldProps";
-import { IFieldValue } from "./Value/FieldValue";
-import { IFieldValidation } from "./Validation/FieldValidation";
-import { IFieldUI } from "./UI/FieldUI";
-import { IFieldCollecting } from "./Collecting/FieldCollecting";
-import { IFieldExtraConfiguration } from "./Configuration/FieldExtra";
-import { FieldType } from "./Concrete/FieldType";
-import { IFieldEvent } from "./FieldEvent/FieldEvent";
+import {IForm} from "../Form/IForm";
+import {FieldProps} from "./FieldProps";
+import {IFieldValue} from "./Value/FieldValue";
+import {IFieldValidation} from "./Validation/FieldValidation";
+import {IFieldUI} from "./UI/FieldUI";
+import {IFieldCollecting} from "./Collecting/FieldCollecting";
+import {IFieldExtraConfiguration} from "./Configuration/FieldExtra";
+import {FieldType} from "./Concrete/FieldType";
+import {IFieldEvent} from "./FieldEvent/FieldEvent";
 
 
 export interface IField<ExtraConfiguration = any> {

@@ -22,7 +22,7 @@ describe("NotEmptyValidator", () => {
 
     it('should return true when valid', function () {
         const validator = new NotEmptyValidator();
-        const valid = validator.validate('test' , {});
+        const valid = validator.validate('test', {});
         expect(valid).toEqual(true);
     });
 

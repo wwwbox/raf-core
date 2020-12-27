@@ -1,6 +1,6 @@
-import { FieldChangeHandler } from "../Protocol/FieldChangeHandler";
-import { IField } from "../Field/IField";
-import { FieldEvents, GlobalEvents } from "../Event/DefaultEvents";
+import {FieldChangeHandler} from "../Protocol/FieldChangeHandler";
+import {IField} from "../Field/IField";
+import {FieldEvents, GlobalEvents} from "../Event/DefaultEvents";
 
 export class DefaultFieldChangeHandler implements FieldChangeHandler {
     private readonly field: IField;
@@ -21,10 +21,6 @@ export class DefaultFieldChangeHandler implements FieldChangeHandler {
         this.changeValue(event, value);
     }
 
-    private shouldCancelChange = () => {
-        return this.getField().ui().isReadonly() || this.getField().ui().shouldDisable();
-    };
-
     protected getValue = (event: any) => {
         return this.getField().value().extractFromEvent(event);
     };
@@ -36,9 +32,13 @@ export class DefaultFieldChangeHandler implements FieldChangeHandler {
         });
     };
 
+    private shouldCancelChange = () => {
+        return this.getField().ui().isReadonly() || this.getField().ui().shouldDisable();
+    };
+
     private notify() {
         this.getField().event().emitOnThis(FieldEvents.CHANGE, {});
-        this.getField().event().emit(GlobalEvents.VALUE_CHANGED, { field: this.getField() });
+        this.getField().event().emit(GlobalEvents.VALUE_CHANGED, {field: this.getField()});
     }
 }
 

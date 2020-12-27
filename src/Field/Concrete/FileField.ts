@@ -1,6 +1,6 @@
-import { Field } from "./Field";
-import { FieldType } from "./FieldType";
-import { FieldProps } from "../FieldProps";
+import {Field} from "./Field";
+import {FieldType} from "./FieldType";
+import {FieldProps} from "../FieldProps";
 
 export class FileField extends Field {
 

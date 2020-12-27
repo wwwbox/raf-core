@@ -1,21 +1,21 @@
-import { FieldProps } from "../FieldProps";
-import { FieldState } from "../FieldState";
-import { IField } from "./../IField";
+import {FieldProps} from "../FieldProps";
+import {FieldState} from "../FieldState";
+import {IField} from "./../IField";
 import * as React from "react";
-import { IForm } from "../../Form/IForm";
+import {IForm} from "../../Form/IForm";
 
 import FieldStateInitializer, {
     DefaultExtraConfigurationInitializer,
     IExtraConfigurationInitializer
 } from "./FieldStateInitializer";
 
-import { FieldValue, IFieldValue } from "../Value/FieldValue";
-import { FieldValidation, IFieldValidation } from "../Validation/FieldValidation";
-import { FieldUI, IFieldUI } from "../UI/FieldUI";
-import { FieldCollecting, IFieldCollecting } from "../Collecting/FieldCollecting";
-import { FieldExtra, IFieldExtraConfiguration } from "../Configuration/FieldExtra";
-import { FieldType } from "./FieldType";
-import { FieldEvent, IFieldEvent } from "../FieldEvent/FieldEvent";
+import {FieldValue, IFieldValue} from "../Value/FieldValue";
+import {FieldValidation, IFieldValidation} from "../Validation/FieldValidation";
+import {FieldUI, IFieldUI} from "../UI/FieldUI";
+import {FieldCollecting, IFieldCollecting} from "../Collecting/FieldCollecting";
+import {FieldExtra, IFieldExtraConfiguration} from "../Configuration/FieldExtra";
+import {FieldType} from "./FieldType";
+import {FieldEvent, IFieldEvent} from "../FieldEvent/FieldEvent";
 
 export class Field<ExtraConfiguration = any> extends React.Component<FieldProps, FieldState<ExtraConfiguration>> implements IField<ExtraConfiguration> {
 
@@ -39,25 +39,6 @@ export class Field<ExtraConfiguration = any> extends React.Component<FieldProps,
         this._event = new FieldEvent(this);
         this.state.value.extractValueFromEvent = this.state.value.extractValueFromEvent ?? (e => e.target.value);
         this.setupListeners();
-    }
-
-    protected setupListeners(): void {
-        const globalListeners = this.getProps().listen ?? {};
-        const thisListeners = this.getProps().listenThis ?? {};
-        Object.keys(globalListeners).forEach(key => this.event().listen(key, globalListeners[key]));
-        Object.keys(thisListeners).forEach(key => this.event().listenOnThis(key, thisListeners[key]));
-    }
-
-    protected initializeState(): any {
-        return new FieldStateInitializer(this.props, this.getExtraConfigurationInitializer()).initialize();
-    }
-
-    protected getExtraConfigurationInitializer(): IExtraConfigurationInitializer<ExtraConfiguration> {
-        return new DefaultExtraConfigurationInitializer();
-    }
-
-    protected handleValueChange = (e: any): void => {
-        this.value().getOnChangeHandler().handle(e);
     }
 
     render(): any {
@@ -108,10 +89,28 @@ export class Field<ExtraConfiguration = any> extends React.Component<FieldProps,
         return this._event;
     }
 
-
     updateConfiguration<T>(key: keyof FieldState, newConfiguration: T, afterChange?: () => void): void {
-        let payload: any = { [key]: { ...newConfiguration } };
+        let payload: any = {[key]: {...newConfiguration}};
         this.setState(payload, () => afterChange?.());
+    }
+
+    protected setupListeners(): void {
+        const globalListeners = this.getProps().listen ?? {};
+        const thisListeners = this.getProps().listenThis ?? {};
+        Object.keys(globalListeners).forEach(key => this.event().listen(key, globalListeners[key]));
+        Object.keys(thisListeners).forEach(key => this.event().listenOnThis(key, thisListeners[key]));
+    }
+
+    protected initializeState(): any {
+        return new FieldStateInitializer(this.props, this.getExtraConfigurationInitializer()).initialize();
+    }
+
+    protected getExtraConfigurationInitializer(): IExtraConfigurationInitializer<ExtraConfiguration> {
+        return new DefaultExtraConfigurationInitializer();
+    }
+
+    protected handleValueChange = (e: any): void => {
+        this.value().getOnChangeHandler().handle(e);
     }
 
 }

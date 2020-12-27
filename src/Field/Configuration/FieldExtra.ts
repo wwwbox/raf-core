@@ -1,5 +1,5 @@
-import { FieldConfigurationBase, IFieldConfiguration } from "./FieldConfiguration";
-import { IField } from "../IField";
+import {FieldConfigurationBase, IFieldConfiguration} from "./FieldConfiguration";
+import {IField} from "../IField";
 
 export interface IFieldExtraConfiguration<T> extends IFieldConfiguration<T> {
 

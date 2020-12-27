@@ -1,24 +1,23 @@
-import { DefaultCollector, IFormCollector } from './FormCollecting/IFormCollector';
-import { FormFieldManager, IFormFieldManager } from './FieldManager/FormFieldManager';
-import { FormValue, IFormValue } from './FormValue/FormValue';
-import { FormEvent, IFormEvent } from './FormEvent/FormEvent';
-import { FormValidation, IFormValidation } from './FormValidation/FormValidation';
-import { DefaultFormRenderer } from '../Defaults/Services/DefaultFormRenderer';
-import { DefaultSubmitter } from '../Defaults/Services/DefaultSubmitter';
-import { NotEmptyValidator } from '../Defaults/Services/Validator';
-import { DefaultEventNameMaker } from '../Event/IEventNameMaker';
-import { IForm } from "./IForm";
-import { IField } from "../Field/IField";
-import { EventCallback } from "../Event/EventType";
-import { FieldOptions } from "../Field/FieldProps";
-import { Validator } from "../Protocol/Validator";
-import { Submitter } from "../Protocol/Submitter";
-import { FormRenderer } from "../Protocol/FormRenderer";
-import { IEventNameMaker } from "../Event/IEventNameMaker";
-import { FieldRenderer } from "../Protocol/FieldRenderer";
-import { AutofiyableProps, ServiceConfiguration as SC, ServiceCallback } from "@autofiy/autofiyable";
-import { DefaultFieldRenderer } from '../main';
-import { FormUI, IFormUI } from './FormUI/FormUI';
+import {DefaultCollector, IFormCollector} from './FormCollecting/IFormCollector';
+import {FormFieldManager, IFormFieldManager} from './FieldManager/FormFieldManager';
+import {FormValue, IFormValue} from './FormValue/FormValue';
+import {FormEvent, IFormEvent} from './FormEvent/FormEvent';
+import {FormValidation, IFormValidation} from './FormValidation/FormValidation';
+import {DefaultFormRenderer} from '../Defaults/Services/DefaultFormRenderer';
+import {DefaultSubmitter} from '../Defaults/Services/DefaultSubmitter';
+import {NotEmptyValidator} from '../Defaults/Services/Validator';
+import {DefaultEventNameMaker, IEventNameMaker} from '../Event/IEventNameMaker';
+import {IForm} from "./IForm";
+import {IField} from "../Field/IField";
+import {EventCallback} from "../Event/EventType";
+import {FieldOptions} from "../Field/FieldProps";
+import {Validator} from "../Protocol/Validator";
+import {Submitter} from "../Protocol/Submitter";
+import {FormRenderer} from "../Protocol/FormRenderer";
+import {FieldRenderer} from "../Protocol/FieldRenderer";
+import {AutofiyableProps, ServiceCallback, ServiceConfiguration as SC} from "@autofiy/autofiyable";
+import {DefaultFieldRenderer} from '../main';
+import {FormUI, IFormUI} from './FormUI/FormUI';
 
 export interface FormProps extends AutofiyableProps {
     fields: (FieldOptions | FieldOptions[])[],
@@ -34,7 +33,6 @@ export interface FormProps extends AutofiyableProps {
 }
 
 export default FormProps;
-
 
 
 export interface ServiceConfiguration extends SC {

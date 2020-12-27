@@ -1,6 +1,6 @@
 import * as React from "react";
-import { AutoUploadField } from "../Field/Concrete/AutoUploadField/AutoUploadField";
-import { AutoUploadFieldExtraConfiguration } from "../Field/Concrete/AutoUploadField/AutoUploadFieldExtraConfiguration";
+import {AutoUploadField} from "../Field/Concrete/AutoUploadField/AutoUploadField";
+import {AutoUploadFieldExtraConfiguration} from "../Field/Concrete/AutoUploadField/AutoUploadFieldExtraConfiguration";
 
 export interface DefaultAutoUploadFieldExtraConfiguration extends AutoUploadFieldExtraConfiguration {
 
@@ -16,7 +16,7 @@ export class DefaultAutoUploadField extends AutoUploadField {
             return <h4>File Uploaded : {this.extra().getUploadedFile()}</h4>
         }
         return <input type={'file'}
-            onChange={this.value().getOnChangeHandler().handle} />
+                      onChange={this.value().getOnChangeHandler().handle}/>
     }
 
     private renderProgress(): any {

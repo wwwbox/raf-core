@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Field } from "../Field/Concrete/Field";
+import {Field} from "../Field/Concrete/Field";
 
 
 export abstract class DefaultFieldBase<ExtraConfiguration = any> extends Field<ExtraConfiguration> {
@@ -19,7 +19,7 @@ export abstract class DefaultFieldBase<ExtraConfiguration = any> extends Field<E
     }
 
     protected getInjectedProps(): any {
-        return { ...this.getMainProps(), ...this.getOtherProps() };
+        return {...this.getMainProps(), ...this.getOtherProps()};
     }
 
     protected getMainProps(): any {
@@ -74,7 +74,7 @@ export abstract class DefaultFieldBase<ExtraConfiguration = any> extends Field<E
     private renderValidationElements() {
         return <>
             {
-                !this.validation().getCurrentValidState() && <b style={{ color: 'red' }}>ERROR</b>
+                !this.validation().getCurrentValidState() && <b style={{color: 'red'}}>ERROR</b>
             }
         </>;
     }

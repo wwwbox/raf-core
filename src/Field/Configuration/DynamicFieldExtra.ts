@@ -1,5 +1,5 @@
-import { FieldExtra, IFieldExtraConfiguration } from "./FieldExtra";
-import { DynamicField } from "../Concrete/DynamicField";
+import {FieldExtra, IFieldExtraConfiguration} from "./FieldExtra";
+import {DynamicField} from "../Concrete/DynamicField";
 
 export interface DynamicFieldConfiguration {
     maxInput: number;
@@ -51,16 +51,16 @@ export class DynamicFieldExtra<ExtraConfiguration extends DynamicFieldConfigurat
         return this.getConfiguration().onMaxInputExceed;
     }
 
-    protected unUpdatableKeys(): (keyof DynamicFieldConfiguration)[] {
-        return ['onItemAdded', 'onItemRemoved', "onMaxInputExceed", "onInputFilled"];
-    }
-
     getMaxInput(): number {
         return this.getConfiguration().maxInput;
     }
 
     setMaxInput(maxInput: number): void {
         return this.update('maxInput', maxInput);
+    }
+
+    protected unUpdatableKeys(): (keyof DynamicFieldConfiguration)[] {
+        return ['onItemAdded', 'onItemRemoved', "onMaxInputExceed", "onInputFilled"];
     }
 }
 

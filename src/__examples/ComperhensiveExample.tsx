@@ -2,12 +2,7 @@ import React, {Component} from 'react';
 import Form from "../Form/Form";
 import DefaultTextField from "../DefaultElement/DefaultTextField";
 import DefaultPasswordField from "../DefaultElement/DefaultPasswordField";
-import DefaultRadioField from "../DefaultElement/DefaultRadioField";
-import DefaultSelectField from "../DefaultElement/DefaultSelectField";
-import DefaultCheckboxField from "../DefaultElement/DefaultCheckboxField";
-import DefaultArrayTextField from "../DefaultElement/DefaultArrayTextField";
 import IForm from "../Form/IForm";
-import DefaultTextAreaField from "../DefaultElement/DefaultTextAreaField";
 
 
 export class ComprehensiveExample extends Component {

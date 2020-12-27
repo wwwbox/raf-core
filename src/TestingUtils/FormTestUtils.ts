@@ -1,10 +1,10 @@
-import { ServiceProvider } from '@autofiy/autofiyable';
+import {ServiceProvider} from '@autofiy/autofiyable';
 import IField from "../Field/IField";
-import { IFormFieldManager } from "../Form/FieldManager/FormFieldManager";
-import { mock } from "jest-mock-extended";
+import {IFormFieldManager} from "../Form/FieldManager/FormFieldManager";
+import {mock} from "jest-mock-extended";
 import IForm from "../Form/IForm";
-import { FieldType } from "../Field/Concrete/FieldType";
-import { DefaultServices } from '../Form/FormProps';
+import {FieldType} from "../Field/Concrete/FieldType";
+import {DefaultServices} from '../Form/FormProps';
 
 export class FormTestUtils {
     public static makeForm(fields: IField[] = [], mockImplementation: any = {}) {

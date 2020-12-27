@@ -1,4 +1,4 @@
-import { DefaultFieldChangeHandler } from "./DefaultFieldChangeHandler";
+import {DefaultFieldChangeHandler} from "./DefaultFieldChangeHandler";
 
 export class DefaultDynamicFieldChangeHandler extends DefaultFieldChangeHandler {
 

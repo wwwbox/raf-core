@@ -1,6 +1,6 @@
-import { IField } from "../IField";
-import { FieldCollectingConfiguration } from "./FieldCollectingConfiguration";
-import { FieldConfigurationBase, IFieldConfiguration } from "../Configuration/FieldConfiguration";
+import {IField} from "../IField";
+import {FieldCollectingConfiguration} from "./FieldCollectingConfiguration";
+import {FieldConfigurationBase, IFieldConfiguration} from "../Configuration/FieldConfiguration";
 
 export interface IFieldCollecting extends IFieldConfiguration<FieldCollectingConfiguration> {
     setSkip(skip: boolean): void;
@@ -21,13 +21,8 @@ export interface IFieldCollecting extends IFieldConfiguration<FieldCollectingCon
 
 export class FieldCollecting extends FieldConfigurationBase<FieldCollectingConfiguration> implements IFieldCollecting {
 
-
     constructor(field: IField, configurationKey: string) {
         super(field, configurationKey);
-    }
-
-    protected unUpdatableKeys(): (keyof FieldCollectingConfiguration)[] {
-        return ['collect'];
     }
 
     isAsQuery(): boolean {
@@ -56,6 +51,10 @@ export class FieldCollecting extends FieldConfigurationBase<FieldCollectingConfi
 
     collect(): any {
         return this.getConfiguration().collect(this.getField());
+    }
+
+    protected unUpdatableKeys(): (keyof FieldCollectingConfiguration)[] {
+        return ['collect'];
     }
 
 }

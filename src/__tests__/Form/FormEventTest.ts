@@ -1,4 +1,3 @@
-import { ServiceProvider } from '@autofiy/autofiyable';
 import {FormEvent} from "../../Form/FormEvent/FormEvent";
 import {FormTestUtils} from "../../TestingUtils/FormTestUtils";
 import {DefaultEventNameMaker} from "../../Event/IEventNameMaker";
@@ -11,7 +10,7 @@ describe('FormEvent', () => {
 
     it('test addListener,removeListener,hasListener,emit (workflow)', function () {
 
-        const form = FormTestUtils.makeForm([] , {
+        const form = FormTestUtils.makeForm([], {
             getProps: () => ({})
         });
         const event = new FormEvent(form);

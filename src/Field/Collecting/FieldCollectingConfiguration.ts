@@ -1,4 +1,4 @@
-import { IField } from "../IField";
+import {IField} from "../IField";
 
 export interface FieldCollectingConfiguration {
     ready: boolean;

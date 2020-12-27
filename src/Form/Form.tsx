@@ -1,16 +1,15 @@
-import * as React from "react";
-import { IForm } from "./IForm";
-import { FormState } from "./FormState";
-import { FormProps, DefaultServices, ServiceConfiguration } from "./FormProps";
-import { IFormUI } from "./FormUI/FormUI";
-import { IFormValidation } from "./FormValidation/FormValidation";
-import { IFormEvent } from "./FormEvent/FormEvent";
-import { IFormValue } from "./FormValue/FormValue";
-import { IFormFieldManager } from "./FieldManager/FormFieldManager";
-import { Submitter } from "../Protocol/Submitter";
-import { GlobalEvents } from "../Event/DefaultEvents";
-import { IFormCollector } from "./FormCollecting/IFormCollector";
-import { AutofiyableComponent } from "@autofiy/autofiyable";
+import {IForm} from "./IForm";
+import {FormState} from "./FormState";
+import {DefaultServices, FormProps, ServiceConfiguration} from "./FormProps";
+import {IFormUI} from "./FormUI/FormUI";
+import {IFormValidation} from "./FormValidation/FormValidation";
+import {IFormEvent} from "./FormEvent/FormEvent";
+import {IFormValue} from "./FormValue/FormValue";
+import {IFormFieldManager} from "./FieldManager/FormFieldManager";
+import {Submitter} from "../Protocol/Submitter";
+import {GlobalEvents} from "../Event/DefaultEvents";
+import {IFormCollector} from "./FormCollecting/IFormCollector";
+import {AutofiyableComponent} from "@autofiy/autofiyable";
 
 export class Form
     extends AutofiyableComponent<FormProps, FormState, ServiceConfiguration>
@@ -26,7 +25,7 @@ export class Form
 
     constructor(props: FormProps) {
         super(props);
-        this.state = { isLoading: false } as any;
+        this.state = {isLoading: false} as any;
         this.setupListeners();
 
         this._ui = this.getServiceProvider().getService("formUi");
@@ -39,9 +38,6 @@ export class Form
 
     }
 
-    protected initializeServices(): void {
-    }
-
     getDefaultServices(): ServiceConfiguration {
         return DefaultServices;
     }
@@ -51,7 +47,6 @@ export class Form
         this.value().set(values);
         this.event().emit(GlobalEvents.FORM_READY, {});
     }
-
 
     render() {
         return this.ui().render();
@@ -104,6 +99,9 @@ export class Form
 
     collecting(): IFormCollector {
         return this._collecting;
+    }
+
+    protected initializeServices(): void {
     }
 
     private setupListeners(): void {

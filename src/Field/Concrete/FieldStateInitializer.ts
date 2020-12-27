@@ -1,6 +1,6 @@
-import { FieldState } from "../FieldState";
-import { FieldProps } from "../FieldProps";
-import { FieldUIConfiguration, getDefaultFieldUIConfiguration } from "../UI/FieldUIConfiguration";
+import {FieldState} from "../FieldState";
+import {FieldProps} from "../FieldProps";
+import {FieldUIConfiguration, getDefaultFieldUIConfiguration} from "../UI/FieldUIConfiguration";
 import {
     FieldCollectingConfiguration,
     getDefaultFieldCollectingConfiguration
@@ -9,8 +9,8 @@ import {
     FieldValidationConfiguration,
     getDefaultFieldValidationConfiguration
 } from "../Validation/FieldValidationConfiguration";
-import { FieldValueConfiguration, getDefaultFieldValueConfiguration } from "../Value/FieldValueConfiguration";
-import { DynamicFieldConfiguration, getDefaultDynamicFieldConfiguration } from "../Configuration/DynamicFieldExtra";
+import {FieldValueConfiguration, getDefaultFieldValueConfiguration} from "../Value/FieldValueConfiguration";
+import {DynamicFieldConfiguration, getDefaultDynamicFieldConfiguration} from "../Configuration/DynamicFieldExtra";
 
 export class FieldStateInitializer<T extends FieldState = FieldState, Extra = any> {
     private readonly props: FieldProps;
@@ -20,6 +20,13 @@ export class FieldStateInitializer<T extends FieldState = FieldState, Extra = an
     constructor(props: FieldProps, extraInitializer: IExtraConfigurationInitializer<Extra>) {
         this.props = props;
         this.extraInitializer = extraInitializer;
+    }
+
+    private static valueOrDefault(initial: any, defaultValue: any): any {
+        if (initial === null || initial === undefined) {
+            return defaultValue;
+        }
+        return initial;
     }
 
     public initialize(): FieldState {
@@ -54,14 +61,8 @@ export class FieldStateInitializer<T extends FieldState = FieldState, Extra = an
         })
         return result;
     }
-
-    private static valueOrDefault(initial: any, defaultValue: any): any {
-        if (initial === null || initial === undefined) {
-            return defaultValue;
-        }
-        return initial;
-    }
 }
+
 export default FieldStateInitializer;
 
 export interface IExtraConfigurationInitializer<T> {
@@ -71,7 +72,7 @@ export interface IExtraConfigurationInitializer<T> {
 export class DefaultExtraConfigurationInitializer implements IExtraConfigurationInitializer<any> {
     initialize(extraProps: any): any {
         if (extraProps) {
-            return { ...extraProps };
+            return {...extraProps};
         }
         return {};
     }

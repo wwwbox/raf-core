@@ -1,6 +1,6 @@
-import { AutoUploadField } from "./AutoUploadField";
-import { AutoUploadFieldEvents } from "./AutoUploadFieldEvents";
-import { defaultAutoUploadOptions } from "./AutoUploadFieldExtraConfiguration";
+import {AutoUploadField} from "./AutoUploadField";
+import {AutoUploadFieldEvents} from "./AutoUploadFieldEvents";
+import {defaultAutoUploadOptions} from "./AutoUploadFieldExtraConfiguration";
 
 export interface AutoUploader {
     options(): any;
@@ -27,70 +27,13 @@ export class DefaultAutoUploader implements AutoUploader {
 
     options(): any {
         const options = this.field.extra().config("uploadOptions") ?? {};
-        return { ...defaultAutoUploadOptions(), ...options }
+        return {...defaultAutoUploadOptions(), ...options}
     }
-
-    private updateUploadState(uploading?: boolean, uploadedFile?: any, progress?: number): void {
-        uploading !== undefined && this.field.extra().update("uploading", uploading);
-        uploadedFile !== undefined && this.field.extra().update("uploadedFile", uploadedFile);
-        progress !== undefined && this.field.extra().update('progress', progress);
-    }
-
-    private onStart(): void {
-        this.field.ui().setLoading(true);
-        this.field.collecting().setReady(false);
-        this.updateUploadState(true, null, 0);
-        this.field.event().emitOnThis(AutoUploadFieldEvents.START, {});
-    }
-
-    protected onCancel(): void {
-        this.field.ui().setLoading(false);
-        this.field.collecting().setReady(true);
-        this.updateUploadState(false, null, 0);
-        this.field.event().emitOnThis(AutoUploadFieldEvents.CANCEL, {});
-    }
-
-    protected onFail(response: any): void {
-        this.field.event().emitOnThis(AutoUploadFieldEvents.FAIL, { response: response });
-    }
-
-    protected onSuccess(response: any): void {
-        this.field.event().emitOnThis(AutoUploadFieldEvents.SUCCESS, { response: response });
-        this.field.extra().setUploadedFileFromResponse(response);
-    }
-
-    protected onComplete(response: any): void {
-        this.field.event().emitOnThis(AutoUploadFieldEvents.COMPLETE, { response: response });
-        this.field.ui().setLoading(false);
-        this.field.collecting().setReady(true);
-        this.updateUploadState(false, undefined, 0);
-    }
-
 
     upload(): any {
         this.setupEvents();
         this.send();
         this.onStart();
-    }
-
-
-    private setupEvents(): void {
-        const _self = this;
-        this.request.onreadystatechange = function () {
-            _self.onResponse(this);
-        }
-        this.request.upload.addEventListener('progress', function (e) {
-            _self.onProgress(e.total, e.loaded, (e.loaded / e.total) * 100)
-        }, false);
-    }
-
-    private send(): void {
-        const options: any = this.options();
-        this.request.open(options.method, options.url, true);
-        this.request.setRequestHeader('Content-Type', "multipart/form-data");
-        const data = new FormData();
-        data.append(options.formKey, this.field.extra().getSelectedFile())
-        this.request.send(data);
     }
 
     public onProgress(total: number, loaded: number, percent: number): void {
@@ -114,5 +57,60 @@ export class DefaultAutoUploader implements AutoUploader {
             }
             this.onComplete(request.response);
         }
+    }
+
+    protected onCancel(): void {
+        this.field.ui().setLoading(false);
+        this.field.collecting().setReady(true);
+        this.updateUploadState(false, null, 0);
+        this.field.event().emitOnThis(AutoUploadFieldEvents.CANCEL, {});
+    }
+
+    protected onFail(response: any): void {
+        this.field.event().emitOnThis(AutoUploadFieldEvents.FAIL, {response: response});
+    }
+
+    protected onSuccess(response: any): void {
+        this.field.event().emitOnThis(AutoUploadFieldEvents.SUCCESS, {response: response});
+        this.field.extra().setUploadedFileFromResponse(response);
+    }
+
+    protected onComplete(response: any): void {
+        this.field.event().emitOnThis(AutoUploadFieldEvents.COMPLETE, {response: response});
+        this.field.ui().setLoading(false);
+        this.field.collecting().setReady(true);
+        this.updateUploadState(false, undefined, 0);
+    }
+
+    private updateUploadState(uploading?: boolean, uploadedFile?: any, progress?: number): void {
+        uploading !== undefined && this.field.extra().update("uploading", uploading);
+        uploadedFile !== undefined && this.field.extra().update("uploadedFile", uploadedFile);
+        progress !== undefined && this.field.extra().update('progress', progress);
+    }
+
+    private onStart(): void {
+        this.field.ui().setLoading(true);
+        this.field.collecting().setReady(false);
+        this.updateUploadState(true, null, 0);
+        this.field.event().emitOnThis(AutoUploadFieldEvents.START, {});
+    }
+
+    private setupEvents(): void {
+        const _self = this;
+        this.request.onreadystatechange = function () {
+            _self.onResponse(this);
+        }
+        this.request.upload.addEventListener('progress', function (e) {
+            _self.onProgress(e.total, e.loaded, (e.loaded / e.total) * 100)
+        }, false);
+    }
+
+    private send(): void {
+        const options: any = this.options();
+        this.request.open(options.method, options.url, true);
+        this.request.setRequestHeader('Content-Type', "multipart/form-data");
+        const data = new FormData();
+        data.append(options.formKey, this.field.extra().getSelectedFile())
+        this.request.send(data);
     }
 }

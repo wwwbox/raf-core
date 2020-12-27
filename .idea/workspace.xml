@@ -3,14 +3,76 @@
   <component name="ChangeListManager">
     <list default="true" id="02a24f0f-9847-4345-a3b5-34b3fb9e6a52" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jest.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/jest.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ChangeHandler/AutoUploadFieldChangeHandler.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChangeHandler/AutoUploadFieldChangeHandler.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ChangeHandler/DefaultDynamicFieldChangeHandler.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChangeHandler/DefaultDynamicFieldChangeHandler.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ChangeHandler/DefaultFieldChangeHandler.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ChangeHandler/DefaultFieldChangeHandler.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DefaultElement/DefaultArrayTextField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/DefaultElement/DefaultArrayTextField.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DefaultElement/DefaultAutoUploadField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/DefaultElement/DefaultAutoUploadField.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DefaultElement/DefaultCheckboxField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/DefaultElement/DefaultCheckboxField.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DefaultElement/DefaultFieldBase.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/DefaultElement/DefaultFieldBase.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DefaultElement/DefaultFileField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/DefaultElement/DefaultFileField.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DefaultElement/DefaultOptionsFieldBase.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/DefaultElement/DefaultOptionsFieldBase.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DefaultElement/DefaultPasswordField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/DefaultElement/DefaultPasswordField.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DefaultElement/DefaultRadioField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/DefaultElement/DefaultRadioField.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DefaultElement/DefaultSelectField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/DefaultElement/DefaultSelectField.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DefaultElement/DefaultTextAreaField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/DefaultElement/DefaultTextAreaField.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DefaultElement/DefaultTextField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/DefaultElement/DefaultTextField.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Defaults/RafDefaults.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Defaults/RafDefaults.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Defaults/Services/DefaultFieldRenderer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Defaults/Services/DefaultFieldRenderer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Defaults/Services/DefaultFormRenderer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Defaults/Services/DefaultFormRenderer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Defaults/Services/DefaultSubmitter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Defaults/Services/DefaultSubmitter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Defaults/Services/FieldRendererBase.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Defaults/Services/FieldRendererBase.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Defaults/Services/Validator.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Defaults/Services/Validator.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Event/EventType.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Event/EventType.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Event/IEventNameMaker.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Event/IEventNameMaker.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Field/Collecting/FieldCollecting.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Collecting/FieldCollecting.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Field/Collecting/FieldCollectingConfiguration.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Collecting/FieldCollectingConfiguration.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Field/Concrete/AutoUploadField/AutoUploadField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Concrete/AutoUploadField/AutoUploadField.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Field/Concrete/AutoUploadField/AutoUploadFieldExtra.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Concrete/AutoUploadField/AutoUploadFieldExtra.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Field/Concrete/AutoUploadField/AutoUploadFieldExtraConfiguration.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Concrete/AutoUploadField/AutoUploadFieldExtraConfiguration.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Field/Concrete/AutoUploadField/AutoUploader.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Concrete/AutoUploadField/AutoUploader.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Field/Concrete/DynamicField.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Concrete/DynamicField.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Field/Concrete/Field.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Concrete/Field.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Field/Concrete/FieldStateInitializer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Concrete/FieldStateInitializer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Field/Concrete/FileField.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Concrete/FileField.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Field/Configuration/DynamicFieldExtra.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Configuration/DynamicFieldExtra.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Field/Configuration/FieldConfiguration.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Configuration/FieldConfiguration.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Field/Configuration/FieldExtra.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Configuration/FieldExtra.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Field/FieldEvent/FieldEvent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/FieldEvent/FieldEvent.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Field/FieldProps.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/FieldProps.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Field/FieldState.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/FieldState.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Field/IField.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/IField.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Field/UI/FieldUI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/UI/FieldUI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Field/Validation/FieldValidation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Validation/FieldValidation.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Field/Validation/FieldValidationConfiguration.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Validation/FieldValidationConfiguration.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Field/Value/FieldValue.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Value/FieldValue.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Field/Value/FieldValueConfiguration.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Value/FieldValueConfiguration.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/FieldManager/FormFieldManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/FieldManager/FormFieldManager.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/Form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Form.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/FormCollecting/IFormCollector.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/FormCollecting/IFormCollector.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/FormEvent/FormEvent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/FormEvent/FormEvent.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/FormProps.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/FormProps.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/FormUI/FormUI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/FormUI/FormUI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/FormValidation/FormValidation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/FormValidation/FormValidation.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/FormValue/FormValue.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/FormValue/FormValue.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/IForm.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/IForm.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Protocol/FieldRenderer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Protocol/FieldRenderer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Protocol/FormRenderer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Protocol/FormRenderer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Protocol/Submitter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Protocol/Submitter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Protocol/Validator.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Protocol/Validator.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TestingUtils/FieldConfigurationTestUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/TestingUtils/FieldConfigurationTestUtils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TestingUtils/FormTestUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/TestingUtils/FormTestUtils.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/__examples/ComperhensiveExample.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/__examples/ComperhensiveExample.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/__tests__/Defaults/DefaultFormRendererTest.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Defaults/DefaultFormRendererTest.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/__tests__/Defaults/NotEmptyValidatorTest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Defaults/NotEmptyValidatorTest.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/__tests__/Field/DynamicFieldTest.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Field/DynamicFieldTest.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/__tests__/Field/FieldValidationTest.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Field/FieldValidationTest.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/__tests__/Form/FormEventTest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Form/FormEventTest.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/__tests__/Form/FormValidationTest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Form/FormValidationTest.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +113,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/react-scripts" />
     <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -194,7 +257,7 @@
       <workItem from="1601752609311" duration="1297000" />
       <workItem from="1602069191543" duration="3205000" />
       <workItem from="1608830187652" duration="1249000" />
-      <workItem from="1609057462090" duration="2496000" />
+      <workItem from="1609057462090" duration="2886000" />
     </task>
     <servers />
   </component>

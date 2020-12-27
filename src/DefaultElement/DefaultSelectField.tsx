@@ -1,5 +1,5 @@
 import * as React from "react";
-import { DefaultOptionsFieldBase } from "./DefaultOptionsFieldBase";
+import {DefaultOptionsFieldBase} from "./DefaultOptionsFieldBase";
 
 
 export class DefaultSelectField extends DefaultOptionsFieldBase {

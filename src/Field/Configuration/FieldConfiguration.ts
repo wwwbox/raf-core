@@ -1,4 +1,4 @@
-import { IField } from "../IField";
+import {IField} from "../IField";
 
 export interface IFieldConfiguration<T> {
     update(key: keyof T, value: any, afterChange?: () => void): void;
@@ -16,6 +16,19 @@ export class FieldConfigurationBase<T> implements IFieldConfiguration<T> {
         this.field = field;
         this.configurationKey = configurationKey;
         this.currentConfiguration = this.getConfiguration();
+    }
+
+    public config<R = any>(key: keyof T): R {
+        return this.getConfiguration()[key] as any;
+    }
+
+    public update(key: keyof T, value: any, afterChange?: () => void): void {
+        if (this.unUpdatableKeys().includes(key)) {
+            throw Error(`cannot update ${key}`);
+        }
+        const newConfiguration = {...this.currentConfiguration, [key]: value};
+        this.currentConfiguration = {...newConfiguration};
+        this.field.updateConfiguration<T>(this.getConfigurationKey(), newConfiguration, afterChange);
     }
 
     protected unUpdatableKeys(): (keyof T)[] {
@@ -36,19 +49,6 @@ export class FieldConfigurationBase<T> implements IFieldConfiguration<T> {
 
     protected getField(): IField {
         return this.field;
-    }
-
-    public config<R = any>(key: keyof T): R {
-        return this.getConfiguration()[key] as any;
-    }
-
-    public update(key: keyof T, value: any, afterChange?: () => void): void {
-        if (this.unUpdatableKeys().includes(key)) {
-            throw Error(`cannot update ${key}`);
-        }
-        const newConfiguration = { ...this.currentConfiguration, [key]: value };
-        this.currentConfiguration = { ...newConfiguration };
-        this.field.updateConfiguration<T>(this.getConfigurationKey(), newConfiguration, afterChange);
     }
 
 }

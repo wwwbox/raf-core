@@ -46,36 +46,10 @@ export class FieldConfigurationTestUtils<Configuration, Service extends FieldCon
         };
     }
 
-    private getFieldForGetTest(key: keyof Configuration, value: any): IField {
-        const defaultConfiguration = this.defaultConfigurationForGet;
-        return mock<IField>({
-            getConfiguration(): any {
-                return {
-                    ...defaultConfiguration,
-                    [key]: value
-                }
-            }
-        });
-    }
-
     public testGet(key: keyof Configuration, value: any, get: (service: Service) => any): void {
         const field = this.getFieldForGetTest(key, value);
         const service = this.createService(field);
         expect(get(service)).toEqual(value);
-    }
-
-
-    private getFieldForSet(mockedConfiguration: any, updateConfigurationMock: any): IField {
-        const defaultConfiguration = this.defaultConfigurationForSet;
-        return mock<IField>({
-            getConfiguration(): any {
-                return {
-                    ...defaultConfiguration,
-                    ...mockedConfiguration
-                }
-            },
-            updateConfiguration: updateConfigurationMock
-        });
     }
 
     public testSet(key: keyof Configuration, value: any, set: (service: Service) => void, mockedConfiguration: any = {}, onChangeMock?: any): void {
@@ -92,5 +66,30 @@ export class FieldConfigurationTestUtils<Configuration, Service extends FieldCon
     public testUnupdatableConfiguration(...keys: (keyof Configuration)[]): void {
         const service = this.getInstance();
         keys.forEach(key => expect(() => service.update(key, null)).toThrowError(`cannot update ${key}`));
+    }
+
+    private getFieldForGetTest(key: keyof Configuration, value: any): IField {
+        const defaultConfiguration = this.defaultConfigurationForGet;
+        return mock<IField>({
+            getConfiguration(): any {
+                return {
+                    ...defaultConfiguration,
+                    [key]: value
+                }
+            }
+        });
+    }
+
+    private getFieldForSet(mockedConfiguration: any, updateConfigurationMock: any): IField {
+        const defaultConfiguration = this.defaultConfigurationForSet;
+        return mock<IField>({
+            getConfiguration(): any {
+                return {
+                    ...defaultConfiguration,
+                    ...mockedConfiguration
+                }
+            },
+            updateConfiguration: updateConfigurationMock
+        });
     }
 }

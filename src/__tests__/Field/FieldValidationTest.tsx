@@ -1,21 +1,13 @@
-import Enzyme, {mount} from "enzyme";
+import Enzyme from "enzyme";
 import Adapter from 'enzyme-adapter-react-16';
 import * as React from "react";
-import {
-    FieldValidationConfiguration,
-    getDefaultFieldValidationConfiguration
-} from "../../Field/Validation/FieldValidationConfiguration";
+import {FieldValidationConfiguration} from "../../Field/Validation/FieldValidationConfiguration";
 import {FieldValidation} from "../../Field/Validation/FieldValidation";
 import {mock} from "jest-mock-extended";
 import Validator from "../../Protocol/Validator";
-import {IEventNameMaker} from "../../Event/IEventNameMaker";
-import IField from "../../Field/IField";
 import {IFieldEvent} from "../../Field/FieldEvent/FieldEvent";
-import {FieldProps} from "../../Field/FieldProps";
 import {FieldValue, IFieldValue} from "../../Field/Value/FieldValue";
 import {IFieldUI} from "../../Field/UI/FieldUI";
-import Field from "../../Field/Concrete/Field";
-import {IFormEvent} from "../../Form/FormEvent/FormEvent";
 import {FieldMessageType} from "../../Field/UI/FieldUIConfiguration";
 import {FieldEvents} from "../../Event/DefaultEvents";
 import {FieldConfigurationTestUtils} from "../../TestingUtils/FieldConfigurationTestUtils";
@@ -27,7 +19,7 @@ const testUtils = new FieldConfigurationTestUtils<FieldValidationConfiguration, 
 );
 
 describe('UI Event', () => {
-    
+
     it('should use injected validator', function () {
         const validator = mock<Validator>({
             validate(): boolean | string {

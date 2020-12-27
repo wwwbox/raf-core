@@ -1,9 +1,8 @@
-import { DefaultFormRenderer } from "../../Defaults/Services/DefaultFormRenderer";
-import { FormTestUtils } from "../../TestingUtils/FormTestUtils";
+import {DefaultFormRenderer} from "../../Defaults/Services/DefaultFormRenderer";
+import {FormTestUtils} from "../../TestingUtils/FormTestUtils";
 import FieldRenderer from "../../Protocol/FieldRenderer";
-import { mock } from "jest-mock-extended";
+import {mock} from "jest-mock-extended";
 import * as React from "react";
-import { ServiceProvider } from "@autofiy/autofiyable";
 
 describe('DefaultFormRenderer', () => {
 
@@ -20,7 +19,7 @@ describe('DefaultFormRenderer', () => {
                     services: {
                         fieldRenderer: () => mock<FieldRenderer>({
                             render(): any {
-                                return <input />
+                                return <input/>
                             }
                         })
                     }
@@ -31,8 +30,8 @@ describe('DefaultFormRenderer', () => {
         const rendered = renderer.render();
         expect(rendered.toString()).toEqual((
             <div className={'__raf'}>
-                <input />
-                <br />
+                <input/>
+                <br/>
                 <button onClick={jest.fn()}>GO</button>
             </div>
         ).toString())
@@ -45,7 +44,7 @@ describe('DefaultFormRenderer', () => {
                     services: {
                         fieldRenderer: () => mock<FieldRenderer>({
                             render(): any {
-                                return <input />
+                                return <input/>
                             }
                         })
                     }

@@ -1,6 +1,6 @@
-import { FieldRenderer } from "../../Protocol/FieldRenderer";
-import { IForm } from "../../Form/IForm";
-import { FieldInjectedProps, FieldOptions } from "../../Field/FieldProps";
+import {FieldRenderer} from "../../Protocol/FieldRenderer";
+import {IForm} from "../../Form/IForm";
+import {FieldInjectedProps, FieldOptions} from "../../Field/FieldProps";
 import * as React from "react";
 
 
@@ -18,13 +18,9 @@ export abstract class FieldRendererBase implements FieldRenderer {
         return this.renderWrapper(fields);
     }
 
-    private renderField = (config: FieldOptions | FieldOptions[], index: number): any => {
-        if (Array.isArray(config)) {
-            return this.renderArray(index, config)
-        } else {
-            return this.renderFieldElement(config, false);
-        }
-    };
+    public getForm(): IForm {
+        return this.form;
+    }
 
     protected renderArray(index: number, config: FieldOptions[]): any {
         const ArrayWrapper = this.arrayWrapper();
@@ -37,7 +33,7 @@ export abstract class FieldRendererBase implements FieldRenderer {
 
     protected arrayWrapper = (): any => 'div';
 
-    protected arrayWrapperProps = (): object => ({ className: '__raf-sub-fields' });
+    protected arrayWrapperProps = (): object => ({className: '__raf-sub-fields'});
 
     protected abstract renderFieldElement(options: FieldOptions, inArray: boolean): React.ReactElement;
 
@@ -52,9 +48,13 @@ export abstract class FieldRendererBase implements FieldRenderer {
         };
     };
 
-    public getForm(): IForm {
-        return this.form;
-    }
+    private renderField = (config: FieldOptions | FieldOptions[], index: number): any => {
+        if (Array.isArray(config)) {
+            return this.renderArray(index, config)
+        } else {
+            return this.renderFieldElement(config, false);
+        }
+    };
 }
 
 export default FieldRendererBase;

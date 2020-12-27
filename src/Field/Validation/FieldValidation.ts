@@ -1,8 +1,8 @@
-import { FieldValidationConfiguration } from "./FieldValidationConfiguration";
-import { IField } from "../IField";
-import { Validator } from "../../Protocol/Validator";
-import { FieldConfigurationBase, IFieldConfiguration } from "../Configuration/FieldConfiguration";
-import { FieldEvents } from "../../Event/DefaultEvents";
+import {FieldValidationConfiguration} from "./FieldValidationConfiguration";
+import {IField} from "../IField";
+import {Validator} from "../../Protocol/Validator";
+import {FieldConfigurationBase, IFieldConfiguration} from "../Configuration/FieldConfiguration";
+import {FieldEvents} from "../../Event/DefaultEvents";
 
 export interface IFieldValidation extends IFieldConfiguration<FieldValidationConfiguration> {
     validate(): boolean;
@@ -20,6 +20,10 @@ export class FieldValidation extends FieldConfigurationBase<FieldValidationConfi
 
     constructor(field: IField, configurationKey: string) {
         super(field, configurationKey);
+    }
+
+    private static isValid(validationResult: string | boolean): boolean {
+        return validationResult === true || validationResult === '';
     }
 
     set(valid: boolean, afterChange?: () => void): void {
@@ -52,7 +56,6 @@ export class FieldValidation extends FieldConfigurationBase<FieldValidationConfi
         return valid;
     }
 
-
     private getValidationResult(): string | boolean {
         if (this.getConfiguration().skipValidation) {
             return true;
@@ -75,9 +78,5 @@ export class FieldValidation extends FieldConfigurationBase<FieldValidationConfi
         this.getField().event().emitOnThis(FieldEvents.VALIDATION_FAIL, {
             validationResult: validationResult
         });
-    }
-
-    private static isValid(validationResult: string | boolean): boolean {
-        return validationResult === true || validationResult === '';
     }
 }
