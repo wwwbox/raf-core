@@ -13,3 +13,5 @@ yarn.lock
 
 ./build/__examples
 yarn-error.log
+config
+.babelrc
