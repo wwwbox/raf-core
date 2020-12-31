@@ -15,19 +15,17 @@ export class Form
     extends AutofiyableComponent<FormProps, FormState, ServiceConfiguration>
     implements IForm {
 
-    protected _ui: IFormUI = null as any;
-    protected _validation: IFormValidation = null as any;
-    protected _event: IFormEvent = null as any;
-    protected _value: IFormValue = null as any;
-    protected _fieldManager: IFormFieldManager = null as any;
-    protected _collecting: IFormCollector = null as any;
-    protected _submitter: Submitter = null as any;
+    protected _ui: IFormUI;
+    protected _validation: IFormValidation;
+    protected _event: IFormEvent;
+    protected _value: IFormValue;
+    protected _fieldManager: IFormFieldManager;
+    protected _collecting: IFormCollector;
+    protected _submitter: Submitter;
 
     constructor(props: FormProps) {
         super(props);
         this.state = {isLoading: false} as any;
-        this.setupListeners();
-
         this._ui = this.getServiceProvider().getService("formUi");
         this._validation = this.getServiceProvider().getService("formValidation");
         this._event = this.getServiceProvider().getService("formEvent");
@@ -35,7 +33,7 @@ export class Form
         this._fieldManager = this.getServiceProvider().getService("fieldManager");
         this._collecting = this.getServiceProvider().getService("formCollector");
         this._submitter = this.getServiceProvider().getService("submitter");
-
+        this.setupListeners();
     }
 
     getDefaultServices(): ServiceConfiguration {

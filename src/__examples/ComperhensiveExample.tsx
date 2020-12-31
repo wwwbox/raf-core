@@ -9,6 +9,7 @@ import DefaultTextAreaField from "../DefaultElement/DefaultTextAreaField";
 import DefaultArrayTextField from "../DefaultElement/DefaultArrayTextField";
 import DefaultCheckboxField from "../DefaultElement/DefaultCheckboxField";
 import {Counter} from "./Counter";
+import {GlobalEvents} from "../Event/DefaultEvents";
 
 
 class ComprehensiveExample extends Component {
@@ -46,12 +47,19 @@ class ComprehensiveExample extends Component {
                         }
                     },
                     {as: DefaultCheckboxField, name: 'policy_agreement', extra: {label: 'I Accept The Policy'}},
-                ]} extra={{
-                    submitOptions: {
-                        url: "http://google.com",
-                        method: "get"
-                    }
-                }}/>
+                ]}
+                      listen={{
+                          [GlobalEvents.SUBMIT_SUCCEEDED]: () => alert("AJAX Succeed"),
+                          [GlobalEvents.SUBMIT_FAILED]: () => alert("AJAX Failed"),
+                          [GlobalEvents.SUBMIT_COMPLETED]: () => alert("AJAX Completed"),
+                          [GlobalEvents.SUBMIT_START]: () => console.log("AJAX Start")
+                      }}
+                      extra={{
+                          submitOptions: {
+                              url: "http://google.com",
+                              method: "get"
+                          }
+                      }}/>
             </div>
         );
     }
