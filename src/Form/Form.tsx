@@ -67,7 +67,8 @@ export class Form
     }
 
     submit(): void {
-        if (!this.getProps().allowSubmitWhenNotValid && !this.validation().validateWithEffect()) {
+        const isValid = this.validation().validateWithEffect();
+        if (!isValid && !this.getProps().allowSubmitWhenNotValid) {
             return;
         }
 
