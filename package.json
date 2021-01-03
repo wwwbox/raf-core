@@ -1,6 +1,6 @@
 {
   "name": "@autofiy/raf-core",
-  "version": "1.4.7",
+  "version": "1.4.8",
   "private": false,
   "types": "build/main.d.ts",
   "main": "build/main.js",
