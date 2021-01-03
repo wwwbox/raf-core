@@ -40,7 +40,7 @@ export class DefaultCollector implements IFormCollector {
     private collect(filter: (field: IField) => boolean): any {
         const data: any = {};
         this.form.fields().getAllRegistered().forEach(field => {
-            if (field.collecting().shouldSkip() && filter(field)) {
+            if (!field.collecting().shouldSkip() && filter(field)) {
                 data[field.getName()] = field.collecting().collect()
             }
         });
