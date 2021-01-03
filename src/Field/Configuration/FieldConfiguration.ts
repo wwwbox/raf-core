@@ -4,6 +4,8 @@ export interface IFieldConfiguration<T> {
     update(key: keyof T, value: any, afterChange?: () => void): void;
 
     config<R = any>(key: keyof T): R;
+
+    refreshConfiguration(): void;
 }
 
 export class FieldConfigurationBase<T> implements IFieldConfiguration<T> {
@@ -29,6 +31,10 @@ export class FieldConfigurationBase<T> implements IFieldConfiguration<T> {
         const newConfiguration = {...this.currentConfiguration, [key]: value};
         this.currentConfiguration = {...newConfiguration};
         this.field.updateConfiguration<T>(this.getConfigurationKey(), newConfiguration, afterChange);
+    }
+
+    public refreshConfiguration(): void {
+        this.currentConfiguration = this.getField().getConfiguration(this.getConfigurationKey());
     }
 
     protected unUpdatableKeys(): (keyof T)[] {

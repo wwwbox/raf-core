@@ -1,6 +1,6 @@
 import {FieldProps} from "../FieldProps";
 import {FieldState} from "../FieldState";
-import {IField} from "./../IField";
+import {IField} from "../IField";
 import * as React from "react";
 import {IForm} from "../../Form/IForm";
 
@@ -16,6 +16,7 @@ import {FieldCollecting, IFieldCollecting} from "../Collecting/FieldCollecting";
 import {FieldExtra, IFieldExtraConfiguration} from "../Configuration/FieldExtra";
 import {FieldType} from "./FieldType";
 import {FieldEvent, IFieldEvent} from "../FieldEvent/FieldEvent";
+import {refreshState} from "../RefreshState";
 
 export class Field<ExtraConfiguration = any> extends React.Component<FieldProps, FieldState<ExtraConfiguration>> implements IField<ExtraConfiguration> {
 
@@ -25,10 +26,12 @@ export class Field<ExtraConfiguration = any> extends React.Component<FieldProps,
     protected _collecting: IFieldCollecting;
     protected _extra: IFieldExtraConfiguration<ExtraConfiguration>;
     protected _event: IFieldEvent;
+    private readonly initialState: FieldState;
 
     constructor(props: FieldProps) {
         super(props);
         this.state = this.initializeState();
+        this.initialState = JSON.parse(JSON.stringify(this.state));
         this.getForm().fields().register(this);
 
         this._value = new FieldValue(this, "value");
@@ -39,6 +42,24 @@ export class Field<ExtraConfiguration = any> extends React.Component<FieldProps,
         this._event = new FieldEvent(this);
         this.state.value.extractValueFromEvent = this.state.value.extractValueFromEvent ?? (e => e.target.value);
         this.setupListeners();
+    }
+
+    private hackUpdate: boolean = false;
+
+    componentDidUpdate(prevProps: Readonly<FieldProps>, prevState: Readonly<FieldState<ExtraConfiguration>>, snapshot?: any) {
+        if (this.hackUpdate) {
+            this.hackUpdate = false;
+            return;
+        }
+        if (refreshState(this.state, this.props, this.initialState)) {
+            this.hackUpdate = true;
+            this.forceUpdate();
+            this._value.refreshConfiguration();
+            this._validation.refreshConfiguration();
+            this._ui.refreshConfiguration();
+            this._collecting.refreshConfiguration();
+            this._extra.refreshConfiguration();
+        }
     }
 
     render(): any {
