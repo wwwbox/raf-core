@@ -14,7 +14,7 @@ describe('DefaultFromCollector', () => {
                     return collectedValue;
                 },
                 shouldSkip(): boolean {
-                    return shouldCollect;
+                    return !shouldCollect;
                 },
                 isAsQuery(): boolean {
                     return asQuery;

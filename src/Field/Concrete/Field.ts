@@ -16,7 +16,7 @@ import {FieldCollecting, IFieldCollecting} from "../Collecting/FieldCollecting";
 import {FieldExtra, IFieldExtraConfiguration} from "../Configuration/FieldExtra";
 import {FieldType} from "./FieldType";
 import {FieldEvent, IFieldEvent} from "../FieldEvent/FieldEvent";
-import {refreshState} from "../RefreshState";
+import {ExtraRefresher, ExtraRefresherBase} from "../ExtraRefresher";
 
 export class Field<ExtraConfiguration = any> extends React.Component<FieldProps, FieldState<ExtraConfiguration>> implements IField<ExtraConfiguration> {
 
@@ -26,6 +26,7 @@ export class Field<ExtraConfiguration = any> extends React.Component<FieldProps,
     protected _collecting: IFieldCollecting;
     protected _extra: IFieldExtraConfiguration<ExtraConfiguration>;
     protected _event: IFieldEvent;
+    protected _refresher: ExtraRefresher;
     private readonly initialState: FieldState;
 
     constructor(props: FieldProps) {
@@ -40,24 +41,21 @@ export class Field<ExtraConfiguration = any> extends React.Component<FieldProps,
         this._collecting = new FieldCollecting(this, "collecting");
         this._extra = new FieldExtra(this, "extra");
         this._event = new FieldEvent(this);
+        this._refresher = this.props.refresher ?? new ExtraRefresherBase();
         this.state.value.extractValueFromEvent = this.state.value.extractValueFromEvent ?? (e => e.target.value);
         this.setupListeners();
     }
 
-    private hackUpdate: boolean = false;
+    private isExtraUpdate: boolean = false;
 
     componentDidUpdate(prevProps: Readonly<FieldProps>, prevState: Readonly<FieldState<ExtraConfiguration>>, snapshot?: any) {
-        if (this.hackUpdate) {
-            this.hackUpdate = false;
+        if (this.isExtraUpdate) {
+            this.isExtraUpdate = false;
             return;
         }
-        if (refreshState(this.state, this.props, this.initialState)) {
-            this.hackUpdate = true;
+        if (this._refresher.refresh(this)) {
+            this.isExtraUpdate = true;
             this.forceUpdate();
-            this._value.refreshConfiguration();
-            this._validation.refreshConfiguration();
-            this._ui.refreshConfiguration();
-            this._collecting.refreshConfiguration();
             this._extra.refreshConfiguration();
         }
     }
