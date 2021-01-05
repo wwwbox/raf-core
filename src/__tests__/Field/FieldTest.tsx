@@ -6,7 +6,7 @@ import {FieldProps} from "../../Field/FieldProps";
 import FieldStateInitializer, {DefaultExtraConfigurationInitializer} from "../../Field/Concrete/FieldStateInitializer";
 import {FieldType} from "../../Field/Concrete/FieldType";
 import {IFormEvent} from "../../Form/FormEvent/FormEvent";
-import {FieldEvents, GlobalEvents} from "../../Event/DefaultEvents";
+import {FieldEvents} from "../../Event/DefaultEvents";
 import {DefaultEventNameMaker} from "../../Event/IEventNameMaker";
 import {mock} from "jest-mock-extended";
 
@@ -34,10 +34,6 @@ describe('Field', () => {
             name: FIELD_NAME,
             injectedEventNameMaker: nameMaker,
             injectedValidator: {} as any,
-            listen: {
-                [GlobalEvents.FORM_CLEARED]: formClearedMock,
-                [GlobalEvents.FORM_READY]: formReadyMock
-            },
             listenThis: {
                 [FieldEvents.CHANGE]: fieldChangedMock
             },
@@ -86,8 +82,6 @@ describe('Field', () => {
 
     it('should register listeners', function () {
         expect(formEvent.addListener.mock.calls).toEqual([
-            [FIELD_NAME, `${GlobalEvents.FORM_CLEARED}`, formClearedMock],
-            [FIELD_NAME, `${GlobalEvents.FORM_READY}`, formReadyMock],
             [FIELD_NAME, `EF@${FIELD_NAME}?${FieldEvents.CHANGE}`, fieldChangedMock],
         ])
     });

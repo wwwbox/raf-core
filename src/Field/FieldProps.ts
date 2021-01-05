@@ -8,6 +8,7 @@ import {Validator} from "../Protocol/Validator";
 import {IEventNameMaker} from "../Event/IEventNameMaker";
 import {ExtraRefresher} from "./ExtraRefresher";
 
+
 export interface FieldInjectedProps {
     form: IForm;
     injectedValidator: Validator;
@@ -22,8 +23,7 @@ export interface FieldOptions
 
     as: any;
     name: string;
-
-    listen?: { [eventName: string]: EventCallback; },
+    
     listenThis?: { [eventName: string]: EventCallback; },
 
     refresher?: ExtraRefresher;

@@ -29,7 +29,6 @@ export interface FormProps extends AutofiyableProps {
     onAnyValueChanged?: (key: string, value: any, field: IField, form: IForm) => void,
     initialValues?: any,
     allowSubmitWhenNotValid?: boolean;
-    extra?: any;
 }
 
 export default FormProps;
