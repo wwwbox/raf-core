@@ -22,16 +22,15 @@ export class ExtraRefresherBase implements ExtraRefresher {
         this.customChangeHandler = customChangeHandler;
     }
 
-    protected selectedProperties(): string[] {
-        return [];
-    }
-
     public refresh(field: Field): boolean {
         const extraState = field.getConfiguration('extra') ?? {};
         const extraProps = field.getProps().extra ?? {};
         return this.update(extraState, extraProps);
     }
 
+    protected selectedProperties(): string[] {
+        return [];
+    }
 
     protected update(current: any, passed: any): boolean {
         let changed = false;

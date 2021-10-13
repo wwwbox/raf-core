@@ -23,7 +23,7 @@ export interface FieldOptions
 
     as: any;
     name: string;
-    
+
     listenThis?: { [eventName: string]: EventCallback; },
 
     refresher?: ExtraRefresher;

@@ -108,10 +108,16 @@ export class DefaultSubmitter extends SubmitterBase<SubmitOptionsBase> {
                     response: request.response
                 });
             } else {
-                this.getForm().eventService().emit(GlobalEvents.SUBMIT_FAILED, {options: options, response: request.response});
+                this.getForm().eventService().emit(GlobalEvents.SUBMIT_FAILED, {
+                    options: options,
+                    response: request.response
+                });
             }
 
-            this.getForm().eventService().emit(GlobalEvents.SUBMIT_COMPLETED, {options: options, response: request.response});
+            this.getForm().eventService().emit(GlobalEvents.SUBMIT_COMPLETED, {
+                options: options,
+                response: request.response
+            });
         }
     }
 

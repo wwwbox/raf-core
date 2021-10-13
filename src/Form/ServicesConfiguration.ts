@@ -10,7 +10,7 @@ import {DefaultFormValidator, FormValidator} from "./Services/FormValidator";
 import {DefaultEventService, EventService} from "./Services/EventService";
 import {DefaultFormValueService, FormValueService} from "./Services/FormValueService";
 import {DefaultFormFieldsManager, FormFieldsManager} from "./Services/FormFieldsManager";
-import {DefaultCollector, Collector} from "./Services/Collector";
+import {Collector, DefaultCollector} from "./Services/Collector";
 import {NotEmptyValidator} from "../Defaults/Services/Validator";
 import {DefaultSubmitter} from "../Defaults/Services/DefaultSubmitter";
 import {DefaultFieldRenderer} from "../Defaults/Services/DefaultFieldRenderer";

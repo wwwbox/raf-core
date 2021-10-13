@@ -28,6 +28,7 @@ export class Field<ExtraConfiguration = any> extends React.Component<FieldProps,
     protected _event: IFieldEvent;
     protected _refresher: ExtraRefresher;
     private readonly initialState: FieldState;
+    private isExtraUpdate: boolean = false;
 
     constructor(props: FieldProps) {
         super(props);
@@ -45,8 +46,6 @@ export class Field<ExtraConfiguration = any> extends React.Component<FieldProps,
         this.state.value.extractValueFromEvent = this.state.value.extractValueFromEvent ?? (e => e.target.value);
         this.setupListeners();
     }
-
-    private isExtraUpdate: boolean = false;
 
     componentDidUpdate(prevProps: Readonly<FieldProps>, prevState: Readonly<FieldState<ExtraConfiguration>>, snapshot?: any) {
         if (this.isExtraUpdate) {

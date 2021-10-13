@@ -68,7 +68,10 @@ describe("DefaultSubmitter", () => {
     it('should detect content type', function () {
         const mockedSetHeaders = jest.fn();
         setupXmlHttpRequest(jest.fn(), jest.fn(), mockedSetHeaders, jest.fn());
-        const form = makeForm({url: "http://test.com/", autoDetectContentType: true}, mock<EventService>(), true, {}, {});
+        const form = makeForm({
+            url: "http://test.com/",
+            autoDetectContentType: true
+        }, mock<EventService>(), true, {}, {});
         const submitter = new DefaultSubmitter(form);
         submitter.submit();
         expect(mockedSetHeaders).toBeCalledWith("Content-Type", "multipart/form-data");

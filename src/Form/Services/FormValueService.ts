@@ -30,12 +30,14 @@ export class DefaultFormValueService implements FormValueService {
     }
 
     set(values: any): void {
-        this.form.fieldsManager().getAllRegistered().forEach(field => {
-            let value = values[field.getName()];
-            if (value !== undefined) {
-                field.value().set(value);
-            }
-        })
+        this.form.fieldsManager()
+            .getAllRegistered()
+            .forEach(field => {
+                let value = values[field.getName()];
+                if (value !== undefined) {
+                    field.value().set(value);
+                }
+            })
     }
 
 }
