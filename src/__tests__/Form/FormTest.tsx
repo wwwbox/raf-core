@@ -7,7 +7,7 @@ import {mock} from "jest-mock-extended";
 import {IFormValidator} from "../../Form/FormValidation/FormValidator";
 import {IFormValueService} from "../../Form/FormValue/FormValueService";
 import IForm from "../../Form/IForm";
-import {IFormEvent} from "../../Form/FormEvent/FormEvent";
+import {IEventService} from "../../Form/FormEvent/EventService";
 import {GlobalEvents} from "../../Event/DefaultEvents";
 
 Enzyme.configure({adapter: new Adapter()});
@@ -83,7 +83,7 @@ describe('Form', () => {
 
     describe("Submitting", () => {
 
-        function makeForm(mockedSubmitter: any, validState: boolean = true, allowSubmitWhenNotValid: boolean = false, ready: boolean = true, mockedEvent: IFormEvent = mock<IFormEvent>()): IForm {
+        function makeForm(mockedSubmitter: any, validState: boolean = true, allowSubmitWhenNotValid: boolean = false, ready: boolean = true, mockedEvent: IEventService = mock<IEventService>()): IForm {
             const form = getFormInstance({
                 services: {
                     submitter: mockedSubmitter,
@@ -100,7 +100,7 @@ describe('Form', () => {
                     return ready;
                 }
             })
-            form.event = () => mockedEvent;
+            form.eventService = () => mockedEvent;
             return form;
         }
 
@@ -113,7 +113,7 @@ describe('Form', () => {
 
         it('should not submit when form is not ready to collect', function () {
             const submitter = mock<Submitter>();
-            const mockedEvent = mock<IFormEvent>();
+            const mockedEvent = mock<IEventService>();
             const form = makeForm(() => submitter, true, false, false, mockedEvent);
             form.submit();
             expect(submitter.submit).not.toBeCalled();

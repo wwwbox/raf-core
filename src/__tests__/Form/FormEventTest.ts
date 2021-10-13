@@ -1,4 +1,4 @@
-import {FormEvent} from "../../Form/FormEvent/FormEvent";
+import {EventService} from "../../Form/FormEvent/EventService";
 import {FormTestUtils} from "../../TestingUtils/FormTestUtils";
 import {DefaultEventNameMaker} from "../../Event/IEventNameMaker";
 import {GlobalEvents} from "../../Event/DefaultEvents";
@@ -13,7 +13,7 @@ describe('FormEvent', () => {
         const form = FormTestUtils.makeForm([], {
             getProps: () => ({})
         });
-        const event = new FormEvent(form);
+        const event = new EventService(form);
 
         const e1Id1Callback = jest.fn();
         event.addListener('1', 'E_1', e1Id1Callback);
@@ -104,7 +104,7 @@ describe('FormEvent', () => {
                 }
             }
         });
-        const event = new FormEvent(form);
+        const event = new EventService(form);
         const mockedField = mock<IField>({
             getName(): string {
                 return 'test';
@@ -123,7 +123,7 @@ describe('FormEvent', () => {
 
     it('should return name maker from passed services', function () {
         const nameMaker = {};
-        const event = new FormEvent(FormTestUtils.makeForm([], {
+        const event = new EventService(FormTestUtils.makeForm([], {
             getProps: () => {
                 return {
                     services: {
@@ -136,7 +136,7 @@ describe('FormEvent', () => {
     });
 
     it('should return default name maker', function () {
-        const event = new FormEvent(FormTestUtils.makeForm([], {
+        const event = new EventService(FormTestUtils.makeForm([], {
             getProps: () => {
                 return {
                     services: {}

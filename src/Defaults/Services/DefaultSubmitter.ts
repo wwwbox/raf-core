@@ -103,15 +103,15 @@ export class DefaultSubmitter extends SubmitterBase<SubmitOptionsBase> {
             }
 
             if (request.status < 400) {
-                this.getForm().event().emit(GlobalEvents.SUBMIT_SUCCEEDED, {
+                this.getForm().eventService().emit(GlobalEvents.SUBMIT_SUCCEEDED, {
                     options: options,
                     response: request.response
                 });
             } else {
-                this.getForm().event().emit(GlobalEvents.SUBMIT_FAILED, {options: options, response: request.response});
+                this.getForm().eventService().emit(GlobalEvents.SUBMIT_FAILED, {options: options, response: request.response});
             }
 
-            this.getForm().event().emit(GlobalEvents.SUBMIT_COMPLETED, {options: options, response: request.response});
+            this.getForm().eventService().emit(GlobalEvents.SUBMIT_COMPLETED, {options: options, response: request.response});
         }
     }
 
@@ -124,6 +124,6 @@ export class DefaultSubmitter extends SubmitterBase<SubmitOptionsBase> {
         if (options.updateUi) {
             this.getForm().uiService().startLoading();
         }
-        this.getForm().event().emit(GlobalEvents.SUBMIT_START, {options: options});
+        this.getForm().eventService().emit(GlobalEvents.SUBMIT_START, {options: options});
     }
 }

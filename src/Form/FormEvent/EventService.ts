@@ -5,7 +5,7 @@ import {IEventNameMaker} from "../../Event/IEventNameMaker";
 import {GlobalEvents} from "../../Event/DefaultEvents";
 import {IField} from "../../Field/IField";
 
-export interface IFormEvent extends Service {
+export interface IEventService extends Service {
     emit(eventName: string, payload: any): void;
 
     addListener(id: string, eventName: string, callback: EventCallback): void;
@@ -24,7 +24,7 @@ export type ListenerPoll = {
     }[];
 }
 
-export class FormEvent implements IFormEvent {
+export class EventService implements IEventService {
 
 
     private readonly form: IForm;

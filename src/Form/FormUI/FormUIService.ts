@@ -28,13 +28,13 @@ export class FormUIService implements IFormUIService {
 
     startLoading(): void {
         this.form.updateInternalState({isLoading: true}, () => {
-            this.form.event().emit(GlobalEvents.FORM_START_LOADING, {});
+            this.form.eventService().emit(GlobalEvents.FORM_START_LOADING, {});
         });
     }
 
     stopLoading(): void {
         this.form.updateInternalState({isLoading: false}, () => {
-            this.form.event().emit(GlobalEvents.FORM_END_LOADING, {});
+            this.form.eventService().emit(GlobalEvents.FORM_END_LOADING, {});
         });
     }
 

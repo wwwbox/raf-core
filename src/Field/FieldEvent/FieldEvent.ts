@@ -29,7 +29,7 @@ export class FieldEvent implements IFieldEvent {
     emit(eventName: string, payload: any): void {
         let defaultPayload = this.getDefaultPayload();
         const _payload = {...defaultPayload, ...payload}
-        this.field.getForm().event().emit(eventName, _payload);
+        this.field.getForm().eventService().emit(eventName, _payload);
     }
 
     emitOnThis(eventName: string, payload: any): void {
@@ -38,7 +38,7 @@ export class FieldEvent implements IFieldEvent {
     }
 
     listen(eventName: string, callback: EventCallback): void {
-        this.field.getForm().event().addListener(this.field.getName(), eventName, callback);
+        this.field.getForm().eventService().addListener(this.field.getName(), eventName, callback);
     }
 
     listenOnThis(eventName: string, callback: EventCallback): void {
@@ -47,7 +47,7 @@ export class FieldEvent implements IFieldEvent {
     }
 
     removeListener(eventName: string): void {
-        this.field.getForm().event().removeListener(this.field.getName(), eventName);
+        this.field.getForm().eventService().removeListener(this.field.getName(), eventName);
     }
 
     removeListenerOnThis(eventName: string): void {

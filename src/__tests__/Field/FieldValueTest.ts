@@ -3,7 +3,7 @@ import IField from "../../Field/IField";
 import {mock} from "jest-mock-extended";
 import {FieldValueConfiguration, getDefaultFieldValueConfiguration} from "../../Field/Value/FieldValueConfiguration";
 import IForm from "../../Form/IForm";
-import {IFormEvent} from "../../Form/FormEvent/FormEvent";
+import {IEventService} from "../../Form/FormEvent/EventService";
 import {IFieldEvent} from "../../Field/FieldEvent/FieldEvent";
 import {FieldConfigurationTestUtils} from "../../TestingUtils/FieldConfigurationTestUtils";
 import {IFieldValidation} from "../../Field/Validation/FieldValidation";
@@ -22,8 +22,8 @@ describe('FieldValue', () => {
         extractValueFromEvent: (e: any) => e.target.value
     });
     field.getForm = () => mock<IForm>({
-        event(): IFormEvent {
-            return mock<IFormEvent>()
+        eventService(): IEventService {
+            return mock<IEventService>()
         }
     })
 

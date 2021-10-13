@@ -5,7 +5,7 @@ import {IFieldValue} from "../../Field/Value/FieldValue";
 import {IFieldCollecting} from "../../Field/Collecting/FieldCollecting";
 import {FormTestUtils} from "../../TestingUtils/FormTestUtils";
 import {FieldType} from "../../Field/Concrete/FieldType";
-import {IFormEvent} from "../../Form/FormEvent/FormEvent";
+import {IEventService} from "../../Form/FormEvent/EventService";
 import {GlobalEvents} from "../../Event/DefaultEvents";
 
 describe('FormValueTest', () => {
@@ -22,9 +22,9 @@ describe('FormValueTest', () => {
     it('should clear value', function () {
         const fieldValueMock = mock<IFieldValue>();
         const fields = [createField(fieldValueMock), createField(fieldValueMock), createField(fieldValueMock)];
-        const mockedEvent = mock<IFormEvent>();
+        const mockedEvent = mock<IEventService>();
         const value = new FormValueService(FormTestUtils.makeForm(fields, {
-            event: () => mockedEvent
+            eventService: () => mockedEvent
         }));
         value.clear();
         expect(fieldValueMock.clear).toBeCalledTimes(3);

@@ -3,7 +3,7 @@ import {FormState} from "./FormState";
 import {DefaultServices, FormProps, ServiceConfiguration} from "./FormProps";
 import {IFormUIService} from "./FormUI/FormUIService";
 import {IFormValidator} from "./FormValidation/FormValidator";
-import {IFormEvent} from "./FormEvent/FormEvent";
+import {IEventService} from "./FormEvent/EventService";
 import {IFormValueService} from "./FormValue/FormValueService";
 import {IFormFieldsManager} from "./FieldManager/FormFieldsManager";
 import {Submitter} from "../Protocol/Submitter";
@@ -17,7 +17,7 @@ export class Form
 
     protected _uiService: IFormUIService;
     protected _validator: IFormValidator;
-    protected _event: IFormEvent;
+    protected _eventService: IEventService;
     protected _valueService: IFormValueService;
     protected _fieldsManager: IFormFieldsManager;
     protected _collecting: IFormCollector;
@@ -28,7 +28,7 @@ export class Form
         this.state = {isLoading: false} as any;
         this._uiService = this.getServiceProvider().getService("formUiService");
         this._validator = this.getServiceProvider().getService("formValidator");
-        this._event = this.getServiceProvider().getService("formEvent");
+        this._eventService = this.getServiceProvider().getService("eventService");
         this._valueService = this.getServiceProvider().getService("formValueService");
         this._fieldsManager = this.getServiceProvider().getService("fieldsManager");
         this._collecting = this.getServiceProvider().getService("formCollector");
@@ -43,7 +43,7 @@ export class Form
     componentDidMount(): void {
         const values = this.props.initialValues ? this.props.initialValues : {};
         this.valueService().set(values);
-        this.event().emit(GlobalEvents.FORM_READY, {});
+        this.eventService().emit(GlobalEvents.FORM_READY, {});
     }
 
     render() {
@@ -51,11 +51,11 @@ export class Form
     }
 
     componentDidUpdate() {
-        this.event().emit(GlobalEvents.FORM_RENDERED, {});
+        this.eventService().emit(GlobalEvents.FORM_RENDERED, {});
     }
 
-    event(): IFormEvent {
-        return this._event;
+    eventService(): IEventService {
+        return this._eventService;
     }
 
     fieldsManager(): IFormFieldsManager {
@@ -73,7 +73,7 @@ export class Form
         }
 
         if (!this.valueService().isReady()) {
-            this.event().emit(GlobalEvents.FORM_NOT_READY_TO_COLLECT, {});
+            this.eventService().emit(GlobalEvents.FORM_NOT_READY_TO_COLLECT, {});
             return;
         }
 
@@ -106,7 +106,7 @@ export class Form
     private setupListeners(): void {
         const listeners = this.getProps().listen ?? {};
         const keys = Object.keys(listeners);
-        keys.forEach(key => this.event().addListener("form", key, listeners[key]));
+        keys.forEach(key => this.eventService().addListener("form", key, listeners[key]));
     }
 }
 

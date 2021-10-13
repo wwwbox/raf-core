@@ -44,7 +44,7 @@ export abstract class FieldRendererBase implements FieldRenderer {
         return {
             injectedValidator: validator,
             form: this.getForm(),
-            injectedEventNameMaker: this.getForm().event().getNameMaker()
+            injectedEventNameMaker: this.getForm().eventService().getNameMaker()
         };
     };
 

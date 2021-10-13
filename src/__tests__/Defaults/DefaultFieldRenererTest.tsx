@@ -16,7 +16,7 @@ describe('DefaultFieldRenderer', () => {
             validator: () => ({
                 getValidator: () => ({})
             }),
-            event: () => ({
+            eventService: () => ({
                 getNameMaker: () => ({})
             }),
             fieldsManager: () => ({

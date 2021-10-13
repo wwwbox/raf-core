@@ -22,7 +22,7 @@ export class FormValueService implements IFormValueService {
 
     clear(): void {
         this.form.fieldsManager().getAllRegistered().forEach(field => field.value().clear());
-        this.form.event().emit(GlobalEvents.FORM_CLEARED, {});
+        this.form.eventService().emit(GlobalEvents.FORM_CLEARED, {});
     }
 
     isReady(): boolean {

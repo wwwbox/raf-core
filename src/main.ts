@@ -13,7 +13,7 @@ import {FieldRenderer} from './Protocol/FieldRenderer';
 import {FieldChangeHandler} from './Protocol/FieldChangeHandler';
 import {FormFieldsManager, IFormFieldsManager} from './Form/FieldManager/FormFieldsManager';
 import {DefaultCollector, IFormCollector} from './Form/FormCollecting/IFormCollector';
-import {FormEvent, IFormEvent} from './Form/FormEvent/FormEvent';
+import {EventService, IEventService} from './Form/FormEvent/EventService';
 
 import {FormUIService, IFormUIService} from './Form/FormUI/FormUIService';
 import {FormValidator, IFormValidator} from './Form/FormValidation/FormValidator';
@@ -103,8 +103,8 @@ export {FieldCollecting};
 
 export type {IForm, FormState, FormProps, ServiceConfiguration};
 export {Form};
-export type {IFormValueService, IFormValidator, IFormUIService, IFormEvent, IFormCollector, IFormFieldsManager};
-export {FormValueService, FormValidator, FormUIService, FormEvent, DefaultCollector, FormFieldsManager};
+export type {IFormValueService, IFormValidator, IFormUIService, IEventService, IFormCollector, IFormFieldsManager};
+export {FormValueService, FormValidator, FormUIService, EventService, DefaultCollector, FormFieldsManager};
 
 // --------------------- FORM ---------------------
 

@@ -5,7 +5,7 @@ import * as React from "react";
 import {FieldProps} from "../../Field/FieldProps";
 import FieldStateInitializer, {DefaultExtraConfigurationInitializer} from "../../Field/Concrete/FieldStateInitializer";
 import {FieldType} from "../../Field/Concrete/FieldType";
-import {IFormEvent} from "../../Form/FormEvent/FormEvent";
+import {IEventService} from "../../Form/FormEvent/EventService";
 import {FieldEvents} from "../../Event/DefaultEvents";
 import {DefaultEventNameMaker} from "../../Event/IEventNameMaker";
 import {mock} from "jest-mock-extended";
@@ -28,7 +28,7 @@ describe('Field', () => {
     const fieldChangedMock = jest.fn();
 
     beforeEach(() => {
-        formEvent = mock<IFormEvent>();
+        formEvent = mock<IEventService>();
         props = {
             as: FIELD_AS,
             name: FIELD_NAME,
@@ -39,7 +39,7 @@ describe('Field', () => {
             },
             form: {
                 fieldsManager: jest.fn().mockReturnValue({register: jest.fn()}),
-                event: () => formEvent
+                eventService: () => formEvent
             } as any
         };
         component = mount(<Field  {...props} />);

@@ -30,7 +30,7 @@ export class FormValidator implements IFormValidator {
             valid = field.validation().validateWithEffect(false) && valid;
         }
         if (!valid) {
-            this.form.event().emit(GlobalEvents.VALIDATION_FAIL, {});
+            this.form.eventService().emit(GlobalEvents.VALIDATION_FAIL, {});
         }
         return valid;
     }

@@ -2,7 +2,7 @@ import {IFieldValidation} from "../../Field/Validation/FieldValidation";
 import {mock} from "jest-mock-extended";
 import IField from "../../Field/IField";
 import {FormValidator} from "../../Form/FormValidation/FormValidator";
-import {IFormEvent} from "../../Form/FormEvent/FormEvent";
+import {IEventService} from "../../Form/FormEvent/EventService";
 import {GlobalEvents} from "../../Event/DefaultEvents";
 import FormProps from "../../Form/FormProps";
 import {NotEmptyValidator} from "../../Defaults/Services/Validator";
@@ -38,7 +38,7 @@ describe('FormValidation', () => {
         const mockedValidate = jest.fn().mockReturnValue(true);
         const fields = [createField(undefined, mockedValidate), createField(undefined, mockedValidate)];
         const validation = new FormValidator(FormTestUtils.makeForm(fields, {
-            event: () => mock<IFormEvent>()
+            eventService: () => mock<IEventService>()
         }));
         const isValid = validation.validateWithEffect();
         expect(isValid).toEqual(true);
@@ -49,9 +49,9 @@ describe('FormValidation', () => {
     it('should emit validation fail event when validation fail', function () {
         const mockedValidate = jest.fn().mockReturnValue(false);
         const fields = [createField(undefined, mockedValidate)];
-        const event = mock<IFormEvent>();
+        const event = mock<IEventService>();
         const validation = new FormValidator(FormTestUtils.makeForm(fields, {
-            event: () => {
+            eventService: () => {
                 return event;
             }
         }));
