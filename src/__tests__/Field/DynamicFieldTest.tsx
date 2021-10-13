@@ -26,7 +26,7 @@ describe('DynamicField', () => {
             extra: {
                 ...otherProps
             },
-            form: {fields: jest.fn().mockReturnValue({register: jest.fn()}), event: mock<IFormEvent>()} as any
+            form: {fieldsManager: jest.fn().mockReturnValue({register: jest.fn()}), event: mock<IFormEvent>()} as any
         };
         const component = mount(<DynamicField  {...props} />);
         return component.instance() as DynamicField;

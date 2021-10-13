@@ -33,7 +33,7 @@ export class Field<ExtraConfiguration = any> extends React.Component<FieldProps,
         super(props);
         this.state = this.initializeState();
         this.initialState = JSON.parse(JSON.stringify(this.state));
-        this.getForm().fields().register(this);
+        this.getForm().fieldsManager().register(this);
 
         this._value = new FieldValue(this, "value");
         this._validation = new FieldValidation(this, "validation");

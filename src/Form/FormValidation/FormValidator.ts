@@ -21,12 +21,12 @@ export class FormValidator implements IFormValidator {
     }
 
     validate(): boolean {
-        return this.form.fields().getAllRegistered().every(field => field.validation().validate());
+        return this.form.fieldsManager().getAllRegistered().every(field => field.validation().validate());
     }
 
     validateWithEffect(): boolean {
         let valid = true;
-        for (let field of this.form.fields().getAllRegistered()) {
+        for (let field of this.form.fieldsManager().getAllRegistered()) {
             valid = field.validation().validateWithEffect(false) && valid;
         }
         if (!valid) {

@@ -1,6 +1,6 @@
 import {Autofiyable} from '@autofiy/autofiyable';
 import {FormProps} from "./FormProps";
-import {IFormFieldManager} from "./FieldManager/FormFieldManager";
+import {IFormFieldsManager} from "./FieldManager/FormFieldsManager";
 import {IFormUIService} from "./FormUI/FormUIService";
 import {IFormValueService} from "./FormValue/FormValueService";
 import {IFormValidator} from "./FormValidation/FormValidator";
@@ -10,7 +10,7 @@ import {IFormCollector} from "./FormCollecting/IFormCollector";
 
 export interface IForm extends Autofiyable {
 
-    fields(): IFormFieldManager;
+    fieldsManager(): IFormFieldsManager;
 
     valueService(): IFormValueService;
 

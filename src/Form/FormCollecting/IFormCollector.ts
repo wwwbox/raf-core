@@ -22,7 +22,7 @@ export class DefaultCollector implements IFormCollector {
     }
 
     hasFiles(): boolean {
-        return this.form.fields().getAllRegistered().some(f => f.getType() === FieldType.FILE);
+        return this.form.fieldsManager().getAllRegistered().some(f => f.getType() === FieldType.FILE);
     }
 
     data(): any {
@@ -39,7 +39,7 @@ export class DefaultCollector implements IFormCollector {
 
     private collect(filter: (field: IField) => boolean): any {
         const data: any = {};
-        this.form.fields().getAllRegistered().forEach(field => {
+        this.form.fieldsManager().getAllRegistered().forEach(field => {
             if (!field.collecting().shouldSkip() && filter(field)) {
                 data[field.getName()] = field.collecting().collect()
             }

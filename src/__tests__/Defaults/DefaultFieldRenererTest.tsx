@@ -19,7 +19,7 @@ describe('DefaultFieldRenderer', () => {
             event: () => ({
                 getNameMaker: () => ({})
             }),
-            fields: () => ({
+            fieldsManager: () => ({
                 getFieldsOptions: () => fieldsOptions
             })
         };

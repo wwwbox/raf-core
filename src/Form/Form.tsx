@@ -5,7 +5,7 @@ import {IFormUIService} from "./FormUI/FormUIService";
 import {IFormValidator} from "./FormValidation/FormValidator";
 import {IFormEvent} from "./FormEvent/FormEvent";
 import {IFormValueService} from "./FormValue/FormValueService";
-import {IFormFieldManager} from "./FieldManager/FormFieldManager";
+import {IFormFieldsManager} from "./FieldManager/FormFieldsManager";
 import {Submitter} from "../Protocol/Submitter";
 import {GlobalEvents} from "../Event/DefaultEvents";
 import {IFormCollector} from "./FormCollecting/IFormCollector";
@@ -19,7 +19,7 @@ export class Form
     protected _validator: IFormValidator;
     protected _event: IFormEvent;
     protected _valueService: IFormValueService;
-    protected _fieldManager: IFormFieldManager;
+    protected _fieldsManager: IFormFieldsManager;
     protected _collecting: IFormCollector;
     protected _submitter: Submitter;
 
@@ -30,7 +30,7 @@ export class Form
         this._validator = this.getServiceProvider().getService("formValidator");
         this._event = this.getServiceProvider().getService("formEvent");
         this._valueService = this.getServiceProvider().getService("formValueService");
-        this._fieldManager = this.getServiceProvider().getService("fieldManager");
+        this._fieldsManager = this.getServiceProvider().getService("fieldsManager");
         this._collecting = this.getServiceProvider().getService("formCollector");
         this._submitter = this.getServiceProvider().getService("submitter");
         this.setupListeners();
@@ -58,8 +58,8 @@ export class Form
         return this._event;
     }
 
-    fields(): IFormFieldManager {
-        return this._fieldManager;
+    fieldsManager(): IFormFieldsManager {
+        return this._fieldsManager;
     }
 
     getInternalState(): FormState {

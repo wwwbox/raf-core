@@ -38,7 +38,7 @@ describe('Field', () => {
                 [FieldEvents.CHANGE]: fieldChangedMock
             },
             form: {
-                fields: jest.fn().mockReturnValue({register: jest.fn()}),
+                fieldsManager: jest.fn().mockReturnValue({register: jest.fn()}),
                 event: () => formEvent
             } as any
         };
@@ -47,7 +47,7 @@ describe('Field', () => {
     });
 
     it('should register the field in the form', function () {
-        expect(props.form.fields().register).toBeCalledWith(field);
+        expect(props.form.fieldsManager().register).toBeCalledWith(field);
     });
 
     it('should initialize state', function () {

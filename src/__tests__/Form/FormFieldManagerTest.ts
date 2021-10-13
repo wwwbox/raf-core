@@ -1,10 +1,10 @@
-import {FormFieldManager} from "../../Form/FieldManager/FormFieldManager";
+import {FormFieldsManager} from "../../Form/FieldManager/FormFieldsManager";
 import {FormTestUtils} from "../../TestingUtils/FormTestUtils";
 
 describe('FormFieldManagerTest', () => {
 
     it('should register field / get all registered', function () {
-        const fields = new FormFieldManager(FormTestUtils.makeForm());
+        const fields = new FormFieldsManager(FormTestUtils.makeForm());
         fields.register(FormTestUtils.createMockedField('x'));
         expect(fields.getAllRegistered()).toHaveLength(1);
         expect(fields.getAllRegistered()[0].getName()).toEqual("x");
@@ -14,7 +14,7 @@ describe('FormFieldManagerTest', () => {
     });
 
     it('should get registered field', function () {
-        const fields = new FormFieldManager(FormTestUtils.makeForm());
+        const fields = new FormFieldsManager(FormTestUtils.makeForm());
         fields.register(FormTestUtils.createMockedField('x'));
         fields.register(FormTestUtils.createMockedField('y'));
         expect(fields.getRegistered("x")).not.toBeNull();
@@ -23,7 +23,7 @@ describe('FormFieldManagerTest', () => {
 
     it('should return fields options', function () {
         const options = ['x', 'y'];
-        const fields = new FormFieldManager(FormTestUtils.makeForm([], {
+        const fields = new FormFieldsManager(FormTestUtils.makeForm([], {
             getProps: jest.fn().mockReturnValue({fields: options})
         }));
         expect(fields.getFieldsOptions()).toEqual(options)

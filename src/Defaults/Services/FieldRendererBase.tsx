@@ -13,7 +13,7 @@ export abstract class FieldRendererBase implements FieldRenderer {
     }
 
     public render(): any {
-        const options: (FieldOptions | FieldOptions[])[] = this.form.fields().getFieldsOptions() ?? [];
+        const options: (FieldOptions | FieldOptions[])[] = this.form.fieldsManager().getFieldsOptions() ?? [];
         const fields = options.map(this.renderField);
         return this.renderWrapper(fields);
     }

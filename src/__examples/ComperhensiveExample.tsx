@@ -78,7 +78,7 @@ class ComprehensiveExample extends Component<any, any> {
                       }}/>
 
                 <button
-                    onClick={() => console.log(this.form?.fields().getAllRegistered().map(f => f.value().get()))}>Print
+                    onClick={() => console.log(this.form?.fieldsManager().getAllRegistered().map(f => f.value().get()))}>Print
                     Value
                 </button>
             </div>
