@@ -2,7 +2,7 @@ import {Autofiyable} from '@autofiy/autofiyable';
 import {FormProps} from "./FormProps";
 import {IFormFieldManager} from "./FieldManager/FormFieldManager";
 import {IFormUIService} from "./FormUI/FormUIService";
-import {IFormValue} from "./FormValue/FormValue";
+import {IFormValueService} from "./FormValue/FormValueService";
 import {IFormValidator} from "./FormValidation/FormValidator";
 import {IFormEvent} from "./FormEvent/FormEvent";
 import {FormState} from "./FormState";
@@ -12,7 +12,7 @@ export interface IForm extends Autofiyable {
 
     fields(): IFormFieldManager;
 
-    value(): IFormValue;
+    valueService(): IFormValueService;
 
     event(): IFormEvent;
 

@@ -4,7 +4,7 @@ import {DefaultServices, FormProps, ServiceConfiguration} from "./FormProps";
 import {IFormUIService} from "./FormUI/FormUIService";
 import {IFormValidator} from "./FormValidation/FormValidator";
 import {IFormEvent} from "./FormEvent/FormEvent";
-import {IFormValue} from "./FormValue/FormValue";
+import {IFormValueService} from "./FormValue/FormValueService";
 import {IFormFieldManager} from "./FieldManager/FormFieldManager";
 import {Submitter} from "../Protocol/Submitter";
 import {GlobalEvents} from "../Event/DefaultEvents";
@@ -18,7 +18,7 @@ export class Form
     protected _uiService: IFormUIService;
     protected _validator: IFormValidator;
     protected _event: IFormEvent;
-    protected _value: IFormValue;
+    protected _valueService: IFormValueService;
     protected _fieldManager: IFormFieldManager;
     protected _collecting: IFormCollector;
     protected _submitter: Submitter;
@@ -29,7 +29,7 @@ export class Form
         this._uiService = this.getServiceProvider().getService("formUiService");
         this._validator = this.getServiceProvider().getService("formValidator");
         this._event = this.getServiceProvider().getService("formEvent");
-        this._value = this.getServiceProvider().getService("formValue");
+        this._valueService = this.getServiceProvider().getService("formValueService");
         this._fieldManager = this.getServiceProvider().getService("fieldManager");
         this._collecting = this.getServiceProvider().getService("formCollector");
         this._submitter = this.getServiceProvider().getService("submitter");
@@ -42,7 +42,7 @@ export class Form
 
     componentDidMount(): void {
         const values = this.props.initialValues ? this.props.initialValues : {};
-        this.value().set(values);
+        this.valueService().set(values);
         this.event().emit(GlobalEvents.FORM_READY, {});
     }
 
@@ -72,7 +72,7 @@ export class Form
             return;
         }
 
-        if (!this.value().isReady()) {
+        if (!this.valueService().isReady()) {
             this.event().emit(GlobalEvents.FORM_NOT_READY_TO_COLLECT, {});
             return;
         }
@@ -92,8 +92,8 @@ export class Form
         return this._validator;
     }
 
-    value(): IFormValue {
-        return this._value;
+    valueService(): IFormValueService {
+        return this._valueService;
     }
 
     collecting(): IFormCollector {

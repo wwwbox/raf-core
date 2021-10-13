@@ -1,4 +1,4 @@
-import {FormValue} from "../../Form/FormValue/FormValue";
+import {FormValueService} from "../../Form/FormValue/FormValueService";
 import {mock} from "jest-mock-extended";
 import IField from "../../Field/IField";
 import {IFieldValue} from "../../Field/Value/FieldValue";
@@ -23,7 +23,7 @@ describe('FormValueTest', () => {
         const fieldValueMock = mock<IFieldValue>();
         const fields = [createField(fieldValueMock), createField(fieldValueMock), createField(fieldValueMock)];
         const mockedEvent = mock<IFormEvent>();
-        const value = new FormValue(FormTestUtils.makeForm(fields, {
+        const value = new FormValueService(FormTestUtils.makeForm(fields, {
             event: () => mockedEvent
         }));
         value.clear();
@@ -41,7 +41,7 @@ describe('FormValueTest', () => {
             createField(undefined, collectingMock),
         ];
 
-        const value = new FormValue(FormTestUtils.makeForm(fields));
+        const value = new FormValueService(FormTestUtils.makeForm(fields));
         const isReady = value.isReady();
         expect(isReady).toEqual(true);
         expect(collectingMock.isReady).toBeCalledTimes(3);
@@ -64,7 +64,7 @@ describe('FormValueTest', () => {
         ];
 
 
-        const value = new FormValue(FormTestUtils.makeForm(fields));
+        const value = new FormValueService(FormTestUtils.makeForm(fields));
         value.set({x: '1', y: '2', a: '3'});
         expect(field1ValueMock.set).toBeCalledWith('1');
         expect(field1ValueMock.set).toBeCalledTimes(1);

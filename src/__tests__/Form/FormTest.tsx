@@ -5,7 +5,7 @@ import * as React from "react";
 import Submitter from "../../Protocol/Submitter";
 import {mock} from "jest-mock-extended";
 import {IFormValidator} from "../../Form/FormValidation/FormValidator";
-import {IFormValue} from "../../Form/FormValue/FormValue";
+import {IFormValueService} from "../../Form/FormValue/FormValueService";
 import IForm from "../../Form/IForm";
 import {IFormEvent} from "../../Form/FormEvent/FormEvent";
 import {GlobalEvents} from "../../Event/DefaultEvents";
@@ -24,8 +24,8 @@ describe('Form', () => {
         const initialValues = {x: 1, y: 2};
         const form = getFormInstance({initialValues: initialValues, services: {submitter: () => ({})}});
         const mockSet = jest.fn();
-        form.value = () => {
-            return mock<IFormValue>({
+        form.valueService = () => {
+            return mock<IFormValueService>({
                 set: mockSet
             });
         }
@@ -36,8 +36,8 @@ describe('Form', () => {
     it('should use empty as initialValues when not supplied', function () {
         const form = getFormInstance({services: {submitter: () => ({})}});
         const mockSet = jest.fn();
-        form.value = () => {
-            return mock<IFormValue>({
+        form.valueService = () => {
+            return mock<IFormValueService>({
                 set: mockSet
             });
         }
@@ -95,7 +95,7 @@ describe('Form', () => {
                     return validState;
                 }
             });
-            form.value = () => mock<IFormValue>({
+            form.valueService = () => mock<IFormValueService>({
                 isReady(): boolean {
                     return ready;
                 }
