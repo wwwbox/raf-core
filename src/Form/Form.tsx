@@ -1,6 +1,6 @@
 import {IForm} from "./IForm";
 import {FormState} from "./FormState";
-import {DefaultServices, FormProps, ServiceConfiguration} from "./FormProps";
+import {DefaultServices, ServiceConfiguration} from "./ServicesConfiguration";
 import {IFormUIService} from "./FormUI/FormUIService";
 import {IFormValidator} from "./FormValidation/FormValidator";
 import {IEventService} from "./FormEvent/EventService";
@@ -10,6 +10,7 @@ import {Submitter} from "../Protocol/Submitter";
 import {GlobalEvents} from "../Event/DefaultEvents";
 import {ICollector} from "./FormCollecting/ICollector";
 import {AutofiyableComponent} from "@autofiy/autofiyable";
+import {FormProps} from "./FormProps";
 
 export class Form
     extends AutofiyableComponent<FormProps, FormState, ServiceConfiguration>

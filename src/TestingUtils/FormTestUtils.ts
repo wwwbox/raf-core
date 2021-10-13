@@ -4,7 +4,7 @@ import {IFormFieldsManager} from "../Form/FieldManager/FormFieldsManager";
 import {mock} from "jest-mock-extended";
 import IForm from "../Form/IForm";
 import {FieldType} from "../Field/Concrete/FieldType";
-import {DefaultServices} from '../Form/FormProps';
+import {DefaultServices} from '../Form/ServicesConfiguration';
 
 export class FormTestUtils {
     public static makeForm(fields: IField[] = [], mockImplementation: any = {}) {
