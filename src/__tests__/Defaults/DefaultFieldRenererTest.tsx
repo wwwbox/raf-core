@@ -13,7 +13,7 @@ describe('DefaultFieldRenderer', () => {
             {as: 'input', name: 'email'}
         ]
         const form: any = {
-            validation: () => ({
+            validator: () => ({
                 getValidator: () => ({})
             }),
             event: () => ({

@@ -2,7 +2,7 @@ import {IForm} from "./IForm";
 import {FormState} from "./FormState";
 import {DefaultServices, FormProps, ServiceConfiguration} from "./FormProps";
 import {IFormUI} from "./FormUI/FormUI";
-import {IFormValidation} from "./FormValidation/FormValidation";
+import {IFormValidator} from "./FormValidation/FormValidator";
 import {IFormEvent} from "./FormEvent/FormEvent";
 import {IFormValue} from "./FormValue/FormValue";
 import {IFormFieldManager} from "./FieldManager/FormFieldManager";
@@ -16,7 +16,7 @@ export class Form
     implements IForm {
 
     protected _ui: IFormUI;
-    protected _validation: IFormValidation;
+    protected _validator: IFormValidator;
     protected _event: IFormEvent;
     protected _value: IFormValue;
     protected _fieldManager: IFormFieldManager;
@@ -27,7 +27,7 @@ export class Form
         super(props);
         this.state = {isLoading: false} as any;
         this._ui = this.getServiceProvider().getService("formUi");
-        this._validation = this.getServiceProvider().getService("formValidation");
+        this._validator = this.getServiceProvider().getService("formValidator");
         this._event = this.getServiceProvider().getService("formEvent");
         this._value = this.getServiceProvider().getService("formValue");
         this._fieldManager = this.getServiceProvider().getService("fieldManager");
@@ -67,7 +67,7 @@ export class Form
     }
 
     submit(): void {
-        const isValid = this.validation().validateWithEffect();
+        const isValid = this.validator().validateWithEffect();
         if (!isValid && !this.getProps().allowSubmitWhenNotValid) {
             return;
         }
@@ -88,8 +88,8 @@ export class Form
         this.setState(payload as any, afterChange);
     }
 
-    validation(): IFormValidation {
-        return this._validation;
+    validator(): IFormValidator {
+        return this._validator;
     }
 
     value(): IFormValue {

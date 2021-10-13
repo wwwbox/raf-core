@@ -3,7 +3,7 @@ import {IForm} from "../IForm";
 import {Validator} from "../../Protocol/Validator";
 import {GlobalEvents} from "../../Event/DefaultEvents";
 
-export interface IFormValidation extends Service {
+export interface IFormValidator extends Service {
 
     validate(): boolean;
 
@@ -12,7 +12,7 @@ export interface IFormValidation extends Service {
     getValidator(): Validator;
 }
 
-export class FormValidation implements IFormValidation {
+export class FormValidator implements IFormValidator {
 
     private readonly form: IForm;
 
@@ -35,8 +35,9 @@ export class FormValidation implements IFormValidation {
         return valid;
     }
 
+    //TODO : REMOVE THIS METHOD
     getValidator(): Validator {
-        return this.form.getServiceProvider().getService<FormValidation>("validator");
+        return this.form.getServiceProvider().getService<Validator>("validator");
     }
 
 }

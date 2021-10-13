@@ -16,7 +16,7 @@ import {DefaultCollector, IFormCollector} from './Form/FormCollecting/IFormColle
 import {FormEvent, IFormEvent} from './Form/FormEvent/FormEvent';
 
 import {FormUI, IFormUI} from './Form/FormUI/FormUI';
-import {FormValidation, IFormValidation} from './Form/FormValidation/FormValidation';
+import {FormValidator, IFormValidator} from './Form/FormValidation/FormValidator';
 import {FormValue, IFormValue} from './Form/FormValue/FormValue';
 import {DefaultServices, FormProps, ServiceConfiguration} from './Form/FormProps';
 import {FormState} from './Form/FormState';
@@ -103,8 +103,8 @@ export {FieldCollecting};
 
 export type {IForm, FormState, FormProps, ServiceConfiguration};
 export {Form};
-export type {IFormValue, IFormValidation, IFormUI, IFormEvent, IFormCollector, IFormFieldManager};
-export {FormValue, FormValidation, FormUI, FormEvent, DefaultCollector, FormFieldManager};
+export type {IFormValue, IFormValidator, IFormUI, IFormEvent, IFormCollector, IFormFieldManager};
+export {FormValue, FormValidator, FormUI, FormEvent, DefaultCollector, FormFieldManager};
 
 // --------------------- FORM ---------------------
 

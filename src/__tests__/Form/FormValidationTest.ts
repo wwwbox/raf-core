@@ -1,7 +1,7 @@
 import {IFieldValidation} from "../../Field/Validation/FieldValidation";
 import {mock} from "jest-mock-extended";
 import IField from "../../Field/IField";
-import {FormValidation} from "../../Form/FormValidation/FormValidation";
+import {FormValidator} from "../../Form/FormValidation/FormValidator";
 import {IFormEvent} from "../../Form/FormEvent/FormEvent";
 import {GlobalEvents} from "../../Event/DefaultEvents";
 import FormProps from "../../Form/FormProps";
@@ -28,7 +28,7 @@ describe('FormValidation', () => {
             createField(mockedValidate),
             createField(mockedValidate),
         ];
-        const validation = new FormValidation(FormTestUtils.makeForm(fields));
+        const validation = new FormValidator(FormTestUtils.makeForm(fields));
         const isValid = validation.validate();
         expect(isValid).toEqual(true);
         expect(mockedValidate).toBeCalledTimes(3);
@@ -37,7 +37,7 @@ describe('FormValidation', () => {
     it('should validate with effect inputs', function () {
         const mockedValidate = jest.fn().mockReturnValue(true);
         const fields = [createField(undefined, mockedValidate), createField(undefined, mockedValidate)];
-        const validation = new FormValidation(FormTestUtils.makeForm(fields, {
+        const validation = new FormValidator(FormTestUtils.makeForm(fields, {
             event: () => mock<IFormEvent>()
         }));
         const isValid = validation.validateWithEffect();
@@ -50,7 +50,7 @@ describe('FormValidation', () => {
         const mockedValidate = jest.fn().mockReturnValue(false);
         const fields = [createField(undefined, mockedValidate)];
         const event = mock<IFormEvent>();
-        const validation = new FormValidation(FormTestUtils.makeForm(fields, {
+        const validation = new FormValidator(FormTestUtils.makeForm(fields, {
             event: () => {
                 return event;
             }
@@ -63,7 +63,7 @@ describe('FormValidation', () => {
 
     it('should return validator from passed services', function () {
         const validator = () => ({}) as any;
-        const validation = new FormValidation(FormTestUtils.makeForm([], {
+        const validation = new FormValidator(FormTestUtils.makeForm([], {
             getProps: (): Partial<FormProps> => {
                 return {
                     services: {
@@ -77,7 +77,7 @@ describe('FormValidation', () => {
     });
 
     it('should return validator from defaults', function () {
-        const validation = new FormValidation(FormTestUtils.makeForm([], {
+        const validation = new FormValidator(FormTestUtils.makeForm([], {
             getProps: (): Partial<FormProps> => {
                 return {
                     services: {}

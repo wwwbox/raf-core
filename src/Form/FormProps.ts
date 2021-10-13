@@ -2,7 +2,7 @@ import {DefaultCollector, IFormCollector} from './FormCollecting/IFormCollector'
 import {FormFieldManager, IFormFieldManager} from './FieldManager/FormFieldManager';
 import {FormValue, IFormValue} from './FormValue/FormValue';
 import {FormEvent, IFormEvent} from './FormEvent/FormEvent';
-import {FormValidation, IFormValidation} from './FormValidation/FormValidation';
+import {FormValidator, IFormValidator} from './FormValidation/FormValidator';
 import {DefaultFormRenderer} from '../Defaults/Services/DefaultFormRenderer';
 import {DefaultSubmitter} from '../Defaults/Services/DefaultSubmitter';
 import {NotEmptyValidator} from '../Defaults/Services/Validator';
@@ -41,7 +41,7 @@ export interface ServiceConfiguration extends SC {
     formRenderer: ServiceCallback<FormRenderer>;
     fieldRenderer: ServiceCallback<FieldRenderer>;
     formUi: ServiceCallback<IFormUI>,
-    formValidation: ServiceCallback<IFormValidation>,
+    formValidator: ServiceCallback<IFormValidator>,
     formEvent: ServiceCallback<IFormEvent>,
     formValue: ServiceCallback<IFormValue>,
     fieldManager: ServiceCallback<IFormFieldManager>,
@@ -56,7 +56,7 @@ export const DefaultServices: ServiceConfiguration = {
     fieldRenderer: (autofiyable: any) => new DefaultFieldRenderer(autofiyable),
     formRenderer: (autofiyable: any) => new DefaultFormRenderer(autofiyable),
     formUi: (autofiyable: any) => new FormUI(autofiyable),
-    formValidation: (autofiyable: any) => new FormValidation(autofiyable),
+    formValidator: (autofiyable: any) => new FormValidator(autofiyable),
     formEvent: (autofiyable: any) => new FormEvent(autofiyable),
     formValue: (autofiyable: any) => new FormValue(autofiyable),
     fieldManager: (autofiyable: any) => new FormFieldManager(autofiyable),

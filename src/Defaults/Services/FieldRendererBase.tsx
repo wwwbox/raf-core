@@ -40,7 +40,7 @@ export abstract class FieldRendererBase implements FieldRenderer {
     protected abstract renderWrapper(fields: any): React.ReactElement;
 
     protected getInjectedProps = (): FieldInjectedProps => {
-        const validator = this.getForm().validation().getValidator();
+        const validator = this.getForm().validator().getValidator();
         return {
             injectedValidator: validator,
             form: this.getForm(),

@@ -4,7 +4,7 @@ import Form from "../../Form/Form";
 import * as React from "react";
 import Submitter from "../../Protocol/Submitter";
 import {mock} from "jest-mock-extended";
-import {IFormValidation} from "../../Form/FormValidation/FormValidation";
+import {IFormValidator} from "../../Form/FormValidation/FormValidator";
 import {IFormValue} from "../../Form/FormValue/FormValue";
 import IForm from "../../Form/IForm";
 import {IFormEvent} from "../../Form/FormEvent/FormEvent";
@@ -55,8 +55,8 @@ describe('Form', () => {
     it('should not submit if not valid when allowSubmitWhenNotValid is not true', function () {
         const submitter = mock<Submitter>();
         const form = getFormInstance({services: {submitter: () => submitter}});
-        form.validation = () => {
-            return mock<IFormValidation>({
+        form.validator = () => {
+            return mock<IFormValidator>({
                 validate(): boolean {
                     return false;
                 }
@@ -69,8 +69,8 @@ describe('Form', () => {
     it('should submit if not valid when allowSubmitWhenNotValid is true', function () {
         const submitter = mock<Submitter>();
         const form = getFormInstance({allowSubmitWhenNotValid: true, services: {submitter: () => submitter}});
-        form.validation = () => {
-            return mock<IFormValidation>({
+        form.validator = () => {
+            return mock<IFormValidator>({
                 validate(): boolean {
                     return false;
                 }
@@ -90,7 +90,7 @@ describe('Form', () => {
                 },
                 allowSubmitWhenNotValid: allowSubmitWhenNotValid,
             });
-            form.validation = () => mock<IFormValidation>({
+            form.validator = () => mock<IFormValidator>({
                 validateWithEffect(): boolean {
                     return validState;
                 }
