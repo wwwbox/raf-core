@@ -1,7 +1,7 @@
 import {IForm} from "./IForm";
 import {FormState} from "./FormState";
 import {DefaultServices, FormProps, ServiceConfiguration} from "./FormProps";
-import {IFormUI} from "./FormUI/FormUI";
+import {IFormUIService} from "./FormUI/FormUIService";
 import {IFormValidator} from "./FormValidation/FormValidator";
 import {IFormEvent} from "./FormEvent/FormEvent";
 import {IFormValue} from "./FormValue/FormValue";
@@ -15,7 +15,7 @@ export class Form
     extends AutofiyableComponent<FormProps, FormState, ServiceConfiguration>
     implements IForm {
 
-    protected _ui: IFormUI;
+    protected _uiService: IFormUIService;
     protected _validator: IFormValidator;
     protected _event: IFormEvent;
     protected _value: IFormValue;
@@ -26,7 +26,7 @@ export class Form
     constructor(props: FormProps) {
         super(props);
         this.state = {isLoading: false} as any;
-        this._ui = this.getServiceProvider().getService("formUi");
+        this._uiService = this.getServiceProvider().getService("formUiService");
         this._validator = this.getServiceProvider().getService("formValidator");
         this._event = this.getServiceProvider().getService("formEvent");
         this._value = this.getServiceProvider().getService("formValue");
@@ -47,7 +47,7 @@ export class Form
     }
 
     render() {
-        return this.ui().render();
+        return this.uiService().render();
     }
 
     componentDidUpdate() {
@@ -80,8 +80,8 @@ export class Form
         this._submitter.submit();
     }
 
-    ui(): IFormUI {
-        return this._ui;
+    uiService(): IFormUIService {
+        return this._uiService;
     }
 
     updateInternalState(payload: Partial<FormState>, afterChange?: () => void): void {

@@ -17,7 +17,7 @@ import {FormRenderer} from "../Protocol/FormRenderer";
 import {FieldRenderer} from "../Protocol/FieldRenderer";
 import {AutofiyableProps, ServiceCallback, ServiceConfiguration as SC} from "@autofiy/autofiyable";
 import {DefaultFieldRenderer} from '../main';
-import {FormUI, IFormUI} from './FormUI/FormUI';
+import {FormUIService, IFormUIService} from './FormUI/FormUIService';
 
 export interface FormProps extends AutofiyableProps {
     fields: (FieldOptions | FieldOptions[])[],
@@ -40,7 +40,7 @@ export interface ServiceConfiguration extends SC {
     submitter: ServiceCallback<Submitter>;
     formRenderer: ServiceCallback<FormRenderer>;
     fieldRenderer: ServiceCallback<FieldRenderer>;
-    formUi: ServiceCallback<IFormUI>,
+    formUiService: ServiceCallback<IFormUIService>,
     formValidator: ServiceCallback<IFormValidator>,
     formEvent: ServiceCallback<IFormEvent>,
     formValue: ServiceCallback<IFormValue>,
@@ -48,14 +48,14 @@ export interface ServiceConfiguration extends SC {
     formCollector: ServiceCallback<IFormCollector>,
 }
 
-
+//TODO : move into its own file
 export const DefaultServices: ServiceConfiguration = {
     eventNameMaker: () => new DefaultEventNameMaker(),
     validator: () => new NotEmptyValidator(),
     submitter: (autofiyable: any) => new DefaultSubmitter(autofiyable),
     fieldRenderer: (autofiyable: any) => new DefaultFieldRenderer(autofiyable),
     formRenderer: (autofiyable: any) => new DefaultFormRenderer(autofiyable),
-    formUi: (autofiyable: any) => new FormUI(autofiyable),
+    formUiService: (autofiyable: any) => new FormUIService(autofiyable),
     formValidator: (autofiyable: any) => new FormValidator(autofiyable),
     formEvent: (autofiyable: any) => new FormEvent(autofiyable),
     formValue: (autofiyable: any) => new FormValue(autofiyable),

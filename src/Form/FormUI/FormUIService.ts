@@ -3,7 +3,7 @@ import {IForm} from "../IForm";
 import {FormRenderer} from "../../Protocol/FormRenderer";
 import {GlobalEvents} from "../../Event/DefaultEvents";
 
-export interface IFormUI extends Service {
+export interface IFormUIService extends Service {
     startLoading(): void;
 
     stopLoading(): void;
@@ -14,7 +14,7 @@ export interface IFormUI extends Service {
 }
 
 
-export class FormUI implements IFormUI {
+export class FormUIService implements IFormUIService {
 
     private readonly form: IForm;
 

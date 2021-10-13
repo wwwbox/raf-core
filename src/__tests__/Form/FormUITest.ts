@@ -1,4 +1,4 @@
-import {FormUI} from "../../Form/FormUI/FormUI";
+import {FormUIService} from "../../Form/FormUI/FormUIService";
 import {FormTestUtils} from "../../TestingUtils/FormTestUtils";
 import {IFormEvent} from "../../Form/FormEvent/FormEvent";
 import {mock} from "jest-mock-extended";
@@ -7,7 +7,7 @@ import {GlobalEvents} from "../../Event/DefaultEvents";
 describe("FormUI", () => {
 
     it('should return isLoading', function () {
-        const ui = new FormUI(FormTestUtils.makeForm([], {
+        const ui = new FormUIService(FormTestUtils.makeForm([], {
             getInternalState: jest.fn().mockReturnValue({isLoading: true}),
         }));
         const isLoading = ui.isLoading();
@@ -17,7 +17,7 @@ describe("FormUI", () => {
     it('should start loading', function () {
         const updateInternalState = jest.fn((_: any, callback: any) => callback());
         const mockedEvent = mock<IFormEvent>();
-        const ui = new FormUI(FormTestUtils.makeForm([], {
+        const ui = new FormUIService(FormTestUtils.makeForm([], {
             updateInternalState: updateInternalState,
             event: () => mockedEvent,
         }));
@@ -29,7 +29,7 @@ describe("FormUI", () => {
     it('should stop loading', function () {
         const updateInternalState = jest.fn((_: any, callback: any) => callback());
         const mockedEvent = mock<IFormEvent>();
-        const ui = new FormUI(FormTestUtils.makeForm([], {
+        const ui = new FormUIService(FormTestUtils.makeForm([], {
             updateInternalState: updateInternalState,
             event: () => mockedEvent,
         }));

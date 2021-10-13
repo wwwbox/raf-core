@@ -3,7 +3,7 @@ import {FormTestUtils} from "../../TestingUtils/FormTestUtils";
 import {IFormCollector} from "../../Form/FormCollecting/IFormCollector";
 import {mock} from "jest-mock-extended";
 import {IFormEvent} from "../../Form/FormEvent/FormEvent";
-import {FormUI, IFormUI} from "../../Form/FormUI/FormUI";
+import {FormUIService, IFormUIService} from "../../Form/FormUI/FormUIService";
 import {GlobalEvents} from "../../Event/DefaultEvents";
 
 describe("DefaultSubmitter", () => {
@@ -21,7 +21,7 @@ describe("DefaultSubmitter", () => {
         return xhrMockClass;
     }
 
-    function makeForm(submitOptions: any, mockedEvent: IFormEvent = mock<IFormEvent>(), hasFiles: boolean = false, files: any = {}, data: any = {}, query: any = {}, mockedUi: IFormUI = mock<IFormUI>()) {
+    function makeForm(submitOptions: any, mockedEvent: IFormEvent = mock<IFormEvent>(), hasFiles: boolean = false, files: any = {}, data: any = {}, query: any = {}, mockedUi: IFormUIService = mock<IFormUIService>()) {
         return FormTestUtils.makeForm([], {
             getProps: () => ({extra: {submitOptions: submitOptions}}),
             collecting: () => mock<IFormCollector>({
@@ -39,7 +39,7 @@ describe("DefaultSubmitter", () => {
                 }
             }),
             event: () => mockedEvent,
-            ui: () => mockedUi
+            uiService: () => mockedUi
         });
     }
 
@@ -113,7 +113,7 @@ describe("DefaultSubmitter", () => {
     });
 
     it('should make form start loading when updateUi option set to true', function () {
-        const ui = mock<FormUI>();
+        const ui = mock<FormUIService>();
         setupXmlHttpRequest(jest.fn(), jest.fn(), jest.fn(), jest.fn());
         const form = makeForm({url: "http://test.com/", updateUi: true}, mock<IFormEvent>(), false, {}, {}, {}, ui);
         const submitter = new DefaultSubmitter(form);
@@ -133,7 +133,7 @@ describe("DefaultSubmitter", () => {
     it('should stop loading when request done', function () {
         const onReadyStatus = jest.fn();
         setupXmlHttpRequest(jest.fn(), jest.fn(), jest.fn(), onReadyStatus);
-        const mockedUi = mock<IFormUI>();
+        const mockedUi = mock<IFormUIService>();
         const form = makeForm({
             url: "http://test.com/",
             updateUi: true

@@ -99,7 +99,7 @@ export class DefaultSubmitter extends SubmitterBase<SubmitOptionsBase> {
         if (request.readyState === XMLHttpRequest.DONE) {
             const options = this.getSubmitOptions();
             if (options.updateUi) {
-                this.getForm().ui().stopLoading();
+                this.getForm().uiService().stopLoading();
             }
 
             if (request.status < 400) {
@@ -122,7 +122,7 @@ export class DefaultSubmitter extends SubmitterBase<SubmitOptionsBase> {
         xhr.send(this.getData());
 
         if (options.updateUi) {
-            this.getForm().ui().startLoading();
+            this.getForm().uiService().startLoading();
         }
         this.getForm().event().emit(GlobalEvents.SUBMIT_START, {options: options});
     }

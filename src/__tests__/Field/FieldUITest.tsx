@@ -79,7 +79,7 @@ describe('ShouldDisable', () => {
             loading: isLoading
         }, {
             getForm: () => ({
-                ui: () => ({isLoading: jest.fn().mockReturnValue(formLoading)})
+                uiService: () => ({isLoading: jest.fn().mockReturnValue(formLoading)})
             })
         });
 

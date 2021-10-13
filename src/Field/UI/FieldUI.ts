@@ -112,7 +112,7 @@ export class FieldUI extends FieldConfigurationBase<FieldUIConfiguration> implem
 
     shouldDisable(): boolean {
         return (
-                this.getField().getForm().ui().isLoading() && this.isDisableOnFormLoading()
+                this.getField().getForm().uiService().isLoading() && this.isDisableOnFormLoading()
             ) ||
             this.isDisabled() || (
                 this.isLoading() && this.isDisableOnLoading()
