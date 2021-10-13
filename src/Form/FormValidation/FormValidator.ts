@@ -8,8 +8,6 @@ export interface IFormValidator extends Service {
     validate(): boolean;
 
     validateWithEffect(): boolean;
-
-    getValidator(): Validator;
 }
 
 export class FormValidator implements IFormValidator {
@@ -33,11 +31,6 @@ export class FormValidator implements IFormValidator {
             this.form.eventService().emit(GlobalEvents.VALIDATION_FAIL, {});
         }
         return valid;
-    }
-
-    //TODO : REMOVE THIS METHOD
-    getValidator(): Validator {
-        return this.form.getServiceProvider().getService<Validator>("validator");
     }
 
 }

@@ -61,31 +61,4 @@ describe('FormValidation', () => {
 
     });
 
-    it('should return validator from passed services', function () {
-        const validator = () => ({}) as any;
-        const validation = new FormValidator(FormTestUtils.makeForm([], {
-            getProps: (): Partial<FormProps> => {
-                return {
-                    services: {
-                        validator: validator
-                    }
-                }
-            }
-        }));
-
-        expect(validation.getValidator()).toEqual(validator());
-    });
-
-    it('should return validator from defaults', function () {
-        const validation = new FormValidator(FormTestUtils.makeForm([], {
-            getProps: (): Partial<FormProps> => {
-                return {
-                    services: {}
-                }
-            }
-        }));
-
-        expect(validation.getValidator()).toBeInstanceOf(NotEmptyValidator);
-    });
-
 });

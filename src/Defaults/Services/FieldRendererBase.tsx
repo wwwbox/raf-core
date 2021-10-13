@@ -2,6 +2,7 @@ import {FieldRenderer} from "../../Protocol/FieldRenderer";
 import {IForm} from "../../Form/IForm";
 import {FieldInjectedProps, FieldOptions} from "../../Field/FieldProps";
 import * as React from "react";
+import Validator from "../../Protocol/Validator";
 
 
 export abstract class FieldRendererBase implements FieldRenderer {
@@ -40,7 +41,7 @@ export abstract class FieldRendererBase implements FieldRenderer {
     protected abstract renderWrapper(fields: any): React.ReactElement;
 
     protected getInjectedProps = (): FieldInjectedProps => {
-        const validator = this.getForm().validator().getValidator();
+        const validator = this.getForm().getServiceProvider().getService<Validator>('validator');
         return {
             injectedValidator: validator,
             form: this.getForm(),
