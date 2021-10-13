@@ -4,10 +4,10 @@ import Form from "../../Form/Form";
 import * as React from "react";
 import Submitter from "../../Protocol/Submitter";
 import {mock} from "jest-mock-extended";
-import {IFormValidator} from "../../Form/FormValidation/FormValidator";
-import {IFormValueService} from "../../Form/FormValue/FormValueService";
+import {FormValidator} from "../../Form/Services/FormValidator";
+import {FormValueService} from "../../Form/Services/FormValueService";
 import IForm from "../../Form/IForm";
-import {IEventService} from "../../Form/FormEvent/EventService";
+import {EventService} from "../../Form/Services/EventService";
 import {GlobalEvents} from "../../Event/DefaultEvents";
 
 Enzyme.configure({adapter: new Adapter()});
@@ -25,7 +25,7 @@ describe('Form', () => {
         const form = getFormInstance({initialValues: initialValues, services: {submitter: () => ({})}});
         const mockSet = jest.fn();
         form.valueService = () => {
-            return mock<IFormValueService>({
+            return mock<FormValueService>({
                 set: mockSet
             });
         }
@@ -37,7 +37,7 @@ describe('Form', () => {
         const form = getFormInstance({services: {submitter: () => ({})}});
         const mockSet = jest.fn();
         form.valueService = () => {
-            return mock<IFormValueService>({
+            return mock<FormValueService>({
                 set: mockSet
             });
         }
@@ -56,7 +56,7 @@ describe('Form', () => {
         const submitter = mock<Submitter>();
         const form = getFormInstance({services: {submitter: () => submitter}});
         form.validator = () => {
-            return mock<IFormValidator>({
+            return mock<FormValidator>({
                 validate(): boolean {
                     return false;
                 }
@@ -70,7 +70,7 @@ describe('Form', () => {
         const submitter = mock<Submitter>();
         const form = getFormInstance({allowSubmitWhenNotValid: true, services: {submitter: () => submitter}});
         form.validator = () => {
-            return mock<IFormValidator>({
+            return mock<FormValidator>({
                 validate(): boolean {
                     return false;
                 }
@@ -83,19 +83,19 @@ describe('Form', () => {
 
     describe("Submitting", () => {
 
-        function makeForm(mockedSubmitter: any, validState: boolean = true, allowSubmitWhenNotValid: boolean = false, ready: boolean = true, mockedEvent: IEventService = mock<IEventService>()): IForm {
+        function makeForm(mockedSubmitter: any, validState: boolean = true, allowSubmitWhenNotValid: boolean = false, ready: boolean = true, mockedEvent: EventService = mock<EventService>()): IForm {
             const form = getFormInstance({
                 services: {
                     submitter: mockedSubmitter,
                 },
                 allowSubmitWhenNotValid: allowSubmitWhenNotValid,
             });
-            form.validator = () => mock<IFormValidator>({
+            form.validator = () => mock<FormValidator>({
                 validateWithEffect(): boolean {
                     return validState;
                 }
             });
-            form.valueService = () => mock<IFormValueService>({
+            form.valueService = () => mock<FormValueService>({
                 isReady(): boolean {
                     return ready;
                 }
@@ -113,7 +113,7 @@ describe('Form', () => {
 
         it('should not submit when form is not ready to collect', function () {
             const submitter = mock<Submitter>();
-            const mockedEvent = mock<IEventService>();
+            const mockedEvent = mock<EventService>();
             const form = makeForm(() => submitter, true, false, false, mockedEvent);
             form.submit();
             expect(submitter.submit).not.toBeCalled();

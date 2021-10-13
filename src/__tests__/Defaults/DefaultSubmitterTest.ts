@@ -1,9 +1,9 @@
 import {DefaultSubmitter} from "../../Defaults/Services/DefaultSubmitter";
 import {FormTestUtils} from "../../TestingUtils/FormTestUtils";
-import {ICollector} from "../../Form/FormCollecting/ICollector";
+import {Collector} from "../../Form/Services/Collector";
 import {mock} from "jest-mock-extended";
-import {IEventService} from "../../Form/FormEvent/EventService";
-import {FormUIService, IFormUIService} from "../../Form/FormUI/FormUIService";
+import {EventService} from "../../Form/Services/EventService";
+import {DefaultFormUIService, FormUIService} from "../../Form/Services/FormUIService";
 import {GlobalEvents} from "../../Event/DefaultEvents";
 
 describe("DefaultSubmitter", () => {
@@ -21,10 +21,10 @@ describe("DefaultSubmitter", () => {
         return xhrMockClass;
     }
 
-    function makeForm(submitOptions: any, mockedEvent: IEventService = mock<IEventService>(), hasFiles: boolean = false, files: any = {}, data: any = {}, query: any = {}, mockedUi: IFormUIService = mock<IFormUIService>()) {
+    function makeForm(submitOptions: any, mockedEvent: EventService = mock<EventService>(), hasFiles: boolean = false, files: any = {}, data: any = {}, query: any = {}, mockedUi: FormUIService = mock<FormUIService>()) {
         return FormTestUtils.makeForm([], {
             getProps: () => ({extra: {submitOptions: submitOptions}}),
-            collector: () => mock<ICollector>({
+            collector: () => mock<Collector>({
                 files(): any {
                     return files;
                 },
@@ -57,7 +57,7 @@ describe("DefaultSubmitter", () => {
         const mockedOpen = jest.fn();
         setupXmlHttpRequest(mockedOpen, jest.fn(), jest.fn(), jest.fn());
 
-        const form = makeForm({method: "XYZ", url: "http://test.com/"}, mock<IEventService>(), false, {}, {}, {
+        const form = makeForm({method: "XYZ", url: "http://test.com/"}, mock<EventService>(), false, {}, {}, {
             search: 'test'
         });
         const submitter = new DefaultSubmitter(form);
@@ -68,7 +68,7 @@ describe("DefaultSubmitter", () => {
     it('should detect content type', function () {
         const mockedSetHeaders = jest.fn();
         setupXmlHttpRequest(jest.fn(), jest.fn(), mockedSetHeaders, jest.fn());
-        const form = makeForm({url: "http://test.com/", autoDetectContentType: true}, mock<IEventService>(), true, {}, {});
+        const form = makeForm({url: "http://test.com/", autoDetectContentType: true}, mock<EventService>(), true, {}, {});
         const submitter = new DefaultSubmitter(form);
         submitter.submit();
         expect(mockedSetHeaders).toBeCalledWith("Content-Type", "multipart/form-data");
@@ -81,7 +81,7 @@ describe("DefaultSubmitter", () => {
             url: "http://test.com/",
             autoDetectContentType: false,
             contentType: "application/json"
-        }, mock<IEventService>(), true, {}, {});
+        }, mock<EventService>(), true, {}, {});
         const submitter = new DefaultSubmitter(form);
         submitter.submit();
         expect(mockedSetHeaders).toBeCalledWith("Content-Type", "application/json");
@@ -92,7 +92,7 @@ describe("DefaultSubmitter", () => {
         setupXmlHttpRequest(jest.fn(), mockedSend, jest.fn(), jest.fn());
         const form = makeForm({
             url: "http://test.com/", autoDetectContentType: true
-        }, mock<IEventService>(), true, {"image": "image_file"}, {name: "test"});
+        }, mock<EventService>(), true, {"image": "image_file"}, {name: "test"});
         const submitter = new DefaultSubmitter(form);
         submitter.submit();
         const expectedData = new FormData();
@@ -106,16 +106,16 @@ describe("DefaultSubmitter", () => {
         setupXmlHttpRequest(jest.fn(), mockedSend, jest.fn(), jest.fn());
         const form = makeForm({
             url: "http://test.com/", autoDetectContentType: true
-        }, mock<IEventService>(), false, {"image": "image_file"}, {name: "test"});
+        }, mock<EventService>(), false, {"image": "image_file"}, {name: "test"});
         const submitter = new DefaultSubmitter(form);
         submitter.submit();
         expect(mockedSend).toBeCalledWith(JSON.stringify({name: 'test'}));
     });
 
     it('should make form start loading when updateUi option set to true', function () {
-        const ui = mock<FormUIService>();
+        const ui = mock<DefaultFormUIService>();
         setupXmlHttpRequest(jest.fn(), jest.fn(), jest.fn(), jest.fn());
-        const form = makeForm({url: "http://test.com/", updateUi: true}, mock<IEventService>(), false, {}, {}, {}, ui);
+        const form = makeForm({url: "http://test.com/", updateUi: true}, mock<EventService>(), false, {}, {}, {}, ui);
         const submitter = new DefaultSubmitter(form);
         submitter.submit();
         expect(ui.startLoading).toBeCalled();
@@ -123,7 +123,7 @@ describe("DefaultSubmitter", () => {
 
     it('should emit start submitting event', function () {
         setupXmlHttpRequest(jest.fn(), jest.fn(), jest.fn(), jest.fn());
-        const mockedEvent = mock<IEventService>();
+        const mockedEvent = mock<EventService>();
         const form = makeForm({url: "http://test.com/", updateUi: true}, mockedEvent, false, {}, {}, {});
         const submitter = new DefaultSubmitter(form);
         submitter.submit();
@@ -133,11 +133,11 @@ describe("DefaultSubmitter", () => {
     it('should stop loading when request done', function () {
         const onReadyStatus = jest.fn();
         setupXmlHttpRequest(jest.fn(), jest.fn(), jest.fn(), onReadyStatus);
-        const mockedUi = mock<IFormUIService>();
+        const mockedUi = mock<FormUIService>();
         const form = makeForm({
             url: "http://test.com/",
             updateUi: true
-        }, mock<IEventService>(), false, {}, {}, {}, mockedUi);
+        }, mock<EventService>(), false, {}, {}, {}, mockedUi);
         const submitter = new DefaultSubmitter(form);
         submitter.submit();
         submitter.onResponse({readyState: XMLHttpRequest.DONE} as any);
@@ -146,7 +146,7 @@ describe("DefaultSubmitter", () => {
 
     it('should emit submit succeeded/completed', function () {
         setupXmlHttpRequest(jest.fn(), jest.fn(), jest.fn(), jest.fn());
-        const mockedEvent = mock<IEventService>();
+        const mockedEvent = mock<EventService>();
         const form = makeForm({url: "http://test.com/"}, mockedEvent);
         const submitter = new DefaultSubmitter(form);
         submitter.submit();
@@ -158,7 +158,7 @@ describe("DefaultSubmitter", () => {
 
     it('should emit submit failed/complete', function () {
         setupXmlHttpRequest(jest.fn(), jest.fn(), jest.fn(), jest.fn());
-        const mockedEvent = mock<IEventService>();
+        const mockedEvent = mock<EventService>();
         const form = makeForm({url: "http://test.com/"}, mockedEvent);
         const submitter = new DefaultSubmitter(form);
         submitter.submit();

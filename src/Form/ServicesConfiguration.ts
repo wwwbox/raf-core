@@ -5,12 +5,12 @@ import {Validator} from "../Protocol/Validator";
 import {Submitter} from "../Protocol/Submitter";
 import {FormRenderer} from "../Protocol/FormRenderer";
 import {FieldRenderer} from "../Protocol/FieldRenderer";
-import {FormUIService, IFormUIService} from "./FormUI/FormUIService";
-import {FormValidator, IFormValidator} from "./FormValidation/FormValidator";
-import {EventService, IEventService} from "./FormEvent/EventService";
-import {FormValueService, IFormValueService} from "./FormValue/FormValueService";
-import {FormFieldsManager, IFormFieldsManager} from "./FieldManager/FormFieldsManager";
-import {DefaultCollector, ICollector} from "./FormCollecting/ICollector";
+import {DefaultFormUIService, FormUIService} from "./Services/FormUIService";
+import {DefaultFormValidator, FormValidator} from "./Services/FormValidator";
+import {DefaultEventService, EventService} from "./Services/EventService";
+import {DefaultFormValueService, FormValueService} from "./Services/FormValueService";
+import {DefaultFormFieldsManager, FormFieldsManager} from "./Services/FormFieldsManager";
+import {DefaultCollector, Collector} from "./Services/Collector";
 import {NotEmptyValidator} from "../Defaults/Services/Validator";
 import {DefaultSubmitter} from "../Defaults/Services/DefaultSubmitter";
 import {DefaultFieldRenderer} from "../Defaults/Services/DefaultFieldRenderer";
@@ -22,12 +22,12 @@ export interface ServiceConfiguration extends SC {
     submitter: ServiceCallback<Submitter>;
     formRenderer: ServiceCallback<FormRenderer>;
     fieldRenderer: ServiceCallback<FieldRenderer>;
-    formUiService: ServiceCallback<IFormUIService>,
-    formValidator: ServiceCallback<IFormValidator>,
-    eventService: ServiceCallback<IEventService>,
-    formValueService: ServiceCallback<IFormValueService>,
-    fieldsManager: ServiceCallback<IFormFieldsManager>,
-    collector: ServiceCallback<ICollector>,
+    formUiService: ServiceCallback<FormUIService>,
+    formValidator: ServiceCallback<FormValidator>,
+    eventService: ServiceCallback<EventService>,
+    formValueService: ServiceCallback<FormValueService>,
+    fieldsManager: ServiceCallback<FormFieldsManager>,
+    collector: ServiceCallback<Collector>,
 }
 
 export const DefaultServices: ServiceConfiguration = {
@@ -36,10 +36,10 @@ export const DefaultServices: ServiceConfiguration = {
     submitter: (autofiyable: any) => new DefaultSubmitter(autofiyable),
     fieldRenderer: (autofiyable: any) => new DefaultFieldRenderer(autofiyable),
     formRenderer: (autofiyable: any) => new DefaultFormRenderer(autofiyable),
-    formUiService: (autofiyable: any) => new FormUIService(autofiyable),
-    formValidator: (autofiyable: any) => new FormValidator(autofiyable),
-    eventService: (autofiyable: any) => new EventService(autofiyable),
-    formValueService: (autofiyable: any) => new FormValueService(autofiyable),
-    fieldsManager: (autofiyable: any) => new FormFieldsManager(autofiyable),
+    formUiService: (autofiyable: any) => new DefaultFormUIService(autofiyable),
+    formValidator: (autofiyable: any) => new DefaultFormValidator(autofiyable),
+    eventService: (autofiyable: any) => new DefaultEventService(autofiyable),
+    formValueService: (autofiyable: any) => new DefaultFormValueService(autofiyable),
+    fieldsManager: (autofiyable: any) => new DefaultFormFieldsManager(autofiyable),
     collector: (autofiyable: any) => new DefaultCollector(autofiyable),
 }

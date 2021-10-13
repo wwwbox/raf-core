@@ -1,14 +1,14 @@
 import {IForm} from "./IForm";
 import {FormState} from "./FormState";
 import {DefaultServices, ServiceConfiguration} from "./ServicesConfiguration";
-import {IFormUIService} from "./FormUI/FormUIService";
-import {IFormValidator} from "./FormValidation/FormValidator";
-import {IEventService} from "./FormEvent/EventService";
-import {IFormValueService} from "./FormValue/FormValueService";
-import {IFormFieldsManager} from "./FieldManager/FormFieldsManager";
+import {FormUIService} from "./Services/FormUIService";
+import {FormValidator} from "./Services/FormValidator";
+import {EventService} from "./Services/EventService";
+import {FormValueService} from "./Services/FormValueService";
+import {FormFieldsManager} from "./Services/FormFieldsManager";
 import {Submitter} from "../Protocol/Submitter";
 import {GlobalEvents} from "../Event/DefaultEvents";
-import {ICollector} from "./FormCollecting/ICollector";
+import {Collector} from "./Services/Collector";
 import {AutofiyableComponent} from "@autofiy/autofiyable";
 import {FormProps} from "./FormProps";
 
@@ -16,12 +16,12 @@ export class Form
     extends AutofiyableComponent<FormProps, FormState, ServiceConfiguration>
     implements IForm {
 
-    protected _uiService: IFormUIService;
-    protected _validator: IFormValidator;
-    protected _eventService: IEventService;
-    protected _valueService: IFormValueService;
-    protected _fieldsManager: IFormFieldsManager;
-    protected _collector: ICollector;
+    protected _uiService: FormUIService;
+    protected _validator: FormValidator;
+    protected _eventService: EventService;
+    protected _valueService: FormValueService;
+    protected _fieldsManager: FormFieldsManager;
+    protected _collector: Collector;
     protected _submitter: Submitter;
 
     constructor(props: FormProps) {
@@ -55,11 +55,11 @@ export class Form
         this.eventService().emit(GlobalEvents.FORM_RENDERED, {});
     }
 
-    eventService(): IEventService {
+    eventService(): EventService {
         return this._eventService;
     }
 
-    fieldsManager(): IFormFieldsManager {
+    fieldsManager(): FormFieldsManager {
         return this._fieldsManager;
     }
 
@@ -81,7 +81,7 @@ export class Form
         this._submitter.submit();
     }
 
-    uiService(): IFormUIService {
+    uiService(): FormUIService {
         return this._uiService;
     }
 
@@ -89,15 +89,15 @@ export class Form
         this.setState(payload as any, afterChange);
     }
 
-    validator(): IFormValidator {
+    validator(): FormValidator {
         return this._validator;
     }
 
-    valueService(): IFormValueService {
+    valueService(): FormValueService {
         return this._valueService;
     }
 
-    collector(): ICollector {
+    collector(): Collector {
         return this._collector;
     }
 

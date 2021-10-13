@@ -3,7 +3,7 @@ import {FieldOptions} from "../../Field/FieldProps";
 import {IField} from "../../Field/IField";
 import {IForm} from "../IForm";
 
-export interface IFormFieldsManager extends Service {
+export interface FormFieldsManager extends Service {
     getFieldsOptions(): (FieldOptions | FieldOptions[])[];
 
     register(field: IField): void;
@@ -13,7 +13,7 @@ export interface IFormFieldsManager extends Service {
     getRegistered(name: string): IField | null;
 }
 
-export class FormFieldsManager implements IFormFieldsManager {
+export class DefaultFormFieldsManager implements FormFieldsManager {
 
     private readonly form: IForm;
     private readonly registered: IField[];

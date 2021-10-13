@@ -11,13 +11,13 @@ import {Submitter} from './Protocol/Submitter';
 import {FormRenderer} from './Protocol/FormRenderer';
 import {FieldRenderer} from './Protocol/FieldRenderer';
 import {FieldChangeHandler} from './Protocol/FieldChangeHandler';
-import {FormFieldsManager, IFormFieldsManager} from './Form/FieldManager/FormFieldsManager';
-import {DefaultCollector, ICollector} from './Form/FormCollecting/ICollector';
-import {EventService, IEventService} from './Form/FormEvent/EventService';
+import {DefaultFormFieldsManager, FormFieldsManager} from './Form/Services/FormFieldsManager';
+import {DefaultCollector, Collector} from './Form/Services/Collector';
+import {DefaultEventService, EventService} from './Form/Services/EventService';
 
-import {FormUIService, IFormUIService} from './Form/FormUI/FormUIService';
-import {FormValidator, IFormValidator} from './Form/FormValidation/FormValidator';
-import {FormValueService, IFormValueService} from './Form/FormValue/FormValueService';
+import {DefaultFormUIService, FormUIService} from './Form/Services/FormUIService';
+import {DefaultFormValidator, FormValidator} from './Form/Services/FormValidator';
+import {DefaultFormValueService, FormValueService} from './Form/Services/FormValueService';
 import {FormProps} from './Form/FormProps';
 import {DefaultServices, ServiceConfiguration} from './Form/ServicesConfiguration';
 import {FormState} from './Form/FormState';
@@ -104,8 +104,8 @@ export {FieldCollecting};
 
 export type {IForm, FormState, FormProps, ServiceConfiguration};
 export {Form};
-export type {IFormValueService, IFormValidator, IFormUIService, IEventService, ICollector, IFormFieldsManager};
-export {FormValueService, FormValidator, FormUIService, EventService, DefaultCollector, FormFieldsManager};
+export type {FormValueService, FormValidator, FormUIService, EventService, Collector, FormFieldsManager};
+export {DefaultFormValueService, DefaultFormValidator, DefaultFormUIService, DefaultEventService, DefaultCollector, DefaultFormFieldsManager};
 
 // --------------------- FORM ---------------------
 

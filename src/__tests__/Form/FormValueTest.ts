@@ -1,11 +1,11 @@
-import {FormValueService} from "../../Form/FormValue/FormValueService";
+import {DefaultFormValueService} from "../../Form/Services/FormValueService";
 import {mock} from "jest-mock-extended";
 import IField from "../../Field/IField";
 import {IFieldValue} from "../../Field/Value/FieldValue";
 import {IFieldCollecting} from "../../Field/Collecting/FieldCollecting";
 import {FormTestUtils} from "../../TestingUtils/FormTestUtils";
 import {FieldType} from "../../Field/Concrete/FieldType";
-import {IEventService} from "../../Form/FormEvent/EventService";
+import {EventService} from "../../Form/Services/EventService";
 import {GlobalEvents} from "../../Event/DefaultEvents";
 
 describe('FormValueTest', () => {
@@ -22,8 +22,8 @@ describe('FormValueTest', () => {
     it('should clear value', function () {
         const fieldValueMock = mock<IFieldValue>();
         const fields = [createField(fieldValueMock), createField(fieldValueMock), createField(fieldValueMock)];
-        const mockedEvent = mock<IEventService>();
-        const value = new FormValueService(FormTestUtils.makeForm(fields, {
+        const mockedEvent = mock<EventService>();
+        const value = new DefaultFormValueService(FormTestUtils.makeForm(fields, {
             eventService: () => mockedEvent
         }));
         value.clear();
@@ -41,7 +41,7 @@ describe('FormValueTest', () => {
             createField(undefined, collectingMock),
         ];
 
-        const value = new FormValueService(FormTestUtils.makeForm(fields));
+        const value = new DefaultFormValueService(FormTestUtils.makeForm(fields));
         const isReady = value.isReady();
         expect(isReady).toEqual(true);
         expect(collectingMock.isReady).toBeCalledTimes(3);
@@ -64,7 +64,7 @@ describe('FormValueTest', () => {
         ];
 
 
-        const value = new FormValueService(FormTestUtils.makeForm(fields));
+        const value = new DefaultFormValueService(FormTestUtils.makeForm(fields));
         value.set({x: '1', y: '2', a: '3'});
         expect(field1ValueMock.set).toBeCalledWith('1');
         expect(field1ValueMock.set).toBeCalledTimes(1);

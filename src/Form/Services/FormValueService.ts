@@ -2,7 +2,7 @@ import {Service} from '@autofiy/autofiyable';
 import {IForm} from "../IForm";
 import {GlobalEvents} from "../../Event/DefaultEvents";
 
-export interface IFormValueService extends Service {
+export interface FormValueService extends Service {
 
     set(values: any): void;
 
@@ -12,7 +12,7 @@ export interface IFormValueService extends Service {
 }
 
 
-export class FormValueService implements IFormValueService {
+export class DefaultFormValueService implements FormValueService {
 
     private readonly form: IForm;
 

@@ -1,8 +1,8 @@
 import {IFieldValidation} from "../../Field/Validation/FieldValidation";
 import {mock} from "jest-mock-extended";
 import IField from "../../Field/IField";
-import {FormValidator} from "../../Form/FormValidation/FormValidator";
-import {IEventService} from "../../Form/FormEvent/EventService";
+import {DefaultFormValidator} from "../../Form/Services/FormValidator";
+import {EventService} from "../../Form/Services/EventService";
 import {GlobalEvents} from "../../Event/DefaultEvents";
 import FormProps from "../../Form/FormProps";
 import {NotEmptyValidator} from "../../Defaults/Services/Validator";
@@ -28,7 +28,7 @@ describe('FormValidation', () => {
             createField(mockedValidate),
             createField(mockedValidate),
         ];
-        const validation = new FormValidator(FormTestUtils.makeForm(fields));
+        const validation = new DefaultFormValidator(FormTestUtils.makeForm(fields));
         const isValid = validation.validate();
         expect(isValid).toEqual(true);
         expect(mockedValidate).toBeCalledTimes(3);
@@ -37,8 +37,8 @@ describe('FormValidation', () => {
     it('should validate with effect inputs', function () {
         const mockedValidate = jest.fn().mockReturnValue(true);
         const fields = [createField(undefined, mockedValidate), createField(undefined, mockedValidate)];
-        const validation = new FormValidator(FormTestUtils.makeForm(fields, {
-            eventService: () => mock<IEventService>()
+        const validation = new DefaultFormValidator(FormTestUtils.makeForm(fields, {
+            eventService: () => mock<EventService>()
         }));
         const isValid = validation.validateWithEffect();
         expect(isValid).toEqual(true);
@@ -49,8 +49,8 @@ describe('FormValidation', () => {
     it('should emit validation fail event when validation fail', function () {
         const mockedValidate = jest.fn().mockReturnValue(false);
         const fields = [createField(undefined, mockedValidate)];
-        const event = mock<IEventService>();
-        const validation = new FormValidator(FormTestUtils.makeForm(fields, {
+        const event = mock<EventService>();
+        const validation = new DefaultFormValidator(FormTestUtils.makeForm(fields, {
             eventService: () => {
                 return event;
             }

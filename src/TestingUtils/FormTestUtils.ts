@@ -1,6 +1,6 @@
 import {ServiceProvider} from '@autofiy/autofiyable';
 import IField from "../Field/IField";
-import {IFormFieldsManager} from "../Form/FieldManager/FormFieldsManager";
+import {FormFieldsManager} from "../Form/Services/FormFieldsManager";
 import {mock} from "jest-mock-extended";
 import IForm from "../Form/IForm";
 import {FieldType} from "../Field/Concrete/FieldType";
@@ -9,8 +9,8 @@ import {DefaultServices} from '../Form/ServicesConfiguration';
 export class FormTestUtils {
     public static makeForm(fields: IField[] = [], mockImplementation: any = {}) {
         const form: IForm = mock<IForm>({
-            fieldsManager(): IFormFieldsManager {
-                return mock<IFormFieldsManager>({
+            fieldsManager(): FormFieldsManager {
+                return mock<FormFieldsManager>({
                     getAllRegistered(): IField[] {
                         return fields;
                     }

@@ -1,7 +1,7 @@
 import IField from "../../Field/IField";
 import * as React from "react";
 import IForm from "../../Form/IForm";
-import {IEventService} from "../../Form/FormEvent/EventService";
+import {EventService} from "../../Form/Services/EventService";
 import {mock} from "jest-mock-extended";
 import {FieldEvent} from "../../Field/FieldEvent/FieldEvent";
 import {IEventNameMaker} from "../../Event/IEventNameMaker";
@@ -12,9 +12,9 @@ describe('FieldEvent', () => {
     const FIELD_NAME = "field";
 
     function getInstance() {
-        const formEvent = mock<IEventService>();
+        const formEvent = mock<EventService>();
         const form = mock<IForm>({
-            eventService(): IEventService {
+            eventService(): EventService {
                 return formEvent
             }
         });

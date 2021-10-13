@@ -1,26 +1,26 @@
 import {Autofiyable} from '@autofiy/autofiyable';
 import {FormProps} from "./FormProps";
-import {IFormFieldsManager} from "./FieldManager/FormFieldsManager";
-import {IFormUIService} from "./FormUI/FormUIService";
-import {IFormValueService} from "./FormValue/FormValueService";
-import {IFormValidator} from "./FormValidation/FormValidator";
-import {IEventService} from "./FormEvent/EventService";
+import {FormFieldsManager} from "./Services/FormFieldsManager";
+import {FormUIService} from "./Services/FormUIService";
+import {FormValueService} from "./Services/FormValueService";
+import {FormValidator} from "./Services/FormValidator";
+import {EventService} from "./Services/EventService";
 import {FormState} from "./FormState";
-import {ICollector} from "./FormCollecting/ICollector";
+import {Collector} from "./Services/Collector";
 
 export interface IForm extends Autofiyable {
 
-    fieldsManager(): IFormFieldsManager;
+    fieldsManager(): FormFieldsManager;
 
-    valueService(): IFormValueService;
+    valueService(): FormValueService;
 
-    eventService(): IEventService;
+    eventService(): EventService;
 
-    validator(): IFormValidator;
+    validator(): FormValidator;
 
-    uiService(): IFormUIService;
+    uiService(): FormUIService;
 
-    collector(): ICollector;
+    collector(): Collector;
 
     submit(): void;
 

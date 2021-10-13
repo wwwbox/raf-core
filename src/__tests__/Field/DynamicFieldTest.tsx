@@ -4,7 +4,7 @@ import Enzyme, {mount} from "enzyme";
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import * as React from "react";
 import DefaultDynamicFieldChangeHandler from "../../ChangeHandler/DefaultDynamicFieldChangeHandler";
-import {IEventService} from "../../Form/FormEvent/EventService";
+import {EventService} from "../../Form/Services/EventService";
 import {mock} from "jest-mock-extended";
 import {IEventNameMaker} from "../../Event/IEventNameMaker";
 
@@ -26,7 +26,7 @@ describe('DynamicField', () => {
             extra: {
                 ...otherProps
             },
-            form: {fieldsManager: jest.fn().mockReturnValue({register: jest.fn()}), event: mock<IEventService>()} as any
+            form: {fieldsManager: jest.fn().mockReturnValue({register: jest.fn()}), event: mock<EventService>()} as any
         };
         const component = mount(<DynamicField  {...props} />);
         return component.instance() as DynamicField;
