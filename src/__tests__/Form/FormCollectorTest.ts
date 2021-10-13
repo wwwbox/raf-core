@@ -2,7 +2,7 @@ import {FormTestUtils} from "../../TestingUtils/FormTestUtils";
 import {mock} from "jest-mock-extended";
 import IField from "../../Field/IField";
 import {FieldType} from "../../Field/Concrete/FieldType";
-import {DefaultCollector} from "../../Form/FormCollecting/IFormCollector";
+import {DefaultCollector} from "../../Form/FormCollecting/ICollector";
 import {IFieldCollecting} from "../../Field/Collecting/FieldCollecting";
 
 describe('DefaultFromCollector', () => {

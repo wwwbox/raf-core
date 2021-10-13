@@ -3,7 +3,7 @@ import {IForm} from "../IForm";
 import {FieldType} from "../../Field/Concrete/FieldType";
 import {IField} from "../../Field/IField";
 
-export interface IFormCollector extends Service {
+export interface ICollector extends Service {
     files(): any;
 
     query(): any;
@@ -13,7 +13,7 @@ export interface IFormCollector extends Service {
     hasFiles(): boolean;
 }
 
-export class DefaultCollector implements IFormCollector {
+export class DefaultCollector implements ICollector {
 
     private readonly form: IForm;
 

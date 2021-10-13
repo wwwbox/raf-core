@@ -1,6 +1,6 @@
 import {DefaultSubmitter} from "../../Defaults/Services/DefaultSubmitter";
 import {FormTestUtils} from "../../TestingUtils/FormTestUtils";
-import {IFormCollector} from "../../Form/FormCollecting/IFormCollector";
+import {ICollector} from "../../Form/FormCollecting/ICollector";
 import {mock} from "jest-mock-extended";
 import {IEventService} from "../../Form/FormEvent/EventService";
 import {FormUIService, IFormUIService} from "../../Form/FormUI/FormUIService";
@@ -24,7 +24,7 @@ describe("DefaultSubmitter", () => {
     function makeForm(submitOptions: any, mockedEvent: IEventService = mock<IEventService>(), hasFiles: boolean = false, files: any = {}, data: any = {}, query: any = {}, mockedUi: IFormUIService = mock<IFormUIService>()) {
         return FormTestUtils.makeForm([], {
             getProps: () => ({extra: {submitOptions: submitOptions}}),
-            collecting: () => mock<IFormCollector>({
+            collector: () => mock<ICollector>({
                 files(): any {
                     return files;
                 },

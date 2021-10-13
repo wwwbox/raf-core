@@ -1,4 +1,4 @@
-import {DefaultCollector, IFormCollector} from './FormCollecting/IFormCollector';
+import {DefaultCollector, ICollector} from './FormCollecting/ICollector';
 import {FormFieldsManager, IFormFieldsManager} from './FieldManager/FormFieldsManager';
 import {FormValueService, IFormValueService} from './FormValue/FormValueService';
 import {EventService, IEventService} from './FormEvent/EventService';
@@ -45,7 +45,7 @@ export interface ServiceConfiguration extends SC {
     eventService: ServiceCallback<IEventService>,
     formValueService: ServiceCallback<IFormValueService>,
     fieldsManager: ServiceCallback<IFormFieldsManager>,
-    formCollector: ServiceCallback<IFormCollector>,
+    collector: ServiceCallback<ICollector>,
 }
 
 //TODO : move into its own file
@@ -60,5 +60,5 @@ export const DefaultServices: ServiceConfiguration = {
     eventService: (autofiyable: any) => new EventService(autofiyable),
     formValueService: (autofiyable: any) => new FormValueService(autofiyable),
     fieldsManager: (autofiyable: any) => new FormFieldsManager(autofiyable),
-    formCollector: (autofiyable: any) => new DefaultCollector(autofiyable),
+    collector: (autofiyable: any) => new DefaultCollector(autofiyable),
 }

@@ -8,7 +8,7 @@ import {IFormValueService} from "./FormValue/FormValueService";
 import {IFormFieldsManager} from "./FieldManager/FormFieldsManager";
 import {Submitter} from "../Protocol/Submitter";
 import {GlobalEvents} from "../Event/DefaultEvents";
-import {IFormCollector} from "./FormCollecting/IFormCollector";
+import {ICollector} from "./FormCollecting/ICollector";
 import {AutofiyableComponent} from "@autofiy/autofiyable";
 
 export class Form
@@ -20,7 +20,7 @@ export class Form
     protected _eventService: IEventService;
     protected _valueService: IFormValueService;
     protected _fieldsManager: IFormFieldsManager;
-    protected _collecting: IFormCollector;
+    protected _collector: ICollector;
     protected _submitter: Submitter;
 
     constructor(props: FormProps) {
@@ -31,7 +31,7 @@ export class Form
         this._eventService = this.getServiceProvider().getService("eventService");
         this._valueService = this.getServiceProvider().getService("formValueService");
         this._fieldsManager = this.getServiceProvider().getService("fieldsManager");
-        this._collecting = this.getServiceProvider().getService("formCollector");
+        this._collector = this.getServiceProvider().getService("collector");
         this._submitter = this.getServiceProvider().getService("submitter");
         this.setupListeners();
     }
@@ -96,8 +96,8 @@ export class Form
         return this._valueService;
     }
 
-    collecting(): IFormCollector {
-        return this._collecting;
+    collector(): ICollector {
+        return this._collector;
     }
 
     protected initializeServices(): void {

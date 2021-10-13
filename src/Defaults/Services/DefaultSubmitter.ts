@@ -1,7 +1,7 @@
 import {Submitter} from "../../Protocol/Submitter";
 import {IForm} from "../../Form/IForm";
 import {RafDefaults} from "../RafDefaults";
-import {IFormCollector} from "../../Form/FormCollecting/IFormCollector";
+import {ICollector} from "../../Form/FormCollecting/ICollector";
 import {GlobalEvents} from "../../Event/DefaultEvents";
 
 
@@ -33,8 +33,8 @@ export abstract class SubmitterBase<SubmitOption extends SubmitOptionsBase> impl
         return this.form;
     }
 
-    getCollector(): IFormCollector {
-        return this.form.collecting();
+    getCollector(): ICollector {
+        return this.form.collector();
     }
 
     abstract submit(): void;

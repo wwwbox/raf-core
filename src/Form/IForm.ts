@@ -6,7 +6,7 @@ import {IFormValueService} from "./FormValue/FormValueService";
 import {IFormValidator} from "./FormValidation/FormValidator";
 import {IEventService} from "./FormEvent/EventService";
 import {FormState} from "./FormState";
-import {IFormCollector} from "./FormCollecting/IFormCollector";
+import {ICollector} from "./FormCollecting/ICollector";
 
 export interface IForm extends Autofiyable {
 
@@ -20,7 +20,7 @@ export interface IForm extends Autofiyable {
 
     uiService(): IFormUIService;
 
-    collecting(): IFormCollector;
+    collector(): ICollector;
 
     submit(): void;
 
