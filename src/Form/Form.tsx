@@ -106,7 +106,7 @@ export class Form
     private setupListeners(): void {
         const listeners = this.getProps().listen ?? {};
         const keys = Object.keys(listeners);
-        keys.forEach(key => this.eventService().addListener("form", key, listeners[key]));
+        keys.forEach(eventId => this.eventService().addListener("form", eventId, listeners[eventId]));
     }
 }
 

@@ -8,7 +8,7 @@ import {IField} from "../../Field/IField";
 export interface IEventService extends Service {
     emit(eventName: string, payload: any): void;
 
-    addListener(id: string, eventName: string, callback: EventCallback): void;
+    addListener(listenerId: string, eventId: string, callback: EventCallback): void;
 
     removeListener(id: string, eventName: string): void;
 
@@ -18,8 +18,8 @@ export interface IEventService extends Service {
 }
 
 export type ListenerPoll = {
-    [eventName: string]: {
-        id: string;
+    [eventId: string]: {
+        listenerId: string;
         callback: EventCallback
     }[];
 }
@@ -35,16 +35,16 @@ export class EventService implements IEventService {
         this.listeners = {};
     }
 
-    addListener(id: string, eventName: string, callback: EventCallback): void {
-        if (this.listeners[eventName] === undefined) {
-            this.listeners[eventName] = [];
+    addListener(listenerId: string, eventId: string, callback: EventCallback): void {
+        if (this.listeners[eventId] === undefined) {
+            this.listeners[eventId] = [];
         }
 
-        if (this.hasListener(id, eventName)) {
-            throw Error(`cannot listener on ${eventName}, because the id (${id}) already exists`);
+        if (this.hasListener(listenerId, eventId)) {
+            throw Error(`cannot listener on ${eventId}, because the id (${listenerId}) already exists`);
         }
 
-        this.listeners[eventName].push({id: id, callback: callback});
+        this.listeners[eventId].push({listenerId: listenerId, callback: callback});
     }
 
     removeListener(id: string, eventName: string): void {
@@ -64,7 +64,7 @@ export class EventService implements IEventService {
 
     hasListener(id: string, eventName: string): boolean {
         for (let listener of this.listeners[eventName]) {
-            if (listener.id === id) {
+            if (listener.listenerId === id) {
                 return true;
             }
         }
@@ -86,7 +86,7 @@ export class EventService implements IEventService {
     private indexOfId(id: string, eventName: string): number {
         for (let i = 0; i < this.listeners[eventName].length; i++) {
             let listener = this.listeners[eventName][i];
-            if (listener.id === id) {
+            if (listener.listenerId === id) {
                 return i;
             }
         }
