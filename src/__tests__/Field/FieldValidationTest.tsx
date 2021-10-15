@@ -5,7 +5,7 @@ import {FieldValidationConfiguration} from "../../Field/Configuration/FieldValid
 import {DefaultFieldValidator} from "../../Field/Service/FieldValidator";
 import {mock} from "jest-mock-extended";
 import Validator from "../../Protocol/Validator";
-import {IFieldEvent} from "../../Field/FieldEvent/FieldEvent";
+import {FieldEventService} from "../../Field/Service/FieldEventService";
 import {DefaultFieldValueService, FieldValueService} from "../../Field/Service/FieldValueService";
 import {FieldUIService} from "../../Field/Service/FieldUIService";
 import {FieldMessageType} from "../../Field/Configuration/FieldUIConfiguration";
@@ -179,7 +179,7 @@ describe('UI Event', () => {
                 return 'error';
             }
         });
-        const eventMock = mock<IFieldEvent>();
+        const eventMock = mock<FieldEventService>();
         const validation = testUtils.getInstance({
             updateMessageOnValidationFail: true,
             onFailMessageType: FieldMessageType.WARNING,

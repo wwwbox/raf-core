@@ -1,7 +1,7 @@
 import {EventCallback} from "../../Event/EventType";
 import {IField} from "../IField";
 
-export interface IFieldEvent {
+export interface FieldEventService {
 
     listen(eventName: string, callback: EventCallback): void;
 
@@ -18,7 +18,7 @@ export interface IFieldEvent {
     makeEventName(type: string): string;
 }
 
-export class FieldEvent implements IFieldEvent {
+export class DefaultFieldEventService implements FieldEventService {
 
     private readonly field: IField;
 

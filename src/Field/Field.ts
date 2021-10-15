@@ -15,8 +15,8 @@ import {DefaultFieldUIService, FieldUIService} from "./Service/FieldUIService";
 import {FieldCollecting, IFieldCollecting} from "./Collecting/FieldCollecting";
 import {FieldExtra, IFieldExtraConfiguration} from "./Configuration/FieldExtra";
 import {FieldType} from "./Concrete/FieldType";
-import {FieldEvent, IFieldEvent} from "./FieldEvent/FieldEvent";
-import {ExtraRefresher, ExtraRefresherBase} from "./ExtraRefresher";
+import {DefaultFieldEventService, FieldEventService} from "./Service/FieldEventService";
+import {ExtraRefresher, DefaultExtraRefresherService} from "./Service/ExtraRefresher";
 
 export class Field<ExtraConfiguration = any> extends React.Component<FieldProps, FieldState<ExtraConfiguration>> implements IField<ExtraConfiguration> {
 
@@ -25,7 +25,7 @@ export class Field<ExtraConfiguration = any> extends React.Component<FieldProps,
     protected _uiService: FieldUIService;
     protected _collecting: IFieldCollecting;
     protected _extra: IFieldExtraConfiguration<ExtraConfiguration>;
-    protected _event: IFieldEvent;
+    protected _event: FieldEventService;
     protected _refresher: ExtraRefresher;
     private readonly initialState: FieldState;
     private isExtraUpdate: boolean = false;
@@ -41,8 +41,8 @@ export class Field<ExtraConfiguration = any> extends React.Component<FieldProps,
         this._uiService = new DefaultFieldUIService(this, "ui");
         this._collecting = new FieldCollecting(this, "collecting");
         this._extra = new FieldExtra(this, "extra");
-        this._event = new FieldEvent(this);
-        this._refresher = this.props.refresher ?? new ExtraRefresherBase();
+        this._event = new DefaultFieldEventService(this);
+        this._refresher = this.props.refresher ?? new DefaultExtraRefresherService();
         this.state.value.extractValueFromEvent = this.state.value.extractValueFromEvent ?? (e => e.target.value);
         this.setupListeners();
     }
@@ -103,7 +103,7 @@ export class Field<ExtraConfiguration = any> extends React.Component<FieldProps,
         return this._valueService;
     }
 
-    event(): IFieldEvent {
+    eventService(): FieldEventService {
         return this._event;
     }
 
@@ -114,7 +114,7 @@ export class Field<ExtraConfiguration = any> extends React.Component<FieldProps,
 
     protected setupListeners(): void {
         const thisListeners = this.getProps().listenThis ?? {};
-        Object.keys(thisListeners).forEach(key => this.event().listenOnThis(key, thisListeners[key]));
+        Object.keys(thisListeners).forEach(key => this.eventService().listenOnThis(key, thisListeners[key]));
     }
 
     protected initializeState(): any {

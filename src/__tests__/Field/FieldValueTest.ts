@@ -4,7 +4,7 @@ import {mock} from "jest-mock-extended";
 import {FieldValueConfiguration, getDefaultFieldValueConfiguration} from "../../Field/Configuration/FieldValueConfiguration";
 import IForm from "../../Form/IForm";
 import {EventService} from "../../Form/Services/EventService";
-import {IFieldEvent} from "../../Field/FieldEvent/FieldEvent";
+import {FieldEventService} from "../../Field/Service/FieldEventService";
 import {FieldConfigurationTestUtils} from "../../TestingUtils/FieldConfigurationTestUtils";
 import {FieldValidator} from "../../Field/Service/FieldValidator";
 
@@ -16,7 +16,7 @@ const testUtils = new FieldConfigurationTestUtils<FieldValueConfiguration, Defau
 describe('FieldValue', () => {
 
     const field: IField = mock<IField>();
-    field.event = jest.fn().mockReturnValue(mock<IFieldEvent>());
+    field.eventService = jest.fn().mockReturnValue(mock<FieldEventService>());
     field.getConfiguration = jest.fn().mockReturnValue({
         ...getDefaultFieldValueConfiguration(),
         extractValueFromEvent: (e: any) => e.target.value

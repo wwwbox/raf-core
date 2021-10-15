@@ -75,7 +75,7 @@ export class DefaultFieldValidator extends FieldConfigurationServiceBase<FieldVa
     }
 
     private emitValidationFailEvent(validationResult: any): void {
-        this.getField().event().emitOnThis(FieldEvents.VALIDATION_FAIL, {
+        this.getField().eventService().emitOnThis(FieldEvents.VALIDATION_FAIL, {
             validationResult: validationResult
         });
     }

@@ -3,7 +3,7 @@ import * as React from "react";
 import IForm from "../../Form/IForm";
 import {EventService} from "../../Form/Services/EventService";
 import {mock} from "jest-mock-extended";
-import {FieldEvent} from "../../Field/FieldEvent/FieldEvent";
+import {DefaultFieldEventService} from "../../Field/Service/FieldEventService";
 import {IEventNameMaker} from "../../Event/IEventNameMaker";
 
 
@@ -35,7 +35,7 @@ describe('FieldEvent', () => {
                 }
             }
         });
-        const event = new FieldEvent(field);
+        const event = new DefaultFieldEventService(field);
         return {event, formEvent, field};
     }
 

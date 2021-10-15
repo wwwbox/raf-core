@@ -1,5 +1,5 @@
 import {FormTestUtils} from "../../TestingUtils/FormTestUtils";
-import {IFieldEvent} from "../../Field/FieldEvent/FieldEvent";
+import {FieldEventService} from "../../Field/Service/FieldEventService";
 import {mock} from "jest-mock-extended";
 import IField from "../../Field/IField";
 import {FieldType} from "../../Field/Concrete/FieldType";
@@ -25,7 +25,7 @@ describe('DefaultDynamicFieldChangeHandler', () => {
                     return true
                 }
             }),
-            event: () => mock<IFieldEvent>()
+            event: () => mock<FieldEventService>()
         });
     }
 

@@ -38,7 +38,7 @@ export class DefaultAutoUploader implements AutoUploader {
 
     public onProgress(total: number, loaded: number, percent: number): void {
         this.field.extra().update('progress', percent);
-        this.field.event().emitOnThis(AutoUploadFieldEvents.PROGRESS, {
+        this.field.eventService().emitOnThis(AutoUploadFieldEvents.PROGRESS, {
             total: total,
             uploaded: loaded,
             percent: percent
@@ -63,20 +63,20 @@ export class DefaultAutoUploader implements AutoUploader {
         this.field.uiService().setLoading(false);
         this.field.collecting().setReady(true);
         this.updateUploadState(false, null, 0);
-        this.field.event().emitOnThis(AutoUploadFieldEvents.CANCEL, {});
+        this.field.eventService().emitOnThis(AutoUploadFieldEvents.CANCEL, {});
     }
 
     protected onFail(response: any): void {
-        this.field.event().emitOnThis(AutoUploadFieldEvents.FAIL, {response: response});
+        this.field.eventService().emitOnThis(AutoUploadFieldEvents.FAIL, {response: response});
     }
 
     protected onSuccess(response: any): void {
-        this.field.event().emitOnThis(AutoUploadFieldEvents.SUCCESS, {response: response});
+        this.field.eventService().emitOnThis(AutoUploadFieldEvents.SUCCESS, {response: response});
         this.field.extra().setUploadedFileFromResponse(response);
     }
 
     protected onComplete(response: any): void {
-        this.field.event().emitOnThis(AutoUploadFieldEvents.COMPLETE, {response: response});
+        this.field.eventService().emitOnThis(AutoUploadFieldEvents.COMPLETE, {response: response});
         this.field.uiService().setLoading(false);
         this.field.collecting().setReady(true);
         this.updateUploadState(false, undefined, 0);
@@ -92,7 +92,7 @@ export class DefaultAutoUploader implements AutoUploader {
         this.field.uiService().setLoading(true);
         this.field.collecting().setReady(false);
         this.updateUploadState(true, null, 0);
-        this.field.event().emitOnThis(AutoUploadFieldEvents.START, {});
+        this.field.eventService().emitOnThis(AutoUploadFieldEvents.START, {});
     }
 
     private setupEvents(): void {

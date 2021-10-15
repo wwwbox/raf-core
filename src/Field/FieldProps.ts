@@ -6,7 +6,7 @@ import {FieldValueConfiguration} from "./Configuration/FieldValueConfiguration";
 import {EventCallback} from "../Event/EventType";
 import {Validator} from "../Protocol/Validator";
 import {IEventNameMaker} from "../Event/IEventNameMaker";
-import {ExtraRefresher} from "./ExtraRefresher";
+import {ExtraRefresher} from "./Service/ExtraRefresher";
 
 
 export interface FieldInjectedProps {

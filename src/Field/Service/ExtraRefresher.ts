@@ -1,4 +1,4 @@
-import Field from "./Field";
+import Field from "../Field";
 
 
 export interface ExtraRefresher {
@@ -11,7 +11,7 @@ type CustomChangeHandler = {
     [property: string]: (current: any, passed: any, currentValue: any, passedValue: any) => boolean;
 }
 
-export class ExtraRefresherBase implements ExtraRefresher {
+export class DefaultExtraRefresherService implements ExtraRefresher {
 
     private readonly updatingType: UpdatingType;
     private readonly customChangeHandler: CustomChangeHandler;

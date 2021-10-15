@@ -6,13 +6,13 @@ import {mock} from "jest-mock-extended";
 import {FieldUIService} from "../../Field/Service/FieldUIService";
 import {FieldValidator} from "../../Field/Service/FieldValidator";
 import {FieldValidationConfiguration} from "../../Field/Configuration/FieldValidationConfiguration";
-import {IFieldEvent} from "../../Field/FieldEvent/FieldEvent";
+import {FieldEventService} from "../../Field/Service/FieldEventService";
 import DefaultFieldChangeHandler from "../../ChangeHandler/DefaultFieldChangeHandler";
 import {FieldEvents, GlobalEvents} from "../../Event/DefaultEvents";
 
 describe("DefaultFieldChangeHandler", () => {
 
-    function createField(mockedSet: any, readonly: boolean = false, disabled: boolean = false, skipValidation: boolean = false, validateOnChange: boolean = true, fieldEvent: IFieldEvent = mock<IFieldEvent>()): IField {
+    function createField(mockedSet: any, readonly: boolean = false, disabled: boolean = false, skipValidation: boolean = false, validateOnChange: boolean = true, fieldEvent: FieldEventService = mock<FieldEventService>()): IField {
         return FormTestUtils.createMockedField('X', FieldType.NORMAL, {
             valueService: () => mock<FieldValueService>({
                 set: mockedSet,
@@ -81,7 +81,7 @@ describe("DefaultFieldChangeHandler", () => {
         const mockedSet = (_: any, __: any, callback: any) => {
             callback();
         }
-        const mockedEvent = mock<IFieldEvent>();
+        const mockedEvent = mock<FieldEventService>();
         const field = createField(mockedSet, false, false, false, false, mockedEvent);
         const changeHandler = new DefaultFieldChangeHandler(field);
         changeHandler.handle('value');

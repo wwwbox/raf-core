@@ -37,8 +37,8 @@ export class DefaultFieldChangeHandler implements FieldChangeHandler {
     };
 
     private notify() {
-        this.getField().event().emitOnThis(FieldEvents.CHANGE, {});
-        this.getField().event().emit(GlobalEvents.VALUE_CHANGED, {field: this.getField()});
+        this.getField().eventService().emitOnThis(FieldEvents.CHANGE, {});
+        this.getField().eventService().emit(GlobalEvents.VALUE_CHANGED, {field: this.getField()});
     }
 }
 

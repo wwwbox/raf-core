@@ -6,7 +6,7 @@ import {FieldUIService} from "./Service/FieldUIService";
 import {IFieldCollecting} from "./Collecting/FieldCollecting";
 import {IFieldExtraConfiguration} from "./Configuration/FieldExtra";
 import {FieldType} from "./Concrete/FieldType";
-import {IFieldEvent} from "./FieldEvent/FieldEvent";
+import {FieldEventService} from "./Service/FieldEventService";
 
 
 export interface IField<ExtraConfiguration = any> {
@@ -17,7 +17,7 @@ export interface IField<ExtraConfiguration = any> {
 
     uiService(): FieldUIService;
 
-    event(): IFieldEvent;
+    eventService(): FieldEventService;
 
     extra(): IFieldExtraConfiguration<ExtraConfiguration>;
 
