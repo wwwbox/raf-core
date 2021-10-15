@@ -1,4 +1,4 @@
-import {DefaultExtraRefresherService} from "../../Field/Service/ExtraRefresher";
+import {DefaultExtraConfigurationRefresher} from "../../Field/Service/ExtraConfigurationRefresher";
 import IField from "../../Field/IField";
 import Field from "../../Field/Field";
 import {mock} from "jest-mock-extended";
@@ -20,7 +20,7 @@ describe('RefreshState', () => {
         return field as any;
     }
 
-    let refresher = new DefaultExtraRefresherService();
+    let refresher = new DefaultExtraConfigurationRefresher();
 
     it('should not refresh function,undefined,symbol', function () {
         const func = jest.fn();

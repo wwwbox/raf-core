@@ -16,7 +16,7 @@ import {DefaultFieldCollector, FieldCollector} from "./Service/FieldCollector";
 import {DefaultFieldExtraConfigurationService, FieldExtraConfigurationService} from "./Service/FieldExtraConfigurationService";
 import {FieldType} from "./Concrete/FieldType";
 import {DefaultFieldEventService, FieldEventService} from "./Service/FieldEventService";
-import {ExtraRefresher, DefaultExtraRefresherService} from "./Service/ExtraRefresher";
+import {ExtraConfigurationRefresher, DefaultExtraConfigurationRefresher} from "./Service/ExtraConfigurationRefresher";
 
 export class Field<ExtraConfiguration = any> extends React.Component<FieldProps, FieldState<ExtraConfiguration>> implements IField<ExtraConfiguration> {
 
@@ -24,9 +24,9 @@ export class Field<ExtraConfiguration = any> extends React.Component<FieldProps,
     protected _validator: FieldValidator;
     protected _uiService: FieldUIService;
     protected _collector: FieldCollector;
-    protected _extra: FieldExtraConfigurationService<ExtraConfiguration>;
+    protected _extraService: FieldExtraConfigurationService<ExtraConfiguration>;
     protected _eventService: FieldEventService;
-    protected _refresher: ExtraRefresher;
+    protected _extraConfigurationRefresher: ExtraConfigurationRefresher;
     private readonly initialState: FieldState;
     private isExtraUpdate: boolean = false;
 
@@ -40,9 +40,9 @@ export class Field<ExtraConfiguration = any> extends React.Component<FieldProps,
         this._validator = new DefaultFieldValidator(this, "validation");
         this._uiService = new DefaultFieldUIService(this, "ui");
         this._collector = new DefaultFieldCollector(this, "collecting");
-        this._extra = new DefaultFieldExtraConfigurationService(this, "extra");
+        this._extraService = new DefaultFieldExtraConfigurationService(this, "extra");
         this._eventService = new DefaultFieldEventService(this);
-        this._refresher = this.props.refresher ?? new DefaultExtraRefresherService();
+        this._extraConfigurationRefresher = this.props.refresher ?? new DefaultExtraConfigurationRefresher();
         this.state.value.extractValueFromEvent = this.state.value.extractValueFromEvent ?? (e => e.target.value);
         this.setupListeners();
     }
@@ -52,10 +52,10 @@ export class Field<ExtraConfiguration = any> extends React.Component<FieldProps,
             this.isExtraUpdate = false;
             return;
         }
-        if (this._refresher.refresh(this)) {
+        if (this._extraConfigurationRefresher.refresh(this)) {
             this.isExtraUpdate = true;
             this.forceUpdate();
-            this._extra.refreshConfiguration();
+            this._extraService.refreshConfiguration();
         }
     }
 
@@ -76,7 +76,7 @@ export class Field<ExtraConfiguration = any> extends React.Component<FieldProps,
     }
 
     extra(): FieldExtraConfigurationService<ExtraConfiguration> {
-        return this._extra;
+        return this._extraService;
     }
 
     getConfiguration<T>(key: keyof FieldState): T {

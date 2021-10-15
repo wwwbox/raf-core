@@ -20,7 +20,7 @@ export class DynamicField<ExtraConfiguration extends DynamicFieldConfiguration =
         ) : [''];
         this.state.value.defaultChangeHandler = () => new DefaultDynamicFieldChangeHandler(this);
 
-        this._extra = new DefaultDynamicFieldExtraConfigurationService(this, "extra");
+        this._extraService = new DefaultDynamicFieldExtraConfigurationService(this, "extra");
     }
 
     public addInput = (startingValue: any = '') => {
@@ -44,7 +44,7 @@ export class DynamicField<ExtraConfiguration extends DynamicFieldConfiguration =
     }
 
     extra(): DynamicFieldExtraConfigurationService<ExtraConfiguration> {
-        return this._extra as DynamicFieldExtraConfigurationService;
+        return this._extraService as DynamicFieldExtraConfigurationService;
     }
 
     getType(): FieldType {

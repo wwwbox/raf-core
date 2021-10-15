@@ -15,14 +15,14 @@ export class AutoUploadField<ExtraConfiguration extends AutoUploadFieldExtraConf
 
     constructor(props: FieldProps) {
         super(props);
-        this._extra = new AutoUploadFieldExtra(this, "extra");
+        this._extraService = new AutoUploadFieldExtra(this, "extra");
         this.state.value.defaultChangeHandler = () => new AutoUploadFieldChangeHandler(this);
         this.state.value.extractValueFromEvent = this.state.value.extractValueFromEvent ?? (e => e.target.files);
         this.uploader = this.extra().getUploader();
     }
 
     extra(): IAutoUploadFieldExtra<ExtraConfiguration> {
-        return this._extra as IAutoUploadFieldExtra;
+        return this._extraService as IAutoUploadFieldExtra;
     }
 
     public getUploader(): AutoUploader {
