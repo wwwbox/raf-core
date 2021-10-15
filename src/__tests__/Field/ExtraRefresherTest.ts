@@ -1,6 +1,6 @@
 import {ExtraRefresherBase} from "../../Field/ExtraRefresher";
 import IField from "../../Field/IField";
-import Field from "../../Field/Concrete/Field";
+import Field from "../../Field/Field";
 import {mock} from "jest-mock-extended";
 
 describe('RefreshState', () => {

@@ -1,9 +1,9 @@
 import FieldState from "../Field/FieldState";
 import {mock} from "jest-mock-extended";
 import IField from "../Field/IField";
-import {FieldConfigurationBase} from "../Field/Configuration/FieldConfiguration";
+import {FieldConfigurationServiceBase} from "../Field/Configuration/FieldConfigurationService";
 
-export class FieldConfigurationTestUtils<Configuration, Service extends FieldConfigurationBase<Configuration>> {
+export class FieldConfigurationTestUtils<Configuration, Service extends FieldConfigurationServiceBase<Configuration>> {
 
     private readonly configurationKey: keyof FieldState;
     private readonly defaultConfigurationForGet: Partial<Configuration>;

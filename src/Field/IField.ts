@@ -2,7 +2,7 @@ import {IForm} from "../Form/IForm";
 import {FieldProps} from "./FieldProps";
 import {IFieldValue} from "./Value/FieldValue";
 import {IFieldValidation} from "./Validation/FieldValidation";
-import {IFieldUI} from "./UI/FieldUI";
+import {FieldUIService} from "./Service/FieldUIService";
 import {IFieldCollecting} from "./Collecting/FieldCollecting";
 import {IFieldExtraConfiguration} from "./Configuration/FieldExtra";
 import {FieldType} from "./Concrete/FieldType";
@@ -15,7 +15,7 @@ export interface IField<ExtraConfiguration = any> {
 
     validation(): IFieldValidation;
 
-    ui(): IFieldUI;
+    uiService(): FieldUIService;
 
     event(): IFieldEvent;
 

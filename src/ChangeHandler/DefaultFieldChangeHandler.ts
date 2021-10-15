@@ -33,7 +33,7 @@ export class DefaultFieldChangeHandler implements FieldChangeHandler {
     };
 
     private shouldCancelChange = () => {
-        return this.getField().ui().isReadonly() || this.getField().ui().shouldDisable();
+        return this.getField().uiService().isReadonly() || this.getField().uiService().shouldDisable();
     };
 
     private notify() {

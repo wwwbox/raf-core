@@ -1,5 +1,5 @@
 import * as React from "react";
-import {Field} from "../Field/Concrete/Field";
+import {Field} from "../Field/Field";
 
 
 export abstract class DefaultFieldBase<ExtraConfiguration = any> extends Field<ExtraConfiguration> {
@@ -25,7 +25,7 @@ export abstract class DefaultFieldBase<ExtraConfiguration = any> extends Field<E
     protected getMainProps(): any {
         return {
             name: this.getName(),
-            disabled: this.ui().shouldDisable(),
+            disabled: this.uiService().shouldDisable(),
             value: this.value().get(),
             onChange: this.handleValueChange,
         }
@@ -58,7 +58,7 @@ export abstract class DefaultFieldBase<ExtraConfiguration = any> extends Field<E
 
     protected getWrapperStyle() {
         const wrapperStyle: any = {};
-        if (this.ui().isHidden())
+        if (this.uiService().isHidden())
             wrapperStyle["display"] = 'none';
         return wrapperStyle;
     }
@@ -82,8 +82,8 @@ export abstract class DefaultFieldBase<ExtraConfiguration = any> extends Field<E
     private renderMessage() {
         return <>
             {
-                this.ui().getMessage() &&
-                <span className={`message_type_${this.ui().getMessageType()}`}>{this.ui().getMessage()}</span>
+                this.uiService().getMessage() &&
+                <span className={`message_type_${this.uiService().getMessageType()}`}>{this.uiService().getMessage()}</span>
             }
         </>;
     }

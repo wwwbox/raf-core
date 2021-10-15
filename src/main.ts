@@ -22,10 +22,10 @@ import {FormProps} from './Form/FormProps';
 import {DefaultServices, ServiceConfiguration} from './Form/ServicesConfiguration';
 import {FormState} from './Form/FormState';
 import {FieldType} from './Field/Concrete/FieldType';
-import {FieldConfigurationBase, IFieldConfiguration} from './Field/Configuration/FieldConfiguration';
+import {FieldConfigurationServiceBase, IFieldConfigurationService} from './Field/Configuration/FieldConfigurationService';
 import {DynamicFieldConfiguration, IDynamicFieldExtra} from './Field/Configuration/DynamicFieldExtra';
 import {FieldEvent, IFieldEvent} from './Field/FieldEvent/FieldEvent';
-import {FieldMessageType, FieldUIConfiguration} from './Field/UI/FieldUIConfiguration';
+import {FieldMessageType, FieldUIConfiguration} from './Field/Configuration/FieldUIConfiguration';
 import {FieldValidationConfiguration} from './Field/Validation/FieldValidationConfiguration';
 import {FieldValidation, IFieldValidation} from './Field/Validation/FieldValidation';
 import {FieldValueConfiguration} from './Field/Value/FieldValueConfiguration';
@@ -40,7 +40,7 @@ import {DefaultFormRenderer} from "./Defaults/Services/DefaultFormRenderer";
 import {DefaultSubmitter} from "./Defaults/Services/DefaultSubmitter";
 import {FieldRendererBase} from "./Defaults/Services/FieldRendererBase";
 import {DynamicField} from "./Field/Concrete/DynamicField";
-import {Field} from "./Field/Concrete/Field";
+import {Field} from "./Field/Field";
 import {FileField} from "./Field/Concrete/FileField";
 import {AutoUploadField} from "./Field/Concrete/AutoUploadField/AutoUploadField";
 
@@ -55,7 +55,7 @@ import {
 import {FieldCollecting, IFieldCollecting} from './Field/Collecting/FieldCollecting';
 import {FieldCollectingConfiguration} from './Field/Collecting/FieldCollectingConfiguration';
 import {IForm} from './Form/IForm';
-import {FieldUI, IFieldUI} from './Field/UI/FieldUI';
+import {DefaultFieldUIService, FieldUIService} from './Field/Service/FieldUIService';
 import {
     DefaultExtraConfigurationInitializer,
     DynamicFieldExtraConfigurationInitializer,
@@ -82,12 +82,12 @@ export type {IFieldValue, FieldValueConfiguration};
 export {FieldValue};
 export type {IFieldValidation, FieldValidationConfiguration};
 export {FieldValidation};
-export {FieldMessageType, FieldUI};
-export type {IFieldUI, FieldUIConfiguration};
+export {FieldMessageType, DefaultFieldUIService};
+export type {FieldUIService, FieldUIConfiguration};
 export type {IFieldEvent};
 export {FieldEvent};
-export type {IDynamicFieldExtra, DynamicFieldConfiguration, IFieldConfiguration};
-export {FieldConfigurationBase};
+export type {IDynamicFieldExtra, DynamicFieldConfiguration, IFieldConfigurationService};
+export {FieldConfigurationServiceBase};
 export {FileField, Field, DynamicField, AutoUploadField};
 export {FieldType};
 export {FieldStateInitializer, DefaultExtraConfigurationInitializer, DynamicFieldExtraConfigurationInitializer};

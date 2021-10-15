@@ -1,8 +1,8 @@
-import {FieldConfigurationBase} from "../../Field/Configuration/FieldConfiguration";
+import {FieldConfigurationServiceBase} from "../../Field/Configuration/FieldConfigurationService";
 import IField from "../../Field/IField";
 import {FieldConfigurationTestUtils} from "../../TestingUtils/FieldConfigurationTestUtils";
 
-class DummyConfiguration extends FieldConfigurationBase<any> {
+class DummyConfiguration extends FieldConfigurationServiceBase<any> {
 
     constructor(field: IField, configurationKey: string) {
         super(field, configurationKey);

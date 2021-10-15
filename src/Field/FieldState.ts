@@ -1,5 +1,5 @@
 import {FieldCollectingConfiguration} from "./Collecting/FieldCollectingConfiguration";
-import {FieldUIConfiguration} from "./UI/FieldUIConfiguration";
+import {FieldUIConfiguration} from "./Configuration/FieldUIConfiguration";
 import {FieldValidationConfiguration} from "./Validation/FieldValidationConfiguration";
 import {FieldValueConfiguration} from "./Value/FieldValueConfiguration";
 

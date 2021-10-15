@@ -1,28 +1,28 @@
-import {FieldProps} from "../FieldProps";
-import {FieldState} from "../FieldState";
-import {IField} from "../IField";
+import {FieldProps} from "./FieldProps";
+import {FieldState} from "./FieldState";
+import {IField} from "./IField";
 import * as React from "react";
-import {IForm} from "../../Form/IForm";
+import {IForm} from "../Form/IForm";
 
 import FieldStateInitializer, {
     DefaultExtraConfigurationInitializer,
     IExtraConfigurationInitializer
-} from "./FieldStateInitializer";
+} from "./Concrete/FieldStateInitializer";
 
-import {FieldValue, IFieldValue} from "../Value/FieldValue";
-import {FieldValidation, IFieldValidation} from "../Validation/FieldValidation";
-import {FieldUI, IFieldUI} from "../UI/FieldUI";
-import {FieldCollecting, IFieldCollecting} from "../Collecting/FieldCollecting";
-import {FieldExtra, IFieldExtraConfiguration} from "../Configuration/FieldExtra";
-import {FieldType} from "./FieldType";
-import {FieldEvent, IFieldEvent} from "../FieldEvent/FieldEvent";
-import {ExtraRefresher, ExtraRefresherBase} from "../ExtraRefresher";
+import {FieldValue, IFieldValue} from "./Value/FieldValue";
+import {FieldValidation, IFieldValidation} from "./Validation/FieldValidation";
+import {DefaultFieldUIService, FieldUIService} from "./Service/FieldUIService";
+import {FieldCollecting, IFieldCollecting} from "./Collecting/FieldCollecting";
+import {FieldExtra, IFieldExtraConfiguration} from "./Configuration/FieldExtra";
+import {FieldType} from "./Concrete/FieldType";
+import {FieldEvent, IFieldEvent} from "./FieldEvent/FieldEvent";
+import {ExtraRefresher, ExtraRefresherBase} from "./ExtraRefresher";
 
 export class Field<ExtraConfiguration = any> extends React.Component<FieldProps, FieldState<ExtraConfiguration>> implements IField<ExtraConfiguration> {
 
     protected _value: IFieldValue;
     protected _validation: IFieldValidation;
-    protected _ui: IFieldUI;
+    protected _uiService: FieldUIService;
     protected _collecting: IFieldCollecting;
     protected _extra: IFieldExtraConfiguration<ExtraConfiguration>;
     protected _event: IFieldEvent;
@@ -38,7 +38,7 @@ export class Field<ExtraConfiguration = any> extends React.Component<FieldProps,
 
         this._value = new FieldValue(this, "value");
         this._validation = new FieldValidation(this, "validation");
-        this._ui = new FieldUI(this, "ui");
+        this._uiService = new DefaultFieldUIService(this, "ui");
         this._collecting = new FieldCollecting(this, "collecting");
         this._extra = new FieldExtra(this, "extra");
         this._event = new FieldEvent(this);
@@ -91,8 +91,8 @@ export class Field<ExtraConfiguration = any> extends React.Component<FieldProps,
         return FieldType.NORMAL;
     }
 
-    ui(): IFieldUI {
-        return this._ui;
+    uiService(): FieldUIService {
+        return this._uiService;
     }
 
     validation(): IFieldValidation {

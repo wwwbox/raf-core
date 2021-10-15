@@ -1,6 +1,6 @@
 import Enzyme, {mount} from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-import Field from "../../Field/Concrete/Field";
+import Field from "../../Field/Field";
 import * as React from "react";
 import {FieldProps} from "../../Field/FieldProps";
 import FieldStateInitializer, {DefaultExtraConfigurationInitializer} from "../../Field/Concrete/FieldStateInitializer";

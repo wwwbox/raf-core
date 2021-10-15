@@ -1,4 +1,4 @@
-import Field from "./Concrete/Field";
+import Field from "./Field";
 
 
 export interface ExtraRefresher {

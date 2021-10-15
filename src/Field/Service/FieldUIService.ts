@@ -1,8 +1,8 @@
-import {FieldMessageType, FieldUIConfiguration} from "./FieldUIConfiguration";
+import {FieldMessageType, FieldUIConfiguration} from "../Configuration/FieldUIConfiguration";
 import {IField} from "../IField";
-import {FieldConfigurationBase, IFieldConfiguration} from "../Configuration/FieldConfiguration";
+import {FieldConfigurationServiceBase, IFieldConfigurationService} from "../Configuration/FieldConfigurationService";
 
-export interface IFieldUI extends IFieldConfiguration<FieldUIConfiguration> {
+export interface FieldUIService extends IFieldConfigurationService<FieldUIConfiguration> {
 
     shouldDisable(): boolean;
 
@@ -40,7 +40,7 @@ export interface IFieldUI extends IFieldConfiguration<FieldUIConfiguration> {
 }
 
 
-export class FieldUI extends FieldConfigurationBase<FieldUIConfiguration> implements IFieldUI {
+export class DefaultFieldUIService extends FieldConfigurationServiceBase<FieldUIConfiguration> implements FieldUIService {
 
     constructor(field: IField, configurationKey: string) {
         super(field, configurationKey);

@@ -1,10 +1,10 @@
 import {FieldValidationConfiguration} from "./FieldValidationConfiguration";
 import {IField} from "../IField";
 import {Validator} from "../../Protocol/Validator";
-import {FieldConfigurationBase, IFieldConfiguration} from "../Configuration/FieldConfiguration";
+import {FieldConfigurationServiceBase, IFieldConfigurationService} from "../Configuration/FieldConfigurationService";
 import {FieldEvents} from "../../Event/DefaultEvents";
 
-export interface IFieldValidation extends IFieldConfiguration<FieldValidationConfiguration> {
+export interface IFieldValidation extends IFieldConfigurationService<FieldValidationConfiguration> {
     validate(): boolean;
 
     validateWithEffect(emitEventOnFail: boolean, afterChange?: () => void): boolean;
@@ -14,7 +14,7 @@ export interface IFieldValidation extends IFieldConfiguration<FieldValidationCon
     getCurrentValidState(): boolean;
 }
 
-export class FieldValidation extends FieldConfigurationBase<FieldValidationConfiguration> implements IFieldValidation {
+export class FieldValidation extends FieldConfigurationServiceBase<FieldValidationConfiguration> implements IFieldValidation {
 
     private validator: Validator | null = null;
 
@@ -49,8 +49,8 @@ export class FieldValidation extends FieldConfigurationBase<FieldValidationConfi
         }
 
         if (this.getConfiguration().updateMessageOnValidationFail) {
-            this.getField().ui().update('message', validationResult);
-            this.getField().ui().update('messageType', this.getConfiguration().onFailMessageType);
+            this.getField().uiService().update('message', validationResult);
+            this.getField().uiService().update('messageType', this.getConfiguration().onFailMessageType);
         }
 
         return valid;

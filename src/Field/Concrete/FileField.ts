@@ -1,4 +1,4 @@
-import {Field} from "./Field";
+import {Field} from "../Field";
 import {FieldType} from "./FieldType";
 import {FieldProps} from "../FieldProps";
 

@@ -1,6 +1,6 @@
 import {Validator} from "../../Protocol/Validator";
 import {IField} from "../IField";
-import {FieldMessageType} from "../UI/FieldUIConfiguration";
+import {FieldMessageType} from "../Configuration/FieldUIConfiguration";
 
 export interface FieldValidationConfiguration {
     validateOnChange: boolean;

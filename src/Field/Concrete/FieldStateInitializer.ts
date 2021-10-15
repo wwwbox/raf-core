@@ -1,6 +1,6 @@
 import {FieldState} from "../FieldState";
 import {FieldProps} from "../FieldProps";
-import {FieldUIConfiguration, getDefaultFieldUIConfiguration} from "../UI/FieldUIConfiguration";
+import {FieldUIConfiguration, getDefaultFieldUIConfiguration} from "../Configuration/FieldUIConfiguration";
 import {
     FieldCollectingConfiguration,
     getDefaultFieldCollectingConfiguration

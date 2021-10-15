@@ -4,7 +4,7 @@ import {mock} from "jest-mock-extended";
 import IField from "../../Field/IField";
 import {FieldType} from "../../Field/Concrete/FieldType";
 import {IFieldValue} from "../../Field/Value/FieldValue";
-import {IFieldUI} from "../../Field/UI/FieldUI";
+import {FieldUIService} from "../../Field/Service/FieldUIService";
 import {IFieldValidation} from "../../Field/Validation/FieldValidation";
 import DefaultDynamicFieldChangeHandler from "../../ChangeHandler/DefaultDynamicFieldChangeHandler";
 
@@ -19,7 +19,7 @@ describe('DefaultDynamicFieldChangeHandler', () => {
                     return currentValue;
                 }
             }),
-            ui: () => mock<IFieldUI>(),
+            uiService: () => mock<FieldUIService>(),
             validation: () => mock<IFieldValidation>({
                 config(): any {
                     return true

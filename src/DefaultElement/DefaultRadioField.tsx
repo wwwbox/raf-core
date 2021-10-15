@@ -13,7 +13,7 @@ export class DefaultRadioField extends DefaultOptionsFieldBase {
 
     protected renderOption(option: any, index: number): any {
         return <>
-            <input disabled={this.ui().shouldDisable()}
+            <input disabled={this.uiService().shouldDisable()}
                    checked={this.value().get() === option.value}
                    value={option.value}
                    name={this.getName()}

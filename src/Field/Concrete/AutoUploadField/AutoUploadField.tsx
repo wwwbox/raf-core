@@ -1,6 +1,6 @@
 import {AutoUploader} from "./AutoUploader";
 import {FieldProps} from "../../FieldProps";
-import Field from "../Field";
+import Field from "../../Field";
 import {AutoUploadFieldExtra, IAutoUploadFieldExtra} from "./AutoUploadFieldExtra";
 import {
     AutoUploadFieldExtraConfiguration,

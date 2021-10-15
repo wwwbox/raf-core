@@ -1,10 +1,10 @@
-import {FieldConfigurationBase, IFieldConfiguration} from "../../Configuration/FieldConfiguration";
+import {FieldConfigurationServiceBase, IFieldConfigurationService} from "../../Configuration/FieldConfigurationService";
 import {AutoUploadFieldExtraConfiguration} from "./AutoUploadFieldExtraConfiguration";
 import {IField} from "../../IField";
 import {AutoUploader} from "./AutoUploader";
 
 export interface IAutoUploadFieldExtra<ExtraConfiguration extends AutoUploadFieldExtraConfiguration = AutoUploadFieldExtraConfiguration>
-    extends IFieldConfiguration<ExtraConfiguration> {
+    extends IFieldConfigurationService<ExtraConfiguration> {
 
     getSelectedFile(): any;
 
@@ -26,7 +26,7 @@ export interface IAutoUploadFieldExtra<ExtraConfiguration extends AutoUploadFiel
 }
 
 export class AutoUploadFieldExtra<ExtraConfiguration extends AutoUploadFieldExtraConfiguration = AutoUploadFieldExtraConfiguration>
-    extends FieldConfigurationBase<ExtraConfiguration> implements IAutoUploadFieldExtra {
+    extends FieldConfigurationServiceBase<ExtraConfiguration> implements IAutoUploadFieldExtra {
 
     constructor(field: IField, configurationKey: string) {
         super(field, configurationKey);

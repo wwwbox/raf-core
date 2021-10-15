@@ -7,8 +7,8 @@ import {mock} from "jest-mock-extended";
 import Validator from "../../Protocol/Validator";
 import {IFieldEvent} from "../../Field/FieldEvent/FieldEvent";
 import {FieldValue, IFieldValue} from "../../Field/Value/FieldValue";
-import {IFieldUI} from "../../Field/UI/FieldUI";
-import {FieldMessageType} from "../../Field/UI/FieldUIConfiguration";
+import {FieldUIService} from "../../Field/Service/FieldUIService";
+import {FieldMessageType} from "../../Field/Configuration/FieldUIConfiguration";
 import {FieldEvents} from "../../Event/DefaultEvents";
 import {FieldConfigurationTestUtils} from "../../TestingUtils/FieldConfigurationTestUtils";
 
@@ -160,7 +160,7 @@ describe('UI Event', () => {
             validator: () => injectedValidator
         }, {
             value: () => mock<IFieldValue>(),
-            ui: () => mock<IFieldUI>({
+            uiService: () => mock<FieldUIService>({
                 update: updateUiMock
             }),
         });
@@ -187,7 +187,7 @@ describe('UI Event', () => {
         }, {
             event: () => eventMock,
             value: () => mock<IFieldValue>(),
-            ui: () => mock<IFieldUI>(),
+            uiService: () => mock<FieldUIService>(),
         });
         validation.validateWithEffect(true);
         expect(eventMock.emitOnThis).toBeCalledWith(FieldEvents.VALIDATION_FAIL, {validationResult: 'error'});

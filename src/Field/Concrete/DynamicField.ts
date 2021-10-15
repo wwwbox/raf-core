@@ -1,4 +1,4 @@
-import {Field} from "./Field";
+import {Field} from "../Field";
 import {DefaultDynamicFieldChangeHandler} from "../../ChangeHandler/DefaultDynamicFieldChangeHandler";
 import {FieldProps} from "../FieldProps";
 import {DynamicFieldConfiguration, DynamicFieldExtra, IDynamicFieldExtra} from "../Configuration/DynamicFieldExtra";

@@ -3,7 +3,7 @@ import {FormTestUtils} from "../../TestingUtils/FormTestUtils";
 import {FieldType} from "../../Field/Concrete/FieldType";
 import {IFieldValue} from "../../Field/Value/FieldValue";
 import {mock} from "jest-mock-extended";
-import {IFieldUI} from "../../Field/UI/FieldUI";
+import {FieldUIService} from "../../Field/Service/FieldUIService";
 import {IFieldValidation} from "../../Field/Validation/FieldValidation";
 import {FieldValidationConfiguration} from "../../Field/Validation/FieldValidationConfiguration";
 import {IFieldEvent} from "../../Field/FieldEvent/FieldEvent";
@@ -18,7 +18,7 @@ describe("DefaultFieldChangeHandler", () => {
                 set: mockedSet,
                 extractFromEvent: e => e,
             }),
-            ui: () => mock<IFieldUI>({
+            uiService: () => mock<FieldUIService>({
                 isReadonly(): boolean {
                     return readonly;
                 },

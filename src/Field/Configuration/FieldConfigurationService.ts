@@ -1,6 +1,6 @@
 import {IField} from "../IField";
 
-export interface IFieldConfiguration<T> {
+export interface IFieldConfigurationService<T> {
     update(key: keyof T, value: any, afterChange?: () => void): void;
 
     config<R = any>(key: keyof T): R;
@@ -8,7 +8,7 @@ export interface IFieldConfiguration<T> {
     refreshConfiguration(): void;
 }
 
-export class FieldConfigurationBase<T> implements IFieldConfiguration<T> {
+export class FieldConfigurationServiceBase<T> implements IFieldConfigurationService<T> {
 
     private readonly field: IField;
     private readonly configurationKey: string;
