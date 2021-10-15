@@ -7,11 +7,12 @@ import {
 import {
     FieldValidationConfiguration
 } from "../Configuration/FieldValidationConfiguration";
-import {FieldValueConfiguration, getDefaultFieldValueConfiguration} from "../Configuration/FieldValueConfiguration";
+import {FieldValueConfiguration} from "../Configuration/FieldValueConfiguration";
 import {DynamicFieldConfiguration, getDefaultDynamicFieldConfiguration} from "../Configuration/DynamicFieldExtra";
 import {getDefaultFieldUIConfiguration} from "../Configuration/Defaults/DefaultUIConfiguration";
 import {getDefaultFieldValidationConfiguration} from "../Configuration/Defaults/DefaultValidationConfiguration";
 import {getDefaultFieldCollectingConfiguration} from "../Configuration/Defaults/DefaultFieldCollectorConfiguration";
+import {getDefaultFieldValueConfiguration} from "../Configuration/Defaults/DefaultValueConfiguration";
 
 export class FieldStateInitializer<T extends FieldState = FieldState, Extra = any> {
     private readonly props: FieldProps;

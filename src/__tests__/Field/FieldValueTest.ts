@@ -1,12 +1,13 @@
 import {DefaultFieldValueService} from "../../Field/Service/FieldValueService";
 import IField from "../../Field/IField";
 import {mock} from "jest-mock-extended";
-import {FieldValueConfiguration, getDefaultFieldValueConfiguration} from "../../Field/Configuration/FieldValueConfiguration";
+import {FieldValueConfiguration} from "../../Field/Configuration/FieldValueConfiguration";
 import IForm from "../../Form/IForm";
 import {EventService} from "../../Form/Services/EventService";
 import {FieldEventService} from "../../Field/Service/FieldEventService";
 import {FieldConfigurationTestUtils} from "../../TestingUtils/FieldConfigurationTestUtils";
 import {FieldValidator} from "../../Field/Service/FieldValidator";
+import {getDefaultFieldValueConfiguration} from "../../Field/Configuration/Defaults/DefaultValueConfiguration";
 
 
 const testUtils = new FieldConfigurationTestUtils<FieldValueConfiguration, DefaultFieldValueService>("value",

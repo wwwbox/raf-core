@@ -9,13 +9,3 @@ export interface FieldValueConfiguration {
     defaultChangeHandler: (field: IField) => FieldChangeHandler;
     extractValueFromEvent?: (event: any) => any;
 }
-
-export function getDefaultFieldValueConfiguration(): FieldValueConfiguration {
-    return {
-        value: '',
-        clearValue: '',
-        valueChangeHandler: null,
-        defaultChangeHandler: field => new DefaultFieldChangeHandler(field),
-        extractValueFromEvent: undefined
-    }
-}
