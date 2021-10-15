@@ -60,7 +60,7 @@ export class DefaultFieldValidator extends FieldConfigurationServiceBase<FieldVa
         if (this.getConfiguration().skipValidation) {
             return true;
         }
-        const value = this.getField().value().get();
+        const value = this.getField().valueService().get();
         const rules = this.getConfiguration().rules;
         return this.getValidator().validate(value, rules);
     }

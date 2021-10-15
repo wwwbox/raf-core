@@ -3,7 +3,7 @@ import {IFieldEvent} from "../../Field/FieldEvent/FieldEvent";
 import {mock} from "jest-mock-extended";
 import IField from "../../Field/IField";
 import {FieldType} from "../../Field/Concrete/FieldType";
-import {IFieldValue} from "../../Field/Value/FieldValue";
+import {FieldValueService} from "../../Field/Service/FieldValueService";
 import {FieldUIService} from "../../Field/Service/FieldUIService";
 import {FieldValidator} from "../../Field/Service/FieldValidator";
 import DefaultDynamicFieldChangeHandler from "../../ChangeHandler/DefaultDynamicFieldChangeHandler";
@@ -12,7 +12,7 @@ describe('DefaultDynamicFieldChangeHandler', () => {
 
     function createField(mockedSet: any, currentValue: any[]): IField {
         return FormTestUtils.createMockedField('X', FieldType.NORMAL, {
-            value: () => mock<IFieldValue>({
+            valueService: () => mock<FieldValueService>({
                 set: mockedSet,
                 extractFromEvent: e => e.value,
                 get(): any {

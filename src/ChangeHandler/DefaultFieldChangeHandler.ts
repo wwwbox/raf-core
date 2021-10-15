@@ -22,12 +22,12 @@ export class DefaultFieldChangeHandler implements FieldChangeHandler {
     }
 
     protected getValue = (event: any) => {
-        return this.getField().value().extractFromEvent(event);
+        return this.getField().valueService().extractFromEvent(event);
     };
 
     protected changeValue = (event: any, value: any) => {
         const validateOnChange = this.getField().validator().config("validateOnChange") && !this.getField().validator().config("skipValidation")
-        this.getField().value().set(value, validateOnChange, () => {
+        this.getField().valueService().set(value, validateOnChange, () => {
             this.notify();
         });
     };

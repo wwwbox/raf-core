@@ -4,7 +4,7 @@ import {DefaultEventNameMaker} from "../../Event/IEventNameMaker";
 import {GlobalEvents} from "../../Event/DefaultEvents";
 import IField from "../../Field/IField";
 import {mock} from "jest-mock-extended";
-import {IFieldValue} from "../../Field/Value/FieldValue";
+import {FieldValueService} from "../../Field/Service/FieldValueService";
 
 describe('FormEvent', () => {
 
@@ -109,8 +109,8 @@ describe('FormEvent', () => {
             getName(): string {
                 return 'test';
             },
-            value(): IFieldValue {
-                return mock<IFieldValue>({
+            valueService(): FieldValueService {
+                return mock<FieldValueService>({
                     get(): any {
                         return 'value';
                     }

@@ -79,7 +79,7 @@ export class DefaultEventService implements EventService {
         const onAnyValueChanged = this.form.getProps().onAnyValueChanged;
         if (eventName === GlobalEvents.VALUE_CHANGED && onAnyValueChanged) {
             const field: IField = payload.field;
-            onAnyValueChanged(field.getName(), field.value().get(), field, this.form);
+            onAnyValueChanged(field.getName(), field.valueService().get(), field, this.form);
         }
     }
 

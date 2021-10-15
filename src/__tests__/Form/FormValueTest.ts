@@ -1,7 +1,7 @@
 import {DefaultFormValueService} from "../../Form/Services/FormValueService";
 import {mock} from "jest-mock-extended";
 import IField from "../../Field/IField";
-import {IFieldValue} from "../../Field/Value/FieldValue";
+import {FieldValueService} from "../../Field/Service/FieldValueService";
 import {IFieldCollecting} from "../../Field/Collecting/FieldCollecting";
 import {FormTestUtils} from "../../TestingUtils/FormTestUtils";
 import {FieldType} from "../../Field/Concrete/FieldType";
@@ -10,9 +10,9 @@ import {GlobalEvents} from "../../Event/DefaultEvents";
 
 describe('FormValueTest', () => {
 
-    function createField(value?: IFieldValue, collecting?: IFieldCollecting, name: string = 'X'): IField {
+    function createField(value?: FieldValueService, collecting?: IFieldCollecting, name: string = 'X'): IField {
         return FormTestUtils.createMockedField('X', FieldType.NORMAL, {
-            value: () => value,
+            valueService: () => value,
             collecting: () => collecting,
             getName: () => name,
         });
@@ -20,7 +20,7 @@ describe('FormValueTest', () => {
 
 
     it('should clear value', function () {
-        const fieldValueMock = mock<IFieldValue>();
+        const fieldValueMock = mock<FieldValueService>();
         const fields = [createField(fieldValueMock), createField(fieldValueMock), createField(fieldValueMock)];
         const mockedEvent = mock<EventService>();
         const value = new DefaultFormValueService(FormTestUtils.makeForm(fields, {
@@ -48,13 +48,13 @@ describe('FormValueTest', () => {
     });
 
     it('should set values', function () {
-        const field1ValueMock = mock<IFieldValue>({
+        const field1ValueMock = mock<FieldValueService>({
             set: jest.fn(),
         });
-        const field2ValueMock = mock<IFieldValue>({
+        const field2ValueMock = mock<FieldValueService>({
             set: jest.fn()
         });
-        const field3ValueMock = mock<IFieldValue>({
+        const field3ValueMock = mock<FieldValueService>({
             set: jest.fn()
         });
         const fields = [

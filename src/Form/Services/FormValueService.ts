@@ -21,7 +21,7 @@ export class DefaultFormValueService implements FormValueService {
     }
 
     clear(): void {
-        this.form.fieldsManager().getAllRegistered().forEach(field => field.value().clear());
+        this.form.fieldsManager().getAllRegistered().forEach(field => field.valueService().clear());
         this.form.eventService().emit(GlobalEvents.FORM_CLEARED, {});
     }
 
@@ -35,7 +35,7 @@ export class DefaultFormValueService implements FormValueService {
             .forEach(field => {
                 let value = values[field.getName()];
                 if (value !== undefined) {
-                    field.value().set(value);
+                    field.valueService().set(value);
                 }
             })
     }

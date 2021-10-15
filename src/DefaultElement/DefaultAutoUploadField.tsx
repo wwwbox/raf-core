@@ -16,7 +16,7 @@ export class DefaultAutoUploadField extends AutoUploadField {
             return <h4>File Uploaded : {this.extra().getUploadedFile()}</h4>
         }
         return <input type={'file'}
-                      onChange={this.value().getOnChangeHandler().handle}/>
+                      onChange={this.valueService().getOnChangeHandler().handle}/>
     }
 
     private renderProgress(): any {

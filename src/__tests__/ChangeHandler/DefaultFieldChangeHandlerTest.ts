@@ -1,7 +1,7 @@
 import IField from "../../Field/IField";
 import {FormTestUtils} from "../../TestingUtils/FormTestUtils";
 import {FieldType} from "../../Field/Concrete/FieldType";
-import {IFieldValue} from "../../Field/Value/FieldValue";
+import {FieldValueService} from "../../Field/Service/FieldValueService";
 import {mock} from "jest-mock-extended";
 import {FieldUIService} from "../../Field/Service/FieldUIService";
 import {FieldValidator} from "../../Field/Service/FieldValidator";
@@ -14,7 +14,7 @@ describe("DefaultFieldChangeHandler", () => {
 
     function createField(mockedSet: any, readonly: boolean = false, disabled: boolean = false, skipValidation: boolean = false, validateOnChange: boolean = true, fieldEvent: IFieldEvent = mock<IFieldEvent>()): IField {
         return FormTestUtils.createMockedField('X', FieldType.NORMAL, {
-            value: () => mock<IFieldValue>({
+            valueService: () => mock<FieldValueService>({
                 set: mockedSet,
                 extractFromEvent: e => e,
             }),

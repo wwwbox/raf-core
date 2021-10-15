@@ -35,7 +35,7 @@ export class DynamicField<ExtraConfiguration extends DynamicFieldConfiguration =
         const value = [...this.getDynamicValue()];
         const removedItem = value[index];
         value.splice(index, 1);
-        this.value().set(value);
+        this.valueService().set(value);
         this.extra().getOnItemRemoved()(removedItem, index, this);
     }
 
@@ -52,13 +52,13 @@ export class DynamicField<ExtraConfiguration extends DynamicFieldConfiguration =
     }
 
     protected getDynamicValue(): any[] {
-        return this.value().get();
+        return this.valueService().get();
     }
 
     private addValue(value: any[], startingValue: any) {
         const newItemIndex = value.length;
         value.push(startingValue);
-        this.value().set(value);
+        this.valueService().set(value);
         this.extra().getOnItemAdded()(newItemIndex, this);
     }
 }

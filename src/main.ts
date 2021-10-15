@@ -28,8 +28,8 @@ import {FieldEvent, IFieldEvent} from './Field/FieldEvent/FieldEvent';
 import {FieldMessageType, FieldUIConfiguration} from './Field/Configuration/FieldUIConfiguration';
 import {FieldValidationConfiguration} from './Field/Configuration/FieldValidationConfiguration';
 import {DefaultFieldValidator, FieldValidator} from './Field/Service/FieldValidator';
-import {FieldValueConfiguration} from './Field/Value/FieldValueConfiguration';
-import {FieldValue, IFieldValue} from './Field/Value/FieldValue';
+import {FieldValueConfiguration} from './Field/Configuration/FieldValueConfiguration';
+import {DefaultFieldValueService, FieldValueService} from './Field/Service/FieldValueService';
 import {FieldProps} from './Field/FieldProps';
 import {DefaultAutoUploadField} from "./DefaultElement/DefaultAutoUploadField";
 
@@ -78,8 +78,8 @@ import {DefaultTextAreaField} from './DefaultElement/DefaultTextAreaField';
 // --------------------- FIELD ---------------------
 
 export type {IField, FieldState, FieldProps};
-export type {IFieldValue, FieldValueConfiguration};
-export {FieldValue};
+export type {FieldValueService, FieldValueConfiguration};
+export {DefaultFieldValueService};
 export type {FieldValidator, FieldValidationConfiguration};
 export {DefaultFieldValidator};
 export {FieldMessageType, DefaultFieldUIService};

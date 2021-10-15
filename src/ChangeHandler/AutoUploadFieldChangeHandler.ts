@@ -14,7 +14,7 @@ export class AutoUploadFieldChangeHandler implements FieldChangeHandler {
     }
 
     handle(event: any): void {
-        const value = this.getField().value().extractFromEvent(event);
+        const value = this.getField().valueService().extractFromEvent(event);
         this.getField().extra().setSelectedFile(value, () => {
             this.getField().getUploader().upload();
         });

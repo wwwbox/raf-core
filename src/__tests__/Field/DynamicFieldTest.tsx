@@ -39,20 +39,20 @@ describe('DynamicField', () => {
 
     it('should start with one value when no default value supplied', function () {
         const field = getField();
-        const value = field.value().get();
+        const value = field.valueService().get();
         expect(value).toEqual(['']);
     });
 
     it('should return default value when supplied', function () {
         const field = getField({}, ['1', '2']);
-        const value = field.value().get();
+        const value = field.valueService().get();
         expect(value).toEqual(['1', '2']);
     });
 
     it('should add new input', function () {
         const field = getField();
         field.addInput('test');
-        const value = field.value().get();
+        const value = field.valueService().get();
         expect(value).toEqual(['', 'test']);
     });
 
@@ -61,16 +61,16 @@ describe('DynamicField', () => {
         field.addInput('test');
         field.addInput('other');
         field.removeInput(1);
-        let value = field.value().get();
+        let value = field.valueService().get();
         expect(value).toEqual(['', 'other']);
         field.removeInput(1);
-        value = field.value().get();
+        value = field.valueService().get();
         expect(value).toEqual(['']);
     });
 
     it('should use default dynamic change handler', function () {
         const field = getField();
-        const changeHandler = field.value().getOnChangeHandler();
+        const changeHandler = field.valueService().getOnChangeHandler();
         expect(changeHandler).toBeInstanceOf(DefaultDynamicFieldChangeHandler);
     });
 
@@ -78,9 +78,9 @@ describe('DynamicField', () => {
         const onMaxInputExceed = jest.fn();
         const field = getField({maxInput: 2, onMaxInputExceed: onMaxInputExceed});
         field.addInput();
-        expect(field.value().get()).toHaveLength(2);
+        expect(field.valueService().get()).toHaveLength(2);
         field.addInput();
-        expect(field.value().get()).toHaveLength(2);
+        expect(field.valueService().get()).toHaveLength(2);
         expect(onMaxInputExceed).toBeCalledWith(field);
     });
 

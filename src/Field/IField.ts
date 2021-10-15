@@ -1,6 +1,6 @@
 import {IForm} from "../Form/IForm";
 import {FieldProps} from "./FieldProps";
-import {IFieldValue} from "./Value/FieldValue";
+import {FieldValueService} from "./Service/FieldValueService";
 import {FieldValidator} from "./Service/FieldValidator";
 import {FieldUIService} from "./Service/FieldUIService";
 import {IFieldCollecting} from "./Collecting/FieldCollecting";
@@ -11,7 +11,7 @@ import {IFieldEvent} from "./FieldEvent/FieldEvent";
 
 export interface IField<ExtraConfiguration = any> {
 
-    value(): IFieldValue;
+    valueService(): FieldValueService;
 
     validator(): FieldValidator;
 

@@ -1,9 +1,9 @@
-import {FieldValueConfiguration} from "./FieldValueConfiguration";
+import {FieldValueConfiguration} from "../Configuration/FieldValueConfiguration";
 import {IField} from "../IField";
 import {FieldChangeHandler} from "../../Protocol/FieldChangeHandler";
 import {FieldConfigurationServiceBase, IFieldConfigurationService} from "../Configuration/FieldConfigurationService";
 
-export interface IFieldValue extends IFieldConfigurationService<FieldValueConfiguration> {
+export interface FieldValueService extends IFieldConfigurationService<FieldValueConfiguration> {
     clear(): void;
 
     get(): any;
@@ -15,7 +15,7 @@ export interface IFieldValue extends IFieldConfigurationService<FieldValueConfig
     extractFromEvent(e: any): any;
 }
 
-export class FieldValue extends FieldConfigurationServiceBase<FieldValueConfiguration> implements IFieldValue {
+export class DefaultFieldValueService extends FieldConfigurationServiceBase<FieldValueConfiguration> implements FieldValueService {
 
     constructor(field: IField, configurationKey: string) {
         super(field, configurationKey);

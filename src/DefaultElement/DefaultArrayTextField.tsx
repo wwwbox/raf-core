@@ -9,7 +9,7 @@ interface ExtraConfiguration extends DynamicFieldConfiguration {
 export class DefaultArrayTextField extends DynamicField<ExtraConfiguration> {
 
     render(): any {
-        const value = this.value().get();
+        const value = this.valueService().get();
         const label = this.extra().config('label' as any);
         return <div>
             {
@@ -21,7 +21,7 @@ export class DefaultArrayTextField extends DynamicField<ExtraConfiguration> {
             {
                 value.map((v: any, index: number) => <div key={index}>
                     <input value={v} type={'text'}
-                           onChange={e => this.value().getOnChangeHandler().handle({...e, index: index})}/>
+                           onChange={e => this.valueService().getOnChangeHandler().handle({...e, index: index})}/>
                     <button onClick={() => this.removeInput(index)}>REMOVE</button>
                 </div>)
             }

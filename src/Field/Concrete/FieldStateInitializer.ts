@@ -9,7 +9,7 @@ import {
     FieldValidationConfiguration,
     getDefaultFieldValidationConfiguration
 } from "../Configuration/FieldValidationConfiguration";
-import {FieldValueConfiguration, getDefaultFieldValueConfiguration} from "../Value/FieldValueConfiguration";
+import {FieldValueConfiguration, getDefaultFieldValueConfiguration} from "../Configuration/FieldValueConfiguration";
 import {DynamicFieldConfiguration, getDefaultDynamicFieldConfiguration} from "../Configuration/DynamicFieldExtra";
 
 export class FieldStateInitializer<T extends FieldState = FieldState, Extra = any> {

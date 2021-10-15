@@ -4,7 +4,7 @@ import {
     getDefaultFieldCollectingConfiguration
 } from "../../Field/Collecting/FieldCollectingConfiguration";
 import {FieldCollecting} from "../../Field/Collecting/FieldCollecting";
-import {IFieldValue} from "../../Field/Value/FieldValue";
+import {FieldValueService} from "../../Field/Service/FieldValueService";
 import {mock} from "jest-mock-extended";
 import {FieldConfigurationTestUtils} from "../../TestingUtils/FieldConfigurationTestUtils";
 
@@ -56,13 +56,13 @@ describe('FieldCollectingDefaults', () => {
             ready: true,
             skipCollecting: false,
         });
-        const valueMock = mock<IFieldValue>({
+        const valueMock = mock<FieldValueService>({
             get(): any {
                 return "test";
             }
         });
 
-        const mockField: any = {value: () => valueMock};
+        const mockField: any = {valueService: () => valueMock};
         const value = collect(mockField);
         expect(value).toEqual("test");
     });

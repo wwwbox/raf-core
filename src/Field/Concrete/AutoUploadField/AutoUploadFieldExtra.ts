@@ -67,7 +67,7 @@ export class AutoUploadFieldExtra<ExtraConfiguration extends AutoUploadFieldExtr
 
     removeUploadedFile(): void {
         this.update('uploadedFile', null);
-        this.getField().value().set(null);
+        this.getField().valueService().set(null);
     }
 
 }

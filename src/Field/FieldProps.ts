@@ -2,7 +2,7 @@ import {IForm} from "../Form/IForm";
 import {FieldCollectingConfiguration} from "./Collecting/FieldCollectingConfiguration";
 import {FieldUIConfiguration} from "./Configuration/FieldUIConfiguration";
 import {FieldValidationConfiguration} from "./Configuration/FieldValidationConfiguration";
-import {FieldValueConfiguration} from "./Value/FieldValueConfiguration";
+import {FieldValueConfiguration} from "./Configuration/FieldValueConfiguration";
 import {EventCallback} from "../Event/EventType";
 import {Validator} from "../Protocol/Validator";
 import {IEventNameMaker} from "../Event/IEventNameMaker";

@@ -12,6 +12,6 @@ export function getDefaultFieldCollectingConfiguration(): FieldCollectingConfigu
         asQuery: false,
         ready: true,
         skipCollecting: false,
-        collect: field => field.value().get()
+        collect: field => field.valueService().get()
     }
 }

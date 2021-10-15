@@ -9,7 +9,7 @@ import FieldStateInitializer, {
     IExtraConfigurationInitializer
 } from "./Concrete/FieldStateInitializer";
 
-import {FieldValue, IFieldValue} from "./Value/FieldValue";
+import {DefaultFieldValueService, FieldValueService} from "./Service/FieldValueService";
 import {DefaultFieldValidator, FieldValidator} from "./Service/FieldValidator";
 import {DefaultFieldUIService, FieldUIService} from "./Service/FieldUIService";
 import {FieldCollecting, IFieldCollecting} from "./Collecting/FieldCollecting";
@@ -20,7 +20,7 @@ import {ExtraRefresher, ExtraRefresherBase} from "./ExtraRefresher";
 
 export class Field<ExtraConfiguration = any> extends React.Component<FieldProps, FieldState<ExtraConfiguration>> implements IField<ExtraConfiguration> {
 
-    protected _value: IFieldValue;
+    protected _valueService: FieldValueService;
     protected _validator: FieldValidator;
     protected _uiService: FieldUIService;
     protected _collecting: IFieldCollecting;
@@ -36,7 +36,7 @@ export class Field<ExtraConfiguration = any> extends React.Component<FieldProps,
         this.initialState = JSON.parse(JSON.stringify(this.state));
         this.getForm().fieldsManager().register(this);
 
-        this._value = new FieldValue(this, "value");
+        this._valueService = new DefaultFieldValueService(this, "value");
         this._validator = new DefaultFieldValidator(this, "validation");
         this._uiService = new DefaultFieldUIService(this, "ui");
         this._collecting = new FieldCollecting(this, "collecting");
@@ -99,8 +99,8 @@ export class Field<ExtraConfiguration = any> extends React.Component<FieldProps,
         return this._validator;
     }
 
-    value(): IFieldValue {
-        return this._value;
+    valueService(): FieldValueService {
+        return this._valueService;
     }
 
     event(): IFieldEvent {
@@ -126,7 +126,7 @@ export class Field<ExtraConfiguration = any> extends React.Component<FieldProps,
     }
 
     protected handleValueChange = (e: any): void => {
-        this.value().getOnChangeHandler().handle(e);
+        this.valueService().getOnChangeHandler().handle(e);
     }
 
 }

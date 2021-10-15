@@ -26,7 +26,7 @@ export abstract class DefaultFieldBase<ExtraConfiguration = any> extends Field<E
         return {
             name: this.getName(),
             disabled: this.uiService().shouldDisable(),
-            value: this.value().get(),
+            value: this.valueService().get(),
             onChange: this.handleValueChange,
         }
     }

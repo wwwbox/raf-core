@@ -6,7 +6,7 @@ import {DefaultFieldValidator} from "../../Field/Service/FieldValidator";
 import {mock} from "jest-mock-extended";
 import Validator from "../../Protocol/Validator";
 import {IFieldEvent} from "../../Field/FieldEvent/FieldEvent";
-import {FieldValue, IFieldValue} from "../../Field/Value/FieldValue";
+import {DefaultFieldValueService, FieldValueService} from "../../Field/Service/FieldValueService";
 import {FieldUIService} from "../../Field/Service/FieldUIService";
 import {FieldMessageType} from "../../Field/Configuration/FieldUIConfiguration";
 import {FieldEvents} from "../../Event/DefaultEvents";
@@ -35,7 +35,7 @@ describe('UI Event', () => {
                     injectedValidator: validator
                 }
             },
-            value: () => mock<FieldValue>()
+            valueService: () => mock<DefaultFieldValueService>()
         });
 
         const valid = validation.validate();
@@ -57,7 +57,7 @@ describe('UI Event', () => {
                     injectedValidator: null
                 }
             },
-            value: () => mock<FieldValue>()
+            valueService: () => mock<DefaultFieldValueService>()
         });
 
         const valid = validation.validate();
@@ -91,7 +91,7 @@ describe('UI Event', () => {
         });
 
         const makeValidation = (value: any) => testUtils.getInstance({validator: () => validator}, {
-            value: () => mock<IFieldValue>({
+            valueService: () => mock<FieldValueService>({
                 get(): any {
                     return value;
                 }
@@ -129,7 +129,7 @@ describe('UI Event', () => {
 
         const makeValidation = (value: any) => testUtils.getInstance(initialConfiguration, {
             updateConfiguration: updateConfigurationMock,
-            value: () => mock<IFieldValue>({
+            valueService: () => mock<FieldValueService>({
                 get(): any {
                     return value;
                 }
@@ -159,7 +159,7 @@ describe('UI Event', () => {
             onFailMessageType: FieldMessageType.WARNING,
             validator: () => injectedValidator
         }, {
-            value: () => mock<IFieldValue>(),
+            valueService: () => mock<FieldValueService>(),
             uiService: () => mock<FieldUIService>({
                 update: updateUiMock
             }),
@@ -186,7 +186,7 @@ describe('UI Event', () => {
             validator: () => injectedValidator
         }, {
             event: () => eventMock,
-            value: () => mock<IFieldValue>(),
+            valueService: () => mock<FieldValueService>(),
             uiService: () => mock<FieldUIService>(),
         });
         validation.validateWithEffect(true);

@@ -1,7 +1,7 @@
-import {FieldValue} from "../../Field/Value/FieldValue";
+import {DefaultFieldValueService} from "../../Field/Service/FieldValueService";
 import IField from "../../Field/IField";
 import {mock} from "jest-mock-extended";
-import {FieldValueConfiguration, getDefaultFieldValueConfiguration} from "../../Field/Value/FieldValueConfiguration";
+import {FieldValueConfiguration, getDefaultFieldValueConfiguration} from "../../Field/Configuration/FieldValueConfiguration";
 import IForm from "../../Form/IForm";
 import {EventService} from "../../Form/Services/EventService";
 import {IFieldEvent} from "../../Field/FieldEvent/FieldEvent";
@@ -9,8 +9,8 @@ import {FieldConfigurationTestUtils} from "../../TestingUtils/FieldConfiguration
 import {FieldValidator} from "../../Field/Service/FieldValidator";
 
 
-const testUtils = new FieldConfigurationTestUtils<FieldValueConfiguration, FieldValue>("value",
-    field => new FieldValue(field, "value")
+const testUtils = new FieldConfigurationTestUtils<FieldValueConfiguration, DefaultFieldValueService>("value",
+    field => new DefaultFieldValueService(field, "value")
 );
 
 describe('FieldValue', () => {
@@ -27,8 +27,8 @@ describe('FieldValue', () => {
         }
     })
 
-    function getFieldValueInstance(): FieldValue {
-        return new FieldValue(field, "value");
+    function getFieldValueInstance(): DefaultFieldValueService {
+        return new DefaultFieldValueService(field, "value");
     }
 
     it('should extract value from event', function () {
