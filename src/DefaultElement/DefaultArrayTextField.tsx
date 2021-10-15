@@ -1,5 +1,5 @@
 import * as React from "react";
-import {DynamicField} from "../Field/Concrete/DynamicField";
+import {DynamicField} from "../Field/DynamicField";
 import {DynamicFieldConfiguration} from "../Field/Configuration/DyanmicFieldConfiguration";
 
 interface ExtraConfiguration extends DynamicFieldConfiguration {

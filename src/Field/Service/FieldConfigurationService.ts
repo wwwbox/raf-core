@@ -45,10 +45,6 @@ export class FieldConfigurationServiceBase<T> implements IFieldConfigurationServ
         return this.field.getConfiguration<T>(this.getConfigurationKey());
     }
 
-    protected getCurrentConfiguration(): T {
-        return this.currentConfiguration;
-    }
-
     protected getConfigurationKey(): string {
         return this.configurationKey;
     }

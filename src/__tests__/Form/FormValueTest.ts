@@ -4,7 +4,7 @@ import IField from "../../Field/IField";
 import {FieldValueService} from "../../Field/Service/FieldValueService";
 import {FieldCollector} from "../../Field/Service/FieldCollector";
 import {FormTestUtils} from "../../TestingUtils/FormTestUtils";
-import {FieldType} from "../../Field/Concrete/FieldType";
+import {FieldType} from "../../Field/FieldType";
 import {EventService} from "../../Form/Services/EventService";
 import {GlobalEvents} from "../../Event/DefaultEvents";
 

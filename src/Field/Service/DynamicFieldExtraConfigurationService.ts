@@ -1,5 +1,5 @@
 import {DefaultFieldExtraConfigurationService, FieldExtraConfigurationService} from "./FieldExtraConfigurationService";
-import {DynamicField} from "../Concrete/DynamicField";
+import {DynamicField} from "../DynamicField";
 import {DynamicFieldConfiguration} from "../Configuration/DyanmicFieldConfiguration";
 
 export interface DynamicFieldExtraConfigurationService<ExtraConfiguration extends DynamicFieldConfiguration = DynamicFieldConfiguration> extends FieldExtraConfigurationService<ExtraConfiguration> {

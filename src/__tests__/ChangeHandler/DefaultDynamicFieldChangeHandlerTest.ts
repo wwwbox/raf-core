@@ -2,7 +2,7 @@ import {FormTestUtils} from "../../TestingUtils/FormTestUtils";
 import {FieldEventService} from "../../Field/Service/FieldEventService";
 import {mock} from "jest-mock-extended";
 import IField from "../../Field/IField";
-import {FieldType} from "../../Field/Concrete/FieldType";
+import {FieldType} from "../../Field/FieldType";
 import {FieldValueService} from "../../Field/Service/FieldValueService";
 import {FieldUIService} from "../../Field/Service/FieldUIService";
 import {FieldValidator} from "../../Field/Service/FieldValidator";

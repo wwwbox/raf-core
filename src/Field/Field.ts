@@ -7,14 +7,14 @@ import {IForm} from "../Form/IForm";
 import FieldStateInitializer, {
     DefaultExtraConfigurationInitializer,
     IExtraConfigurationInitializer
-} from "./Concrete/FieldStateInitializer";
+} from "./Service/FieldStateInitializer";
 
 import {DefaultFieldValueService, FieldValueService} from "./Service/FieldValueService";
 import {DefaultFieldValidator, FieldValidator} from "./Service/FieldValidator";
 import {DefaultFieldUIService, FieldUIService} from "./Service/FieldUIService";
 import {DefaultFieldCollector, FieldCollector} from "./Service/FieldCollector";
 import {DefaultFieldExtraConfigurationService, FieldExtraConfigurationService} from "./Service/FieldExtraConfigurationService";
-import {FieldType} from "./Concrete/FieldType";
+import {FieldType} from "./FieldType";
 import {DefaultFieldEventService, FieldEventService} from "./Service/FieldEventService";
 import {ExtraConfigurationRefresher, DefaultExtraConfigurationRefresher} from "./Service/ExtraConfigurationRefresher";
 

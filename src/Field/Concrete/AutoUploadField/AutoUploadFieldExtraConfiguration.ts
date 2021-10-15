@@ -1,6 +1,6 @@
 import {AutoUploader, DefaultAutoUploader} from "./AutoUploader";
 import {AutoUploadField} from "./AutoUploadField";
-import {IExtraConfigurationInitializer} from "../FieldStateInitializer";
+import {IExtraConfigurationInitializer} from "../../Service/FieldStateInitializer";
 
 export interface AutoUploadFieldExtraConfiguration {
     inputFile: any;

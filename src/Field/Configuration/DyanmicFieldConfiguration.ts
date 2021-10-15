@@ -1,4 +1,4 @@
-import {DynamicField} from "../Concrete/DynamicField";
+import {DynamicField} from "../DynamicField";
 
 export interface DynamicFieldConfiguration {
     maxInput: number;

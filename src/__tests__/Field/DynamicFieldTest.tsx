@@ -1,5 +1,5 @@
-import DynamicField from "../../Field/Concrete/DynamicField";
-import {FieldType} from "../../Field/Concrete/FieldType";
+import DynamicField from "../../Field/DynamicField";
+import {FieldType} from "../../Field/FieldType";
 import Enzyme, {mount} from "enzyme";
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import * as React from "react";

@@ -5,7 +5,7 @@ import {DefaultFormValidator} from "../../Form/Services/FormValidator";
 import {EventService} from "../../Form/Services/EventService";
 import {GlobalEvents} from "../../Event/DefaultEvents";
 import {FormTestUtils} from "../../TestingUtils/FormTestUtils";
-import {FieldType} from "../../Field/Concrete/FieldType";
+import {FieldType} from "../../Field/FieldType";
 
 describe('FormValidation', () => {
 

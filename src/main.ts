@@ -21,7 +21,7 @@ import {DefaultFormValueService, FormValueService} from './Form/Services/FormVal
 import {FormProps} from './Form/FormProps';
 import {DefaultServices, ServiceConfiguration} from './Form/ServicesConfiguration';
 import {FormState} from './Form/FormState';
-import {FieldType} from './Field/Concrete/FieldType';
+import {FieldType} from './Field/FieldType';
 import {FieldConfigurationServiceBase, IFieldConfigurationService} from './Field/Service/FieldConfigurationService';
 import {DynamicFieldConfiguration} from './Field/Configuration/DyanmicFieldConfiguration';
 import {DynamicFieldExtraConfigurationService , DefaultDynamicFieldExtraConfigurationService} from './Field/Service/DynamicFieldExtraConfigurationService';
@@ -40,9 +40,9 @@ import {DefaultFieldRenderer} from "./Defaults/Services/DefaultFieldRenderer";
 import {DefaultFormRenderer} from "./Defaults/Services/DefaultFormRenderer";
 import {DefaultSubmitter} from "./Defaults/Services/DefaultSubmitter";
 import {FieldRendererBase} from "./Defaults/Services/FieldRendererBase";
-import {DynamicField} from "./Field/Concrete/DynamicField";
+import {DynamicField} from "./Field/DynamicField";
 import {Field} from "./Field/Field";
-import {FileField} from "./Field/Concrete/FileField";
+import {FileField} from "./Field/FileField";
 import {AutoUploadField} from "./Field/Concrete/AutoUploadField/AutoUploadField";
 
 
@@ -62,7 +62,7 @@ import {
     DynamicFieldExtraConfigurationInitializer,
     FieldStateInitializer,
     IExtraConfigurationInitializer
-} from './Field/Concrete/FieldStateInitializer';
+} from './Field/Service/FieldStateInitializer';
 import {IField} from './Field/IField';
 import {FieldState} from './Field/FieldState';
 import {Form} from './Form/Form';

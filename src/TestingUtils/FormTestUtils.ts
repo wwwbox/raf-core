@@ -3,7 +3,7 @@ import IField from "../Field/IField";
 import {FormFieldsManager} from "../Form/Services/FormFieldsManager";
 import {mock} from "jest-mock-extended";
 import IForm from "../Form/IForm";
-import {FieldType} from "../Field/Concrete/FieldType";
+import {FieldType} from "../Field/FieldType";
 import {DefaultServices} from '../Form/ServicesConfiguration';
 
 export class FormTestUtils {

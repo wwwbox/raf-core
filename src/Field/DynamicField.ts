@@ -1,13 +1,13 @@
-import {Field} from "../Field";
-import {DefaultDynamicFieldChangeHandler} from "../../ChangeHandler/DefaultDynamicFieldChangeHandler";
-import {FieldProps} from "../FieldProps";
-import {DynamicFieldConfiguration} from "../Configuration/DyanmicFieldConfiguration";
-import {DynamicFieldExtraConfigurationInitializer, IExtraConfigurationInitializer} from "./FieldStateInitializer";
+import {Field} from "./Field";
+import {DefaultDynamicFieldChangeHandler} from "../ChangeHandler/DefaultDynamicFieldChangeHandler";
+import {FieldProps} from "./FieldProps";
+import {DynamicFieldConfiguration} from "./Configuration/DyanmicFieldConfiguration";
+import {DynamicFieldExtraConfigurationInitializer, IExtraConfigurationInitializer} from "./Service/FieldStateInitializer";
 import {FieldType} from "./FieldType";
 import {
     DefaultDynamicFieldExtraConfigurationService,
     DynamicFieldExtraConfigurationService
-} from "../Service/DynamicFieldExtraConfigurationService";
+} from "./Service/DynamicFieldExtraConfigurationService";
 
 export class DynamicField<ExtraConfiguration extends DynamicFieldConfiguration = DynamicFieldConfiguration> extends Field<ExtraConfiguration> {
 

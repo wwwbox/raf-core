@@ -7,8 +7,9 @@ import {
     AutoUploadFieldExtraConfigurationInitializer
 } from "./AutoUploadFieldExtraConfiguration";
 import {AutoUploadFieldChangeHandler} from "../../../ChangeHandler/AutoUploadFieldChangeHandler";
-import {IExtraConfigurationInitializer} from "../FieldStateInitializer";
+import {IExtraConfigurationInitializer} from "../../Service/FieldStateInitializer";
 
+//TODO : move into its own package
 export class AutoUploadField<ExtraConfiguration extends AutoUploadFieldExtraConfiguration = AutoUploadFieldExtraConfiguration> extends Field<ExtraConfiguration> {
 
     private readonly uploader: AutoUploader;

@@ -1,6 +1,6 @@
 import {Service} from '@autofiy/autofiyable';
 import {IForm} from "../IForm";
-import {FieldType} from "../../Field/Concrete/FieldType";
+import {FieldType} from "../../Field/FieldType";
 import {IField} from "../../Field/IField";
 
 export interface Collector extends Service {

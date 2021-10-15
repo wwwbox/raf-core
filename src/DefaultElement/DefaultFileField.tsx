@@ -1,7 +1,7 @@
 import * as React from "react";
 import {DefaultTextField as TextField} from "./DefaultTextField";
 import {FieldProps} from "../Field/FieldProps";
-import {FieldType} from "../Field/Concrete/FieldType";
+import {FieldType} from "../Field/FieldType";
 
 
 interface FileExtraConfiguration {

@@ -5,7 +5,7 @@ import {FieldValidator} from "./Service/FieldValidator";
 import {FieldUIService} from "./Service/FieldUIService";
 import {FieldCollector} from "./Service/FieldCollector";
 import {FieldExtraConfigurationService} from "./Service/FieldExtraConfigurationService";
-import {FieldType} from "./Concrete/FieldType";
+import {FieldType} from "./FieldType";
 import {FieldEventService} from "./Service/FieldEventService";
 
 
