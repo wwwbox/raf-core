@@ -12,7 +12,7 @@ import FieldStateInitializer, {
 import {DefaultFieldValueService, FieldValueService} from "./Service/FieldValueService";
 import {DefaultFieldValidator, FieldValidator} from "./Service/FieldValidator";
 import {DefaultFieldUIService, FieldUIService} from "./Service/FieldUIService";
-import {DefaultFieldCollector, FieldCollector} from "./Collecting/DefaultFieldCollector";
+import {DefaultFieldCollector, FieldCollector} from "./Service/FieldCollector";
 import {FieldExtra, IFieldExtraConfiguration} from "./Configuration/FieldExtra";
 import {FieldType} from "./Concrete/FieldType";
 import {DefaultFieldEventService, FieldEventService} from "./Service/FieldEventService";

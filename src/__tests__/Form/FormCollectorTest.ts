@@ -3,7 +3,7 @@ import {mock} from "jest-mock-extended";
 import IField from "../../Field/IField";
 import {FieldType} from "../../Field/Concrete/FieldType";
 import {DefaultCollector} from "../../Form/Services/Collector";
-import {FieldCollector} from "../../Field/Collecting/DefaultFieldCollector";
+import {FieldCollector} from "../../Field/Service/FieldCollector";
 
 describe('DefaultFromCollector', () => {
 

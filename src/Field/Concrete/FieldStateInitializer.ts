@@ -4,7 +4,7 @@ import {FieldUIConfiguration, getDefaultFieldUIConfiguration} from "../Configura
 import {
     FieldCollectingConfiguration,
     getDefaultFieldCollectingConfiguration
-} from "../Collecting/FieldCollectingConfiguration";
+} from "../Configuration/FieldCollectingConfiguration";
 import {
     FieldValidationConfiguration,
     getDefaultFieldValidationConfiguration

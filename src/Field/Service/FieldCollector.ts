@@ -1,5 +1,5 @@
 import {IField} from "../IField";
-import {FieldCollectingConfiguration} from "./FieldCollectingConfiguration";
+import {FieldCollectingConfiguration} from "../Configuration/FieldCollectingConfiguration";
 import {FieldConfigurationServiceBase, IFieldConfigurationService} from "../Configuration/FieldConfigurationService";
 
 export interface FieldCollector extends IFieldConfigurationService<FieldCollectingConfiguration> {

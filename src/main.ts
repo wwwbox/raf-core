@@ -52,8 +52,8 @@ import {
     AutoUploadFieldExtraConfiguration,
     AutoUploadFieldExtraConfigurationInitializer
 } from './Field/Concrete/AutoUploadField/AutoUploadFieldExtraConfiguration';
-import {DefaultFieldCollector, FieldCollector} from './Field/Collecting/DefaultFieldCollector';
-import {FieldCollectingConfiguration} from './Field/Collecting/FieldCollectingConfiguration';
+import {DefaultFieldCollector, FieldCollector} from './Field/Service/FieldCollector';
+import {FieldCollectingConfiguration} from './Field/Configuration/FieldCollectingConfiguration';
 import {IForm} from './Form/IForm';
 import {DefaultFieldUIService, FieldUIService} from './Field/Service/FieldUIService';
 import {

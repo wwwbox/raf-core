@@ -2,7 +2,7 @@ import {DefaultFormValueService} from "../../Form/Services/FormValueService";
 import {mock} from "jest-mock-extended";
 import IField from "../../Field/IField";
 import {FieldValueService} from "../../Field/Service/FieldValueService";
-import {FieldCollector} from "../../Field/Collecting/DefaultFieldCollector";
+import {FieldCollector} from "../../Field/Service/FieldCollector";
 import {FormTestUtils} from "../../TestingUtils/FormTestUtils";
 import {FieldType} from "../../Field/Concrete/FieldType";
 import {EventService} from "../../Form/Services/EventService";

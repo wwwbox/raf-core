@@ -2,8 +2,8 @@ import * as React from "react";
 import {
     FieldCollectingConfiguration,
     getDefaultFieldCollectingConfiguration
-} from "../../Field/Collecting/FieldCollectingConfiguration";
-import {DefaultFieldCollector} from "../../Field/Collecting/DefaultFieldCollector";
+} from "../../Field/Configuration/FieldCollectingConfiguration";
+import {DefaultFieldCollector} from "../../Field/Service/FieldCollector";
 import {FieldValueService} from "../../Field/Service/FieldValueService";
 import {mock} from "jest-mock-extended";
 import {FieldConfigurationTestUtils} from "../../TestingUtils/FieldConfigurationTestUtils";

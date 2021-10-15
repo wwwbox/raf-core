@@ -3,7 +3,7 @@ import {FieldProps} from "./FieldProps";
 import {FieldValueService} from "./Service/FieldValueService";
 import {FieldValidator} from "./Service/FieldValidator";
 import {FieldUIService} from "./Service/FieldUIService";
-import {FieldCollector} from "./Collecting/DefaultFieldCollector";
+import {FieldCollector} from "./Service/FieldCollector";
 import {IFieldExtraConfiguration} from "./Configuration/FieldExtra";
 import {FieldType} from "./Concrete/FieldType";
 import {FieldEventService} from "./Service/FieldEventService";
