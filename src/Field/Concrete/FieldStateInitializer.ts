@@ -1,6 +1,6 @@
 import {FieldState} from "../FieldState";
 import {FieldProps} from "../FieldProps";
-import {FieldUIConfiguration, getDefaultFieldUIConfiguration} from "../Configuration/FieldUIConfiguration";
+import {FieldUIConfiguration} from "../Configuration/FieldUIConfiguration";
 import {
     FieldCollectingConfiguration,
     getDefaultFieldCollectingConfiguration
@@ -11,6 +11,7 @@ import {
 } from "../Configuration/FieldValidationConfiguration";
 import {FieldValueConfiguration, getDefaultFieldValueConfiguration} from "../Configuration/FieldValueConfiguration";
 import {DynamicFieldConfiguration, getDefaultDynamicFieldConfiguration} from "../Configuration/DynamicFieldExtra";
+import {getDefaultFieldUIConfiguration} from "../Configuration/Defaults/DefaultUIConfiguration";
 
 export class FieldStateInitializer<T extends FieldState = FieldState, Extra = any> {
     private readonly props: FieldProps;

@@ -15,18 +15,3 @@ export enum FieldMessageType {
     INFO,
     WARNING
 }
-
-
-export function getDefaultFieldUIConfiguration(): FieldUIConfiguration {
-    return {
-        disabled: false,
-        message: '',
-        messageType: FieldMessageType.INFO,
-        disableOnLoading: false,
-        disableOnFormLoading: true,
-        hidden: false,
-        loading: false,
-        readonly: false
-    }
-}
-

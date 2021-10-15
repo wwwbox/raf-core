@@ -1,11 +1,8 @@
 import * as React from "react";
 import {DefaultFieldUIService} from "../../Field/Service/FieldUIService";
-import {
-    FieldMessageType,
-    FieldUIConfiguration,
-    getDefaultFieldUIConfiguration
-} from "../../Field/Configuration/FieldUIConfiguration";
+import {FieldMessageType, FieldUIConfiguration} from "../../Field/Configuration/FieldUIConfiguration";
 import {FieldConfigurationTestUtils} from "../../TestingUtils/FieldConfigurationTestUtils";
+import {getDefaultFieldUIConfiguration} from "../../Field/Configuration/Defaults/DefaultUIConfiguration";
 
 
 const testUtils = new FieldConfigurationTestUtils<FieldUIConfiguration, DefaultFieldUIService>("ui",
