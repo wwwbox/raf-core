@@ -26,7 +26,7 @@ export class DefaultCollector implements Collector {
     }
 
     data(): any {
-        return this.collect(field => field.getType() !== FieldType.FILE && !field.collecting().isAsQuery())
+        return this.collect(field => field.getType() !== FieldType.FILE && !field.collector().isAsQuery())
     }
 
     files(): any {
@@ -34,14 +34,14 @@ export class DefaultCollector implements Collector {
     }
 
     query(): any {
-        return this.collect(field => field.getType() !== FieldType.FILE && field.collecting().isAsQuery())
+        return this.collect(field => field.getType() !== FieldType.FILE && field.collector().isAsQuery())
     }
 
     private collect(filter: (field: IField) => boolean): any {
         const data: any = {};
         this.form.fieldsManager().getAllRegistered().forEach(field => {
-            if (!field.collecting().shouldSkip() && filter(field)) {
-                data[field.getName()] = field.collecting().collect()
+            if (!field.collector().shouldSkip() && filter(field)) {
+                data[field.getName()] = field.collector().collect()
             }
         });
         return data;

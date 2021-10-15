@@ -52,7 +52,7 @@ import {
     AutoUploadFieldExtraConfiguration,
     AutoUploadFieldExtraConfigurationInitializer
 } from './Field/Concrete/AutoUploadField/AutoUploadFieldExtraConfiguration';
-import {FieldCollecting, IFieldCollecting} from './Field/Collecting/FieldCollecting';
+import {DefaultFieldCollector, FieldCollector} from './Field/Collecting/DefaultFieldCollector';
 import {FieldCollectingConfiguration} from './Field/Collecting/FieldCollectingConfiguration';
 import {IForm} from './Form/IForm';
 import {DefaultFieldUIService, FieldUIService} from './Field/Service/FieldUIService';
@@ -94,8 +94,8 @@ export {FieldStateInitializer, DefaultExtraConfigurationInitializer, DynamicFiel
 export type {IExtraConfigurationInitializer};
 export {DefaultAutoUploader, AutoUploadFieldEvents, AutoUploadFieldExtra, AutoUploadFieldExtraConfigurationInitializer};
 export type {AutoUploader, IAutoUploadFieldExtra, AutoUploadFieldExtraConfiguration};
-export type {IFieldCollecting, FieldCollectingConfiguration};
-export {FieldCollecting};
+export type {FieldCollector, FieldCollectingConfiguration};
+export {DefaultFieldCollector};
 
 // --------------------- FIELD ---------------------
 

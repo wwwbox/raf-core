@@ -3,7 +3,7 @@ import {
     FieldCollectingConfiguration,
     getDefaultFieldCollectingConfiguration
 } from "../../Field/Collecting/FieldCollectingConfiguration";
-import {FieldCollecting} from "../../Field/Collecting/FieldCollecting";
+import {DefaultFieldCollector} from "../../Field/Collecting/DefaultFieldCollector";
 import {FieldValueService} from "../../Field/Service/FieldValueService";
 import {mock} from "jest-mock-extended";
 import {FieldConfigurationTestUtils} from "../../TestingUtils/FieldConfigurationTestUtils";
@@ -11,8 +11,8 @@ import {FieldConfigurationTestUtils} from "../../TestingUtils/FieldConfiguration
 
 describe('FieldCollecting', () => {
 
-    const testUtils = new FieldConfigurationTestUtils<FieldCollectingConfiguration, FieldCollecting>("collecting",
-        field => new FieldCollecting(field, "collecting")
+    const testUtils = new FieldConfigurationTestUtils<FieldCollectingConfiguration, DefaultFieldCollector>("collecting",
+        field => new DefaultFieldCollector(field, "collecting")
     );
 
 

@@ -3,13 +3,13 @@ import {mock} from "jest-mock-extended";
 import IField from "../../Field/IField";
 import {FieldType} from "../../Field/Concrete/FieldType";
 import {DefaultCollector} from "../../Form/Services/Collector";
-import {IFieldCollecting} from "../../Field/Collecting/FieldCollecting";
+import {FieldCollector} from "../../Field/Collecting/DefaultFieldCollector";
 
 describe('DefaultFromCollector', () => {
 
     function createField(name: string, type: FieldType, collectedValue: any, shouldCollect: boolean = true, asQuery: boolean = false): IField {
         return FormTestUtils.createMockedField(name, type, {
-            collecting: () => mock<IFieldCollecting>({
+            collector: () => mock<FieldCollector>({
                 collect(): any {
                     return collectedValue;
                 },

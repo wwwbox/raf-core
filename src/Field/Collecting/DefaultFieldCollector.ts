@@ -2,7 +2,7 @@ import {IField} from "../IField";
 import {FieldCollectingConfiguration} from "./FieldCollectingConfiguration";
 import {FieldConfigurationServiceBase, IFieldConfigurationService} from "../Configuration/FieldConfigurationService";
 
-export interface IFieldCollecting extends IFieldConfigurationService<FieldCollectingConfiguration> {
+export interface FieldCollector extends IFieldConfigurationService<FieldCollectingConfiguration> {
     setSkip(skip: boolean): void;
 
     shouldSkip(): boolean;
@@ -19,7 +19,7 @@ export interface IFieldCollecting extends IFieldConfigurationService<FieldCollec
 
 }
 
-export class FieldCollecting extends FieldConfigurationServiceBase<FieldCollectingConfiguration> implements IFieldCollecting {
+export class DefaultFieldCollector extends FieldConfigurationServiceBase<FieldCollectingConfiguration> implements FieldCollector {
 
     constructor(field: IField, configurationKey: string) {
         super(field, configurationKey);

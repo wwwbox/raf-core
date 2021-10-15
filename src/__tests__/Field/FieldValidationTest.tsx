@@ -185,7 +185,7 @@ describe('UI Event', () => {
             onFailMessageType: FieldMessageType.WARNING,
             validator: () => injectedValidator
         }, {
-            event: () => eventMock,
+            eventService: () => eventMock,
             valueService: () => mock<FieldValueService>(),
             uiService: () => mock<FieldUIService>(),
         });

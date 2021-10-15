@@ -32,7 +32,7 @@ describe("DefaultFieldChangeHandler", () => {
                     if (key === "validateOnChange") return validateOnChange;
                 }
             }),
-            event: () => fieldEvent
+            eventService: () => fieldEvent
         });
     }
 

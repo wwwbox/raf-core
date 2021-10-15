@@ -26,7 +26,7 @@ export class DefaultFormValueService implements FormValueService {
     }
 
     isReady(): boolean {
-        return this.form.fieldsManager().getAllRegistered().every(field => field.collecting().isReady());
+        return this.form.fieldsManager().getAllRegistered().every(field => field.collector().isReady());
     }
 
     set(values: any): void {

@@ -3,7 +3,7 @@ import {FieldProps} from "./FieldProps";
 import {FieldValueService} from "./Service/FieldValueService";
 import {FieldValidator} from "./Service/FieldValidator";
 import {FieldUIService} from "./Service/FieldUIService";
-import {IFieldCollecting} from "./Collecting/FieldCollecting";
+import {FieldCollector} from "./Collecting/DefaultFieldCollector";
 import {IFieldExtraConfiguration} from "./Configuration/FieldExtra";
 import {FieldType} from "./Concrete/FieldType";
 import {FieldEventService} from "./Service/FieldEventService";
@@ -21,7 +21,7 @@ export interface IField<ExtraConfiguration = any> {
 
     extra(): IFieldExtraConfiguration<ExtraConfiguration>;
 
-    collecting(): IFieldCollecting;
+    collector(): FieldCollector;
 
     getType(): FieldType;
 

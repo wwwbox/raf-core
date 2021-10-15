@@ -12,7 +12,7 @@ import FieldStateInitializer, {
 import {DefaultFieldValueService, FieldValueService} from "./Service/FieldValueService";
 import {DefaultFieldValidator, FieldValidator} from "./Service/FieldValidator";
 import {DefaultFieldUIService, FieldUIService} from "./Service/FieldUIService";
-import {FieldCollecting, IFieldCollecting} from "./Collecting/FieldCollecting";
+import {DefaultFieldCollector, FieldCollector} from "./Collecting/DefaultFieldCollector";
 import {FieldExtra, IFieldExtraConfiguration} from "./Configuration/FieldExtra";
 import {FieldType} from "./Concrete/FieldType";
 import {DefaultFieldEventService, FieldEventService} from "./Service/FieldEventService";
@@ -23,9 +23,9 @@ export class Field<ExtraConfiguration = any> extends React.Component<FieldProps,
     protected _valueService: FieldValueService;
     protected _validator: FieldValidator;
     protected _uiService: FieldUIService;
-    protected _collecting: IFieldCollecting;
+    protected _collector: FieldCollector;
     protected _extra: IFieldExtraConfiguration<ExtraConfiguration>;
-    protected _event: FieldEventService;
+    protected _eventService: FieldEventService;
     protected _refresher: ExtraRefresher;
     private readonly initialState: FieldState;
     private isExtraUpdate: boolean = false;
@@ -39,9 +39,9 @@ export class Field<ExtraConfiguration = any> extends React.Component<FieldProps,
         this._valueService = new DefaultFieldValueService(this, "value");
         this._validator = new DefaultFieldValidator(this, "validation");
         this._uiService = new DefaultFieldUIService(this, "ui");
-        this._collecting = new FieldCollecting(this, "collecting");
+        this._collector = new DefaultFieldCollector(this, "collecting");
         this._extra = new FieldExtra(this, "extra");
-        this._event = new DefaultFieldEventService(this);
+        this._eventService = new DefaultFieldEventService(this);
         this._refresher = this.props.refresher ?? new DefaultExtraRefresherService();
         this.state.value.extractValueFromEvent = this.state.value.extractValueFromEvent ?? (e => e.target.value);
         this.setupListeners();
@@ -71,8 +71,8 @@ export class Field<ExtraConfiguration = any> extends React.Component<FieldProps,
         return this.props;
     };
 
-    collecting(): IFieldCollecting {
-        return this._collecting;
+    collector(): FieldCollector {
+        return this._collector;
     }
 
     extra(): IFieldExtraConfiguration<ExtraConfiguration> {
@@ -104,7 +104,7 @@ export class Field<ExtraConfiguration = any> extends React.Component<FieldProps,
     }
 
     eventService(): FieldEventService {
-        return this._event;
+        return this._eventService;
     }
 
     updateConfiguration<T>(key: keyof FieldState, newConfiguration: T, afterChange?: () => void): void {

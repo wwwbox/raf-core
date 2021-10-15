@@ -61,7 +61,7 @@ export class DefaultAutoUploader implements AutoUploader {
 
     protected onCancel(): void {
         this.field.uiService().setLoading(false);
-        this.field.collecting().setReady(true);
+        this.field.collector().setReady(true);
         this.updateUploadState(false, null, 0);
         this.field.eventService().emitOnThis(AutoUploadFieldEvents.CANCEL, {});
     }
@@ -78,7 +78,7 @@ export class DefaultAutoUploader implements AutoUploader {
     protected onComplete(response: any): void {
         this.field.eventService().emitOnThis(AutoUploadFieldEvents.COMPLETE, {response: response});
         this.field.uiService().setLoading(false);
-        this.field.collecting().setReady(true);
+        this.field.collector().setReady(true);
         this.updateUploadState(false, undefined, 0);
     }
 
@@ -90,7 +90,7 @@ export class DefaultAutoUploader implements AutoUploader {
 
     private onStart(): void {
         this.field.uiService().setLoading(true);
-        this.field.collecting().setReady(false);
+        this.field.collector().setReady(false);
         this.updateUploadState(true, null, 0);
         this.field.eventService().emitOnThis(AutoUploadFieldEvents.START, {});
     }

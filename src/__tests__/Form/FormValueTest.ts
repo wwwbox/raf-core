@@ -2,7 +2,7 @@ import {DefaultFormValueService} from "../../Form/Services/FormValueService";
 import {mock} from "jest-mock-extended";
 import IField from "../../Field/IField";
 import {FieldValueService} from "../../Field/Service/FieldValueService";
-import {IFieldCollecting} from "../../Field/Collecting/FieldCollecting";
+import {FieldCollector} from "../../Field/Collecting/DefaultFieldCollector";
 import {FormTestUtils} from "../../TestingUtils/FormTestUtils";
 import {FieldType} from "../../Field/Concrete/FieldType";
 import {EventService} from "../../Form/Services/EventService";
@@ -10,10 +10,10 @@ import {GlobalEvents} from "../../Event/DefaultEvents";
 
 describe('FormValueTest', () => {
 
-    function createField(value?: FieldValueService, collecting?: IFieldCollecting, name: string = 'X'): IField {
+    function createField(value?: FieldValueService, collecting?: FieldCollector, name: string = 'X'): IField {
         return FormTestUtils.createMockedField('X', FieldType.NORMAL, {
             valueService: () => value,
-            collecting: () => collecting,
+            collector: () => collecting,
             getName: () => name,
         });
     }
@@ -32,7 +32,7 @@ describe('FormValueTest', () => {
     });
 
     it('should return isReady', function () {
-        const collectingMock = mock<IFieldCollecting>({
+        const collectingMock = mock<FieldCollector>({
             isReady: jest.fn().mockReturnValue(true)
         });
         const fields = [
