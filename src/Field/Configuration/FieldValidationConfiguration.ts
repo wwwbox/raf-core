@@ -11,15 +11,3 @@ export interface FieldValidationConfiguration {
     updateMessageOnValidationFail: boolean,
     onFailMessageType: FieldMessageType;
 }
-
-export function getDefaultFieldValidationConfiguration(): FieldValidationConfiguration {
-    return {
-        rules: {},
-        skipValidation: false,
-        valid: true,
-        validateOnChange: true,
-        validator: null,
-        updateMessageOnValidationFail: false,
-        onFailMessageType: FieldMessageType.ERROR
-    }
-}

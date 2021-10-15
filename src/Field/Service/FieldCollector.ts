@@ -1,8 +1,8 @@
 import {IField} from "../IField";
-import {FieldCollectingConfiguration} from "../Configuration/FieldCollectingConfiguration";
+import {FieldCollectorConfiguration} from "../Configuration/FieldCollectorConfiguration";
 import {FieldConfigurationServiceBase, IFieldConfigurationService} from "../Configuration/FieldConfigurationService";
 
-export interface FieldCollector extends IFieldConfigurationService<FieldCollectingConfiguration> {
+export interface FieldCollector extends IFieldConfigurationService<FieldCollectorConfiguration> {
     setSkip(skip: boolean): void;
 
     shouldSkip(): boolean;
@@ -19,7 +19,7 @@ export interface FieldCollector extends IFieldConfigurationService<FieldCollecti
 
 }
 
-export class DefaultFieldCollector extends FieldConfigurationServiceBase<FieldCollectingConfiguration> implements FieldCollector {
+export class DefaultFieldCollector extends FieldConfigurationServiceBase<FieldCollectorConfiguration> implements FieldCollector {
 
     constructor(field: IField, configurationKey: string) {
         super(field, configurationKey);
@@ -53,7 +53,7 @@ export class DefaultFieldCollector extends FieldConfigurationServiceBase<FieldCo
         return this.getConfiguration().collect(this.getField());
     }
 
-    protected unUpdatableKeys(): (keyof FieldCollectingConfiguration)[] {
+    protected unUpdatableKeys(): (keyof FieldCollectorConfiguration)[] {
         return ['collect'];
     }
 

@@ -1,10 +1,10 @@
-import {FieldCollectingConfiguration} from "./Configuration/FieldCollectingConfiguration";
+import {FieldCollectorConfiguration} from "./Configuration/FieldCollectorConfiguration";
 import {FieldUIConfiguration} from "./Configuration/FieldUIConfiguration";
 import {FieldValidationConfiguration} from "./Configuration/FieldValidationConfiguration";
 import {FieldValueConfiguration} from "./Configuration/FieldValueConfiguration";
 
 export interface FieldState<Extra = any> {
-    collecting: FieldCollectingConfiguration;
+    collecting: FieldCollectorConfiguration;
     ui: FieldUIConfiguration;
     validation: FieldValidationConfiguration;
     value: FieldValueConfiguration;

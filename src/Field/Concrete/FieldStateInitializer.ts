@@ -2,16 +2,16 @@ import {FieldState} from "../FieldState";
 import {FieldProps} from "../FieldProps";
 import {FieldUIConfiguration} from "../Configuration/FieldUIConfiguration";
 import {
-    FieldCollectingConfiguration,
-    getDefaultFieldCollectingConfiguration
-} from "../Configuration/FieldCollectingConfiguration";
+    FieldCollectorConfiguration
+} from "../Configuration/FieldCollectorConfiguration";
 import {
-    FieldValidationConfiguration,
-    getDefaultFieldValidationConfiguration
+    FieldValidationConfiguration
 } from "../Configuration/FieldValidationConfiguration";
 import {FieldValueConfiguration, getDefaultFieldValueConfiguration} from "../Configuration/FieldValueConfiguration";
 import {DynamicFieldConfiguration, getDefaultDynamicFieldConfiguration} from "../Configuration/DynamicFieldExtra";
 import {getDefaultFieldUIConfiguration} from "../Configuration/Defaults/DefaultUIConfiguration";
+import {getDefaultFieldValidationConfiguration} from "../Configuration/Defaults/DefaultValidationConfiguration";
+import {getDefaultFieldCollectingConfiguration} from "../Configuration/Defaults/DefaultFieldCollectorConfiguration";
 
 export class FieldStateInitializer<T extends FieldState = FieldState, Extra = any> {
     private readonly props: FieldProps;
@@ -33,7 +33,7 @@ export class FieldStateInitializer<T extends FieldState = FieldState, Extra = an
     public initialize(): FieldState {
         return {
             collecting: {
-                ...this.getStateFromConfiguration<FieldCollectingConfiguration>(getDefaultFieldCollectingConfiguration())
+                ...this.getStateFromConfiguration<FieldCollectorConfiguration>(getDefaultFieldCollectingConfiguration())
             },
             ui: {
                 ...this.getStateFromConfiguration<FieldUIConfiguration>(getDefaultFieldUIConfiguration())

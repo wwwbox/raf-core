@@ -1,5 +1,5 @@
 import {IForm} from "../Form/IForm";
-import {FieldCollectingConfiguration} from "./Configuration/FieldCollectingConfiguration";
+import {FieldCollectorConfiguration} from "./Configuration/FieldCollectorConfiguration";
 import {FieldUIConfiguration} from "./Configuration/FieldUIConfiguration";
 import {FieldValidationConfiguration} from "./Configuration/FieldValidationConfiguration";
 import {FieldValueConfiguration} from "./Configuration/FieldValueConfiguration";
@@ -16,7 +16,7 @@ export interface FieldInjectedProps {
 }
 
 export interface FieldOptions
-    extends Partial<FieldCollectingConfiguration>,
+    extends Partial<FieldCollectorConfiguration>,
         Partial<FieldUIConfiguration>,
         Partial<FieldValidationConfiguration>,
         Partial<FieldValueConfiguration> {
