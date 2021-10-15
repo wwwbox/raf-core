@@ -4,7 +4,7 @@ import {FieldValueService} from "./Service/FieldValueService";
 import {FieldValidator} from "./Service/FieldValidator";
 import {FieldUIService} from "./Service/FieldUIService";
 import {FieldCollector} from "./Service/FieldCollector";
-import {IFieldExtraConfiguration} from "./Configuration/FieldExtra";
+import {FieldExtraConfigurationService} from "./Service/FieldExtraConfigurationService";
 import {FieldType} from "./Concrete/FieldType";
 import {FieldEventService} from "./Service/FieldEventService";
 
@@ -19,7 +19,7 @@ export interface IField<ExtraConfiguration = any> {
 
     eventService(): FieldEventService;
 
-    extra(): IFieldExtraConfiguration<ExtraConfiguration>;
+    extra(): FieldExtraConfigurationService<ExtraConfiguration>;
 
     collector(): FieldCollector;
 

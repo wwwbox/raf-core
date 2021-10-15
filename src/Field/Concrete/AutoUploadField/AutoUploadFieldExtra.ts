@@ -1,4 +1,4 @@
-import {FieldConfigurationServiceBase, IFieldConfigurationService} from "../../Configuration/FieldConfigurationService";
+import {FieldConfigurationServiceBase, IFieldConfigurationService} from "../../Service/FieldConfigurationService";
 import {AutoUploadFieldExtraConfiguration} from "./AutoUploadFieldExtraConfiguration";
 import {IField} from "../../IField";
 import {AutoUploader} from "./AutoUploader";

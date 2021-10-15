@@ -1,7 +1,7 @@
 import FieldState from "../Field/FieldState";
 import {mock} from "jest-mock-extended";
 import IField from "../Field/IField";
-import {FieldConfigurationServiceBase} from "../Field/Configuration/FieldConfigurationService";
+import {FieldConfigurationServiceBase} from "../Field/Service/FieldConfigurationService";
 
 export class FieldConfigurationTestUtils<Configuration, Service extends FieldConfigurationServiceBase<Configuration>> {
 

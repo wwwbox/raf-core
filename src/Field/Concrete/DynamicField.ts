@@ -1,9 +1,13 @@
 import {Field} from "../Field";
 import {DefaultDynamicFieldChangeHandler} from "../../ChangeHandler/DefaultDynamicFieldChangeHandler";
 import {FieldProps} from "../FieldProps";
-import {DynamicFieldConfiguration, DynamicFieldExtra, IDynamicFieldExtra} from "../Configuration/DynamicFieldExtra";
+import {DynamicFieldConfiguration} from "../Configuration/DyanmicFieldConfiguration";
 import {DynamicFieldExtraConfigurationInitializer, IExtraConfigurationInitializer} from "./FieldStateInitializer";
 import {FieldType} from "./FieldType";
+import {
+    DefaultDynamicFieldExtraConfigurationService,
+    DynamicFieldExtraConfigurationService
+} from "../Service/DynamicFieldExtraConfigurationService";
 
 export class DynamicField<ExtraConfiguration extends DynamicFieldConfiguration = DynamicFieldConfiguration> extends Field<ExtraConfiguration> {
 
@@ -16,7 +20,7 @@ export class DynamicField<ExtraConfiguration extends DynamicFieldConfiguration =
         ) : [''];
         this.state.value.defaultChangeHandler = () => new DefaultDynamicFieldChangeHandler(this);
 
-        this._extra = new DynamicFieldExtra(this, "extra");
+        this._extra = new DefaultDynamicFieldExtraConfigurationService(this, "extra");
     }
 
     public addInput = (startingValue: any = '') => {
@@ -39,8 +43,8 @@ export class DynamicField<ExtraConfiguration extends DynamicFieldConfiguration =
         this.extra().getOnItemRemoved()(removedItem, index, this);
     }
 
-    extra(): IDynamicFieldExtra<ExtraConfiguration> {
-        return this._extra as IDynamicFieldExtra;
+    extra(): DynamicFieldExtraConfigurationService<ExtraConfiguration> {
+        return this._extra as DynamicFieldExtraConfigurationService;
     }
 
     getType(): FieldType {

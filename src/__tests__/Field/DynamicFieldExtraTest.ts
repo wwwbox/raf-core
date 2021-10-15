@@ -1,11 +1,12 @@
-import {DynamicFieldConfiguration, DynamicFieldExtra} from "../../Field/Configuration/DynamicFieldExtra";
+import {DynamicFieldConfiguration} from "../../Field/Configuration/DyanmicFieldConfiguration";
 import {FieldConfigurationTestUtils} from "../../TestingUtils/FieldConfigurationTestUtils";
+import {DefaultDynamicFieldExtraConfigurationService} from "../../Field/Service/DynamicFieldExtraConfigurationService";
 
 describe('DynamicFieldExtra', () => {
 
 
-    const testUtils = new FieldConfigurationTestUtils<DynamicFieldConfiguration, DynamicFieldExtra>("extra",
-        field => new DynamicFieldExtra(field, "extra")
+    const testUtils = new FieldConfigurationTestUtils<DynamicFieldConfiguration, DefaultDynamicFieldExtraConfigurationService>("extra",
+        field => new DefaultDynamicFieldExtraConfigurationService(field, "extra")
     );
 
     it('should return max input', function () {

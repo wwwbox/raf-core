@@ -1,6 +1,6 @@
 import {FieldMessageType, FieldUIConfiguration} from "../Configuration/FieldUIConfiguration";
 import {IField} from "../IField";
-import {FieldConfigurationServiceBase, IFieldConfigurationService} from "../Configuration/FieldConfigurationService";
+import {FieldConfigurationServiceBase, IFieldConfigurationService} from "./FieldConfigurationService";
 
 export interface FieldUIService extends IFieldConfigurationService<FieldUIConfiguration> {
 

@@ -1,6 +1,6 @@
 import * as React from "react";
 import {DynamicField} from "../Field/Concrete/DynamicField";
-import {DynamicFieldConfiguration} from "../Field/Configuration/DynamicFieldExtra";
+import {DynamicFieldConfiguration} from "../Field/Configuration/DyanmicFieldConfiguration";
 
 interface ExtraConfiguration extends DynamicFieldConfiguration {
     label: string;

@@ -1,7 +1,7 @@
 import {FieldValidationConfiguration} from "../Configuration/FieldValidationConfiguration";
 import {IField} from "../IField";
 import {Validator} from "../../Protocol/Validator";
-import {FieldConfigurationServiceBase, IFieldConfigurationService} from "../Configuration/FieldConfigurationService";
+import {FieldConfigurationServiceBase, IFieldConfigurationService} from "./FieldConfigurationService";
 import {FieldEvents} from "../../Event/DefaultEvents";
 
 export interface FieldValidator extends IFieldConfigurationService<FieldValidationConfiguration> {

@@ -13,7 +13,7 @@ import {DefaultFieldValueService, FieldValueService} from "./Service/FieldValueS
 import {DefaultFieldValidator, FieldValidator} from "./Service/FieldValidator";
 import {DefaultFieldUIService, FieldUIService} from "./Service/FieldUIService";
 import {DefaultFieldCollector, FieldCollector} from "./Service/FieldCollector";
-import {FieldExtra, IFieldExtraConfiguration} from "./Configuration/FieldExtra";
+import {DefaultFieldExtraConfigurationService, FieldExtraConfigurationService} from "./Service/FieldExtraConfigurationService";
 import {FieldType} from "./Concrete/FieldType";
 import {DefaultFieldEventService, FieldEventService} from "./Service/FieldEventService";
 import {ExtraRefresher, DefaultExtraRefresherService} from "./Service/ExtraRefresher";
@@ -24,7 +24,7 @@ export class Field<ExtraConfiguration = any> extends React.Component<FieldProps,
     protected _validator: FieldValidator;
     protected _uiService: FieldUIService;
     protected _collector: FieldCollector;
-    protected _extra: IFieldExtraConfiguration<ExtraConfiguration>;
+    protected _extra: FieldExtraConfigurationService<ExtraConfiguration>;
     protected _eventService: FieldEventService;
     protected _refresher: ExtraRefresher;
     private readonly initialState: FieldState;
@@ -40,7 +40,7 @@ export class Field<ExtraConfiguration = any> extends React.Component<FieldProps,
         this._validator = new DefaultFieldValidator(this, "validation");
         this._uiService = new DefaultFieldUIService(this, "ui");
         this._collector = new DefaultFieldCollector(this, "collecting");
-        this._extra = new FieldExtra(this, "extra");
+        this._extra = new DefaultFieldExtraConfigurationService(this, "extra");
         this._eventService = new DefaultFieldEventService(this);
         this._refresher = this.props.refresher ?? new DefaultExtraRefresherService();
         this.state.value.extractValueFromEvent = this.state.value.extractValueFromEvent ?? (e => e.target.value);
@@ -75,7 +75,7 @@ export class Field<ExtraConfiguration = any> extends React.Component<FieldProps,
         return this._collector;
     }
 
-    extra(): IFieldExtraConfiguration<ExtraConfiguration> {
+    extra(): FieldExtraConfigurationService<ExtraConfiguration> {
         return this._extra;
     }
 

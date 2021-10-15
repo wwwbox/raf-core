@@ -1,4 +1,4 @@
-import {FieldConfigurationServiceBase} from "../../Field/Configuration/FieldConfigurationService";
+import {FieldConfigurationServiceBase} from "../../Field/Service/FieldConfigurationService";
 import IField from "../../Field/IField";
 import {FieldConfigurationTestUtils} from "../../TestingUtils/FieldConfigurationTestUtils";
 

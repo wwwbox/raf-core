@@ -1,6 +1,6 @@
 import {IField} from "../IField";
 import {FieldCollectorConfiguration} from "../Configuration/FieldCollectorConfiguration";
-import {FieldConfigurationServiceBase, IFieldConfigurationService} from "../Configuration/FieldConfigurationService";
+import {FieldConfigurationServiceBase, IFieldConfigurationService} from "./FieldConfigurationService";
 
 export interface FieldCollector extends IFieldConfigurationService<FieldCollectorConfiguration> {
     setSkip(skip: boolean): void;

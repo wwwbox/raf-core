@@ -1,26 +1,8 @@
-import {FieldExtra, IFieldExtraConfiguration} from "./FieldExtra";
+import {DefaultFieldExtraConfigurationService, FieldExtraConfigurationService} from "./FieldExtraConfigurationService";
 import {DynamicField} from "../Concrete/DynamicField";
+import {DynamicFieldConfiguration} from "../Configuration/DyanmicFieldConfiguration";
 
-export interface DynamicFieldConfiguration {
-    maxInput: number;
-    onMaxInputExceed: (field: DynamicField) => void;
-    onInputFilled: (field: DynamicField) => void;
-    onItemRemoved: (item: any, index: number, field: DynamicField) => void;
-    onItemAdded: (index: number, field: DynamicField) => void;
-}
-
-
-export function getDefaultDynamicFieldConfiguration() {
-    return {
-        onItemRemoved: () => undefined,
-        onItemAdded: () => undefined,
-        onInputFilled: () => undefined,
-        onMaxInputExceed: () => undefined,
-        maxInput: 5
-    }
-}
-
-export interface IDynamicFieldExtra<ExtraConfiguration extends DynamicFieldConfiguration = DynamicFieldConfiguration> extends IFieldExtraConfiguration<ExtraConfiguration> {
+export interface DynamicFieldExtraConfigurationService<ExtraConfiguration extends DynamicFieldConfiguration = DynamicFieldConfiguration> extends FieldExtraConfigurationService<ExtraConfiguration> {
     getMaxInput(): number;
 
     setMaxInput(maxInput: number): void;
@@ -34,7 +16,8 @@ export interface IDynamicFieldExtra<ExtraConfiguration extends DynamicFieldConfi
     getOnItemAdded(): (index: number, field: DynamicField) => void;
 }
 
-export class DynamicFieldExtra<ExtraConfiguration extends DynamicFieldConfiguration = DynamicFieldConfiguration> extends FieldExtra<ExtraConfiguration> implements IDynamicFieldExtra {
+
+export class DefaultDynamicFieldExtraConfigurationService<ExtraConfiguration extends DynamicFieldConfiguration = DynamicFieldConfiguration> extends DefaultFieldExtraConfigurationService<ExtraConfiguration> implements DynamicFieldExtraConfigurationService {
     getOnInputFilled(): (field: DynamicField) => void {
         return this.getConfiguration().onInputFilled;
     }

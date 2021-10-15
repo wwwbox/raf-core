@@ -1,7 +1,7 @@
 import {FieldValueConfiguration} from "../Configuration/FieldValueConfiguration";
 import {IField} from "../IField";
 import {FieldChangeHandler} from "../../Protocol/FieldChangeHandler";
-import {FieldConfigurationServiceBase, IFieldConfigurationService} from "../Configuration/FieldConfigurationService";
+import {FieldConfigurationServiceBase, IFieldConfigurationService} from "./FieldConfigurationService";
 
 export interface FieldValueService extends IFieldConfigurationService<FieldValueConfiguration> {
     clear(): void;
