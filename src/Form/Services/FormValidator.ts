@@ -18,13 +18,13 @@ export class DefaultFormValidator implements FormValidator {
     }
 
     validate(): boolean {
-        return this.form.fieldsManager().getAllRegistered().every(field => field.validation().validate());
+        return this.form.fieldsManager().getAllRegistered().every(field => field.validator().validate());
     }
 
     validateWithEffect(): boolean {
         let valid = true;
         for (let field of this.form.fieldsManager().getAllRegistered()) {
-            valid = field.validation().validateWithEffect(false) && valid;
+            valid = field.validator().validateWithEffect(false) && valid;
         }
         if (!valid) {
             this.form.eventService().emit(GlobalEvents.VALIDATION_FAIL, {});

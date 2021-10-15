@@ -74,7 +74,7 @@ export abstract class DefaultFieldBase<ExtraConfiguration = any> extends Field<E
     private renderValidationElements() {
         return <>
             {
-                !this.validation().getCurrentValidState() && <b style={{color: 'red'}}>ERROR</b>
+                !this.validator().getCurrentValidState() && <b style={{color: 'red'}}>ERROR</b>
             }
         </>;
     }

@@ -4,8 +4,8 @@ import {FieldType} from "../../Field/Concrete/FieldType";
 import {IFieldValue} from "../../Field/Value/FieldValue";
 import {mock} from "jest-mock-extended";
 import {FieldUIService} from "../../Field/Service/FieldUIService";
-import {IFieldValidation} from "../../Field/Validation/FieldValidation";
-import {FieldValidationConfiguration} from "../../Field/Validation/FieldValidationConfiguration";
+import {FieldValidator} from "../../Field/Service/FieldValidator";
+import {FieldValidationConfiguration} from "../../Field/Configuration/FieldValidationConfiguration";
 import {IFieldEvent} from "../../Field/FieldEvent/FieldEvent";
 import DefaultFieldChangeHandler from "../../ChangeHandler/DefaultFieldChangeHandler";
 import {FieldEvents, GlobalEvents} from "../../Event/DefaultEvents";
@@ -26,7 +26,7 @@ describe("DefaultFieldChangeHandler", () => {
                     return disabled;
                 }
             }),
-            validation: () => mock<IFieldValidation>({
+            validator: () => mock<FieldValidator>({
                 config(key: keyof FieldValidationConfiguration): any {
                     if (key === "skipValidation") return skipValidation;
                     if (key === "validateOnChange") return validateOnChange;

@@ -1,8 +1,8 @@
 import Enzyme from "enzyme";
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import * as React from "react";
-import {FieldValidationConfiguration} from "../../Field/Validation/FieldValidationConfiguration";
-import {FieldValidation} from "../../Field/Validation/FieldValidation";
+import {FieldValidationConfiguration} from "../../Field/Configuration/FieldValidationConfiguration";
+import {DefaultFieldValidator} from "../../Field/Service/FieldValidator";
 import {mock} from "jest-mock-extended";
 import Validator from "../../Protocol/Validator";
 import {IFieldEvent} from "../../Field/FieldEvent/FieldEvent";
@@ -14,8 +14,8 @@ import {FieldConfigurationTestUtils} from "../../TestingUtils/FieldConfiguration
 
 Enzyme.configure({adapter: new Adapter()});
 
-const testUtils = new FieldConfigurationTestUtils<FieldValidationConfiguration, FieldValidation>("validation",
-    field => new FieldValidation(field, "validation")
+const testUtils = new FieldConfigurationTestUtils<FieldValidationConfiguration, DefaultFieldValidator>("validation",
+    field => new DefaultFieldValidator(field, "validation")
 );
 
 describe('UI Event', () => {

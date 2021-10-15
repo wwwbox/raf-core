@@ -6,7 +6,7 @@ import IForm from "../../Form/IForm";
 import {EventService} from "../../Form/Services/EventService";
 import {IFieldEvent} from "../../Field/FieldEvent/FieldEvent";
 import {FieldConfigurationTestUtils} from "../../TestingUtils/FieldConfigurationTestUtils";
-import {IFieldValidation} from "../../Field/Validation/FieldValidation";
+import {FieldValidator} from "../../Field/Service/FieldValidator";
 
 
 const testUtils = new FieldConfigurationTestUtils<FieldValueConfiguration, FieldValue>("value",
@@ -59,10 +59,10 @@ describe('FieldValue', () => {
         const updateConfigurationMock = jest.fn((_, __, afterChange) => {
             afterChange?.();
         });
-        const validationMock = mock<IFieldValidation>();
+        const validationMock = mock<FieldValidator>();
         const value = testUtils.getInstance({}, {
             updateConfiguration: updateConfigurationMock,
-            validation: () => validationMock
+            validator: () => validationMock
         })
         const callback = jest.fn();
         value.set('x', true, callback);

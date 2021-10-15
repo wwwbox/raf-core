@@ -8,7 +8,7 @@ import {
 import {
     FieldValidationConfiguration,
     getDefaultFieldValidationConfiguration
-} from "../Validation/FieldValidationConfiguration";
+} from "../Configuration/FieldValidationConfiguration";
 import {FieldValueConfiguration, getDefaultFieldValueConfiguration} from "../Value/FieldValueConfiguration";
 import {DynamicFieldConfiguration, getDefaultDynamicFieldConfiguration} from "../Configuration/DynamicFieldExtra";
 

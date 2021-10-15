@@ -1,4 +1,4 @@
-import {IFieldValidation} from "../../Field/Validation/FieldValidation";
+import {FieldValidator} from "../../Field/Service/FieldValidator";
 import {mock} from "jest-mock-extended";
 import IField from "../../Field/IField";
 import {DefaultFormValidator} from "../../Form/Services/FormValidator";
@@ -11,7 +11,7 @@ describe('FormValidation', () => {
 
     function createField(mockedValidate: any, mockedValidateWithEffect: any = undefined): IField {
         return FormTestUtils.createMockedField('X', FieldType.NORMAL, {
-            validation: () => mock<IFieldValidation>({
+            validator: () => mock<FieldValidator>({
                 validate: mockedValidate,
                 validateWithEffect: mockedValidateWithEffect,
             })

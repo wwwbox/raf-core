@@ -10,7 +10,7 @@ import FieldStateInitializer, {
 } from "./Concrete/FieldStateInitializer";
 
 import {FieldValue, IFieldValue} from "./Value/FieldValue";
-import {FieldValidation, IFieldValidation} from "./Validation/FieldValidation";
+import {DefaultFieldValidator, FieldValidator} from "./Service/FieldValidator";
 import {DefaultFieldUIService, FieldUIService} from "./Service/FieldUIService";
 import {FieldCollecting, IFieldCollecting} from "./Collecting/FieldCollecting";
 import {FieldExtra, IFieldExtraConfiguration} from "./Configuration/FieldExtra";
@@ -21,7 +21,7 @@ import {ExtraRefresher, ExtraRefresherBase} from "./ExtraRefresher";
 export class Field<ExtraConfiguration = any> extends React.Component<FieldProps, FieldState<ExtraConfiguration>> implements IField<ExtraConfiguration> {
 
     protected _value: IFieldValue;
-    protected _validation: IFieldValidation;
+    protected _validator: FieldValidator;
     protected _uiService: FieldUIService;
     protected _collecting: IFieldCollecting;
     protected _extra: IFieldExtraConfiguration<ExtraConfiguration>;
@@ -37,7 +37,7 @@ export class Field<ExtraConfiguration = any> extends React.Component<FieldProps,
         this.getForm().fieldsManager().register(this);
 
         this._value = new FieldValue(this, "value");
-        this._validation = new FieldValidation(this, "validation");
+        this._validator = new DefaultFieldValidator(this, "validation");
         this._uiService = new DefaultFieldUIService(this, "ui");
         this._collecting = new FieldCollecting(this, "collecting");
         this._extra = new FieldExtra(this, "extra");
@@ -95,8 +95,8 @@ export class Field<ExtraConfiguration = any> extends React.Component<FieldProps,
         return this._uiService;
     }
 
-    validation(): IFieldValidation {
-        return this._validation;
+    validator(): FieldValidator {
+        return this._validator;
     }
 
     value(): IFieldValue {

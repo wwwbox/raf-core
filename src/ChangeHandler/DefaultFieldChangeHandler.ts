@@ -26,7 +26,7 @@ export class DefaultFieldChangeHandler implements FieldChangeHandler {
     };
 
     protected changeValue = (event: any, value: any) => {
-        const validateOnChange = this.getField().validation().config("validateOnChange") && !this.getField().validation().config("skipValidation")
+        const validateOnChange = this.getField().validator().config("validateOnChange") && !this.getField().validator().config("skipValidation")
         this.getField().value().set(value, validateOnChange, () => {
             this.notify();
         });

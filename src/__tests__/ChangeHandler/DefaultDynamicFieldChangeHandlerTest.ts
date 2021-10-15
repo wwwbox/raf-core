@@ -5,7 +5,7 @@ import IField from "../../Field/IField";
 import {FieldType} from "../../Field/Concrete/FieldType";
 import {IFieldValue} from "../../Field/Value/FieldValue";
 import {FieldUIService} from "../../Field/Service/FieldUIService";
-import {IFieldValidation} from "../../Field/Validation/FieldValidation";
+import {FieldValidator} from "../../Field/Service/FieldValidator";
 import DefaultDynamicFieldChangeHandler from "../../ChangeHandler/DefaultDynamicFieldChangeHandler";
 
 describe('DefaultDynamicFieldChangeHandler', () => {
@@ -20,7 +20,7 @@ describe('DefaultDynamicFieldChangeHandler', () => {
                 }
             }),
             uiService: () => mock<FieldUIService>(),
-            validation: () => mock<IFieldValidation>({
+            validator: () => mock<FieldValidator>({
                 config(): any {
                     return true
                 }

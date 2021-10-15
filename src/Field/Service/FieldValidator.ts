@@ -1,10 +1,10 @@
-import {FieldValidationConfiguration} from "./FieldValidationConfiguration";
+import {FieldValidationConfiguration} from "../Configuration/FieldValidationConfiguration";
 import {IField} from "../IField";
 import {Validator} from "../../Protocol/Validator";
 import {FieldConfigurationServiceBase, IFieldConfigurationService} from "../Configuration/FieldConfigurationService";
 import {FieldEvents} from "../../Event/DefaultEvents";
 
-export interface IFieldValidation extends IFieldConfigurationService<FieldValidationConfiguration> {
+export interface FieldValidator extends IFieldConfigurationService<FieldValidationConfiguration> {
     validate(): boolean;
 
     validateWithEffect(emitEventOnFail: boolean, afterChange?: () => void): boolean;
@@ -14,7 +14,7 @@ export interface IFieldValidation extends IFieldConfigurationService<FieldValida
     getCurrentValidState(): boolean;
 }
 
-export class FieldValidation extends FieldConfigurationServiceBase<FieldValidationConfiguration> implements IFieldValidation {
+export class DefaultFieldValidator extends FieldConfigurationServiceBase<FieldValidationConfiguration> implements FieldValidator {
 
     private validator: Validator | null = null;
 
@@ -36,12 +36,12 @@ export class FieldValidation extends FieldConfigurationServiceBase<FieldValidati
 
     validate(): boolean {
         const validationResult = this.getValidationResult();
-        return FieldValidation.isValid(validationResult);
+        return DefaultFieldValidator.isValid(validationResult);
     }
 
     validateWithEffect(emitEventOnFail: boolean = true, afterChange?: () => void): boolean {
         const validationResult = this.getValidationResult();
-        const valid = FieldValidation.isValid(validationResult);
+        const valid = DefaultFieldValidator.isValid(validationResult);
         this.set(valid, afterChange);
 
         if (!valid && emitEventOnFail) {
